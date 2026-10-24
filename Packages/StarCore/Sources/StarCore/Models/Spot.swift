@@ -45,48 +45,6 @@ public struct AzimuthRange: Codable, Sendable, Hashable {
     }
 }
 
-/// 営業時間。時刻は東京時間の "HH:mm"。close が open 以前なら日をまたぐ。
-public struct OpeningHours: Codable, Sendable {
-    public var alwaysOpen: Bool
-    public var open: String?
-    public var close: String?
-    public var lastAdmission: String?
-    public var note: String?
-
-    public init(alwaysOpen: Bool, open: String? = nil, close: String? = nil, lastAdmission: String? = nil, note: String? = nil) {
-        self.alwaysOpen = alwaysOpen
-        self.open = open
-        self.close = close
-        self.lastAdmission = lastAdmission
-        self.note = note
-    }
-
-    /// 指定時刻に滞在できるか。入場は最終入場時刻まで、滞在は閉館時刻まで、と見なす。
-    public func isOpen(at date: Date, calendar: Calendar = .tokyo) -> Bool {
-        if alwaysOpen { return true }
-        guard let open = Self.minutes(open), let close = Self.minutes(close) else { return false }
-        let c = calendar.dateComponents([.hour, .minute], from: date)
-        let now = (c.hour ?? 0) * 60 + (c.minute ?? 0)
-        if open < close {
-            return now >= open && now < close
-        }
-        return now >= open || now < close
-    }
-
-    public var displayText: String {
-        if alwaysOpen { return "常時開放" }
-        var text = "\(open ?? "?")〜\(close ?? "?")"
-        if let lastAdmission { text += "（最終入場 \(lastAdmission)）" }
-        return text
-    }
-
-    static func minutes(_ hhmm: String?) -> Int? {
-        guard let parts = hhmm?.split(separator: ":"), parts.count == 2,
-              let h = Int(parts[0]), let m = Int(parts[1]) else { return nil }
-        return h * 60 + m
-    }
-}
-
 /// 観測地点（仕様書 7.1）
 public struct Spot: Codable, Identifiable, Sendable {
     public var id: String

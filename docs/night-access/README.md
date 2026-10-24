@@ -101,3 +101,15 @@ python3 scripts/check_night_access.py --accept-baseline --output /tmp/astera-nig
 ## 調査表作成時の検証
 
 2026-10-24に公式27ページを再取得し、比較結果は変更なし27件・取得失敗0件。通信なしの19テストとワークフローYAMLの読み込みを確認した。詳しくは `verification.json`。GitHub Actions上の実行、Swiftテスト、iOSのビルド・シミュレータは未実施（アプリ変更なし）。
+
+## アプリ導入後の検証
+
+最新版develop（1-03〜1-05の公式情報・Asteraの名称とアイコン・2-02のPLATEAU取得記録を含む）を統合した。営業時間の変更は1-03〜1-05の曜日・祝日・日付ごとの例外も維持し、推薦と表示まで通してテストした。
+
+- Swift Testing 30件と、Pythonの1-06用23件・既存施設情報用10件が成功。
+- iPhone 17 Pro / iOS 27.0 向けのビルドと起動に成功。
+- 荒川河川敷の「利用時間・入場可否・最終確認日: 未確認」、夜21時の新宿御苑の「利用不可」、3D上の閉園・未確認の注意を画面で確認。
+- 標準のSwiftビルド先に署名用の付加情報の問題があったため、`verification.json` に記載の一時フォルダ・nativeビルドで検証した。
+- GitHubへのpush、PR作成、Actions実行は行っていない。未確認2地点の管理者への問い合わせ、現地の観測位置・照明、臨時閉鎖の常時把握は未実施。
+
+[一覧画面](screenshots/iphone17pro-night-list.png) / [未確認の入場条件](screenshots/iphone17pro-access-unverified.png) / [新宿御苑の閉園表示](screenshots/iphone17pro-gyoen-closed.png)

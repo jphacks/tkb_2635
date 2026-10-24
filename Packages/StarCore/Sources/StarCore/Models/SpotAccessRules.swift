@@ -48,7 +48,11 @@ public extension Spot {
         let day = Self.accessDay(date, calendar: calendar)
         if accessRules?.unverified == true || !accessDateIsCovered(day) { return .unverified }
         guard let hours = accessHours(at: date, calendar: calendar) else { return .unverified }
-        if accessRules?.closedDates?.contains(day) == true { return .closed }
+        if let from = hours.validFrom, day < from { return .unverified }
+        if let through = hours.validThrough, day > through { return .unverified }
+        let exception = hours.dateOverrides?[day] ?? hours.weeklyOverrides?[String(calendar.component(.weekday, from: date))]
+        if exception?.unverified == true { return .unverified }
+        if exception?.closed == true || accessRules?.closedDates?.contains(day) == true { return .closed }
         if hours.alwaysOpen { return .open }
         guard let start = Self.accessMinutes(hours.open), let end = Self.accessMinutes(hours.close),
               start != end else { return .unverified }
@@ -76,11 +80,19 @@ public extension Spot {
     }
 
     private func accessHours(at date: Date, calendar: Calendar) -> OpeningHours? {
-        guard let seasons = accessRules?.seasonalHours else { return openingHours }
         let day = Self.accessDay(date, calendar: calendar)
-        let matches = seasons.filter { $0.contains(String(day.suffix(5))) }
-        // 重複・抜けがある季節表を推測で補わない。
-        return matches.count == 1 ? matches[0].hours : nil
+        var hours = openingHours
+        if let seasons = accessRules?.seasonalHours {
+            let matches = seasons.filter { $0.contains(String(day.suffix(5))) }
+            // 重複・抜けがある季節表を推測で補わない。
+            guard matches.count == 1 else { return nil }
+            hours = matches[0].hours
+        }
+        let exception = hours.dateOverrides?[day] ?? hours.weeklyOverrides?[String(calendar.component(.weekday, from: date))]
+        hours.open = exception?.open ?? hours.open
+        hours.close = exception?.close ?? hours.close
+        hours.lastAdmission = exception?.lastAdmission ?? hours.lastAdmission
+        return hours
     }
 
     private func accessDateIsCovered(_ day: String) -> Bool {

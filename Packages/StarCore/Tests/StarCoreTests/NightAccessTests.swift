@@ -103,4 +103,20 @@ private func spot(_ id: String) throws -> Spot {
         value.openingHours.open = "99:00"
         #expect(value.accessStatus(at: tokyoDate("2026-10-25T12:00:00")) == .unverified)
     }
+
+    @Test func integratedFacilityOverridesReachRecommendationAndDisplay() throws {
+        let kitte = try spot("kitte_garden")
+        #expect(kitte.accessStatus(at: tokyoDate("2026-10-24T22:30:00")) == .closed)
+        #expect(kitte.accessHoursText(at: tokyoDate("2026-10-24T21:00:00")).contains("22:00"))
+        #expect(kitte.accessStatus(at: tokyoDate("2026-10-26T22:30:00")) == .open)
+        #expect(kitte.accessStatus(at: tokyoDate("2026-11-03T22:30:00")) == .closed)
+        #expect(kitte.accessStatus(at: tokyoDate("2028-11-03T12:00:00")) == .unverified)
+        let tocho = try spot("tocho_observatory")
+        #expect(tocho.accessStatus(at: tokyoDate("2026-11-03T12:00:00")) == .open)
+        #expect(tocho.accessStatus(at: tokyoDate("2026-11-04T12:00:00")) == .closed)
+        #expect(tocho.accessStatus(at: tokyoDate("2027-01-01T12:00:00")) == .unverified)
+        let result = Recommender.evaluate(SpotContext(spot: kitte, scene: nil), target: .moon,
+                                          date: tokyoDate("2026-11-03T22:30:00"), weather: nil)
+        #expect(result.tier == .unavailable)
+    }
 }

@@ -1,0 +1,108 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）渋谷区（2025年度）",
+  "city_code": "13113",
+  "year": 2025,
+  "specification": "5.0",
+  "acquired_at": "2026-10-24",
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.695,35.652,139.707,35.665",
+  "dataset_url": "https://www.geospatial.jp/ckan/dataset/plateau-13113-shibuya-ku-2025",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53393585_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/fd/21cbf7-ee57-42bb-a445-ea9c46f8c1b3/13113_shibuya-ku_pref_2025_citygml_1_op/udx/bldg/53393585_bldg_6697_op.gml",
+      "bytes": 93256591,
+      "catalog_bytes": 92854868,
+      "sha256": "b15701cede323e2e8aafb6c0ce651f2211b1c050a6f7354c73a50bf54572f7cb",
+      "validation": {
+        "xml_parse": "passed",
+        "buildings": 2737,
+        "with_measured_height": 2737,
+        "with_lod1_solid": 2737,
+        "with_lod2_solid": 921,
+        "coordinate_reference_systems": [
+          "http://www.opengis.net/def/crs/EPSG/0/6697"
+        ]
+      }
+    },
+    {
+      "name": "53393586_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/fd/21cbf7-ee57-42bb-a445-ea9c46f8c1b3/13113_shibuya-ku_pref_2025_citygml_1_op/udx/bldg/53393586_bldg_6697_op.gml",
+      "bytes": 81500744,
+      "catalog_bytes": 81081357,
+      "sha256": "7e3bc860ec6404e4c3b131fbcabf42e74f91b695809aa79c868306d9e7b1fc14",
+      "validation": {
+        "xml_parse": "passed",
+        "buildings": 2616,
+        "with_measured_height": 2616,
+        "with_lod1_solid": 2616,
+        "with_lod2_solid": 646,
+        "coordinate_reference_systems": [
+          "http://www.opengis.net/def/crs/EPSG/0/6697"
+        ]
+      }
+    },
+    {
+      "name": "53393595_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/fd/21cbf7-ee57-42bb-a445-ea9c46f8c1b3/13113_shibuya-ku_pref_2025_citygml_1_op/udx/bldg/53393595_bldg_6697_op.gml",
+      "bytes": 86969338,
+      "catalog_bytes": 86574230,
+      "sha256": "f510af46f1548f584f257a85796e3e0afcf504490974163757f12b06b3aa4ec9",
+      "validation": {
+        "xml_parse": "passed",
+        "buildings": 2236,
+        "with_measured_height": 2236,
+        "with_lod1_solid": 2236,
+        "with_lod2_solid": 758,
+        "coordinate_reference_systems": [
+          "http://www.opengis.net/def/crs/EPSG/0/6697"
+        ]
+      }
+    },
+    {
+      "name": "53393596_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/fd/21cbf7-ee57-42bb-a445-ea9c46f8c1b3/13113_shibuya-ku_pref_2025_citygml_1_op/udx/bldg/53393596_bldg_6697_op.gml",
+      "bytes": 102300141,
+      "catalog_bytes": 101932486,
+      "sha256": "88dab9e2cc41dc75b37a83ca3ad78dfa0eb1f081b918af56fc79851c80150724",
+      "validation": {
+        "xml_parse": "passed",
+        "buildings": 1946,
+        "with_measured_height": 1946,
+        "with_lod1_solid": 1946,
+        "with_lod2_solid": 739,
+        "coordinate_reference_systems": [
+          "http://www.opengis.net/def/crs/EPSG/0/6697"
+        ]
+      }
+    },
+    {
+      "name": "13113_shibuya-ku_pref_2025_citygml_1_op_codelists.zip",
+      "url": "https://assets.cms.plateau.reearth.io/assets/97/1a5000-3023-4888-81de-05cadb2e239e/13113_shibuya-ku_pref_2025_citygml_1_op_codelists.zip",
+      "bytes": 805989,
+      "sha256": "78cd1245a7d10e9486b98c763d14ebbb874268b91ed16b715f30617d46a10540",
+      "validation": {
+        "zip_crc": "passed"
+      }
+    },
+    {
+      "name": "13113_shibuya-ku_pref_2025_citygml_1_op_metadata.zip",
+      "url": "https://assets.cms.plateau.reearth.io/assets/7b/543d25-f0c6-40c4-8093-6d939fa4db6f/13113_shibuya-ku_pref_2025_citygml_1_op_metadata.zip",
+      "bytes": 21713,
+      "sha256": "92c1c5d43d44df3bbf7efd6ee37ff26bf114a5eaec5f73ddc77a05eec6c26334",
+      "validation": {
+        "zip_crc": "passed"
+      }
+    },
+    {
+      "name": "13113_shibuya-ku_pref_2025_citygml_1_op_misc.zip",
+      "url": "https://assets.cms.plateau.reearth.io/assets/9c/00ef0a-835d-4b1d-83a1-596f73d7e2ba/13113_shibuya-ku_pref_2025_citygml_1_op_misc.zip",
+      "bytes": 13794818,
+      "sha256": "f7a24e9a2e6e4903eae53e5922df6c1b9dfdc0a508d8067c57057e3fd1722350",
+      "validation": {
+        "zip_crc": "passed"
+      }
+    }
+  ]
+}
