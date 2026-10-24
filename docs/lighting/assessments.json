@@ -88,5 +88,26 @@
       "https://www.tokyo-park.or.jp/park/kasairinkai/index.html"
     ],
     "note": "Google マップには夕方の写真が1枚あり、帆の形のオブジェのライトアップと足元灯が見えたが、登録地点付近かどうか分からなかった。公式サイトには期間限定のライトアップ催しの案内がある。"
+  },
+  "toneri_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "1-10 で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "mizumoto_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "1-10 で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "komazawa_olympic_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "1-10 で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
   }
 }
