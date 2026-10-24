@@ -9,6 +9,7 @@ import math
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
+from night_lights import aviation_points, window_quads
 from plateau_citygml import B, G, XLINK, finite, iter_buildings, to_local
 
 APP = '{http://www.opengis.net/citygml/appearance/2.0}'
@@ -128,8 +129,9 @@ def convert(paths, scene):
     origin = (scene['originLatitude'], scene['originLongitude'])
     ground = scene['groundElevation']
     boxes = {b['id']: b for b in scene['buildings']}
-    groups, textured, images = {}, [], {}
-    stats = {'buildings': 0, 'lod2': 0, 'lod1': 0, 'clampedBuildings': 0, 'polygons': 0, 'texturedPolygons': 0}
+    groups, textured, images, windows, aviation = {}, [], {}, {}, []
+    stats = {'buildings': 0, 'lod2': 0, 'lod1': 0, 'clampedBuildings': 0, 'polygons': 0, 'texturedPolygons': 0,
+             'windowQuads': 0, 'aviationLights': 0}
     for path in paths:
         textures = load_textures(path)
         for element, _, _ in iter_buildings(path):
@@ -154,6 +156,7 @@ def convert(paths, scene):
             clamped = False
             key = facade_key(box.get('usage'), identifier)
             is_lod1 = any(role == 'lod1' for role, _, _ in raw)
+            roof_points = []
             for role, ring_id, ring in raw:
                 if role == 'ground':
                     continue
@@ -188,6 +191,13 @@ def convert(paths, scene):
                     points, uv = points[::-1], uv[::-1] if uv else None
                 flat = [c for p in points for c in p]
                 stats['polygons'] += 1
+                if role == 'wall':
+                    for name, quads in window_quads(points, normal(points), identifier, box.get('usage'),
+                                                    stats['polygons']).items():
+                        windows.setdefault(name, []).extend(quads)
+                        stats['windowQuads'] += len(quads)
+                else:
+                    roof_points += points
                 if uv:
                     # 実写テクスチャがある面。画像は通し番号で持つ。
                     index = images.setdefault(texture[0], len(images))
@@ -196,11 +206,14 @@ def convert(paths, scene):
                 else:
                     # 写真の無い面は、屋根・設備は屋上素材、壁は用途ごとの窓の素材にまとめる。
                     groups.setdefault(key if role == 'wall' else 'roof', []).append(flat)
+            lights = aviation_points(roof_points, box['height'])
+            aviation += lights
+            stats['aviationLights'] += len(lights)
             stats['buildings'] += 1
             stats['lod1' if is_lod1 else 'lod2'] += 1
             stats['clampedBuildings'] += clamped
     ordered = sorted(images, key=images.get)
-    return {'groups': groups, 'textured': textured, 'images': ordered}, stats
+    return {'groups': groups, 'textured': textured, 'images': ordered, 'windows': windows, 'aviation': aviation}, stats
 
 
 def main():
