@@ -24,7 +24,7 @@
 「せっかく出かけたのにビルで見えなかった」「展望台が閉まっていた」を事前に避けられる。
 
 ### 今後の展望
-- PLATEAU の対象地域拡大・国土地理院 DEM の取り込み（渋谷はPLATEAUを導入済み。西新宿は概略データ）
+- PLATEAU の対象地域拡大・国土地理院 DEM の取り込み（渋谷・西新宿はPLATEAUを導入済み）
 - 現地調査による近傍照明の評価、施設情報の確認
 - 地上と展望台の比較画面、時刻スライダー、現在地からの距離
 
@@ -38,7 +38,7 @@
 * [Open-Meteo](https://open-meteo.com/) Forecast API（雲量・降水量・風速・視程、CC BY 4.0）
 * 地域の光害: [VIIRS Nighttime Lights](https://eogdata.mines.edu/products/vnl/) 年次合成 v2.2（Earth Observation Group, Payne Institute for Public Policy, Colorado School of Mines、CC BY 4.0）を加工
 * Bright Star Catalogue（明るい恒星 52 個の J2000.0 座標・等級を抜粋）、惑星（水星〜土星）は Paul Schlyter「[Computing planetary positions](https://stjarnhimlen.se/comp/ppcomp.html)」の軌道要素
-* 建物データ: [東京都・PLATEAU渋谷区2025年度版](https://www.geospatial.jp/ckan/dataset/plateau-13113-shibuya-ku-2025)を加工（CC BY 4.0）。渋谷駅周囲500mの1,497棟を直方体近似。西新宿は手作りの概略データ。
+* 建物データ: [東京都・PLATEAU渋谷区2025年度版](https://www.geospatial.jp/ckan/dataset/plateau-13113-shibuya-ku-2025)を加工（CC BY 4.0）。渋谷駅周囲500mの1,497棟を直方体近似。西新宿は[東京都・PLATEAU新宿区2025年度版](https://www.geospatial.jp/ckan/dataset/plateau-13104-shinjuku-ku-2025)を加工（CC BY 4.0）し、都庁周囲500mの791棟を直方体近似（[作り方](docs/design/city-scenes/README.md)）。
 
 #### フレームワーク・ライブラリ・モジュール
 * SwiftUI（画面はすべて SwiftUI）
@@ -77,7 +77,7 @@ cd Packages/StarCore && swift test
 App/                       SwiftUI アプリ（一覧・詳細・3D プレビュー）
 Packages/StarCore/         モデル・天体計算・遮蔽判定・天気・スコア（ローカル Swift Package）
   Sources/StarCore/Resources/spots.json      観測地点（19地点、5種類）
-  Sources/StarCore/Resources/buildings.json  渋谷（PLATEAU 1,497棟）・西新宿（概略）
+  Sources/StarCore/Resources/buildings.json  渋谷（PLATEAU 1,497棟）・西新宿（PLATEAU 791棟）
 scripts/plateau_to_json.py CityGML → アプリ用JSONへの変換
 ```
 
