@@ -7,6 +7,8 @@ struct SpotDetailView: View {
     let context: SpotContext
     /// 比較画面へ進んで隠れている間は 3D を外す。3D を3つ同時に描くと、描画用のメモリが足りなくなる。
     @State private var isOnScreen = false
+    /// 3D の向き。全開のあいだ 3D を外しても、戻したとき同じ向きで出す
+    @State private var camera = SkyCamera()
     /// 情報のシートを出しているか。この画面が見えている間だけ出す
     @State private var isSheetShown = false
     @State private var sheetDetent: PresentationDetent = .height(Self.collapsedHeight)
@@ -20,6 +22,10 @@ struct SpotDetailView: View {
     private static let collapsedHeightWithCompare: CGFloat = 90
     /// 半分まで引き上げたときの、画面の高さに対する割合
     private static let mediumDetent = PresentationDetent.fraction(0.48)
+    /// 3D を作り直したあと、描き直させるまでの待ち時間（街の読み込みが終わる前後で2回）
+    private static let redrawDelays: [Duration] = [.milliseconds(500), .milliseconds(1500)]
+    /// 描き直させるために向きを変える量（ラジアン。目には見えない）
+    private static let redrawNudge: Float = 0.0001
     /// いちばん上まで引き上げたとき。上に 3D を少し残す
     private static let largeDetent = PresentationDetent.fraction(0.9)
 
@@ -31,9 +37,10 @@ struct SpotDetailView: View {
 
         ZStack {
             Group {
-                if isOnScreen {
+                // シートを全開にしている間は 3D がほぼ隠れるので外し、シートのスクロールと描画を取り合わないようにする
+                if isOnScreen && sheetDetent != Self.largeDetent {
                     Sky3DView(context: context, prediction: prediction, date: model.date,
-                              showsLegend: false)
+                              sharedCamera: $camera, showsLegend: false)
                 } else {
                     Color(red: 0.02, green: 0.03, blue: 0.10)
                 }
@@ -76,6 +83,16 @@ struct SpotDetailView: View {
         .onAppear {
             isOnScreen = true
             isSheetShown = true
+        }
+        .onChange(of: sheetDetent) { old, _ in
+            guard old == Self.largeDetent else { return }
+            // 3D を作り直した直後は、何か動くまで真っ暗なことがある。見えないほど少しだけ向きを変えて描かせる
+            Task {
+                for delay in Self.redrawDelays {
+                    try? await Task.sleep(for: delay)
+                    camera.yaw += Self.redrawNudge
+                }
+            }
         }
         .onDisappear {
             isOnScreen = false
