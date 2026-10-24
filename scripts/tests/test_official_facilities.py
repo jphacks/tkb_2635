@@ -36,8 +36,10 @@ class FacilityUpdateTests(unittest.TestCase):
         self.assertEqual(spots["tocho_observatory"]["openingHours"]["lastAdmission"], "21:30")
         self.assertEqual(spots["kitte_garden"]["openingHours"]["weeklyOverrides"]["7"]["close"], "22:00")
         self.assertIsNone(spots["kitte_garden"]["reservationRequired"])
+        before = {s["id"]: s for s in self.spots}
         for identifier in checks:
-            self.assertIsNone(spots[identifier].get("localGlareLevel"))
+            # 施設情報の更新では近傍照明（6-04 の机上評価）を変えない
+            self.assertEqual(spots[identifier].get("localGlareLevel"), before[identifier].get("localGlareLevel"))
             self.assertEqual(spots[identifier]["lastVerifiedAt"], "2026-10-24")
         self.assertFalse(spots["tocho_observatory"]["directionMaskVerified"])
         self.assertIn("強風", spots["shibuya_sky"]["weatherClosureConditions"])
