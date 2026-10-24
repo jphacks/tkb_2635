@@ -23,6 +23,7 @@ public enum ObservationTarget: Hashable, Sendable {
 /// 推薦に使ったデータの不足・未確認の内容
 public enum DataQualityFlag: String, Sendable, CaseIterable {
     case localGlareUnverified
+    case regionalLightUnverified
     case weatherMissing
     case horizonApproximate
     case buildingDataSample
@@ -33,6 +34,7 @@ public enum DataQualityFlag: String, Sendable, CaseIterable {
     public var message: String {
         switch self {
         case .localGlareUnverified: "近傍照明が未確認のため、暗さの推定精度が不足しています"
+        case .regionalLightUnverified: "地域の光害が未確認のため、暗さは仮の値で計算しています"
         case .weatherMissing: "指定時刻の天気予報を取得できていません"
         case .horizonApproximate: "建物データ未取り込みのため、地平線は暫定値です"
         case .buildingDataSample: "建物は手作りの概略データです（PLATEAU 取り込み前）"
@@ -95,6 +97,7 @@ public struct Prediction: Identifiable, Sendable {
 public enum Recommender {
     /// 遮蔽判定の誤差余裕 δ [度]
     public static let visibilityMargin = 1.0
+    private static let unknownRegionalLightIndex = 0.5
 
     /// 暗さ指標 D = clamp(1 − (0.45 B_sky + 0.25 B_local + 0.30 M))（仕様書 3.6）
     /// 近傍照明が未確認のときは 0 とせず中間値 0.5 で仮計算し、assumed = true を返す。
@@ -144,13 +147,11 @@ public enum Recommender {
         // STEP 2: 天体の可視性 V = [a > h(A) + δ]、窓・屋根のマスク
         let obstruction = context.horizon.elevation(at: position.azimuth)
         let aboveObstruction = position.altitude > obstruction + visibilityMargin
-        let outsideMask = spot.viewingDirectionMask.map { !$0.contains { $0.contains(position.azimuth) } } ?? false
-        let aboveCeiling = spot.maxVisibleAltitude.map { position.altitude > $0 } ?? false
-        let maskBlocked = outsideMask || aboveCeiling
+        let maskBlocked = spot.isBlockedByViewingLimits(azimuth: position.azimuth, altitude: position.altitude)
         let visible = aboveObstruction && !maskBlocked
         if context.horizon.isApproximate { flags.append(.horizonApproximate) }
         if context.scene != nil { flags.append(.buildingDataSample) }
-        if !spot.directionMaskVerified { flags.append(.directionMaskUnverified) }
+        if !spot.hasVerifiedViewingDirections { flags.append(.directionMaskUnverified) }
 
         // STEP 3: 天気
         let w = weather.flatMap(weatherScore)
@@ -158,7 +159,10 @@ public enum Recommender {
 
         // STEP 4: 暗さ（月を見るときは月明かりを減点しない）
         let m: Double = if case .moon = target { 0 } else { moonEffect(moon: moon, target: position) }
-        let dark = darkness(skyBrightness: spot.regionalLightIndex, localGlareLevel: spot.localGlareLevel, moonEffect: m)
+        // 未取得の広域光害はゼロ（暗い）とせず、中間値で仮計算する。
+        let dark = darkness(skyBrightness: spot.regionalLightIndex ?? unknownRegionalLightIndex,
+                            localGlareLevel: spot.localGlareLevel, moonEffect: m)
+        if spot.regionalLightIndex == nil { flags.append(.regionalLightUnverified) }
         if dark.assumed { flags.append(.localGlareUnverified) }
 
         // STEP 5: スコアと段階。天気が無いときは 0 にせず 0.5 で仮計算し、推薦段階には入れない。
@@ -169,7 +173,7 @@ public enum Recommender {
             tier = .unavailable
         } else if !visible {
             tier = .notVisible
-        } else if accessStatus == .unverified || hasAreaRestriction || !spot.accessVerified || w == nil || !spot.directionMaskVerified || context.horizon.isApproximate {
+        } else if accessStatus == .unverified || hasAreaRestriction || !spot.accessVerified || w == nil || !spot.hasVerifiedViewingDirections || context.horizon.isApproximate || spot.regionalLightIndex == nil {
             tier = .needsCheck
         } else {
             tier = .recommended

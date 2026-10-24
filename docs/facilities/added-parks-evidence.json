@@ -1,0 +1,39 @@
+{
+  "verifiedAt": "2026-10-24",
+  "elevations": {
+    "toneri_park": {
+      "latitude": 35.8006972,
+      "longitude": 139.771777,
+      "source": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.771777&lat=35.8006972&outtype=JSON",
+      "response": {
+        "elevation": 10.8,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "mizumoto_park": {
+      "latitude": 35.7884,
+      "longitude": 139.8689,
+      "source": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.8689&lat=35.7884&outtype=JSON",
+      "response": {
+        "elevation": 2,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "komazawa_olympic_park": {
+      "latitude": 35.6244,
+      "longitude": 139.6618,
+      "source": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.6618&lat=35.6244&outtype=JSON",
+      "response": {
+        "elevation": 40,
+        "hsrc": "1m（レーザ）"
+      }
+    }
+  },
+  "coordinateMapSource": "https://maps.gsi.go.jp/",
+  "mapTiles": [
+    "https://cyberjapandata.gsi.go.jp/xyz/std/16/58212/25779.png",
+    "https://cyberjapandata.gsi.go.jp/xyz/std/16/58230/25782.png",
+    "https://cyberjapandata.gsi.go.jp/xyz/std/16/58192/25819.png"
+  ],
+  "notes": "地図の園内に代表点を設定。水元公園は湖面を避けた陸地を採用。観測する立ち位置・視界は現地未確認。国土地理院の標高API応答は2026-10-24の保存値。"
+}

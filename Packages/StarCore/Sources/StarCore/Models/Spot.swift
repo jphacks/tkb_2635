@@ -38,6 +38,8 @@ public struct AzimuthRange: Codable, Sendable, Hashable {
     }
 
     public func contains(_ azimuth: Double) -> Bool {
+        guard azimuth.isFinite, from.isFinite, to.isFinite else { return false }
+        if abs(to - from) >= 360 { return true }
         let a = Angle.normalize(azimuth)
         let f = Angle.normalize(from)
         let t = Angle.normalize(to)
@@ -63,11 +65,17 @@ public struct Spot: Codable, Identifiable, Sendable {
     /// 屋根・窓枠などで見上げられる上限の高度 [deg]。nil は制限なし。
     public var maxVisibleAltitude: Double?
     public var directionMaskVerified: Bool
+    /// 公式の眺望案内と、窓の角度を確認できている範囲。
+    public var viewingDirectionNotes: String?
     public var openingHours: OpeningHours
     public var accessRules: SpotAccessRules?
     public var admissionFee: String?
     public var reservationRequired: Bool?
     public var accessConditions: String?
+    /// 天候による臨時閉鎖の案内。当日の開閉状況ではない。nil は未確認。
+    public var weatherClosureConditions: String?
+    /// 撮影機材・撮影方法の制限。nil は未確認。
+    public var photographyRestrictions: String?
     public var officialWebsite: URL?
     /// 施設情報の最終確認日。nil は未確認。
     public var lastVerifiedAt: String?
@@ -78,7 +86,7 @@ public struct Spot: Codable, Identifiable, Sendable {
     /// 建物データが無い地点の暫定の地平線仰角 [deg]
     public var approxHorizonElevation: Double?
     /// 地域の人工光の指標 0〜1（VIIRS 取り込み前の暫定値）
-    public var regionalLightIndex: Double
+    public var regionalLightIndex: Double?
     /// 近傍照明の段階評価 0〜3。nil は現地未確認。
     public var localGlareLevel: Int?
     public var lightingCheckDate: String?

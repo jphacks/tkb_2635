@@ -40,6 +40,36 @@ class FacilityUpdateTests(unittest.TestCase):
             self.assertIsNone(spots[identifier].get("localGlareLevel"))
             self.assertEqual(spots[identifier]["lastVerifiedAt"], "2026-10-24")
         self.assertFalse(spots["tocho_observatory"]["directionMaskVerified"])
+        self.assertIn("強風", spots["shibuya_sky"]["weatherClosureConditions"])
+        self.assertIn("三脚", spots["shibuya_sky"]["photographyRestrictions"])
+        self.assertIn("三脚", spots["tocho_observatory"]["photographyRestrictions"])
+        self.assertIsNone(spots["kitte_garden"]["photographyRestrictions"])
+
+    def test_restriction_changes_update_separate_fields(self):
+        updated, checks, _ = self.run_update()
+        url = SKY + "_next/static/chunks/pages/ticket-fixture.js"
+        self.content[url] = self.content[url].replace(r"\\u4e09\\u811a", r"\\u4e09\\u811a" + "・大型レンズ")
+        changed, _, report = self.run_update(updated, checks)
+        self.assertEqual(report["changed"], ["shibuya_sky"])
+        self.assertIn("大型レンズ", next(s for s in changed if s["id"] == "shibuya_sky")["photographyRestrictions"])
+
+    def test_updater_preserves_manually_verified_window_ranges(self):
+        spots = copy.deepcopy(self.spots)
+        tocho = next(s for s in spots if s["id"] == "tocho_observatory")
+        tocho["viewingDirectionMask"] = [{"from": 330, "to": 30}]
+        tocho["directionMaskVerified"] = True
+        updated, _, report = self.run_update(spots)
+        self.assertEqual(report["errors"], {})
+        actual = next(s for s in updated if s["id"] == "tocho_observatory")
+        self.assertEqual(actual["viewingDirectionMask"], tocho["viewingDirectionMask"])
+        self.assertTrue(actual["directionMaskVerified"])
+
+    def test_missing_tripod_prohibition_does_not_keep_claiming_it_was_checked(self):
+        self.content[TOCHO] = self.content[TOCHO].replace("三脚等を使っての写真撮影はご遠慮いただいております", "撮影についてはお問い合わせください")
+        updated, _, report = self.run_update()
+        self.assertIn("tocho_observatory", report["errors"])
+        self.assertEqual(next(s for s in updated if s["id"] == "tocho_observatory"),
+                         next(s for s in self.spots if s["id"] == "tocho_observatory"))
 
     def test_unchanged_next_day_does_not_change_verification_date(self):
         updated, checks, _ = self.run_update()
