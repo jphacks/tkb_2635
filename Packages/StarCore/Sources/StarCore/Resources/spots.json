@@ -10,7 +10,9 @@
     "eyeHeight": 1.5,
     "indoorOutdoor": "outdoor",
     "directionMaskVerified": true,
-    "openingHours": { "alwaysOpen": true },
+    "openingHours": {
+      "alwaysOpen": true
+    },
     "accessConditions": "公道・駅前の歩行空間。通行の妨げにならないこと",
     "sceneId": "shibuya",
     "regionalLightIndex": 0.95,
@@ -22,21 +24,28 @@
     "name": "SHIBUYA SKY",
     "ward": "渋谷区",
     "category": "observatory",
-    "latitude": 35.6580,
+    "latitude": 35.658,
     "longitude": 139.70204,
     "floorElevation": 244,
     "eyeHeight": 1.5,
     "indoorOutdoor": "outdoor",
     "directionMaskVerified": true,
-    "openingHours": { "alwaysOpen": false, "open": "10:00", "close": "22:30", "lastAdmission": "21:20", "note": "暫定値。天候による屋上閉鎖あり" },
-    "admissionFee": "有料（公式サイトで確認）",
+    "openingHours": {
+      "alwaysOpen": false,
+      "open": "10:00",
+      "close": "22:30",
+      "lastAdmission": "21:20",
+      "note": "通常営業時間。特別営業・臨時休館・当日の屋上開放状況は公式案内を確認。"
+    },
+    "admissionFee": "WEB大人: 14:59までの入場 2,700円 / 15:00以降の入場 3,400円。小人: 当日窓口のみ(1,200円)（年齢区分・窓口料金は公式サイト参照）",
     "reservationRequired": true,
-    "accessConditions": "屋上は荒天時に閉鎖。三脚など撮影機材に制限あり",
-    "officialWebsite": "https://www.shibuya-scramble-square.com/sky/",
+    "accessConditions": "日時指定券の事前購入を推奨。大人券はWEB完売時、窓口も完売。屋上の開放は天候次第。お客さまの安全確保のため、強風、降雨、積雪、雷雲接近、光化学スモッグ・異常高温等の気象条件の際は、屋上を閉鎖する場合がございます。あらかじめご了承ください。 屋上への持込不可: カバン・リュックサック・ポーチ等の手荷物、三脚・一脚・自撮り棒、イヤホン・ヘッドホン、帽子・キャップ・ニット帽、飲食物、飛散や落下の可能性があるもの、ベビーカー。持込可能: ネックストラップ付またはポケットに入るサイズのカメラ、ネックストラップ付またはポケットに入るサイズの双眼鏡、スマートフォン。",
+    "officialWebsite": "https://www.shibuya-scramble-square.com/sky/ticket/",
     "sceneId": "shibuya",
     "hostBuildingId": "scramble_square",
     "regionalLightIndex": 0.95,
-    "modelVersion": "sample-0.1"
+    "modelVersion": "sample-0.1",
+    "lastVerifiedAt": "2026-10-24"
   },
   {
     "id": "shinjuku_central_park",
@@ -49,7 +58,10 @@
     "eyeHeight": 1.5,
     "indoorOutdoor": "outdoor",
     "directionMaskVerified": true,
-    "openingHours": { "alwaysOpen": true, "note": "園内の一部施設は時間制限あり" },
+    "openingHours": {
+      "alwaysOpen": true,
+      "note": "園内の一部施設は時間制限あり"
+    },
     "officialWebsite": "https://www.shinjukuchuopark.jp/",
     "sceneId": "shinjuku",
     "regionalLightIndex": 0.9,
@@ -67,16 +79,207 @@
     "indoorOutdoor": "indoor",
     "maxVisibleAltitude": 35,
     "directionMaskVerified": false,
-    "openingHours": { "alwaysOpen": false, "open": "09:30", "close": "22:00", "lastAdmission": "21:30", "note": "暫定値。休室日あり" },
+    "openingHours": {
+      "alwaysOpen": false,
+      "open": "09:30",
+      "close": "22:00",
+      "lastAdmission": "21:30",
+      "note": "第1・第3火曜休室（祝日の場合は翌平日）。12/29〜31・1/2〜3、庁舎点検日休室。元日の特別開室・東京マラソン日・臨時閉室は公式の開室スケジュールで確認。 祝日・定期休室日の反映範囲は2026〜2027年（範囲外は要確認）。",
+      "dateOverrides": {
+        "2026-01-01": {
+          "unverified": true
+        },
+        "2026-01-02": {
+          "closed": true
+        },
+        "2026-01-03": {
+          "closed": true
+        },
+        "2026-01-06": {
+          "closed": true
+        },
+        "2026-01-20": {
+          "closed": true
+        },
+        "2026-02-03": {
+          "closed": true
+        },
+        "2026-02-17": {
+          "closed": true
+        },
+        "2026-03-03": {
+          "closed": true
+        },
+        "2026-03-17": {
+          "closed": true
+        },
+        "2026-04-07": {
+          "closed": true
+        },
+        "2026-04-21": {
+          "closed": true
+        },
+        "2026-05-07": {
+          "closed": true
+        },
+        "2026-05-19": {
+          "closed": true
+        },
+        "2026-06-02": {
+          "closed": true
+        },
+        "2026-06-16": {
+          "closed": true
+        },
+        "2026-07-07": {
+          "closed": true
+        },
+        "2026-07-21": {
+          "closed": true
+        },
+        "2026-08-04": {
+          "closed": true
+        },
+        "2026-08-18": {
+          "closed": true
+        },
+        "2026-09-01": {
+          "closed": true
+        },
+        "2026-09-15": {
+          "closed": true
+        },
+        "2026-10-06": {
+          "closed": true
+        },
+        "2026-10-20": {
+          "closed": true
+        },
+        "2026-11-04": {
+          "closed": true
+        },
+        "2026-11-17": {
+          "closed": true
+        },
+        "2026-12-01": {
+          "closed": true
+        },
+        "2026-12-15": {
+          "closed": true
+        },
+        "2026-12-29": {
+          "closed": true
+        },
+        "2026-12-30": {
+          "closed": true
+        },
+        "2026-12-31": {
+          "closed": true
+        },
+        "2027-01-01": {
+          "unverified": true
+        },
+        "2027-01-02": {
+          "closed": true
+        },
+        "2027-01-03": {
+          "closed": true
+        },
+        "2027-01-05": {
+          "closed": true
+        },
+        "2027-01-19": {
+          "closed": true
+        },
+        "2027-02-02": {
+          "closed": true
+        },
+        "2027-02-16": {
+          "closed": true
+        },
+        "2027-03-02": {
+          "closed": true
+        },
+        "2027-03-16": {
+          "closed": true
+        },
+        "2027-04-06": {
+          "closed": true
+        },
+        "2027-04-20": {
+          "closed": true
+        },
+        "2027-05-06": {
+          "closed": true
+        },
+        "2027-05-18": {
+          "closed": true
+        },
+        "2027-06-01": {
+          "closed": true
+        },
+        "2027-06-15": {
+          "closed": true
+        },
+        "2027-07-06": {
+          "closed": true
+        },
+        "2027-07-20": {
+          "closed": true
+        },
+        "2027-08-03": {
+          "closed": true
+        },
+        "2027-08-17": {
+          "closed": true
+        },
+        "2027-09-07": {
+          "closed": true
+        },
+        "2027-09-21": {
+          "closed": true
+        },
+        "2027-10-05": {
+          "closed": true
+        },
+        "2027-10-19": {
+          "closed": true
+        },
+        "2027-11-02": {
+          "closed": true
+        },
+        "2027-11-16": {
+          "closed": true
+        },
+        "2027-12-07": {
+          "closed": true
+        },
+        "2027-12-21": {
+          "closed": true
+        },
+        "2027-12-29": {
+          "closed": true
+        },
+        "2027-12-30": {
+          "closed": true
+        },
+        "2027-12-31": {
+          "closed": true
+        }
+      },
+      "validFrom": "2026-01-01",
+      "validThrough": "2027-12-31"
+    },
     "admissionFee": "無料",
     "reservationRequired": false,
-    "accessConditions": "屋内展望室。窓越しの観測で、室内照明が映り込む",
-    "officialWebsite": "https://www.yokoso.metro.tokyo.lg.jp/",
+    "accessConditions": "45階の屋内展望室。事前予約・団体予約の受付なし。三脚等を使う撮影は不可。悪天候等による急な閉室あり。一部照明の消灯案内あり（照明の段階評価は未確認）。公式案内に北東・南東・南西・西の眺望紹介があるが、窓ごとの可視方位・高度は未確認。",
+    "officialWebsite": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou",
     "sceneId": "shinjuku",
     "hostBuildingId": "tocho_1",
     "regionalLightIndex": 0.9,
     "modelVersion": "sample-0.1",
-    "memo": "見上げられる高度の上限 35° は窓の高さからの暫定値"
+    "memo": "見上げられる高度の上限 35° は窓の高さからの暫定値",
+    "lastVerifiedAt": "2026-10-24"
   },
   {
     "id": "kitte_garden",
@@ -89,14 +292,174 @@
     "eyeHeight": 1.5,
     "indoorOutdoor": "outdoor",
     "directionMaskVerified": false,
-    "openingHours": { "alwaysOpen": false, "open": "11:00", "close": "23:00", "note": "暫定値。日祝・天候で変更あり" },
+    "openingHours": {
+      "alwaysOpen": false,
+      "open": "11:00",
+      "close": "23:00",
+      "weeklyOverrides": {
+        "1": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "7": {
+          "open": "11:00",
+          "close": "22:00"
+        }
+      },
+      "note": "平日 11:00〜23:00、土日祝 11:00〜22:00。天候による閉鎖あり。臨時休館は公式案内を確認。 祝日・定期休室日の反映範囲は2026〜2027年（範囲外は要確認）。",
+      "dateOverrides": {
+        "2026-01-01": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2026-01-12": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2026-02-11": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2026-02-23": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2026-03-20": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2026-04-29": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2026-05-03": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2026-05-04": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2026-05-05": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2026-05-06": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2026-07-20": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2026-08-11": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2026-09-21": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2026-09-22": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2026-09-23": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2026-10-12": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2026-11-03": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2026-11-23": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2027-01-01": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2027-01-11": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2027-02-11": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2027-02-23": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2027-03-21": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2027-03-22": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2027-04-29": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2027-05-03": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2027-05-04": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2027-05-05": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2027-07-19": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2027-08-11": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2027-09-20": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2027-09-23": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2027-10-11": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2027-11-03": {
+          "open": "11:00",
+          "close": "22:00"
+        },
+        "2027-11-23": {
+          "open": "11:00",
+          "close": "22:00"
+        }
+      },
+      "validFrom": "2026-01-01",
+      "validThrough": "2027-12-31"
+    },
     "admissionFee": "無料",
-    "reservationRequired": false,
-    "accessConditions": "一般開放の屋上庭園。悪天候時は閉鎖",
-    "officialWebsite": "https://marunouchi.jp-kitte.jp/",
+    "reservationRequired": null,
+    "accessConditions": "6階の屋上庭園。天候により閉鎖する場合あり。JR東京駅丸の内駅舎を望める。観測可能な正確な方位範囲・周辺照明の強さは公式情報では未確認。",
+    "officialWebsite": "https://marunouchi.jp-kitte.jp/guide/facilities.jsp",
     "approxHorizonElevation": 25,
     "regionalLightIndex": 0.95,
-    "modelVersion": "sample-0.1"
+    "modelVersion": "sample-0.1",
+    "lastVerifiedAt": "2026-10-24"
   },
   {
     "id": "yoyogi_park",
@@ -109,7 +472,9 @@
     "eyeHeight": 1.5,
     "indoorOutdoor": "outdoor",
     "directionMaskVerified": true,
-    "openingHours": { "alwaysOpen": true },
+    "openingHours": {
+      "alwaysOpen": true
+    },
     "officialWebsite": "https://www.tokyo-park.or.jp/park/yoyogi/",
     "approxHorizonElevation": 15,
     "regionalLightIndex": 0.8,
@@ -121,12 +486,18 @@
     "ward": "新宿区",
     "category": "park",
     "latitude": 35.6852,
-    "longitude": 139.7100,
+    "longitude": 139.71,
     "floorElevation": 35,
     "eyeHeight": 1.5,
     "indoorOutdoor": "outdoor",
     "directionMaskVerified": true,
-    "openingHours": { "alwaysOpen": false, "open": "09:00", "close": "16:00", "lastAdmission": "15:30", "note": "暫定値。季節で変動" },
+    "openingHours": {
+      "alwaysOpen": false,
+      "open": "09:00",
+      "close": "16:00",
+      "lastAdmission": "15:30",
+      "note": "暫定値。季節で変動"
+    },
     "admissionFee": "有料（公式サイトで確認）",
     "reservationRequired": false,
     "officialWebsite": "https://fng.or.jp/shinjuku/",
@@ -139,13 +510,16 @@
     "name": "荒川河川敷（船堀付近）",
     "ward": "江戸川区",
     "category": "riverside",
-    "latitude": 35.6880,
-    "longitude": 139.8550,
+    "latitude": 35.688,
+    "longitude": 139.855,
     "floorElevation": 2,
     "eyeHeight": 1.5,
     "indoorOutdoor": "outdoor",
     "directionMaskVerified": true,
-    "openingHours": { "alwaysOpen": true, "note": "夜間は足元が暗い。増水時は立ち入らない" },
+    "openingHours": {
+      "alwaysOpen": true,
+      "note": "夜間は足元が暗い。増水時は立ち入らない"
+    },
     "approxHorizonElevation": 3,
     "regionalLightIndex": 0.6,
     "modelVersion": "sample-0.1"
@@ -155,13 +529,16 @@
     "name": "葛西臨海公園",
     "ward": "江戸川区",
     "category": "park",
-    "latitude": 35.6430,
-    "longitude": 139.8610,
+    "latitude": 35.643,
+    "longitude": 139.861,
     "floorElevation": 3,
     "eyeHeight": 1.5,
     "indoorOutdoor": "outdoor",
     "directionMaskVerified": true,
-    "openingHours": { "alwaysOpen": true, "note": "園内施設は時間制限あり" },
+    "openingHours": {
+      "alwaysOpen": true,
+      "note": "園内施設は時間制限あり"
+    },
     "officialWebsite": "https://www.tokyo-park.or.jp/park/kasairinkai/",
     "approxHorizonElevation": 4,
     "regionalLightIndex": 0.55,

@@ -57,6 +57,8 @@
 
 ## 開発の始め方
 
+施設情報（SHIBUYA SKY・都庁南展望室・KITTEガーデン）の公式確認と日次更新PRについては、[公式施設情報の運用](docs/facilities/README.md)を参照。
+
 ```bash
 brew install xcodegen
 xcodegen generate

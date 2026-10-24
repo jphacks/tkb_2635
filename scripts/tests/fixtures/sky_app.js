@@ -1,0 +1,1 @@
+JSON.parse('[{"open_hour":"10:00","close_hour":"22:30","last_hour":"21:20"}]')
