@@ -1,0 +1,142 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "13102",
+      "cityName": "中央区",
+      "year": 2025
+    },
+    {
+      "cityCode": "13103",
+      "cityName": "港区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.7366,35.6513,139.7543,35.6658",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/6c/8b3fac-d55d-408f-bcfd-008ab86cb6f8/13103_minato-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53393589_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/ea/d75459-6d62-4a1f-8081-317603bd5f8d/13103_minato-ku_pref_2025_citygml_1_op/udx/bldg/53393589_bldg_6697_op.gml",
+      "cityCode": "13103",
+      "cityName": "港区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1968,
+      "lod2": 1378,
+      "bytes": 74380757,
+      "sha256": "ee6474d1d783a883016c85bbe2df40d3c542395e593e77fca26a86f95cea8671"
+    },
+    {
+      "name": "53393599_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/ea/d75459-6d62-4a1f-8081-317603bd5f8d/13103_minato-ku_pref_2025_citygml_1_op/udx/bldg/53393599_bldg_6697_op.gml",
+      "cityCode": "13103",
+      "cityName": "港区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 1258,
+      "lod2": 1258,
+      "bytes": 109746782,
+      "sha256": "95059a52aee0e34ca0185b52e7888233df4b8094c2f011ee0bafbaddd6888ace"
+    },
+    {
+      "name": "53393680_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/93/1f058b-e06b-445c-ae62-2e02cdf72849/13102_chuo-ku_pref_2025_citygml_1_op/udx/bldg/53393680_bldg_6697_op.gml",
+      "cityCode": "13102",
+      "cityName": "中央区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1614,
+      "lod2": 1611,
+      "bytes": 86551681,
+      "sha256": "da65326eec632e45a78f552ada6dcaae03e899e6e004d12e3121454945c4f46b"
+    },
+    {
+      "name": "53393690_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/93/1f058b-e06b-445c-ae62-2e02cdf72849/13102_chuo-ku_pref_2025_citygml_1_op/udx/bldg/53393690_bldg_6697_op.gml",
+      "cityCode": "13102",
+      "cityName": "中央区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 1727,
+      "lod2": 1727,
+      "bytes": 214041168,
+      "sha256": "4933b9993e196f20e2a3a54309127b0039fd30c9b310786566f56fe8fe82cfc7"
+    },
+    {
+      "name": "53393588_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/ea/d75459-6d62-4a1f-8081-317603bd5f8d/13103_minato-ku_pref_2025_citygml_1_op/udx/tran/53393588_tran_6697_op.gml",
+      "cityCode": "13103",
+      "cityName": "港区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 683,
+      "lod2": 47,
+      "bytes": 8082641,
+      "sha256": "1c1b69cf59f9c2b05393b3868cd17d7570a15db9655148f74564f02a0aa75f4e"
+    },
+    {
+      "name": "53393589_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/ea/d75459-6d62-4a1f-8081-317603bd5f8d/13103_minato-ku_pref_2025_citygml_1_op/udx/tran/53393589_tran_6697_op.gml",
+      "cityCode": "13103",
+      "cityName": "港区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 639,
+      "lod2": 485,
+      "bytes": 20808840,
+      "sha256": "312a07493d185679d66caba47f75c5f0e4390d75bb0ec8c342b672e1175f6a53"
+    },
+    {
+      "name": "53393598_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/ea/d75459-6d62-4a1f-8081-317603bd5f8d/13103_minato-ku_pref_2025_citygml_1_op/udx/tran/53393598_tran_6697_op.gml",
+      "cityCode": "13103",
+      "cityName": "港区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 555,
+      "lod2": 417,
+      "bytes": 34367725,
+      "sha256": "36d6a9bd21f2748c7349caba80405aed60167656df00c8e3167b91698929204b"
+    },
+    {
+      "name": "53393599_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/ea/d75459-6d62-4a1f-8081-317603bd5f8d/13103_minato-ku_pref_2025_citygml_1_op/udx/tran/53393599_tran_6697_op.gml",
+      "cityCode": "13103",
+      "cityName": "港区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 398,
+      "lod2": 398,
+      "bytes": 32024615,
+      "sha256": "b417f8e87f94d08ae51b8b77747bb7bc05120632466e73c17d2669a40f0c25f0"
+    },
+    {
+      "name": "53393680_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/93/1f058b-e06b-445c-ae62-2e02cdf72849/13102_chuo-ku_pref_2025_citygml_1_op/udx/tran/53393680_tran_6697_op.gml",
+      "cityCode": "13102",
+      "cityName": "中央区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 518,
+      "lod2": 518,
+      "bytes": 26419253,
+      "sha256": "471f936f8070d926a03b199fd0e588f92769e0e1c8df82a55ab29c20b5dad2df"
+    },
+    {
+      "name": "53393690_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/93/1f058b-e06b-445c-ae62-2e02cdf72849/13102_chuo-ku_pref_2025_citygml_1_op/udx/tran/53393690_tran_6697_op.gml",
+      "cityCode": "13102",
+      "cityName": "中央区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 960,
+      "lod2": 958,
+      "bytes": 46558793,
+      "sha256": "1b67953ecd7d1fd4a5897296cbf356c41ae50509f53e858dd28a18025eff6b36"
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025
+    },
+    {
+      "cityCode": "13107",
+      "cityName": "墨田区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.8018,35.7028,139.8196,35.7173",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/7a/1ecdfb-5ed7-4f2c-bed5-61526620cf2c/13107_sumida-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53394644_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/af/d16ede-837d-458a-af51-16771bbb96d8/13107_sumida-ku_pref_2025_citygml_1_op/udx/bldg/53394644_bldg_6697_op.gml",
+      "cityCode": "13107",
+      "cityName": "墨田区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 4650,
+      "lod2": 145,
+      "bytes": 62075569,
+      "sha256": "e6a9c46082dfcfee696c748e0322756c20d79e82f6b82ce004d29b63c1af085a"
+    },
+    {
+      "name": "53394645_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/af/d16ede-837d-458a-af51-16771bbb96d8/13107_sumida-ku_pref_2025_citygml_1_op/udx/bldg/53394645_bldg_6697_op.gml",
+      "cityCode": "13107",
+      "cityName": "墨田区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 4029,
+      "lod2": 378,
+      "bytes": 59807912,
+      "sha256": "c254e2d55637b56cbdf3746518b99f109597cf387b3e80b49e70a44d4a1a72e1"
+    },
+    {
+      "name": "53394654_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/80/45b2b1-5a88-40ab-9877-70b540b8707e/13106_taito-ku_city_2025_citygml_1_op/udx/bldg/53394654_bldg_6697_op.gml",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 3228,
+      "lod2": 1060,
+      "bytes": 60522567,
+      "sha256": "5de887bf15dba176514ff1bac48528b52c0154bc710de04c16296e79c3e4d8cf"
+    },
+    {
+      "name": "53394655_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/af/d16ede-837d-458a-af51-16771bbb96d8/13107_sumida-ku_pref_2025_citygml_1_op/udx/bldg/53394655_bldg_6697_op.gml",
+      "cityCode": "13107",
+      "cityName": "墨田区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 6054,
+      "lod2": 409,
+      "bytes": 155195833,
+      "sha256": "3290df92b0c5e26daebc683493f965b07ffb0fe26898ad27ceae4fe0a1540c57"
+    },
+    {
+      "name": "53394644_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/af/d16ede-837d-458a-af51-16771bbb96d8/13107_sumida-ku_pref_2025_citygml_1_op/udx/tran/53394644_tran_6697_op.gml",
+      "cityCode": "13107",
+      "cityName": "墨田区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1208,
+      "lod2": 60,
+      "bytes": 3279380,
+      "sha256": "8be4da14b0586fcbb8167c11ae07e53cbe1446610bd0ad5c76769680281b31b5"
+    },
+    {
+      "name": "53394645_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/af/d16ede-837d-458a-af51-16771bbb96d8/13107_sumida-ku_pref_2025_citygml_1_op/udx/tran/53394645_tran_6697_op.gml",
+      "cityCode": "13107",
+      "cityName": "墨田区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 1002,
+      "lod2": 137,
+      "bytes": 3214165,
+      "sha256": "69959d668c8c092ef9f392e4ae50fb341aa4489a86a9f5896889b45c0816de7e"
+    },
+    {
+      "name": "53394654_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/80/45b2b1-5a88-40ab-9877-70b540b8707e/13106_taito-ku_city_2025_citygml_1_op/udx/tran/53394654_tran_6697_op.gml",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 890,
+      "lod2": 342,
+      "bytes": 3303530,
+      "sha256": "8adcb7afd865b1307fe444311cbcecd276b71b5402f4a03aa1ab5fdcc0886aaa"
+    },
+    {
+      "name": "53394655_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/af/d16ede-837d-458a-af51-16771bbb96d8/13107_sumida-ku_pref_2025_citygml_1_op/udx/tran/53394655_tran_6697_op.gml",
+      "cityCode": "13107",
+      "cityName": "墨田区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 1595,
+      "lod2": 141,
+      "bytes": 4917127,
+      "sha256": "7789bd04ae8288ee519733e3b2323fdd6e167df6fdf01a61bc6497d6912db2e3"
+    },
+    {
+      "name": "53394664_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/80/45b2b1-5a88-40ab-9877-70b540b8707e/13106_taito-ku_city_2025_citygml_1_op/udx/tran/53394664_tran_6697_op.gml",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1062,
+      "lod2": 684,
+      "bytes": 4234191,
+      "sha256": "06ec563c63fa6b32296f601cdb4faf59ae02d1aa5717bf9e09340b220570ae14"
+    },
+    {
+      "name": "53394665_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/af/d16ede-837d-458a-af51-16771bbb96d8/13107_sumida-ku_pref_2025_citygml_1_op/udx/tran/53394665_tran_6697_op.gml",
+      "cityCode": "13107",
+      "cityName": "墨田区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 1544,
+      "lod2": 0,
+      "bytes": 6410273,
+      "sha256": "91650156e4378bcc7ebf40a51d596cdb2d091b0ff24c0ceb3f2ec088510a26e0"
+    }
+  ]
+}

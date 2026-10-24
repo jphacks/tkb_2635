@@ -76,6 +76,27 @@ import Testing
         }
     }
 
+    /// 展望台4か所（スカイツリー・東京タワー・サンシャイン60・東京シティビュー）と足元の地上の組。
+    /// 展望台は建物の中（3D では半透明）、地上はどの建物の箱の外にもある。
+    @Test func observatoryPairsStandInsideTheirTowerAndGroundIsOutside() throws {
+        let scenes = Dictionary(uniqueKeysWithValues: try SeedData.loadScenes().map { ($0.id, $0) })
+        let spots = try SeedData.loadSpots()
+        for id in ["skytree_tembo_deck", "tokyo_tower_main_deck", "sunshine60_observatory", "tokyo_city_view"] {
+            let deck = try #require(spots.first { $0.id == id })
+            let scene = try #require(deck.sceneId.flatMap { scenes[$0] })
+            let host = try #require(scene.buildings.first { $0.id == deck.hostBuildingId })
+            let p = scene.localPosition(latitude: deck.latitude, longitude: deck.longitude)
+            #expect(abs(p.east - host.x) < host.width / 2 && abs(p.north - host.y) < host.depth / 2, "\(id)")
+            #expect(deck.observerElevation < scene.groundElevation + host.height, "\(id)")
+            let ground = try #require(spots.first { $0.id == deck.comparisonSpotId })
+            #expect(ground.sceneId == deck.sceneId)
+            let g = scene.localPosition(latitude: ground.latitude, longitude: ground.longitude)
+            #expect(!scene.buildings.contains {
+                abs(g.east - $0.x) <= $0.width / 2 && abs(g.north - $0.y) <= $0.depth / 2
+            }, "\(ground.id)")
+        }
+    }
+
     @Test func rooftopHostResolvesAndGroundIsOutsideBuildings() throws {
         let scene = try #require(try SeedData.loadScenes().first { $0.id == "shibuya" })
         let spots = try SeedData.loadSpots()

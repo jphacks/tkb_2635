@@ -1,0 +1,34 @@
+{
+  "sceneId": "shibakoen",
+  "radiusMeters": 500,
+  "scanned": 6567,
+  "selected": 928,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53393589_bldg_6697_op.gml",
+      "sha256": "ee6474d1d783a883016c85bbe2df40d3c542395e593e77fca26a86f95cea8671",
+      "buildingsScanned": 1968
+    },
+    {
+      "name": "53393599_bldg_6697_op.gml",
+      "sha256": "95059a52aee0e34ca0185b52e7888233df4b8094c2f011ee0bafbaddd6888ace",
+      "buildingsScanned": 1258
+    },
+    {
+      "name": "53393680_bldg_6697_op.gml",
+      "sha256": "da65326eec632e45a78f552ada6dcaae03e899e6e004d12e3121454945c4f46b",
+      "buildingsScanned": 1614
+    },
+    {
+      "name": "53393690_bldg_6697_op.gml",
+      "sha256": "4933b9993e196f20e2a3a54309127b0039fd30c9b310786566f56fe8fe82cfc7",
+      "buildingsScanned": 1727
+    }
+  ],
+  "groundElevation": 15.0,
+  "belowSceneGround": 352
+}
