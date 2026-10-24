@@ -25,6 +25,11 @@ public struct Weather: Codable, Sendable {
 public struct OpenMeteoClient: Sendable {
     public var session: URLSession
 
+    /// 取得する予報の日数（今日を含む）。Open-Meteo の上限は 16 日。
+    public static let forecastDays = 16
+    /// 予報の時刻と指定時刻のずれをどこまで許すか
+    static let matchTolerance: TimeInterval = 90 * 60
+
     public init(session: URLSession = .shared) {
         self.session = session
     }
@@ -41,7 +46,7 @@ public struct OpenMeteoClient: Sendable {
             URLQueryItem(name: "longitude", value: String(longitude)),
             URLQueryItem(name: "hourly", value: "cloud_cover,precipitation,wind_speed_10m,visibility"),
             URLQueryItem(name: "timeformat", value: "unixtime"),
-            URLQueryItem(name: "forecast_days", value: "7"),
+            URLQueryItem(name: "forecast_days", value: String(Self.forecastDays)),
         ]
         var request = URLRequest(url: components.url!)
         request.timeoutInterval = 15
@@ -68,7 +73,7 @@ public struct OpenMeteoClient: Sendable {
     /// 指定時刻から 90 分以内で最も近い予報
     public static func nearest(_ samples: [Weather], to date: Date) -> Weather? {
         samples
-            .filter { abs($0.forecastTime.timeIntervalSince(date)) <= 90 * 60 }
+            .filter { abs($0.forecastTime.timeIntervalSince(date)) <= matchTolerance }
             .min { abs($0.forecastTime.timeIntervalSince(date)) < abs($1.forecastTime.timeIntervalSince(date)) }
     }
 

@@ -16,7 +16,8 @@ struct CompareView: View {
     var body: some View {
         @Bindable var model = model
         let comparison = SpotComparison.make(first, second, target: model.target, date: model.date,
-                                             weather: model.weather(for:))
+                                             weather: model.weather(for:),
+                                             forecastCoverage: model.forecastCoverage(for:))
 
         List {
             Section {
@@ -24,6 +25,10 @@ struct CompareView: View {
                     .environment(\.timeZone, TimeZone(identifier: "Asia/Tokyo")!)
                 TimeSlider(date: $model.date)
                 TargetPicker(target: $model.target)
+            } footer: {
+                if let message = model.forecastOutOfRangeMessage {
+                    ForecastOutOfRangeNote(message: message)
+                }
             }
 
             Section {

@@ -23,9 +23,12 @@ public struct SpotComparison: Sendable {
 
     /// 2地点を同じ条件で判定して並べる
     public static func make(_ a: SpotContext, _ b: SpotContext, target: ObservationTarget, date: Date,
-                            weather: (Spot) -> Weather?) -> SpotComparison {
-        let pa = Recommender.evaluate(a, target: target, date: date, weather: weather(a.spot))
-        let pb = Recommender.evaluate(b, target: target, date: date, weather: weather(b.spot))
+                            weather: (Spot) -> Weather?,
+                            forecastCoverage: (Spot) -> ForecastCoverage = { _ in .inRange }) -> SpotComparison {
+        let pa = Recommender.evaluate(a, target: target, date: date, weather: weather(a.spot),
+                                      forecastCoverage: forecastCoverage(a.spot))
+        let pb = Recommender.evaluate(b, target: target, date: date, weather: weather(b.spot),
+                                      forecastCoverage: forecastCoverage(b.spot))
         return SpotComparison(first: (a.spot, pa), second: (b.spot, pb), targetName: target.name)
     }
 
