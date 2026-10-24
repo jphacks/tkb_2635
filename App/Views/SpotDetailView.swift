@@ -1,171 +1,120 @@
 import StarCore
 import SwiftUI
 
+/// 地点の詳細。3D を画面いっぱいに出し、上に時刻スライダー、下に引き上げるシートを重ねる。
 struct SpotDetailView: View {
     @Environment(AppModel.self) private var model
     let context: SpotContext
     /// 比較画面へ進んで隠れている間は 3D を外す。3D を3つ同時に描くと、描画用のメモリが足りなくなる。
     @State private var isOnScreen = false
+    @State private var sheetDetent: BottomSheet<SpotSheetHeader, SpotInfoList>.Detent = .collapsed
+
+    /// シートをいちばん下にしたときの高さ（比較ボタンがあるときは、その分高くする）
+    private static let collapsedHeight: CGFloat = 140
+    private static let collapsedHeightWithCompare: CGFloat = 196
 
     var body: some View {
         @Bindable var model = model
-        let spot = context.spot
         let prediction = Recommender.evaluate(context, target: model.target, date: model.date,
-                                              weather: model.weather(for: spot),
-                                              forecastCoverage: model.forecastCoverage(for: spot))
+                                              weather: model.weather(for: context.spot),
+                                              forecastCoverage: model.forecastCoverage(for: context.spot))
 
-        List {
-            Section {
-                Group {
-                    if isOnScreen {
-                        Sky3DView(context: context, prediction: prediction, date: model.date)
-                    } else {
-                        Color(red: 0.02, green: 0.03, blue: 0.10)
-                    }
+        ZStack {
+            Group {
+                if isOnScreen {
+                    Sky3DView(context: context, prediction: prediction, date: model.date,
+                              showsLegend: false)
+                } else {
+                    Color(red: 0.02, green: 0.03, blue: 0.10)
                 }
-                .frame(height: 340)
-                .listRowInsets(EdgeInsets())
-            } footer: {
-                Text("ドラッグで視点を回転、ピンチで拡大縮小。線の先の球が\(model.target.name)の方向です（緑=見える、赤=遮られる）。")
             }
+            .ignoresSafeArea(edges: .bottom)
 
-            Section {
-                TimeSlider(date: $model.date)
-            } footer: {
-                if let message = model.forecastCoverage(for: spot).message {
+            VStack {
+                TimeSlider(date: $model.date, compact: true)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .background(.regularMaterial, in: .rect(cornerRadius: 16))
+                    .padding(.horizontal, 12)
+                    .padding(.top, 4)
+                if let message = model.forecastCoverage(for: context.spot).message {
                     ForecastOutOfRangeNote(message: message)
+                        .padding(.horizontal, 16)
                 }
+                // 判定は下のシートに出す。出典は利用の条件なので、3D の説明を消しても残す
+                if context.scene.map(CityModelRenderer.hasModel) == true {
+                    Text("出典: PLATEAU（CC BY 4.0）・国土地理院")
+                        .font(.caption2)
+                        .foregroundStyle(.white.opacity(0.7))
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding(.horizontal, 16)
+                }
+                Spacer()
             }
 
-            if let partner = model.contexts.comparisonPartner(of: context) {
-                Section {
-                    NavigationLink(value: ComparisonRoute(firstId: context.id, secondId: partner.id)) {
-                        Label("\(partner.spot.name)と比べる", systemImage: "rectangle.split.2x1")
-                    }
-                } footer: {
-                    Text("同じ時刻の\(model.target.name)が、目の高さでどう変わるかを並べて見られます。")
-                }
-            }
-
-            Section("判定") {
-                HStack {
-                    ScoreBadge(score: prediction.totalScore, tier: prediction.tier)
-                    VStack(alignment: .leading) {
-                        Text("\(model.target.name)：\(Angle.directionName(prediction.azimuth)) 高度\(String(format: "%.1f", prediction.altitude))°")
-                        Text("その方位の遮蔽仰角 \(String(format: "%.1f", prediction.obstructionElevation))°")
-                            .foregroundStyle(.secondary)
-                    }
-                    .font(.subheadline)
-                }
-                ForEach(prediction.recommendationReasons, id: \.self) { Text($0) }
-            }
-
-            RiseSetSection(context: context)
-
-            Section("観測条件") {
-                MetricRow(label: "空の開放度 O", value: prediction.openness, detail: context.horizon.isApproximate ? "暫定値" : "建物データから計算")
-                if let w = prediction.weatherScore {
-                    MetricRow(label: "天気 W", value: w, detail: prediction.cloudCover.map { "雲量 \(Int($0))%" } ?? "")
-                } else {
-                    LabeledContent("天気 W", value: prediction.dataQualityFlags.contains(.weatherOutOfRange) ? "予報の範囲外" : "未取得")
-                }
-                MetricRow(label: "暗さ D", value: prediction.darknessScore,
-                          detail: spot.localGlareLevel == nil || spot.regionalLightIndex == nil ? "精度不足" : "")
-                LabeledContent("月明かりの影響 M", value: model.target == .moon ? "月モードでは減点しない" : String(format: "%.2f", prediction.moonEffect))
-                LabeledContent("太陽高度", value: "\(String(format: "%.0f", prediction.sunAltitude))°（\(prediction.skyState.label)）")
-                Link("天気データ：Open-Meteo（CC BY 4.0）",
-                     destination: URL(string: "https://open-meteo.com/")!)
-                    .font(.caption)
-            }
-
-            Section {
-                LabeledContent("地域の光害（広域）") {
-                    if let index = spot.regionalLightIndex {
-                        Text(String(format: "%.2f", index)) + Text("  \(spot.regionalLightShortSource)").foregroundStyle(.secondary)
-                    } else {
-                        Text("未確認").foregroundStyle(.orange)
-                    }
-                }
-                LabeledContent(spot.localGlareLabel) {
-                    if let level = spot.localGlareLevel {
-                        Text("\(level) / 3")
-                    } else {
-                        Text("未確認").foregroundStyle(.orange)
-                    }
-                }
-            } header: {
-                Text("光害")
-            } footer: {
-                if spot.regionalLightIndex == nil {
-                    Text("地域の光害は未確認です。\(spot.localGlareNote)")
-                } else if let source = spot.regionalLightSource {
-                    Text("地域の光害は衛星夜間光（\(source)）の年平均から求めた値です。\(spot.localGlareNote)")
-                } else {
-                    Text("地域の光害は衛星夜間光（VIIRS）を取り込む前の暫定値です。\(spot.localGlareNote)")
-                }
-            }
-
-            Section("施設・地点") {
-                LabeledContent("種類", value: "\(spot.category.label)（\(spot.indoorOutdoor.label)）")
-                LabeledContent("目の高さ", value: "標高 \(Int(spot.observerElevation)) m（床 \(Int(spot.floorElevation)) m + \(String(format: "%.1f", spot.eyeHeight)) m）")
-                LabeledContent("利用時間", value: spot.accessHoursText(at: model.date))
-                LabeledContent("指定日時の入場", value: prediction.accessStatus.label)
-                if let note = spot.openingHours.note { Text(note).font(.caption).foregroundStyle(.secondary) }
-                ForEach(spot.accessNotices(at: model.date), id: \.message) { notice in
-                    VStack(alignment: .leading, spacing: 4) {
-                        Label(notice.message, systemImage: "exclamationmark.triangle")
-                            .foregroundStyle(.orange)
-                        Link("区域制限の公式案内", destination: notice.source)
-                    }
-                    .font(.callout)
-                }
-                if let fee = spot.admissionFee { LabeledContent("料金", value: fee) }
-                if let reservation = spot.reservationRequired { LabeledContent("予約", value: reservation ? "必要・推奨" : "不要") }
-                if let access = spot.accessConditions { Text(access).font(.callout) }
-                LabeledContent("天候による閉鎖条件", value: spot.weatherClosureConditions ?? "未確認")
-                LabeledContent("撮影機材の制限", value: spot.photographyRestrictions ?? "未確認")
-                if let memo = spot.memo { Text(memo).font(.callout).foregroundStyle(.secondary) }
-                LabeledContent("最終確認日", value: spot.lastVerifiedAt ?? "未確認")
-                if let url = spot.officialWebsite { Link("公式情報を開く", destination: url) }
-            }
-
-            if spot.indoorOutdoor != .outdoor || spot.viewingDirectionMask != nil || spot.viewingDirectionNotes != nil {
-                Section {
-                    LabeledContent("観測できる方角", value: spot.viewingDirectionSummary)
-                    LabeledContent("方角の確認", value: spot.hasVerifiedViewingDirections ? "確認済み" : "未確認")
-                    LabeledContent("見上げられる高度の上限", value: spot.visibleAltitudeSummary)
-                    if let notes = spot.viewingDirectionNotes {
-                        Text(notes).font(.callout)
-                    }
-                } header: {
-                    Text("窓・屋根と見える方角")
-                } footer: {
-                    Text("方位は北0°・東90°・南180°・西270°。範囲が北をまたぐ場合は、開始角度から北を通って終了角度までです。方角が未確認の地点は、見える見込みでも「要確認」とします。")
-                }
-            }
-
-            if let scene = context.scene {
-                Section("建物データ") {
-                    LabeledContent("収録建物数", value: "\(scene.buildings.count)棟")
-                    Text(scene.source).font(.caption).foregroundStyle(.secondary)
-                }
-                SurroundingsSection(context: context)
-            }
-
-            if !prediction.dataQualityFlags.isEmpty {
-                Section("データの注意") {
-                    ForEach(prediction.dataQualityFlags, id: \.self) { flag in
-                        Label(flag.message, systemImage: "exclamationmark.triangle")
-                            .font(.callout)
-                            .foregroundStyle(.orange)
-                    }
-                }
+            let partner = model.contexts.comparisonPartner(of: context)
+            BottomSheet(detent: $sheetDetent,
+                        collapsedHeight: partner == nil ? Self.collapsedHeight : Self.collapsedHeightWithCompare) {
+                SpotSheetHeader(spot: context.spot, prediction: prediction, targetName: model.target.name,
+                                partner: partner)
+            } content: {
+                SpotInfoList(context: context, prediction: prediction)
             }
         }
-        .navigationTitle(spot.name)
+        .navigationTitle(context.spot.name)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear { isOnScreen = true }
         .onDisappear { isOnScreen = false }
+    }
+}
+
+/// シートをいちばん下にしたときにも見える、地点名・スコア・判定と、比較画面へのボタン
+struct SpotSheetHeader: View {
+    let spot: Spot
+    let prediction: Prediction
+    let targetName: String
+    /// spots.json の comparisonSpotId に書かれた比較相手。nil ならボタンを出さない。
+    let partner: SpotContext?
+
+    var body: some View {
+        VStack(spacing: 10) {
+            summary
+            if let partner {
+                NavigationLink(value: ComparisonRoute(firstId: spot.id, secondId: partner.id)) {
+                    Label("\(partner.spot.name)と比べる", systemImage: "rectangle.split.2x1")
+                        .font(.subheadline.bold())
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .accessibilityHint("同じ時刻の\(targetName)が、目の高さでどう変わるかを並べて見られます")
+            }
+        }
+    }
+
+    private var summary: some View {
+        HStack(alignment: .center, spacing: 12) {
+            ScoreBadge(score: prediction.totalScore, tier: prediction.tier)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(spot.name)
+                    .font(.headline)
+                    .lineLimit(1)
+                Label(verdict, systemImage: prediction.geometricVisibility ? "eye" : "eye.slash")
+                    .font(.subheadline.bold())
+                    .foregroundStyle(prediction.geometricVisibility ? .green : .red)
+                Text("\(targetName)：\(Angle.directionName(prediction.azimuth)) 高度\(String(format: "%.0f", prediction.altitude))°・\(prediction.accessStatus.label)")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(1)
+            }
+            Spacer(minLength: 0)
+        }
+        .accessibilityElement(children: .combine)
+    }
+
+    private var verdict: String {
+        if prediction.altitude <= 0 { return "地平線の下" }
+        if prediction.blockedByDirectionMask { return "窓の外で見えない" }
+        return prediction.geometricVisibility ? "見える見込み" : "建物に遮られる見込み"
     }
 }
 
