@@ -77,6 +77,7 @@ public enum RiseSet {
     public static func times(for target: ObservationTarget, date: Date, latitude: Double, longitude: Double) -> RiseSetTimes {
         let position: (Date) -> HorizontalCoord = switch target {
         case .moon: { Astro.moon(date: $0, latitude: latitude, longitude: longitude).position }
+        case .planet(let planet): { Astro.planet(planet, date: $0, latitude: latitude, longitude: longitude) }
         case .star(let star): { Astro.star(star, date: $0, latitude: latitude, longitude: longitude) }
         }
         return times(date: date, position: position)
