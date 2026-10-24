@@ -17,7 +17,7 @@
     "sceneId": "shibuya",
     "regionalLightIndex": 0.95,
     "modelVersion": "plateau-shibuya-2025-1",
-    "memo": "高さによる見え方を比べるデモ用の代表点。元の座標がPLATEAUの建物外接矩形内に重なったため約40m北へ調整。現地の歩行可能範囲・夜間利用・床面標高15mは未確認。"
+    "memo": "高さによる見え方を比べるデモ用の代表点です。正確な観測位置・歩行可能範囲・夜間利用・床面標高15mは未確認です。"
   },
   {
     "id": "shibuya_sky",
@@ -46,7 +46,7 @@
     "regionalLightIndex": 0.95,
     "modelVersion": "plateau-shibuya-2025-1",
     "lastVerifiedAt": "2026-10-24",
-    "memo": "PLATEAU建物の外接矩形中心を使った屋上の代表点。建物IDは位置と周辺配置から照合。floorElevation=244mは既存の暫定標高で、PLATEAUの屋根標高234.6mとは異なる。現地の観測面標高は未確認（1-07で確認予定）。"
+    "memo": "位置は建物モデル上の屋上の代表点です。床面標高244mは暫定値で、実際の屋上の標高は未確認です。"
   },
   {
     "id": "shinjuku_central_park",

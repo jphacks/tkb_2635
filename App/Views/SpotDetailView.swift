@@ -74,6 +74,13 @@ struct SpotDetailView: View {
                 if let url = spot.officialWebsite { Link("公式情報を開く", destination: url) }
             }
 
+            if let scene = context.scene {
+                Section("建物データ") {
+                    LabeledContent("収録建物数", value: "\(scene.buildings.count)棟")
+                    Text(scene.source).font(.caption).foregroundStyle(.secondary)
+                }
+            }
+
             if !prediction.dataQualityFlags.isEmpty {
                 Section("データの注意") {
                     ForEach(prediction.dataQualityFlags, id: \.self) { flag in

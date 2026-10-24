@@ -46,5 +46,30 @@
     "観測位置はモデル上の代表点。現地検証は未実施",
     "平面形は外接矩形・建物底面は共通基準標高へ延長",
     "原点から500m内のみ。遠方の高層建築物は未収録"
+  ],
+  "source": "東京都「3D都市モデル（Project PLATEAU）渋谷区（2025年度）」 https://www.geospatial.jp/ckan/dataset/plateau-13113-shibuya-ku-2025 を加工してAsteraチームが作成（CC BY 4.0）。LOD1等を直方体近似。基準標高15m・観測地点の標高は暫定値、現況・現地未確認。",
+  "integrationDate": "2026-10-24",
+  "sceneSha256": "bbf9fbe7046e07f6373984146fe90f6cd961cafdc9fdc951e53c311011988ead",
+  "representativeSpots": [
+    {
+      "id": "shibuya_east_plaza",
+      "latitude": 35.658,
+      "longitude": 139.702816,
+      "floorElevation": 15,
+      "eyeHeight": 1.5,
+      "hostBuildingId": null,
+      "modelVersion": "plateau-shibuya-2025-1",
+      "memo": "高さによる見え方を比べるデモ用の代表点です。正確な観測位置・歩行可能範囲・夜間利用・床面標高15mは未確認です。"
+    },
+    {
+      "id": "shibuya_sky",
+      "latitude": 35.658384,
+      "longitude": 139.702242,
+      "floorElevation": 244,
+      "eyeHeight": 1.5,
+      "hostBuildingId": "bldg_7b006717-e9e6-4a94-8843-1f4ce13b2509",
+      "modelVersion": "plateau-shibuya-2025-1",
+      "memo": "位置は建物モデル上の屋上の代表点です。床面標高244mは暫定値で、実際の屋上の標高は未確認です。"
+    }
   ]
 }
