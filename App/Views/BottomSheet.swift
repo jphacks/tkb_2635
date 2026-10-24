@@ -18,7 +18,11 @@ struct BottomSheet<Header: View, Content: View>: View {
     @ViewBuilder let header: Header
     @ViewBuilder let content: Content
 
-    @GestureState private var dragOffset: CGFloat = 0
+    /// 指を離して元に戻るときも、段階の切り替えと同じばねで動かす。
+    /// アニメーションなしで戻すと、一瞬だけ離す前の段階の高さへ跳ねる
+    @GestureState(resetTransaction: Transaction(animation: Self.sheetAnimation)) private var dragOffset: CGFloat = 0
+
+    private static var sheetAnimation: Animation { .spring(duration: 0.3) }
 
     /// 半分のときの、使える高さに対する割合
     private static var mediumFraction: CGFloat { 0.48 }
@@ -28,9 +32,12 @@ struct BottomSheet<Header: View, Content: View>: View {
     var body: some View {
         GeometryReader { geo in
             let total = geo.size.height
+            let full = height(of: .large, in: total)
             let resting = height(of: detent, in: total)
-            let shown = min(max(resting - dragOffset, collapsedHeight), height(of: .large, in: total))
+            let shown = min(max(resting - dragOffset, collapsedHeight), full)
 
+            // シートの高さはいつも全開のままにし、下へずらして隠す。高さをドラッグのたびに変えると、
+            // 中の List をそのたびに並べ直すので、3D の描画と重なって引っかかる
             VStack(spacing: 0) {
                 VStack(spacing: 10) {
                     // タップで開閉するのは取っ手だけ。見出し全体にすると、中のボタンを押したのを横取りする
@@ -51,26 +58,41 @@ struct BottomSheet<Header: View, Content: View>: View {
                 .frame(maxWidth: .infinity)
                 .contentShape(.rect)
                 .gesture(
-                    DragGesture()
+                    // シートは位置をずらして動かすので、シートの中の座標で測るとずれた分だけ指の動きが打ち消される
+                    DragGesture(coordinateSpace: .global)
                         .updating($dragOffset) { value, state, _ in state = value.translation.height }
                         .onEnded { value in
                             detent = nearest(to: resting - value.predictedEndTranslation.height, in: total)
                         }
                 )
 
+                // 中身はいつも置いたままにする（段階で出し入れしない）
                 content
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    // 画面の外に隠れている分だけ下に余白を足し、半分のときも最後までスクロールできるようにする。
+                    // 段階が決まったときだけ変わるので、ドラッグ中は並べ直さない。中身はアニメーションさせない
+                    .contentMargins(.bottom, full - resting, for: .scrollContent)
+                    .transaction { $0.animation = nil }
             }
-            .frame(height: shown, alignment: .top)
-            .clipped()
-            .background {
-                UnevenRoundedRectangle(topLeadingRadius: 24, topTrailingRadius: 24)
-                    .fill(.regularMaterial)
-                    .ignoresSafeArea(edges: .bottom)
-                    .shadow(color: .black.opacity(0.35), radius: 12, y: -2)
-            }
+            .frame(height: full, alignment: .top)
+            .offset(y: full - shown)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-            .animation(.spring(duration: 0.3), value: detent)
+            // ホームバーの所に中身がのぞかないよう、画面の使える範囲で切る（背景は切らない）。
+            // 切る範囲は動かないので、シートの動きとずれて中身だけ先に消えることがない
+            .clipped()
+            .background(alignment: .bottom) {
+                Color.clear
+                    .frame(height: full)
+                    .background {
+                        // 3D の上で毎フレームぼかしを描き直さないよう、背景は不透明にする
+                        UnevenRoundedRectangle(topLeadingRadius: 24, topTrailingRadius: 24)
+                            .fill(Color(.systemGroupedBackground))
+                            .ignoresSafeArea(edges: .bottom)
+                            .shadow(color: .black.opacity(0.35), radius: 12, y: -2)
+                    }
+                    .offset(y: full - shown)
+            }
+            .animation(Self.sheetAnimation, value: detent)
         }
     }
 
