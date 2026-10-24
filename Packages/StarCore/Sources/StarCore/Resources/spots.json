@@ -19,6 +19,9 @@
     "regionalLightIndex": 0.95,
     "regionalLightSource": "VIIRS VNL v2.2 2025 annual average_masked（EOG, Colorado School of Mines）",
     "regionalLightMeasuredAt": "2025",
+    "localGlareLevel": 3,
+    "lightingCheckDate": "2026-10-24",
+    "lightingCheckMethod": "desk",
     "modelVersion": "plateau-shibuya-2025-1",
     "memo": "高さによる見え方を比べるデモ用の代表点です。正確な観測位置・歩行可能範囲・夜間利用・床面標高15mは未確認です。",
     "accessRules": {
@@ -54,6 +57,9 @@
     "regionalLightIndex": 0.95,
     "regionalLightSource": "VIIRS VNL v2.2 2025 annual average_masked（EOG, Colorado School of Mines）",
     "regionalLightMeasuredAt": "2025",
+    "localGlareLevel": 2,
+    "lightingCheckDate": "2026-10-24",
+    "lightingCheckMethod": "desk",
     "modelVersion": "plateau-shibuya-2025-1",
     "lastVerifiedAt": "2026-10-24",
     "memo": "位置は建物モデル上の屋上の代表点です。床面標高244mは暫定値で、実際の屋上の標高は未確認です。"
@@ -78,6 +84,9 @@
     "regionalLightIndex": 0.85,
     "regionalLightSource": "VIIRS VNL v2.2 2025 annual average_masked（EOG, Colorado School of Mines）",
     "regionalLightMeasuredAt": "2025",
+    "localGlareLevel": 2,
+    "lightingCheckDate": "2026-10-24",
+    "lightingCheckMethod": "desk",
     "modelVersion": "sample-0.1",
     "accessRules": {
       "areaRestrictions": [
@@ -304,6 +313,9 @@
     "regionalLightIndex": 0.82,
     "regionalLightSource": "VIIRS VNL v2.2 2025 annual average_masked（EOG, Colorado School of Mines）",
     "regionalLightMeasuredAt": "2025",
+    "localGlareLevel": 3,
+    "lightingCheckDate": "2026-10-24",
+    "lightingCheckMethod": "desk",
     "modelVersion": "sample-0.1",
     "memo": "見上げられる高度の上限 35° は窓の高さからの暫定値",
     "lastVerifiedAt": "2026-10-24"
@@ -487,6 +499,9 @@
     "regionalLightIndex": 0.87,
     "regionalLightSource": "VIIRS VNL v2.2 2025 annual average_masked（EOG, Colorado School of Mines）",
     "regionalLightMeasuredAt": "2025",
+    "localGlareLevel": 2,
+    "lightingCheckDate": "2026-10-24",
+    "lightingCheckMethod": "desk",
     "modelVersion": "sample-0.1",
     "lastVerifiedAt": "2026-10-24"
   },

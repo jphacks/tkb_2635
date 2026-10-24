@@ -83,9 +83,12 @@ public struct Spot: Codable, Identifiable, Sendable {
     public var regionalLightSource: String?
     /// regionalLightIndex の元データの年（例: "2023"）
     public var regionalLightMeasuredAt: String?
-    /// 近傍照明の段階評価 0〜3。nil は現地未確認。
+    /// 近傍照明の段階評価 0〜3。nil は未確認。
     public var localGlareLevel: Int?
+    /// localGlareLevel を確かめた日（YYYY-MM-DD）
     public var lightingCheckDate: String?
+    /// localGlareLevel の確かめ方。"desk"（写真などによる机上評価）か "onsite"（現地確認）。nil は記録なし。
+    public var lightingCheckMethod: String?
     public var modelVersion: String
     public var memo: String?
 
