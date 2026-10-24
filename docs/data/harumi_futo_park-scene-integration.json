@@ -1,0 +1,34 @@
+{
+  "sceneId": "harumi_futo_park",
+  "radiusMeters": 500,
+  "scanned": 1225,
+  "selected": 160,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53393671_bldg_6697_op.gml",
+      "sha256": "57fb9eb8b6f07c80ee2f6f72950ad4f3efb8cef2dbd7465d738307f29b17f455",
+      "buildingsScanned": 70
+    },
+    {
+      "name": "53393672_bldg_6697_op.gml",
+      "sha256": "6858e41f63e4e90a835a9bdef943db90a7ec92e94f41746d7bc44289b2b3a528",
+      "buildingsScanned": 263
+    },
+    {
+      "name": "53393681_bldg_6697_op.gml",
+      "sha256": "1b416caa02b3a21463122398d2781783a9d355e1aaac678bb05002c0a68793db",
+      "buildingsScanned": 406
+    },
+    {
+      "name": "53393682_bldg_6697_op.gml",
+      "sha256": "d966e9ff502410dfb5bc96b948b69733d2434ccf61fd730989fccb3098f9a061",
+      "buildingsScanned": 486
+    }
+  ],
+  "groundElevation": 3.6,
+  "belowSceneGround": 0
+}

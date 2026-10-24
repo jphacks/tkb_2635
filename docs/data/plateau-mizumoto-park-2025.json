@@ -1,0 +1,154 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "11237",
+      "cityName": "三郷市",
+      "year": 2024
+    },
+    {
+      "cityCode": "13122",
+      "cityName": "葛飾区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.86,35.7812,139.8778,35.7956",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/aa/768d69-5766-4599-9b22-40e1b0142f66/13122_katsushika-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53395649_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/61/f4c5b8-5d12-4093-903f-75d7132ce97d/13122_katsushika-ku_pref_2025_citygml_1_op/udx/bldg/53395649_bldg_6697_op.gml",
+      "cityCode": "13122",
+      "cityName": "葛飾区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1836,
+      "lod2": 0,
+      "bytes": 30763740,
+      "sha256": "76eeb10ab3e9b805c2c1ae22bef566e5481ffc023565b1b605a30db26779e6d0"
+    },
+    {
+      "name": "53395659_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/61/f4c5b8-5d12-4093-903f-75d7132ce97d/13122_katsushika-ku_pref_2025_citygml_1_op/udx/bldg/53395659_bldg_6697_op.gml",
+      "cityCode": "13122",
+      "cityName": "葛飾区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 285,
+      "lod2": 0,
+      "bytes": 4756489,
+      "sha256": "d948f31b36749a2afe00a0217d4671983c25685d06a775a3463fe37d37a58109"
+    },
+    {
+      "name": "53395638_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/61/f4c5b8-5d12-4093-903f-75d7132ce97d/13122_katsushika-ku_pref_2025_citygml_1_op/udx/tran/53395638_tran_6697_op.gml",
+      "cityCode": "13122",
+      "cityName": "葛飾区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1332,
+      "lod2": 0,
+      "bytes": 3595569,
+      "sha256": "61b2356f84c81f670660c80fb52ee0781630bfc7d6af61130de48e5b7848a9a1"
+    },
+    {
+      "name": "53395639_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/61/f4c5b8-5d12-4093-903f-75d7132ce97d/13122_katsushika-ku_pref_2025_citygml_1_op/udx/tran/53395639_tran_6697_op.gml",
+      "cityCode": "13122",
+      "cityName": "葛飾区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1189,
+      "lod2": 0,
+      "bytes": 3208604,
+      "sha256": "3ae098902c77f2177318b32ed86806406e2afc92be599b957a8f3ad06ec20467"
+    },
+    {
+      "name": "53395648_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/61/f4c5b8-5d12-4093-903f-75d7132ce97d/13122_katsushika-ku_pref_2025_citygml_1_op/udx/tran/53395648_tran_6697_op.gml",
+      "cityCode": "13122",
+      "cityName": "葛飾区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1453,
+      "lod2": 0,
+      "bytes": 3903105,
+      "sha256": "267955b88ff2e03df4b6192aa35c7f686fc39e134d09245acb85169da7ef1b10"
+    },
+    {
+      "name": "53395649_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/61/f4c5b8-5d12-4093-903f-75d7132ce97d/13122_katsushika-ku_pref_2025_citygml_1_op/udx/tran/53395649_tran_6697_op.gml",
+      "cityCode": "13122",
+      "cityName": "葛飾区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 784,
+      "lod2": 0,
+      "bytes": 2156625,
+      "sha256": "d5a133513d3d11a547daa6d5f16d22ef68a474cf1807284a631c0380870b55c1"
+    },
+    {
+      "name": "53395658_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/61/f4c5b8-5d12-4093-903f-75d7132ce97d/13122_katsushika-ku_pref_2025_citygml_1_op/udx/tran/53395658_tran_6697_op.gml",
+      "cityCode": "13122",
+      "cityName": "葛飾区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 175,
+      "lod2": 0,
+      "bytes": 493242,
+      "sha256": "414f17cf1fb0dea63f222a44a6c0775c0deee955730cd4be9c26691abeb9377a"
+    },
+    {
+      "name": "53395659_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/61/f4c5b8-5d12-4093-903f-75d7132ce97d/13122_katsushika-ku_pref_2025_citygml_1_op/udx/tran/53395659_tran_6697_op.gml",
+      "cityCode": "13122",
+      "cityName": "葛飾区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 169,
+      "lod2": 0,
+      "bytes": 486393,
+      "sha256": "44ca6fae9d959e77a7249891851998e9ff4385d9a2157a1fec466abce0c78130"
+    },
+    {
+      "name": "53395730_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/61/f4c5b8-5d12-4093-903f-75d7132ce97d/13122_katsushika-ku_pref_2025_citygml_1_op/udx/tran/53395730_tran_6697_op.gml",
+      "cityCode": "13122",
+      "cityName": "葛飾区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 809,
+      "lod2": 0,
+      "bytes": 2236570,
+      "sha256": "1d1f3030d77b70f85041333d56c9189c4774f36c0a4577ba38b9da47ddbba220"
+    },
+    {
+      "name": "53395740_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/61/f4c5b8-5d12-4093-903f-75d7132ce97d/13122_katsushika-ku_pref_2025_citygml_1_op/udx/tran/53395740_tran_6697_op.gml",
+      "cityCode": "13122",
+      "cityName": "葛飾区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 5,
+      "lod2": 0,
+      "bytes": 14424,
+      "sha256": "9bcd6610e837b1e47675ddf62cf9a2096e54206597ae5fb5d7602469d534948b"
+    },
+    {
+      "name": "53395750_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/ad/12762d-6a01-4f46-81c2-8ad5bdaca348/11237_misato-shi_pref_2024_citygml_1_op/udx/tran/53395750_tran_6697_op.gml",
+      "cityCode": "11237",
+      "cityName": "三郷市",
+      "year": 2024,
+      "maxLod": 1,
+      "features": null,
+      "lod2": null,
+      "bytes": 3133364,
+      "sha256": "b7180d9c352d360d639d90870a90555ff9951d2048382555d8335d5b1ce3dbb8"
+    }
+  ]
+}

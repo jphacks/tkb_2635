@@ -36,20 +36,26 @@ def overlaps(a, b):
     return a[0] < b[2] and b[0] < a[2] and a[1] < b[3] and b[1] < a[3]
 
 
+def preference(city):
+    """同じメッシュのファイルを選ぶ順番（小さいほど先）"""
+    return (not city['cityCode'].startswith('13'), -city.get('year', 0), city['cityCode'])
+
+
 def select_files(catalog, buildings_box, roads_box):
     """カタログの応答から、範囲にかかる建物（bldg）と道路（tran）の GML をメッシュごとに1つ選ぶ。
 
-    同じメッシュが複数の区にあるときは、区のコードが小さい方を使う（どれも同じファイル）。
+    同じメッシュが複数の市区にあるときは、東京都（コード 13）・新しい年度・コードが小さい順に1つ使う。
+    東京都の区どうしは同じファイルだが、県境の向こうの市（埼玉県など）は年度もファイルも別なので、区を優先する。
     """
     chosen = {}
-    for city in sorted(catalog['cities'], key=lambda c: c['cityCode']):
+    for city in sorted(catalog['cities'], key=preference):
         for kind, box in (('bldg', buildings_box), ('tran', roads_box)):
             for item in city.get('files', {}).get(kind, []):
                 key = (kind, item['code'])
                 if key in chosen or not overlaps(mesh_bounds(item['code']), box):
                     continue
                 chosen[key] = {'name': item['url'].rsplit('/', 1)[1], 'url': item['url'],
-                               'cityCode': city['cityCode'], 'cityName': city['cityName'],
+                               'cityCode': city['cityCode'], 'cityName': city['cityName'], 'year': city.get('year'),
                                'maxLod': item.get('maxLod'), 'features': item.get('features'),
                                'lod2': item.get('lod2')}
     return [chosen[k] for k in sorted(chosen)]
@@ -68,11 +74,11 @@ def build_manifest(catalog, *, latitude, longitude, building_radius, road_radius
                          bounding_box(latitude, longitude, road_radius))
     if not any(f['name'].endswith('_bldg_6697_op.gml') for f in files):
         raise ValueError('範囲に建物の GML がありません。原点と半径を確認してください')
-    cities = sorted({(f['cityCode'], f['cityName']) for f in files})
+    cities = sorted({(f['cityCode'], f['cityName'], f['year']) for f in files})
     first = next(f for f in files if '_bldg_' in f['name'])
-    return {'dataset': '3D都市モデル（Project PLATEAU）東京都23区（2025年度）',
-            'cities': [{'cityCode': c, 'cityName': n} for c, n in cities],
-            'year': 2025, 'catalog_query': query,
+    return {'dataset': '3D都市モデル（Project PLATEAU）',
+            'cities': [{'cityCode': c, 'cityName': n, 'year': y} for c, n, y in cities],
+            'year': max(f['year'] or 0 for f in files), 'catalog_query': query,
             'codelists': codelists_url(catalog, first['cityCode']),
             'license': 'CC-BY-4.0', 'license_url': 'https://creativecommons.org/licenses/by/4.0/',
             'files': files}

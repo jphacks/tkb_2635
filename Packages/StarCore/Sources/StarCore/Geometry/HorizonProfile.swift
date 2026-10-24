@@ -38,13 +38,14 @@ public struct HorizonProfile: Sendable {
     public static func compute(observerEast ox: Double, observerNorth oy: Double, eyeElevation: Double,
                                groundElevation: Double, buildings: [Building]) -> HorizonProfile {
         var samples = Array(repeating: 0.0, count: 360)
+        // 目より低い建物は空をふさがないので、方位ごとに調べる前に除く（地点ごとに千棟以上あるため）
+        let tall = buildings.filter { groundElevation + $0.height > eyeElevation }
         for i in 0..<360 {
             let a = Double(i) * .pi / 180
             let dx = sin(a), dy = cos(a)
-            for b in buildings {
+            for b in tall {
                 let top = groundElevation + b.height
-                guard top > eyeElevation,
-                      let distance = rayHit(ox: ox, oy: oy, dx: dx, dy: dy,
+                guard let distance = rayHit(ox: ox, oy: oy, dx: dx, dy: dy,
                                             minX: b.x - b.width / 2, maxX: b.x + b.width / 2,
                                             minY: b.y - b.depth / 2, maxY: b.y + b.depth / 2)
                 else { continue }
@@ -59,16 +60,20 @@ public struct HorizonProfile: Sendable {
     static func rayHit(ox: Double, oy: Double, dx: Double, dy: Double,
                        minX: Double, maxX: Double, minY: Double, maxY: Double) -> Double? {
         var tMin = -Double.infinity, tMax = Double.infinity
-        for (o, d, lo, hi) in [(ox, dx, minX, maxX), (oy, dy, minY, maxY)] {
-            if abs(d) < 1e-12 {
-                if o < lo || o > hi { return nil }
-            } else {
-                let t1 = (lo - o) / d, t2 = (hi - o) / d
-                tMin = max(tMin, min(t1, t2))
-                tMax = min(tMax, max(t1, t2))
-            }
-        }
-        guard tMax >= tMin, tMin > 0.5 else { return nil }
+        // 東西・南北の2軸を順に調べる（配列を作らないよう、軸ごとに関数を呼ぶ）
+        guard slab(o: ox, d: dx, lo: minX, hi: maxX, tMin: &tMin, tMax: &tMax),
+              slab(o: oy, d: dy, lo: minY, hi: maxY, tMin: &tMin, tMax: &tMax),
+              tMax >= tMin, tMin > 0.5 else { return nil }
         return tMin
+    }
+
+    /// 1軸ぶんのスラブ法。半直線がこの軸の範囲に入らなければ false。
+    private static func slab(o: Double, d: Double, lo: Double, hi: Double,
+                             tMin: inout Double, tMax: inout Double) -> Bool {
+        if abs(d) < 1e-12 { return o >= lo && o <= hi }
+        let t1 = (lo - o) / d, t2 = (hi - o) / d
+        tMin = max(tMin, min(t1, t2))
+        tMax = min(tMax, max(t1, t2))
+        return true
     }
 }

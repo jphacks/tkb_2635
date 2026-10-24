@@ -1,0 +1,34 @@
+{
+  "sceneId": "toneri_park",
+  "radiusMeters": 500,
+  "scanned": 12239,
+  "selected": 1232,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53395651_bldg_6697_op.gml",
+      "sha256": "1fc89365fdf5ad8bc25c6571a79faaddefb7854531742b2c981cf24f0f6d192a",
+      "buildingsScanned": 1351
+    },
+    {
+      "name": "53395652_bldg_6697_op.gml",
+      "sha256": "273c2720379fcb9ed76e278cf2671d37b7448b9b4e8453df1375908b4aefb7fa",
+      "buildingsScanned": 4193
+    },
+    {
+      "name": "53395661_bldg_6697_op.gml",
+      "sha256": "46b8b877fe96e0414fb1e6ede5736f64cf4d8e903ab74d2cb38f384b286b65c8",
+      "buildingsScanned": 2627
+    },
+    {
+      "name": "53395662_bldg_6697_op.gml",
+      "sha256": "e919d66901f7f45b8cfac846db5a768196044f5b159425ab8d100b58068e0cf8",
+      "buildingsScanned": 4068
+    }
+  ],
+  "groundElevation": 4.0,
+  "belowSceneGround": 0
+}

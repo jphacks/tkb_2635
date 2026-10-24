@@ -1,0 +1,29 @@
+{
+  "sceneId": "jonanjima_kaihin_park",
+  "radiusMeters": 500,
+  "scanned": 514,
+  "selected": 185,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53392682_bldg_6697_op.gml",
+      "sha256": "4b80ad2ae751f62dfda0550c2ab52ff4dff8f4db1705ab7929dbc032163a294a",
+      "buildingsScanned": 9
+    },
+    {
+      "name": "53392692_bldg_6697_op.gml",
+      "sha256": "b6aeb5639c88a5ef62bbfd20bb00e7fc68faa367c3b235c69f0134028070694c",
+      "buildingsScanned": 450
+    },
+    {
+      "name": "53393602_bldg_6697_op.gml",
+      "sha256": "5c0bbc9e6b11fad2d2a6ee24f8ee584872251d232f19d7865ee47c05d186e628",
+      "buildingsScanned": 55
+    }
+  ],
+  "groundElevation": 0.9,
+  "belowSceneGround": 0
+}

@@ -1,0 +1,89 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "13111",
+      "cityName": "大田区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.7771,35.572,139.7947,35.5864",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/85/838b11-cdc4-4168-a866-0bcc16dc0639/13111_ota-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53392682_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/2c/6a2f27-a1e1-466a-a8cf-4627060f7ca4/13111_ota-ku_pref_2025_citygml_1_op/udx/bldg/53392682_bldg_6697_op.gml",
+      "cityCode": "13111",
+      "cityName": "大田区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 9,
+      "lod2": 0,
+      "bytes": 102252,
+      "sha256": "4b80ad2ae751f62dfda0550c2ab52ff4dff8f4db1705ab7929dbc032163a294a"
+    },
+    {
+      "name": "53392692_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/2c/6a2f27-a1e1-466a-a8cf-4627060f7ca4/13111_ota-ku_pref_2025_citygml_1_op/udx/bldg/53392692_bldg_6697_op.gml",
+      "cityCode": "13111",
+      "cityName": "大田区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 450,
+      "lod2": 0,
+      "bytes": 5481304,
+      "sha256": "b6aeb5639c88a5ef62bbfd20bb00e7fc68faa367c3b235c69f0134028070694c"
+    },
+    {
+      "name": "53393602_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/2c/6a2f27-a1e1-466a-a8cf-4627060f7ca4/13111_ota-ku_pref_2025_citygml_1_op/udx/bldg/53393602_bldg_6697_op.gml",
+      "cityCode": "13111",
+      "cityName": "大田区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 55,
+      "lod2": 0,
+      "bytes": 719770,
+      "sha256": "5c0bbc9e6b11fad2d2a6ee24f8ee584872251d232f19d7865ee47c05d186e628"
+    },
+    {
+      "name": "53392692_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/2c/6a2f27-a1e1-466a-a8cf-4627060f7ca4/13111_ota-ku_pref_2025_citygml_1_op/udx/tran/53392692_tran_6697_op.gml",
+      "cityCode": "13111",
+      "cityName": "大田区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 83,
+      "lod2": 0,
+      "bytes": 242705,
+      "sha256": "444c4c9a10bcaef486c06dfbab0c6e5e80aaab623830b190470d61d46527953f"
+    },
+    {
+      "name": "53393602_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/2c/6a2f27-a1e1-466a-a8cf-4627060f7ca4/13111_ota-ku_pref_2025_citygml_1_op/udx/tran/53393602_tran_6697_op.gml",
+      "cityCode": "13111",
+      "cityName": "大田区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 2,
+      "lod2": 0,
+      "bytes": 9317,
+      "sha256": "7e99aa3413ab7702ee0b1b57c1830f40d244adf175a77a28cf8df69139aa07e6"
+    },
+    {
+      "name": "53393603_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/2c/6a2f27-a1e1-466a-a8cf-4627060f7ca4/13111_ota-ku_pref_2025_citygml_1_op/udx/tran/53393603_tran_6697_op.gml",
+      "cityCode": "13111",
+      "cityName": "大田区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1,
+      "lod2": 0,
+      "bytes": 5723,
+      "sha256": "9ad5f586ca3fdd9c083bb7f77b49c9b8e42d2bb6ea207c2032f565331acc3ac0"
+    }
+  ]
+}

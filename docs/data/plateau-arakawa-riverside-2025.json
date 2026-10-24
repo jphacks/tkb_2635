@@ -1,0 +1,178 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025
+    },
+    {
+      "cityCode": "13123",
+      "cityName": "江戸川区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.8462,35.6808,139.8638,35.6952",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/b9/2ef019-a7da-4491-a881-6c3bca15311f/13108_koto-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53394627_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/bldg/53394627_bldg_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 2999,
+      "lod2": 8,
+      "bytes": 37712940,
+      "sha256": "cd6dfa93dd0c13e708322cceb05e3750975c9824f02279410ec8f59f8a7cf26f"
+    },
+    {
+      "name": "53394628_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/e6/75f5f9-3352-4d80-a79c-3a2421f75d5a/13123_edogawa-ku_pref_2025_citygml_1_op/udx/bldg/53394628_bldg_6697_op.gml",
+      "cityCode": "13123",
+      "cityName": "江戸川区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 869,
+      "lod2": 15,
+      "bytes": 12487872,
+      "sha256": "cf602069f0eb871f71c45194efa1b39a20502a03d5a1ccec86b2a8ab8c137ea2"
+    },
+    {
+      "name": "53394637_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/bldg/53394637_bldg_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 2782,
+      "lod2": 12,
+      "bytes": 36181480,
+      "sha256": "475d3a36c29ac44d36bdb6c93bc3e31576ddbe07f50bec82921fefbc7ba0f6c7"
+    },
+    {
+      "name": "53394638_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/e6/75f5f9-3352-4d80-a79c-3a2421f75d5a/13123_edogawa-ku_pref_2025_citygml_1_op/udx/bldg/53394638_bldg_6697_op.gml",
+      "cityCode": "13123",
+      "cityName": "江戸川区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 563,
+      "lod2": 16,
+      "bytes": 8006948,
+      "sha256": "54879bdcaa109e4d303b5638899f10e7e8e7bf8eb6aa61815af741b4d2236dbc"
+    },
+    {
+      "name": "53394617_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/tran/53394617_tran_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 808,
+      "lod2": 0,
+      "bytes": 2125644,
+      "sha256": "973998e52d1600e7db0e4f1bb41182baa873b8ec6604c71acb6f85a106aa58df"
+    },
+    {
+      "name": "53394618_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/e6/75f5f9-3352-4d80-a79c-3a2421f75d5a/13123_edogawa-ku_pref_2025_citygml_1_op/udx/tran/53394618_tran_6697_op.gml",
+      "cityCode": "13123",
+      "cityName": "江戸川区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 791,
+      "lod2": 3,
+      "bytes": 2125599,
+      "sha256": "68029788803f106db094b9441f8ad2ba877c15e0efdd721e05458f4aa15c8468"
+    },
+    {
+      "name": "53394619_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/e6/75f5f9-3352-4d80-a79c-3a2421f75d5a/13123_edogawa-ku_pref_2025_citygml_1_op/udx/tran/53394619_tran_6697_op.gml",
+      "cityCode": "13123",
+      "cityName": "江戸川区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1271,
+      "lod2": 39,
+      "bytes": 3471967,
+      "sha256": "08355c2268c0d333cd6f9fc965f08164189beeedafc4dcc648ebd006c89747cb"
+    },
+    {
+      "name": "53394627_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/tran/53394627_tran_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 840,
+      "lod2": 0,
+      "bytes": 2220907,
+      "sha256": "aa9a22db91047f0bf6d215e91bc048fadf98435cbe811735893ffc71533a6fd9"
+    },
+    {
+      "name": "53394628_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/e6/75f5f9-3352-4d80-a79c-3a2421f75d5a/13123_edogawa-ku_pref_2025_citygml_1_op/udx/tran/53394628_tran_6697_op.gml",
+      "cityCode": "13123",
+      "cityName": "江戸川区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 367,
+      "lod2": 5,
+      "bytes": 1011522,
+      "sha256": "05a131f8b71b0d1c5deebc22f98c7ae8baabc88cfde048a4ce2d7f036d4e185a"
+    },
+    {
+      "name": "53394629_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/e6/75f5f9-3352-4d80-a79c-3a2421f75d5a/13123_edogawa-ku_pref_2025_citygml_1_op/udx/tran/53394629_tran_6697_op.gml",
+      "cityCode": "13123",
+      "cityName": "江戸川区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1047,
+      "lod2": 75,
+      "bytes": 3041600,
+      "sha256": "ba567370f94390e3bd7ad16a8d66d14de7f76fcde7f8d5b99be95a8123ac0b8f"
+    },
+    {
+      "name": "53394637_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/tran/53394637_tran_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 768,
+      "lod2": 1,
+      "bytes": 2065068,
+      "sha256": "7770cc388eb0c519c342e8c20cde4fdead69818ee80e752c59603a8d7fbe9acc"
+    },
+    {
+      "name": "53394638_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/e6/75f5f9-3352-4d80-a79c-3a2421f75d5a/13123_edogawa-ku_pref_2025_citygml_1_op/udx/tran/53394638_tran_6697_op.gml",
+      "cityCode": "13123",
+      "cityName": "江戸川区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 250,
+      "lod2": 0,
+      "bytes": 713495,
+      "sha256": "1d0976d2429c6e42af559fda1dc815fd6505a86c5c7c5f023ddd4e6b3fdf9f5e"
+    },
+    {
+      "name": "53394639_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/e6/75f5f9-3352-4d80-a79c-3a2421f75d5a/13123_edogawa-ku_pref_2025_citygml_1_op/udx/tran/53394639_tran_6697_op.gml",
+      "cityCode": "13123",
+      "cityName": "江戸川区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1391,
+      "lod2": 0,
+      "bytes": 3703706,
+      "sha256": "0804c6c8c63e093fb8c5d83246928c27a97519be64ce5821f874d4de5064f815"
+    }
+  ]
+}

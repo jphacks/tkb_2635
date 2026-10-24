@@ -1,0 +1,34 @@
+{
+  "sceneId": "shinjuku_gyoen",
+  "radiusMeters": 500,
+  "scanned": 8162,
+  "selected": 792,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53394516_bldg_6697_op.gml",
+      "sha256": "4697d6b6c4f96a8cd268ca5221b0c268723a3180555c14accde9fbc5b45de8fc",
+      "buildingsScanned": 2170
+    },
+    {
+      "name": "53394517_bldg_6697_op.gml",
+      "sha256": "c6df606498f3833f0000413bebee5181c5bee98e31a79e10bc6f0b3bc44fecd1",
+      "buildingsScanned": 936
+    },
+    {
+      "name": "53394526_bldg_6697_op.gml",
+      "sha256": "b6a84b0148dff5a33fbaf012549eb482979ffa75fd9f764f20fb9a7434fcda3c",
+      "buildingsScanned": 1411
+    },
+    {
+      "name": "53394527_bldg_6697_op.gml",
+      "sha256": "24fd4057666e26f7c32124ea6ff8264ef149e31dddfb5fa3c965f2d7e9056a6e",
+      "buildingsScanned": 3645
+    }
+  ],
+  "groundElevation": 34.0,
+  "belowSceneGround": 7
+}

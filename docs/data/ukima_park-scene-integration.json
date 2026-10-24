@@ -1,0 +1,24 @@
+{
+  "sceneId": "ukima_park",
+  "radiusMeters": 500,
+  "scanned": 3141,
+  "selected": 1407,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53395545_bldg_6697_op.gml",
+      "sha256": "dcc0ba05961715a25a3a0d0e356155d9e48a05d698e365e2929f71eb7890586e",
+      "buildingsScanned": 1986
+    },
+    {
+      "name": "53395555_bldg_6697_op.gml",
+      "sha256": "65269117371ef6ee4e0b8d5e1f85e5803cc5a647aa96de59163e320604d9118c",
+      "buildingsScanned": 1155
+    }
+  ],
+  "groundElevation": 1,
+  "belowSceneGround": 0
+}

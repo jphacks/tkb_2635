@@ -64,6 +64,18 @@ import Testing
         #expect(!horizon.isApproximate)
     }
 
+    /// a: 全地点に PLATEAU から作ったシーンがある。地上の地点の目は、シーンの地面より下にならない。
+    @Test func everySpotHasAPlateauScene() throws {
+        let scenes = Dictionary(uniqueKeysWithValues: try SeedData.loadScenes().map { ($0.id, $0) })
+        for spot in try SeedData.loadSpots() {
+            let scene = try #require(spot.sceneId.flatMap { scenes[$0] }, "\(spot.id)")
+            #expect(scene.source.contains("PLATEAU") && scene.source.contains("CC BY 4.0"))
+            #expect(!scene.buildings.isEmpty)
+            #expect(Set(scene.buildings.map(\.id)).count == scene.buildings.count)
+            #expect(spot.observerElevation >= scene.groundElevation, "\(spot.id)")
+        }
+    }
+
     @Test func rooftopHostResolvesAndGroundIsOutsideBuildings() throws {
         let scene = try #require(try SeedData.loadScenes().first { $0.id == "shibuya" })
         let spots = try SeedData.loadSpots()
