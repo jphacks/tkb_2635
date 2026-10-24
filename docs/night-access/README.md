@@ -1,7 +1,7 @@
 # 1-06 夜間利用の調査（東京23区内・20地点）
 
 調査日: **2026年10月24日（日本時間）**。既存6地点と追加候補14地点。区ごとの網羅より、広場・草地・水辺など空を見渡せる可能性のある場所を優先した。
-既存6地点の営業時間・入場可否をアプリへ反映した。追加候補14地点はこの調査表で管理する。GitHubへのpush・PR作成・日次実行の開始は行っていない。
+既存6地点の営業時間・入場可否をアプリへ反映した。追加候補14地点はこの調査表で管理する。変更はdevelop宛てのPRとして共有する。日次実行は既定ブランチへの反映・有効化後に開始する。
 
 ## 結果の見方
 
@@ -94,7 +94,7 @@ python3 scripts/check_night_access.py --accept-baseline --output /tmp/astera-nig
 2. Actionsでワークフローを有効にし、「1-06 夜間利用の公式情報確認」の手動実行を確認する。
 3. 確認する人がActionsの失敗通知と添付ファイルを見られることを確かめる。専用APIキーやPR作成権限は不要。
 
-ユーザーの指定によりGitHubへのアップロードは行わず、GitHub Actions上の実行確認もしていない。1-06の既存6地点への導入を実施し、未確認の2地点は未確認のまま表示・推薦判定する。
+日次確認はGitHub Actions上でまだ実行確認していない。1-06の既存6地点への導入を実施し、未確認の2地点は未確認のまま表示・推薦判定する。
 
 日次実行の開始条件・時刻指定は[GitHub公式ガイド](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)、実行添付ファイルは[upload-artifactの公式説明](https://github.com/actions/upload-artifact/tree/v4)を参照。
 
@@ -110,6 +110,8 @@ python3 scripts/check_night_access.py --accept-baseline --output /tmp/astera-nig
 - iPhone 17 Pro / iOS 27.0 向けのビルドと起動に成功。
 - 荒川河川敷の「利用時間・入場可否・最終確認日: 未確認」、夜21時の新宿御苑の「利用不可」、3D上の閉園・未確認の注意を画面で確認。
 - 標準のSwiftビルド先に署名用の付加情報の問題があったため、`verification.json` に記載の一時フォルダ・nativeビルドで検証した。
-- GitHubへのpush、PR作成、Actions実行は行っていない。未確認2地点の管理者への問い合わせ、現地の観測位置・照明、臨時閉鎖の常時把握は未実施。
+- GitHub Actions上の実行は未確認。未確認2地点の管理者への問い合わせ、現地の観測位置・照明、臨時閉鎖の常時把握は未実施。
 
 [一覧画面](screenshots/iphone17pro-night-list.png) / [未確認の入場条件](screenshots/iphone17pro-access-unverified.png) / [新宿御苑の閉園表示](screenshots/iphone17pro-gyoen-closed.png)
+
+PR作成前の最終確認では、PLATEAU変換処理が入った最新developを取り込み、Swift 30件・Python計45件とiPhone 17 Pro向けビルドが成功した。記録は `verification.json` の `pullRequestValidation`。

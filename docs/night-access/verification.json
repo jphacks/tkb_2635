@@ -72,5 +72,14 @@
     ],
     "githubPushed": false,
     "githubActionsRun": false
+  },
+  "pullRequestValidation": {
+    "verifiedAt": "2026-10-24T16:11:17.995980+09:00",
+    "developRevision": "ebe83317cef1d7b8f45c9f3d7f84bf1e973d83fd",
+    "swiftTestsPassed": 30,
+    "nightAccessPythonTestsPassed": 23,
+    "existingPythonTestsPassed": 22,
+    "simulatorBuildSucceeded": true,
+    "githubActionsRun": false
   }
 }
