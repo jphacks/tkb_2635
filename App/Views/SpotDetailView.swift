@@ -92,6 +92,7 @@ struct SpotDetailView: View {
                     LabeledContent("収録建物数", value: "\(scene.buildings.count)棟")
                     Text(scene.source).font(.caption).foregroundStyle(.secondary)
                 }
+                SurroundingsSection(context: context)
             }
 
             if !prediction.dataQualityFlags.isEmpty {
