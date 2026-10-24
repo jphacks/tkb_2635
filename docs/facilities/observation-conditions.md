@@ -1,6 +1,6 @@
 # 観測方向・施設の制限・12地点への拡充（1-08・1-09・1-10）
 
-確認日: 2026-10-24。実機確認後にpush・PR作成する。統合先はdevelop。
+確認日: 2026-10-24。ユーザーから実機確認完了とpush・PR作成の依頼を受領済み。統合先はdevelop。
 
 ## 1-08: 都庁南展望室の方角
 
@@ -54,6 +54,8 @@
 画面の記録: [追加3公園の一覧](screenshots/observation-conditions/iphone17pro-new-parks.png)、[SHIBUYA SKYの閉鎖・撮影条件](screenshots/observation-conditions/iphone17pro-sky-conditions.png)。
 
 ## 実機で確認する箇所（ユーザー担当）
+
+2026-10-24、ユーザーより実機確認完了の連絡を受領。
 
 1. 一覧で舎人公園・水元公園・駒沢オリンピック公園を開けること。
 2. SHIBUYA SKY・都庁・KITTEの詳細に「天候による閉鎖条件」「撮影機材の制限」があり、KITTEの撮影機材制限が「未確認」であること。
