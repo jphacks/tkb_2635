@@ -11,8 +11,8 @@ import Testing
     /// 方位の差は空の上での距離（方位差 × cos 高度）で測る。真上の近くでは方位の数字そのものが大きく振れるため
     static let moonAltAzTolerance = 1.0
     static let sunTolerance = 0.1
-    /// 歳差を補正していないため、3-06 までは 0.5° とする
-    static let starTolerance = 0.5
+    /// 歳差は補正済み（3-06）。章動・光行差の分（0.01° 程度）が残る
+    static let starTolerance = 0.1
     /// 位置を比べるのは、参照値で地平線より上にある件だけ。
     /// 地平線の約 1° 下で大気差の計算を打ち切る位置が実装ごとに少し違い、そこで最大 0.7° の段差が出るため
     /// （地平線より下の天体はアプリでは「見えない」扱いなので、この差は結果に影響しない）
@@ -130,5 +130,22 @@ import Testing
             #expect(stats.max <= Self.starTolerance, "恒星 \(id) の誤差 \(stats)")
         }
         #expect(perStar.count == 6)
+    }
+
+    /// 北極星は天の北極に近く、歳差の影響が最も大きい。2026-10-24 の値を個別に確かめる
+    @Test func polarisMatchesSkyfieldOnDemoDay() throws {
+        let fixture = try Self.loadFixture()
+        let sites = Self.observers(fixture)
+        let polaris = try #require(StarCatalog.star(id: "polaris"))
+        let dayEnd = try #require(ISO8601DateFormatter().date(from: "2026-10-25T00:00:00Z"))
+        let samples = fixture.samples.filter { $0.time < dayEnd }
+        #expect(samples.count == 8)
+        for s in samples {
+            let site = try #require(sites[s.observer])
+            let expected = try #require(s.stars["polaris"])
+            let actual = Astro.star(polaris, date: s.time, latitude: site.latitude, longitude: site.longitude)
+            let error = Astro.separation(actual, Self.coord(expected))
+            #expect(error <= Self.starTolerance, "北極星 \(s.observer) \(s.time): \(error)°")
+        }
     }
 }
