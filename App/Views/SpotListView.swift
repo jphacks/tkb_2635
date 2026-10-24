@@ -50,7 +50,7 @@ struct SpotListView: View {
                     Text(error).foregroundStyle(.red)
                 }
             }
-            .navigationTitle("星見スポット")
+            .navigationTitle("Astera")
             .navigationDestination(for: String.self) { id in
                 if let context = model.context(id: id) {
                     SpotDetailView(context: context)

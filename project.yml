@@ -22,7 +22,9 @@ targets:
         SWIFT_VERSION: "6.0"
         TARGETED_DEVICE_FAMILY: "1"
         GENERATE_INFOPLIST_FILE: YES
-        INFOPLIST_KEY_CFBundleDisplayName: 星見スポット
+        INFOPLIST_KEY_CFBundleDisplayName: Astera
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        DEVELOPMENT_TEAM: NMJFRR7D86
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
         INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
