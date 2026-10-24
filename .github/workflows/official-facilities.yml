@@ -1,0 +1,85 @@
+name: 公式施設情報の確認
+
+on:
+  schedule:
+    # 毎日 06:17 JST。時刻ちょうどの混雑を避ける。
+    - cron: '17 21 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: official-facilities
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: macos-15
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: develop
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: 取得処理を保存済みデータで検証
+        run: python3 -m unittest discover -s scripts/tests -v
+      - name: 公式サイトを確認
+        id: official
+        continue-on-error: true
+        run: python3 scripts/update_official_facilities.py --write --report /tmp/facility-report.json
+      - name: 更新後の地点データと計算を検証
+        run: swift test --package-path Packages/StarCore
+      - name: 実行結果を記録
+        if: always()
+        run: |
+          if [ -f /tmp/facility-report.json ]; then
+            python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          from pathlib import Path
+          report = json.loads(Path('/tmp/facility-report.json').read_text())
+          print('公式施設情報の確認結果\n\n```json')
+          print(json.dumps(report, ensure_ascii=False, indent=2))
+          print('```')
+          PY
+          fi
+      - name: 変更がある場合だけdevelop宛てPRを作る
+        run: |
+          set -euo pipefail
+          spots=Packages/StarCore/Sources/StarCore/Resources/spots.json
+          evidence=docs/facilities/official-checks.json
+          if git diff --quiet -- "$spots" "$evidence"; then
+            exit 0
+          fi
+          pending=$(gh pr list --base develop --state open --json headRefName,url --jq '.[] | select(.headRefName | startswith("data/official-facilities-")) | .url')
+          if [ -n "$pending" ]; then
+            echo "確認待ちPR: $pending。今回の取得結果は上のレポートを参照。既存PRの確認後に再実行してください。" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          branch="data/official-facilities-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          git switch -c "$branch"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- "$spots" "$evidence"
+          git commit -m '1-03・1-04・1-05の公式施設情報を更新'
+          git push origin "$branch"
+          python3 - <<'PY' > /tmp/facility-pr.md
+          from pathlib import Path
+          report = Path('/tmp/facility-report.json').read_text()
+          print('## 何を変えたか\n公式案内から取得した施設情報・出典の変更です。自動マージはしません。')
+          print('\n## どう確かめたか\n保存済みデータで取得処理をテストし、更新後の地点データでSwiftのテストを実行しました。')
+          print('\n## 確かめていないこと\n当日の臨時閉鎖・空席、窓の正確な可視範囲、現地の照明。出典と差分を確認してください。')
+          print('\n## 取得結果\n```json\n' + report + '```')
+          PY
+          gh pr create --base develop --head "$branch" --title '1-03・1-04・1-05 公式施設情報の変更を反映' --body-file /tmp/facility-pr.md
+      - name: 取得失敗を検知
+        if: steps.official.outcome == 'failure'
+        run: |
+          echo '公式ページの一部を確認できませんでした。該当施設の既存値は維持しています。実行結果を確認してください。' >&2
+          exit 1

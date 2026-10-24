@@ -1,0 +1,47 @@
+{
+  "shibuya_sky": {
+    "task": "1-03",
+    "sources": [
+      "https://www.shibuya-scramble-square.com/sky/",
+      "https://www.shibuya-scramble-square.com/sky/ticket/"
+    ],
+    "factsHash": "8e232a95d28d8858e941166ae32f67c0edbdf732b32327ed783ac136314647ec",
+    "sourceSectionHash": null,
+    "unconfirmed": [
+      "正確な観測可能方位・高度",
+      "近傍照明の段階評価",
+      "当日の臨時閉鎖・混雑・空席"
+    ],
+    "lastChangedAt": "2026-10-24"
+  },
+  "tocho_observatory": {
+    "task": "1-04",
+    "sources": [
+      "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou",
+      "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv"
+    ],
+    "factsHash": "15cc24eec1c78bbc66d28c911504212e3e6d7b1e9d0c3ed0f4dbac53d52dfda8",
+    "sourceSectionHash": "5ab32b66bbbe93ef35891ab7b0d684e0f12d926d13694d579d57b47b10d13ca7",
+    "unconfirmed": [
+      "正確な観測可能方位・高度",
+      "近傍照明の段階評価",
+      "当日の臨時閉鎖・混雑・空席"
+    ],
+    "lastChangedAt": "2026-10-24"
+  },
+  "kitte_garden": {
+    "task": "1-05",
+    "sources": [
+      "https://marunouchi.jp-kitte.jp/guide/facilities.jsp",
+      "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv"
+    ],
+    "factsHash": "257d0c060862363615fd3ad7690c1bdf8b3e2b1cfb1261d3417c92741e4e536f",
+    "sourceSectionHash": "60528ab1e4158f7271730acb541180bf705dc71783ffce136fbb35c419ff36d5",
+    "unconfirmed": [
+      "正確な観測可能方位・高度",
+      "近傍照明の段階評価",
+      "当日の臨時閉鎖・混雑・空席"
+    ],
+    "lastChangedAt": "2026-10-24"
+  }
+}

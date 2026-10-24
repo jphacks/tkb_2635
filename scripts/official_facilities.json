@@ -1,0 +1,5 @@
+{
+  "shibuya_sky": {"task": "1-03", "adapter": "sky", "url": "https://www.shibuya-scramble-square.com/sky/ticket/"},
+  "tocho_observatory": {"task": "1-04", "adapter": "tocho", "url": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou"},
+  "kitte_garden": {"task": "1-05", "adapter": "kitte", "url": "https://marunouchi.jp-kitte.jp/guide/facilities.jsp"}
+}

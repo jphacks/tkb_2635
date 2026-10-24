@@ -195,7 +195,7 @@ public enum Recommender {
         let obs = String(format: "%.0f", p.obstructionElevation)
 
         if !p.isOpen {
-            lines.append("指定時刻は利用時間外です（\(spot.openingHours.displayText)）。")
+            lines.append("指定時刻の新たな入場・利用は確認できません（最終入場・休室日・確認済み期間を確認してください。\(spot.openingHours.displayText)）。")
         }
         if p.altitude <= 0 {
             lines.append("指定時刻の\(target.name)は地平線の下にあります。")
