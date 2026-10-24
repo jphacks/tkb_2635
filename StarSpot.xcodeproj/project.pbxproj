@@ -9,28 +9,46 @@
 /* Begin PBXBuildFile section */
 		1EE9A584A7D584A4BAEAF1EB /* StarSpotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA8483FB629B08A3E5A4BE0 /* StarSpotApp.swift */; };
 		1EFFE3428A12B9632AD2AEB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0998F6616654F6C8506DC67 /* Assets.xcassets */; };
+		21DA8A0B28A2AD383FB85084 /* Sky3DMarkers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292EF5205CC96A242DC2B369 /* Sky3DMarkers.swift */; };
 		2728E18A4E52AF0C17714287 /* SpotListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48E1331041841284856A9DB /* SpotListView.swift */; };
 		4887106743DC6CFC45CF3DDF /* Sky3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA12F120047673D19190040 /* Sky3DView.swift */; };
 		837C7DD37DD459D34DE649A1 /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5D031CC5399C443511121C /* SpotDetailView.swift */; };
+		84AFD976B4CBC5D93D7F9404 /* Concrete034_Roughness.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 308179C5CCF1CE14B9BF6493 /* Concrete034_Roughness.jpg */; };
+		883CCA595AA0B31955697D89 /* City_shibuya.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B9DA1DEE77A332FC2A04DEF6 /* City_shibuya.usdz */; };
 		941EB8CCC608EC6AEF1A799B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2AE00460F10C5D00FB4FC0 /* AppModel.swift */; };
 		A1577EEB4934E2A2E6BFEDA0 /* BuildingNightRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */; };
 		A195391722902F86D763B56F /* BuildingFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F92338553BC2D572913CBE8 /* BuildingFacade.swift */; };
 		A8AEA27D74F047C4532C6F40 /* StarCore in Frameworks */ = {isa = PBXBuildFile; productRef = C562E67EB8C174B0CC595341 /* StarCore */; };
+		B2341704FEB2BD45412EEB6E /* Concrete034_NormalGL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15F0F3CF7CB762C06A5DED0F /* Concrete034_NormalGL.jpg */; };
+		C40105CC67476B1524DA1791 /* Asphalt031_Roughness.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F15A6BD96245C9D0EB9D555F /* Asphalt031_Roughness.jpg */; };
+		D9F4571299DC479495189966 /* CityModelRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9203D1807BE1815AEE18E0B /* CityModelRenderer.swift */; };
 		F0A6C29194EF8C66AAD5C1F4 /* SurroundingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D756A88C6BD474D11D3DF42 /* SurroundingsSection.swift */; };
+		F18EC5FB9912E1C9058F7313 /* Concrete034_Color.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A93A7469668EA324B724E02C /* Concrete034_Color.jpg */; };
+		F5A23B40904147AA81FD4D03 /* Asphalt031_NormalGL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E977348ECDA6D2A5DE9E28DA /* Asphalt031_NormalGL.jpg */; };
+		FCC469DCD83FB573F8866F44 /* Asphalt031_Color.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0C07C8453CFA255AD73FC45 /* Asphalt031_Color.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0D756A88C6BD474D11D3DF42 /* SurroundingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurroundingsSection.swift; sourceTree = "<group>"; };
+		15F0F3CF7CB762C06A5DED0F /* Concrete034_NormalGL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Concrete034_NormalGL.jpg; sourceTree = "<group>"; };
 		1DA8483FB629B08A3E5A4BE0 /* StarSpotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSpotApp.swift; sourceTree = "<group>"; };
+		292EF5205CC96A242DC2B369 /* Sky3DMarkers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sky3DMarkers.swift; sourceTree = "<group>"; };
+		308179C5CCF1CE14B9BF6493 /* Concrete034_Roughness.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Concrete034_Roughness.jpg; sourceTree = "<group>"; };
 		3BA12F120047673D19190040 /* Sky3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sky3DView.swift; sourceTree = "<group>"; };
 		5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingNightRenderer.swift; sourceTree = "<group>"; };
 		5C8AFF653702BECCFC11DC7A /* StarCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StarCore; path = Packages/StarCore; sourceTree = SOURCE_ROOT; };
 		7E2AE00460F10C5D00FB4FC0 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		9F92338553BC2D572913CBE8 /* BuildingFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingFacade.swift; sourceTree = "<group>"; };
 		A48E1331041841284856A9DB /* SpotListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListView.swift; sourceTree = "<group>"; };
+		A93A7469668EA324B724E02C /* Concrete034_Color.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Concrete034_Color.jpg; sourceTree = "<group>"; };
 		B0998F6616654F6C8506DC67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B0C07C8453CFA255AD73FC45 /* Asphalt031_Color.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Asphalt031_Color.jpg; sourceTree = "<group>"; };
+		B9DA1DEE77A332FC2A04DEF6 /* City_shibuya.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_shibuya.usdz; sourceTree = "<group>"; };
 		CE6E07D95BA4F5CEAEF24248 /* StarSpot.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = StarSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9203D1807BE1815AEE18E0B /* CityModelRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModelRenderer.swift; sourceTree = "<group>"; };
 		DB5D031CC5399C443511121C /* SpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
+		E977348ECDA6D2A5DE9E28DA /* Asphalt031_NormalGL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Asphalt031_NormalGL.jpg; sourceTree = "<group>"; };
+		F15A6BD96245C9D0EB9D555F /* Asphalt031_Roughness.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Asphalt031_Roughness.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,12 +63,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13FC1E33BEE8D439278BD88C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE80059D42265AC5123D9315 /* City */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		14607A530079FEB0D36D866E /* App */ = {
 			isa = PBXGroup;
 			children = (
 				7E2AE00460F10C5D00FB4FC0 /* AppModel.swift */,
 				B0998F6616654F6C8506DC67 /* Assets.xcassets */,
 				1DA8483FB629B08A3E5A4BE0 /* StarSpotApp.swift */,
+				13FC1E33BEE8D439278BD88C /* Resources */,
 				53A82B4FAE89D1657F4BA5C8 /* Views */,
 			);
 			path = App;
@@ -69,6 +96,8 @@
 			children = (
 				9F92338553BC2D572913CBE8 /* BuildingFacade.swift */,
 				5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */,
+				D9203D1807BE1815AEE18E0B /* CityModelRenderer.swift */,
+				292EF5205CC96A242DC2B369 /* Sky3DMarkers.swift */,
 				3BA12F120047673D19190040 /* Sky3DView.swift */,
 				DB5D031CC5399C443511121C /* SpotDetailView.swift */,
 				A48E1331041841284856A9DB /* SpotListView.swift */,
@@ -83,6 +112,20 @@
 				5C8AFF653702BECCFC11DC7A /* StarCore */,
 			);
 			path = Packages;
+			sourceTree = "<group>";
+		};
+		CE80059D42265AC5123D9315 /* City */ = {
+			isa = PBXGroup;
+			children = (
+				B0C07C8453CFA255AD73FC45 /* Asphalt031_Color.jpg */,
+				E977348ECDA6D2A5DE9E28DA /* Asphalt031_NormalGL.jpg */,
+				F15A6BD96245C9D0EB9D555F /* Asphalt031_Roughness.jpg */,
+				B9DA1DEE77A332FC2A04DEF6 /* City_shibuya.usdz */,
+				A93A7469668EA324B724E02C /* Concrete034_Color.jpg */,
+				15F0F3CF7CB762C06A5DED0F /* Concrete034_NormalGL.jpg */,
+				308179C5CCF1CE14B9BF6493 /* Concrete034_Roughness.jpg */,
+			);
+			path = City;
 			sourceTree = "<group>";
 		};
 		DEF55B7A44A66744EE540BC8 = {
@@ -159,7 +202,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCC469DCD83FB573F8866F44 /* Asphalt031_Color.jpg in Resources */,
+				F5A23B40904147AA81FD4D03 /* Asphalt031_NormalGL.jpg in Resources */,
+				C40105CC67476B1524DA1791 /* Asphalt031_Roughness.jpg in Resources */,
 				1EFFE3428A12B9632AD2AEB8 /* Assets.xcassets in Resources */,
+				883CCA595AA0B31955697D89 /* City_shibuya.usdz in Resources */,
+				F18EC5FB9912E1C9058F7313 /* Concrete034_Color.jpg in Resources */,
+				B2341704FEB2BD45412EEB6E /* Concrete034_NormalGL.jpg in Resources */,
+				84AFD976B4CBC5D93D7F9404 /* Concrete034_Roughness.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +223,8 @@
 				941EB8CCC608EC6AEF1A799B /* AppModel.swift in Sources */,
 				A195391722902F86D763B56F /* BuildingFacade.swift in Sources */,
 				A1577EEB4934E2A2E6BFEDA0 /* BuildingNightRenderer.swift in Sources */,
+				D9F4571299DC479495189966 /* CityModelRenderer.swift in Sources */,
+				21DA8A0B28A2AD383FB85084 /* Sky3DMarkers.swift in Sources */,
 				4887106743DC6CFC45CF3DDF /* Sky3DView.swift in Sources */,
 				837C7DD37DD459D34DE649A1 /* SpotDetailView.swift in Sources */,
 				2728E18A4E52AF0C17714287 /* SpotListView.swift in Sources */,
