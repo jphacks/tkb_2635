@@ -503,6 +503,8 @@
     "accessConditions": "6階の屋上庭園。JR東京駅丸の内駅舎を望める。観測可能な正確な方位範囲・周辺照明の強さは公式情報では未確認。",
     "officialWebsite": "https://marunouchi.jp-kitte.jp/guide/facilities.jsp",
     "approxHorizonElevation": 25,
+    "sceneId": "marunouchi",
+    "hostBuildingId": "bldg_f0028aa3-e666-4608-8b70-4e981a45d6b5",
     "regionalLightIndex": 0.87,
     "regionalLightSource": "VIIRS VNL v2.2 2025 annual average_masked（EOG, Colorado School of Mines）",
     "regionalLightMeasuredAt": "2025",

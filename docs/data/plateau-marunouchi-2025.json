@@ -1,0 +1,126 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）東京都23区（2025年度）",
+  "cities": [
+    {
+      "cityCode": "13101",
+      "cityName": "千代田区"
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.7559,35.6724,139.7735,35.6868",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/51/9957a6-8b43-4ee8-a07f-65b9d23e5c79/13101_chiyoda-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53394610_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/5d/dc07c5-ace7-465a-9c99-53f6d78f6164/13101_chiyoda-ku_pref_2025_citygml_1_op/udx/bldg/53394610_bldg_6697_op.gml",
+      "cityCode": "13101",
+      "cityName": "千代田区",
+      "maxLod": 2,
+      "features": 96,
+      "lod2": 60,
+      "bytes": 21936620,
+      "sha256": "f2b58e205f91d9b5b4fce2eea6a9aa34ed5278eecf682bd1c0afdb87b10db403"
+    },
+    {
+      "name": "53394611_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/5d/dc07c5-ace7-465a-9c99-53f6d78f6164/13101_chiyoda-ku_pref_2025_citygml_1_op/udx/bldg/53394611_bldg_6697_op.gml",
+      "cityCode": "13101",
+      "cityName": "千代田区",
+      "maxLod": 2,
+      "features": 1022,
+      "lod2": 1022,
+      "bytes": 166216449,
+      "sha256": "3448bec01ea015913fc2a5ac31e25831d667cd20d68e8d576d8627054d5c160e"
+    },
+    {
+      "name": "53394620_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/5d/dc07c5-ace7-465a-9c99-53f6d78f6164/13101_chiyoda-ku_pref_2025_citygml_1_op/udx/bldg/53394620_bldg_6697_op.gml",
+      "cityCode": "13101",
+      "cityName": "千代田区",
+      "maxLod": 2,
+      "features": 107,
+      "lod2": 72,
+      "bytes": 17586954,
+      "sha256": "70328f364d0cc8bac7d8a86341597c0ef02bc761b55513b1ac0dcd6a54a60d71"
+    },
+    {
+      "name": "53394621_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/5d/dc07c5-ace7-465a-9c99-53f6d78f6164/13101_chiyoda-ku_pref_2025_citygml_1_op/udx/bldg/53394621_bldg_6697_op.gml",
+      "cityCode": "13101",
+      "cityName": "千代田区",
+      "maxLod": 2,
+      "features": 1323,
+      "lod2": 1323,
+      "bytes": 250839546,
+      "sha256": "7f51448a837b4851bb3f2067466225109840d3e1f7cab1e959273695f16cb791"
+    },
+    {
+      "name": "53394600_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/5d/dc07c5-ace7-465a-9c99-53f6d78f6164/13101_chiyoda-ku_pref_2025_citygml_1_op/udx/tran/53394600_tran_6697_op.gml",
+      "cityCode": "13101",
+      "cityName": "千代田区",
+      "maxLod": 3,
+      "features": 582,
+      "lod2": 582,
+      "bytes": 40471447,
+      "sha256": "5e07db480ffe5e86970af133e4d748bd063fabe6d2bfd20c6cb903c0644027a1"
+    },
+    {
+      "name": "53394601_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/5d/dc07c5-ace7-465a-9c99-53f6d78f6164/13101_chiyoda-ku_pref_2025_citygml_1_op/udx/tran/53394601_tran_6697_op.gml",
+      "cityCode": "13101",
+      "cityName": "千代田区",
+      "maxLod": 3,
+      "features": 990,
+      "lod2": 989,
+      "bytes": 46689053,
+      "sha256": "d74f7429d3733610973f733506f941b3e8750e0bd9a68b205c392a443cbc0b19"
+    },
+    {
+      "name": "53394610_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/5d/dc07c5-ace7-465a-9c99-53f6d78f6164/13101_chiyoda-ku_pref_2025_citygml_1_op/udx/tran/53394610_tran_6697_op.gml",
+      "cityCode": "13101",
+      "cityName": "千代田区",
+      "maxLod": 3,
+      "features": 70,
+      "lod2": 50,
+      "bytes": 6692326,
+      "sha256": "361b4072b17d0498afdee0ee3f289ae45e9308ee2d54985cf70f4b7c6a2b9268"
+    },
+    {
+      "name": "53394611_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/5d/dc07c5-ace7-465a-9c99-53f6d78f6164/13101_chiyoda-ku_pref_2025_citygml_1_op/udx/tran/53394611_tran_6697_op.gml",
+      "cityCode": "13101",
+      "cityName": "千代田区",
+      "maxLod": 3,
+      "features": 624,
+      "lod2": 623,
+      "bytes": 37903117,
+      "sha256": "a07730e84bcbc6983812175bde76a58e767840740e847735b1574144b0658312"
+    },
+    {
+      "name": "53394620_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/5d/dc07c5-ace7-465a-9c99-53f6d78f6164/13101_chiyoda-ku_pref_2025_citygml_1_op/udx/tran/53394620_tran_6697_op.gml",
+      "cityCode": "13101",
+      "cityName": "千代田区",
+      "maxLod": 3,
+      "features": 110,
+      "lod2": 70,
+      "bytes": 6409726,
+      "sha256": "aa883285315bc7e762c203c78f63e24c2a4f1e8c305bd9ab6a17babd83c7cc86"
+    },
+    {
+      "name": "53394621_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/5d/dc07c5-ace7-465a-9c99-53f6d78f6164/13101_chiyoda-ku_pref_2025_citygml_1_op/udx/tran/53394621_tran_6697_op.gml",
+      "cityCode": "13101",
+      "cityName": "千代田区",
+      "maxLod": 3,
+      "features": 690,
+      "lod2": 690,
+      "bytes": 35116339,
+      "sha256": "6470c75c8e506ceecb5b11f6099197a8af31645148f335cf0b2eb8b21618dd9a"
+    }
+  ]
+}
