@@ -17,9 +17,9 @@ FAR_NIGHT = np.array([0.20, 0.23, 0.33], dtype=np.float32) * 0.55
 # 街明かりの色（blender_city_usdz.py の far_lights と同じ暖色）
 LIGHT_COLOR = np.array([0.95, 0.70, 0.42], dtype=np.float32)
 # 街のぼんやりした明るさと、明かりの点の強さ
-GLOW_GAIN, POINT_GAIN = 0.16, 0.95
+GLOW_GAIN, POINT_GAIN = 0.10, 0.75
 # 明かりの点の数の上限（画素のうち点になる割合）
-POINT_DENSITY = 0.22
+POINT_DENSITY = 0.10
 # 夜間光（Black Marble）は東京では広く飽和するので、街の度合い（0〜1）として使う。
 # 明かりの点の置き場所は航空写真から決める（屋根・道路は明るく、緑と水は暗い）。
 # 地平線の色（Sky3DView の背景と同じ）
@@ -83,9 +83,14 @@ def main():
     density = city * built
     # 毎回同じ模様になるよう、乱数の種はシーンの原点から決める
     seed = int(abs(lat0 * 1e4) + abs(lon0 * 1e4)) % (2 ** 32)
-    points = np.random.default_rng(seed).random(density.shape) < density * POINT_DENSITY
+    points = (np.random.default_rng(seed).random(density.shape) < density * POINT_DENSITY).astype(np.float32)
+    # 近くで拡大されると四角いブロックに見えるので、点を少しにじませて丸い光にする
+    soft = points * 0.5
+    for dy, dx, w in ((-1, 0, 0.125), (1, 0, 0.125), (0, -1, 0.125), (0, 1, 0.125),
+                      (-1, -1, 0.0625), (-1, 1, 0.0625), (1, -1, 0.0625), (1, 1, 0.0625)):
+        soft += np.roll(np.roll(points, dy, axis=0), dx, axis=1) * w
     color = (photo * FAR_NIGHT + (density * GLOW_GAIN)[..., None] * LIGHT_COLOR
-             + (points * POINT_GAIN)[..., None] * LIGHT_COLOR)
+             + (soft * POINT_GAIN)[..., None] * LIGHT_COLOR)
 
     distance = np.hypot(east, north)
     t = np.clip((distance - job['fadeStart']) / (radius - job['fadeStart']), 0, 1)

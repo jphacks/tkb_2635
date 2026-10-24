@@ -22,6 +22,10 @@ extension Sky3DView {
                         .foregroundStyle(.secondary)
                     Text("窓・街灯の明かりはイメージ")
                         .foregroundStyle(.secondary)
+                    if context.scene.map(FarGroundRenderer.hasImage) == true {
+                        Text("遠くの街明かりは衛星の夜間光をもとにしたイメージ")
+                            .foregroundStyle(.secondary)
+                    }
                 }
                 // 地理院タイルは出典の明示が利用の条件。小さい表示でも消さない
                 Text(SkyRenderer.credit)

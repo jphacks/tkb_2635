@@ -16,8 +16,10 @@ import argparse
 from concurrent.futures import ThreadPoolExecutor
 import json
 import math
+import os
 from pathlib import Path
 import subprocess
+import threading
 import urllib.request
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -73,7 +75,8 @@ def fetch(url, target):
     if target.exists() and target.stat().st_size > 0:
         return 0
     target.parent.mkdir(parents=True, exist_ok=True)
-    temporary = target.with_suffix(target.suffix + '.part')
+    # 隣のシーンと同時に同じタイルを取っても壊れないよう、一時ファイルの名前は処理ごとに分ける
+    temporary = target.with_suffix(f'{target.suffix}.{os.getpid()}.{threading.get_ident()}.part')
     urllib.request.urlretrieve(url, temporary)
     temporary.replace(target)
     return 1
