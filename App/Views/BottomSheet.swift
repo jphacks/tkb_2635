@@ -18,7 +18,11 @@ struct BottomSheet<Header: View, Content: View>: View {
     @ViewBuilder let header: Header
     @ViewBuilder let content: Content
 
-    @GestureState private var dragOffset: CGFloat = 0
+    /// 指を離して元に戻るときも、段階の切り替えと同じばねで動かす。
+    /// アニメーションなしで戻すと、一瞬だけ離す前の段階の高さへ跳ねる
+    @GestureState(resetTransaction: Transaction(animation: Self.sheetAnimation)) private var dragOffset: CGFloat = 0
+
+    private static var sheetAnimation: Animation { .spring(duration: 0.3) }
 
     /// 半分のときの、使える高さに対する割合
     private static var mediumFraction: CGFloat { 0.48 }
@@ -62,6 +66,7 @@ struct BottomSheet<Header: View, Content: View>: View {
                         }
                 )
 
+                // 中身はいつも置いたままにする（段階で出し入れしない）
                 content
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     // 画面の外に隠れている分だけ下に余白を足し、半分のときも最後までスクロールできるようにする。
@@ -70,17 +75,24 @@ struct BottomSheet<Header: View, Content: View>: View {
                     .transaction { $0.animation = nil }
             }
             .frame(height: full, alignment: .top)
-            // ホームバーの所に中身がのぞかないよう、見せる高さで切り取る（背景は切らない）
-            .mask(alignment: .top) { Rectangle().frame(height: shown) }
-            .background {
-                UnevenRoundedRectangle(topLeadingRadius: 24, topTrailingRadius: 24)
-                    .fill(.regularMaterial)
-                    .ignoresSafeArea(edges: .bottom)
-                    .shadow(color: .black.opacity(0.35), radius: 12, y: -2)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
             .offset(y: full - shown)
-            .animation(.spring(duration: 0.3), value: detent)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+            // ホームバーの所に中身がのぞかないよう、画面の使える範囲で切る（背景は切らない）。
+            // 切る範囲は動かないので、シートの動きとずれて中身だけ先に消えることがない
+            .clipped()
+            .background(alignment: .bottom) {
+                Color.clear
+                    .frame(height: full)
+                    .background {
+                        // 3D の上で毎フレームぼかしを描き直さないよう、背景は不透明にする
+                        UnevenRoundedRectangle(topLeadingRadius: 24, topTrailingRadius: 24)
+                            .fill(Color(.systemGroupedBackground))
+                            .ignoresSafeArea(edges: .bottom)
+                            .shadow(color: .black.opacity(0.35), radius: 12, y: -2)
+                    }
+                    .offset(y: full - shown)
+            }
+            .animation(Self.sheetAnimation, value: detent)
         }
     }
 
