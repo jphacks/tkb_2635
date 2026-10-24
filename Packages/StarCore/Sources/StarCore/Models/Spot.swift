@@ -77,8 +77,12 @@ public struct Spot: Codable, Identifiable, Sendable {
     public var hostBuildingId: String?
     /// 建物データが無い地点の暫定の地平線仰角 [deg]
     public var approxHorizonElevation: Double?
-    /// 地域の人工光の指標 0〜1（VIIRS 取り込み前の暫定値）
+    /// 地域の人工光の指標 0〜1。regionalLightSource が nil のものは手入力の暫定値。
     public var regionalLightIndex: Double
+    /// regionalLightIndex の出典（例: VIIRS VNL v2.2 の年次合成）。nil は暫定値。
+    public var regionalLightSource: String?
+    /// regionalLightIndex の元データの年（例: "2023"）
+    public var regionalLightMeasuredAt: String?
     /// 近傍照明の段階評価 0〜3。nil は現地未確認。
     public var localGlareLevel: Int?
     public var lightingCheckDate: String?
@@ -88,6 +92,12 @@ public struct Spot: Codable, Identifiable, Sendable {
     /// 観測者の目の標高 = z_floor + h_eye（仕様書 4.1）
     public var observerElevation: Double { floorElevation + eyeHeight }
     public var accessVerified: Bool { lastVerifiedAt != nil }
+    public var regionalLightProvisional: Bool { regionalLightSource == nil }
+    /// 画面に出す地域の光害の出典の短い名前。出典が無ければ「暫定値」。
+    public var regionalLightShortSource: String {
+        guard regionalLightSource != nil else { return "暫定値" }
+        return ["VIIRS", regionalLightMeasuredAt].compactMap { $0 }.joined(separator: " ")
+    }
 }
 
 public extension Calendar {
