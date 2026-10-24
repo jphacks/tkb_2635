@@ -8,29 +8,46 @@ struct Sky3DView: View {
     let context: SpotContext
     let prediction: Prediction
     let date: Date
+    /// 渡すと視点を外で持つ（地点を切り替えても向きが変わらない）。nil ならこの 3D だけで持つ。
+    var sharedCamera: Binding<SkyCamera>? = nil
+    /// 比較画面では、左上の説明を判定と出典だけにする
+    var compact = false
 
-    @State private var yaw: Float = .pi / 5
-    @State private var pitch: Float = 0.35
-    @State private var distance: Float = 10
+    @State private var ownCamera = SkyCamera()
     @State private var dragStart: (yaw: Float, pitch: Float)?
     @State private var zoomStart: Float?
+    /// 街の読み込みが終わったか。終わったら画面を描き直させる（そのままだと真っ暗なことがある）
+    @State private var isLoaded = false
 
     private static let scale: Float = 1 / 100
     private static let skyRadius: Float = 4
     private static let groundMeters: Float = 3_000
     private static let dynamicName = "timeDependent"
+    private static let rootName = "skyRoot"
+    private static let spotScenePrefix = "spot-"
+
+    private var spotSceneName: String { Self.spotScenePrefix + context.id }
+
+    /// この地点の街・観測者・地平線・天体をまとめた入れ物
+    private func makeSpotScene() async -> Entity {
+        var city: Entity?
+        if let scene = context.scene {
+            city = await CityModelRenderer.shared.city(for: scene)
+        }
+        let ground = await CityModelRenderer.shared.ground(meters: Self.groundMeters, scale: Self.scale)
+        let spotScene = Entity()
+        spotScene.name = spotSceneName
+        buildScene(into: spotScene, city: city, ground: ground)
+        return spotScene
+    }
 
     var body: some View {
         RealityView { content in
             content.camera = .virtual
             let root = Entity()
+            root.name = Self.rootName
             BuildingNightRenderer.shared.configureEnvironment(in: root)
-            var city: Entity?
-            if let scene = context.scene {
-                city = await CityModelRenderer.shared.city(for: scene)
-            }
-            let ground = await CityModelRenderer.shared.ground(meters: Self.groundMeters, scale: Self.scale)
-            buildScene(into: root, city: city, ground: ground)
+            root.addChild(await makeSpotScene())
             content.add(root)
 
             let camera = PerspectiveCamera()
@@ -38,36 +55,58 @@ struct Sky3DView: View {
             camera.camera.fieldOfViewInDegrees = 55
             content.add(camera)
             placeCamera(camera)
+            isLoaded = true
         } update: { content in
             if let camera = content.entities.first(where: { $0.name == "camera" }) {
                 placeCamera(camera)
             }
-            // 時刻スライダーで動かすたびに街を作り直さず、時刻で変わる物だけを置き直す
-            if let dynamic = content.entities.first?.findEntity(named: Self.dynamicName) {
-                buildTimeDependent(into: dynamic)
+            guard let root = content.entities.first(where: { $0.name == Self.rootName }) else { return }
+            // 比較画面で地点を切り替えたときは、RealityView を作り直さず中の地点だけを入れ替える。
+            // 作り直すと、シミュレータでは新しい 3D が描かれないことがあった。
+            for child in root.children where child.name.hasPrefix(Self.spotScenePrefix) {
+                child.isEnabled = child.name == spotSceneName
+            }
+            if let active = root.findEntity(named: spotSceneName) {
+                // 時刻スライダーで動かすたびに街を作り直さず、時刻で変わる物だけを置き直す
+                if let dynamic = active.findEntity(named: Self.dynamicName) {
+                    buildTimeDependent(into: dynamic)
+                }
+            } else {
+                Task {
+                    let scene = await makeSpotScene()
+                    // 待っている間にほかの呼び出しが同じ地点を足していれば、足さない
+                    if root.findEntity(named: scene.name) == nil { root.addChild(scene) }
+                }
             }
         }
-        .id("\(context.id)-\(prediction.celestialBodyId)")
+        .id(prediction.celestialBodyId)
         .background(Color(red: 0.02, green: 0.03, blue: 0.10))
         .gesture(
             DragGesture()
                 .onChanged { value in
-                    let start = dragStart ?? (yaw, pitch)
+                    let start = dragStart ?? (camera.yaw, camera.pitch)
                     dragStart = start
-                    yaw = start.yaw - Float(value.translation.width) * 0.008
-                    pitch = min(1.45, max(0.05, start.pitch + Float(value.translation.height) * 0.006))
+                    camera.yaw = start.yaw - Float(value.translation.width) * 0.008
+                    camera.pitch = min(1.45, max(0.05, start.pitch + Float(value.translation.height) * 0.006))
                 }
                 .onEnded { _ in dragStart = nil }
         )
         .simultaneousGesture(
             MagnifyGesture()
                 .onChanged { value in
-                    let start = zoomStart ?? distance
+                    let start = zoomStart ?? camera.distance
                     zoomStart = start
-                    distance = min(14, max(2, start / Float(value.magnification)))
+                    camera.distance = min(14, max(2, start / Float(value.magnification)))
                 }
                 .onEnded { _ in zoomStart = nil }
         )
+        .overlay {
+            if !isLoaded {
+                ProgressView("街を読み込み中")
+                    .tint(.white)
+                    .foregroundStyle(.white)
+            }
+        }
         .overlay(alignment: .topLeading) { legend }
         .accessibilityElement()
         .accessibilityLabel(prediction.accessStatus.label + "。" + (prediction.geometricVisibility
@@ -75,29 +114,40 @@ struct Sky3DView: View {
                             : "建物などに遮られる見込み"))
     }
 
+    private var camera: SkyCamera {
+        get { sharedCamera?.wrappedValue ?? ownCamera }
+        nonmutating set {
+            if let sharedCamera { sharedCamera.wrappedValue = newValue } else { ownCamera = newValue }
+        }
+    }
+
     private var legend: some View {
         VStack(alignment: .leading, spacing: 2) {
-            if prediction.accessStatus != .open {
+            if prediction.accessStatus != .open && !compact {
                 Label(prediction.accessStatus.label, systemImage: "exclamationmark.triangle")
                     .foregroundStyle(.orange)
             }
             Label(prediction.geometricVisibility ? "見える見込み" : (prediction.altitude <= 0 ? "地平線の下" : "遮られる見込み"),
                   systemImage: prediction.geometricVisibility ? "eye" : "eye.slash")
                 .foregroundStyle(prediction.geometricVisibility ? .green : .red)
-            Text(context.scene?.name ?? "建物データなし（地平線は暫定値）")
-                .foregroundStyle(.secondary)
-            if context.scene.map(CityModelRenderer.hasModel) == true {
-                Text("建物・地面は昼の実写を暗く表示")
+            if !compact {
+                Text(context.scene?.name ?? "建物データなし（地平線は暫定値）")
                     .foregroundStyle(.secondary)
-                // 地理院タイルは出典の明示が利用の条件
+            }
+            if context.scene.map(CityModelRenderer.hasModel) == true {
+                if !compact {
+                    Text("建物・地面は昼の実写を暗く表示")
+                        .foregroundStyle(.secondary)
+                }
+                // 地理院タイルは出典の明示が利用の条件。小さい表示でも消さない
                 Text("出典: PLATEAU（CC BY 4.0）・国土地理院")
                     .font(.caption2)
                     .foregroundStyle(.secondary)
-            } else {
+            } else if !compact {
                 Text("外壁・窓明かりはイメージ")
                     .foregroundStyle(.secondary)
             }
-            if !prediction.geometricVisibility && !prediction.blockedByDirectionMask && prediction.altitude > 0 {
+            if !compact && !prediction.geometricVisibility && !prediction.blockedByDirectionMask && prediction.altitude > 0 {
                 Label("赤い枠は判定に使った建物の箱", systemImage: "cube")
                     .foregroundStyle(Color(red: 1, green: 0.45, blue: 0.35))
             }
@@ -109,7 +159,8 @@ struct Sky3DView: View {
     }
 
     private func placeCamera(_ camera: Entity) {
-        let position = SIMD3<Float>(sin(yaw) * cos(pitch), sin(pitch), cos(yaw) * cos(pitch)) * distance
+        let c = self.camera
+        let position = SIMD3<Float>(sin(c.yaw) * cos(c.pitch), sin(c.pitch), cos(c.yaw) * cos(c.pitch)) * c.distance
         camera.look(at: [0, 1.2, 0], from: position, relativeTo: nil)
     }
 
