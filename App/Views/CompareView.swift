@@ -22,12 +22,7 @@ struct CompareView: View {
             Section {
                 DatePicker("観測日時", selection: $model.date)
                     .environment(\.timeZone, TimeZone(identifier: "Asia/Tokyo")!)
-                Picker("見たい天体", selection: $model.target) {
-                    Text("月").tag(ObservationTarget.moon)
-                    ForEach(StarCatalog.stars) { star in
-                        Text(star.name).tag(ObservationTarget.star(star))
-                    }
-                }
+                TargetPicker(target: $model.target)
             }
 
             Section {

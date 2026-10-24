@@ -17,13 +17,19 @@ struct Sky3DView: View {
 
     private static let scale: Float = 1 / 100
     private static let skyRadius: Float = 4
+    private static let groundMeters: Float = 3_000
 
     var body: some View {
         RealityView { content in
             content.camera = .virtual
             let root = Entity()
             BuildingNightRenderer.shared.configureEnvironment(in: root)
-            buildScene(into: root)
+            var city: Entity?
+            if let scene = context.scene {
+                city = await CityModelRenderer.shared.city(for: scene)
+            }
+            let ground = await CityModelRenderer.shared.ground(meters: Self.groundMeters, scale: Self.scale)
+            buildScene(into: root, city: city, ground: ground)
             content.add(root)
 
             let camera = PerspectiveCamera()
@@ -75,8 +81,21 @@ struct Sky3DView: View {
                 .foregroundStyle(prediction.geometricVisibility ? .green : .red)
             Text(context.scene?.name ?? "建物データなし（地平線は暫定値）")
                 .foregroundStyle(.secondary)
-            Text("外壁・窓明かりはイメージ")
-                .foregroundStyle(.secondary)
+            if context.scene.map(CityModelRenderer.hasModel) == true {
+                Text("建物・地面は昼の実写を暗く表示")
+                    .foregroundStyle(.secondary)
+                // 地理院タイルは出典の明示が利用の条件
+                Text("出典: PLATEAU（CC BY 4.0）・国土地理院")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+            } else {
+                Text("外壁・窓明かりはイメージ")
+                    .foregroundStyle(.secondary)
+            }
+            if !prediction.geometricVisibility && !prediction.blockedByDirectionMask && prediction.altitude > 0 {
+                Label("赤い枠は判定に使った建物の箱", systemImage: "cube")
+                    .foregroundStyle(Color(red: 1, green: 0.45, blue: 0.35))
+            }
         }
         .font(.caption.bold())
         .padding(8)
@@ -91,7 +110,8 @@ struct Sky3DView: View {
 
     // MARK: - シーン構築
 
-    private func buildScene(into root: Entity) {
+    /// city は PLATEAU の実形状（無ければ nil で、判定と同じ直方体を描く）。
+    private func buildScene(into root: Entity, city: Entity? = nil, ground: Entity? = nil) {
         let spot = context.spot
         let groundElevation = context.scene?.groundElevation ?? spot.floorElevation
         let eyeY = Float(spot.observerElevation - groundElevation) * Self.scale
@@ -100,19 +120,44 @@ struct Sky3DView: View {
         world.position = [0, -eyeY, 0]
         root.addChild(world)
 
-        let ground = ModelEntity(mesh: .generatePlane(width: 12, depth: 12),
-                                 materials: [SimpleMaterial(color: UIColor(red: 0.07, green: 0.09, blue: 0.13, alpha: 1), isMetallic: false)])
-        world.addChild(ground)
+        world.addChild(ground ?? ModelEntity(mesh: .generatePlane(width: 12, depth: 12),
+                                             materials: [SimpleMaterial(color: UIColor(red: 0.07, green: 0.09, blue: 0.13, alpha: 1), isMetallic: false)]))
 
         if let scene = context.scene {
             let me = scene.localPosition(latitude: spot.latitude, longitude: spot.longitude)
-            for building in scene.buildings {
+            func box(_ building: Building) -> (center: SIMD3<Float>, size: SIMD3<Float>) {
                 let size = SIMD3<Float>(Float(building.width), Float(building.height), Float(building.depth)) * Self.scale
-                let box = BuildingNightRenderer.shared.entity(for: building, scale: Self.scale,
-                                                              isHost: building.id == spot.hostBuildingId)
-                box.position = [Float(building.x - me.east) * Self.scale, size.y / 2,
-                                -Float(building.y - me.north) * Self.scale]
-                world.addChild(box)
+                return ([Float(building.x - me.east) * Self.scale, size.y / 2, -Float(building.y - me.north) * Self.scale], size)
+            }
+            if let city {
+                // 都市モデルは1単位 = 1m、シーン原点が原点。観測者を原点に合わせて縮める。
+                city.scale = .init(repeating: Self.scale)
+                city.position = [-Float(me.east) * Self.scale, 0, Float(me.north) * Self.scale]
+                world.addChild(city)
+            } else {
+                for building in scene.buildings {
+                    let entity = BuildingNightRenderer.shared.entity(for: building, scale: Self.scale,
+                                                                     isHost: building.id == spot.hostBuildingId)
+                    entity.position = box(building).center
+                    world.addChild(entity)
+                }
+            }
+
+            if let host = scene.buildings.first(where: { $0.id == spot.hostBuildingId }) {
+                let (center, size) = box(host)
+                let floor = Float(spot.floorElevation - groundElevation) * Self.scale
+                if let deck = Sky3DMarkers.observationDeck(center: [center.x, 0, center.z], size: size,
+                                                           floor: floor, observer: [0, 0]) {
+                    world.addChild(deck)
+                }
+            }
+
+            // 建物に遮られる見込みのとき、判定に使った箱（実際の形より大きい直方体）を枠で示す。
+            if !prediction.geometricVisibility && !prediction.blockedByDirectionMask && prediction.altitude > 0,
+               let blocker = HorizonProfile.highestBuilding(spot: spot, scene: scene, azimuth: prediction.azimuth) {
+                let (center, size) = box(blocker)
+                world.addChild(Sky3DMarkers.judgmentFrame(center: center, size: size,
+                                                          color: UIColor(red: 1, green: 0.45, blue: 0.35, alpha: 1)))
             }
         }
 
