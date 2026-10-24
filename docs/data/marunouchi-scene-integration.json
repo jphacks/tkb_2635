@@ -1,0 +1,34 @@
+{
+  "sceneId": "marunouchi",
+  "radiusMeters": 500,
+  "scanned": 2548,
+  "selected": 350,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53394610_bldg_6697_op.gml",
+      "sha256": "f2b58e205f91d9b5b4fce2eea6a9aa34ed5278eecf682bd1c0afdb87b10db403",
+      "buildingsScanned": 96
+    },
+    {
+      "name": "53394611_bldg_6697_op.gml",
+      "sha256": "3448bec01ea015913fc2a5ac31e25831d667cd20d68e8d576d8627054d5c160e",
+      "buildingsScanned": 1022
+    },
+    {
+      "name": "53394620_bldg_6697_op.gml",
+      "sha256": "70328f364d0cc8bac7d8a86341597c0ef02bc761b55513b1ac0dcd6a54a60d71",
+      "buildingsScanned": 107
+    },
+    {
+      "name": "53394621_bldg_6697_op.gml",
+      "sha256": "7f51448a837b4851bb3f2067466225109840d3e1f7cab1e959273695f16cb791",
+      "buildingsScanned": 1323
+    }
+  ],
+  "groundElevation": 3.0,
+  "belowSceneGround": 0
+}

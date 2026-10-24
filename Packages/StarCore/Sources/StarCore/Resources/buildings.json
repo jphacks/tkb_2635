@@ -22898,5 +22898,3515 @@
         "usage": "店舗等併用住宅"
       }
     ]
+  },
+  {
+    "id": "marunouchi",
+    "name": "丸の内（東京駅前）",
+    "originLatitude": 35.6796,
+    "originLongitude": 139.7647,
+    "groundElevation": 3.0,
+    "source": "東京都「3D都市モデル（Project PLATEAU）千代田区（2025年度）」 https://www.geospatial.jp/ckan/dataset/plateau-13101-chiyoda-ku-2025 を加工してAsteraチームが作成（CC BY 4.0）。LOD1等を直方体近似。基準標高3mは原点から200m以内の建物の地盤標高の中央値。観測地点の標高は暫定値、現況・現地未確認。",
+    "buildings": [
+      {
+        "id": "bldg_00133552-aa2d-431f-9786-877cd4ab98bc",
+        "name": "東京駅",
+        "x": 264.641,
+        "y": 186.011,
+        "width": 100.665,
+        "depth": 414.239,
+        "height": 15.1,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_0019fe55-0a5b-4396-b41e-46e574d37132",
+        "name": "bldg_0019fe55-0a5b-4396-b41e-46e574d37132",
+        "x": 462.998,
+        "y": -38.305,
+        "width": 34.963,
+        "depth": 37.865,
+        "height": 48.9,
+        "usage": "宿泊施設"
+      },
+      {
+        "id": "bldg_003eb32a-cb6c-4046-8f9c-e1be20daa5ad",
+        "name": "bldg_003eb32a-cb6c-4046-8f9c-e1be20daa5ad",
+        "x": 483.821,
+        "y": 0.336,
+        "width": 30.368,
+        "depth": 36.569,
+        "height": 52.2,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_0059415c-2fb4-43a9-b68d-307ac803dc17",
+        "name": "bldg_0059415c-2fb4-43a9-b68d-307ac803dc17",
+        "x": 261.248,
+        "y": -33.08,
+        "width": 6.411,
+        "depth": 10.585,
+        "height": 13.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_0201cabe-820d-4e8c-ac72-f87a1cbb3057",
+        "name": "bldg_0201cabe-820d-4e8c-ac72-f87a1cbb3057",
+        "x": -24.185,
+        "y": 488.062,
+        "width": 12.119,
+        "depth": 5.305,
+        "height": 3.3,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_022303f7-f9c8-4bdb-8f78-0b39dd5365b6",
+        "name": "bldg_022303f7-f9c8-4bdb-8f78-0b39dd5365b6",
+        "x": 161.643,
+        "y": -308.535,
+        "width": 2.487,
+        "depth": 2.545,
+        "height": 3.6,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_0236ea2b-de61-4d08-9b43-cb46c5dbb539",
+        "name": "bldg_0236ea2b-de61-4d08-9b43-cb46c5dbb539",
+        "x": 282.417,
+        "y": -409.207,
+        "width": 13.848,
+        "depth": 14.248,
+        "height": 27.0,
+        "usage": "店舗等併用住宅"
+      },
+      {
+        "id": "bldg_023f86f2-e31e-47ea-8140-43613017390c",
+        "name": "bldg_023f86f2-e31e-47ea-8140-43613017390c",
+        "x": 137.143,
+        "y": -147.014,
+        "width": 22.225,
+        "depth": 28.821,
+        "height": 19.5,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_027e216d-fc71-48a3-b06b-fe479d042eae",
+        "name": "bldg_027e216d-fc71-48a3-b06b-fe479d042eae",
+        "x": 411.224,
+        "y": 191.022,
+        "width": 6.273,
+        "depth": 5.401,
+        "height": 6.5,
+        "usage": "商業施設"
+      },
+      {
+        "id": "bldg_02843ed3-ff83-4ec8-a6f8-09f1e718647e",
+        "name": "bldg_02843ed3-ff83-4ec8-a6f8-09f1e718647e",
+        "x": 336.307,
+        "y": -281.971,
+        "width": 34.859,
+        "depth": 28.906,
+        "height": 38.9,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_02fa0b7a-67cc-45ac-8ea0-7e9bc77c3249",
+        "name": "bldg_02fa0b7a-67cc-45ac-8ea0-7e9bc77c3249",
+        "x": 246.831,
+        "y": 188.097,
+        "width": 104.253,
+        "depth": 405.582,
+        "height": 15.2,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_03803c56-a0f9-454c-8ea2-b7e707cedcc0",
+        "name": "bldg_03803c56-a0f9-454c-8ea2-b7e707cedcc0",
+        "x": 383.727,
+        "y": -189.015,
+        "width": 13.917,
+        "depth": 16.423,
+        "height": 17.0,
+        "usage": "店舗等併用住宅"
+      },
+      {
+        "id": "bldg_038f837c-2322-44cc-93ee-bd5aa5c4b734",
+        "name": "bldg_038f837c-2322-44cc-93ee-bd5aa5c4b734",
+        "x": -254.839,
+        "y": -26.59,
+        "width": 23.154,
+        "depth": 18.437,
+        "height": 15.7,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_03a63bdc-6e63-4d7e-b4a9-5e333afd8b6c",
+        "name": "bldg_03a63bdc-6e63-4d7e-b4a9-5e333afd8b6c",
+        "x": 143.785,
+        "y": -291.737,
+        "width": 8.167,
+        "depth": 8.422,
+        "height": 6.2,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_03e3f5bc-dd8a-417b-a789-3b884467a07f",
+        "name": "bldg_03e3f5bc-dd8a-417b-a789-3b884467a07f",
+        "x": 158.246,
+        "y": -216.441,
+        "width": 17.803,
+        "depth": 16.295,
+        "height": 3.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_04cad586-3f33-415d-99d8-ba3725890aa4",
+        "name": "bldg_04cad586-3f33-415d-99d8-ba3725890aa4",
+        "x": -206.296,
+        "y": 109.365,
+        "width": 4.514,
+        "depth": 4.328,
+        "height": 6.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_05ba08ea-0e49-4018-b6a9-b06948963f8f",
+        "name": "bldg_05ba08ea-0e49-4018-b6a9-b06948963f8f",
+        "x": -27.953,
+        "y": 183.777,
+        "width": 1.997,
+        "depth": 2.431,
+        "height": 3.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_06b9d1c5-068e-4de6-aff0-33157c7122de",
+        "name": "bldg_06b9d1c5-068e-4de6-aff0-33157c7122de",
+        "x": 325.82,
+        "y": 310.17,
+        "width": 15.391,
+        "depth": 41.411,
+        "height": 11.8,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_076baab7-7ba6-439d-9e31-ffc5de555b9e",
+        "name": "bldg_076baab7-7ba6-439d-9e31-ffc5de555b9e",
+        "x": 345.167,
+        "y": -131.325,
+        "width": 83.472,
+        "depth": 67.772,
+        "height": 40.1,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_07a1d7e2-42ee-47c2-a80f-5b79fdf4a299",
+        "name": "bldg_07a1d7e2-42ee-47c2-a80f-5b79fdf4a299",
+        "x": 74.402,
+        "y": -268.022,
+        "width": 4.15,
+        "depth": 3.85,
+        "height": 3.3,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_0816c077-bd63-4752-82c9-cef84f4dc479",
+        "name": "bldg_0816c077-bd63-4752-82c9-cef84f4dc479",
+        "x": 149.67,
+        "y": -126.684,
+        "width": 20.052,
+        "depth": 23.939,
+        "height": 13.3,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_085ad03e-bb77-470f-8b2f-c064f0139b3c",
+        "name": "bldg_085ad03e-bb77-470f-8b2f-c064f0139b3c",
+        "x": 314.918,
+        "y": -156.924,
+        "width": 51.865,
+        "depth": 35.678,
+        "height": 33.6,
+        "usage": "商業施設"
+      },
+      {
+        "id": "bldg_0901b2db-6733-47c9-92fb-86ef7d9674c4",
+        "name": "bldg_0901b2db-6733-47c9-92fb-86ef7d9674c4",
+        "x": 348.312,
+        "y": -181.999,
+        "width": 13.47,
+        "depth": 15.527,
+        "height": 9.4,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_09a907f0-aa21-45ee-a9c1-20b2b04ff104",
+        "name": "bldg_09a907f0-aa21-45ee-a9c1-20b2b04ff104",
+        "x": 111.189,
+        "y": -96.02,
+        "width": 4.053,
+        "depth": 5.351,
+        "height": 9.0,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_09c3ed8e-32a6-4862-8d1d-70b1ea38849a",
+        "name": "bldg_09c3ed8e-32a6-4862-8d1d-70b1ea38849a",
+        "x": 364.796,
+        "y": 164.358,
+        "width": 22.589,
+        "depth": 13.834,
+        "height": 3.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_0acb7334-72a0-4d37-9051-728cf8489e20",
+        "name": "bldg_0acb7334-72a0-4d37-9051-728cf8489e20",
+        "x": 463.775,
+        "y": 7.108,
+        "width": 30.469,
+        "depth": 37.913,
+        "height": 38.2,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_0ad048d0-d6b0-43e5-881f-48981b66d032",
+        "name": "bldg_0ad048d0-d6b0-43e5-881f-48981b66d032",
+        "x": 295.678,
+        "y": -331.617,
+        "width": 45.489,
+        "depth": 46.22,
+        "height": 43.3,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_0adb2df8-9ce1-4856-a6cc-0a56a98b1a33",
+        "name": "bldg_0adb2df8-9ce1-4856-a6cc-0a56a98b1a33",
+        "x": 116.684,
+        "y": 221.444,
+        "width": 6.681,
+        "depth": 5.793,
+        "height": 3.6,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_0bcc0bb5-6948-47f0-b4b1-decca43b3a0a",
+        "name": "bldg_0bcc0bb5-6948-47f0-b4b1-decca43b3a0a",
+        "x": 385.107,
+        "y": -202.04,
+        "width": 25.037,
+        "depth": 16.978,
+        "height": 21.6,
+        "usage": "店舗等併用住宅"
+      },
+      {
+        "id": "bldg_0c180f9d-3637-4a48-9c5e-e0d87e043b5c",
+        "name": "bldg_0c180f9d-3637-4a48-9c5e-e0d87e043b5c",
+        "x": 341.393,
+        "y": -217.237,
+        "width": 10.754,
+        "depth": 12.777,
+        "height": 9.8,
+        "usage": "店舗等併用住宅"
+      },
+      {
+        "id": "bldg_0caa6e51-9f42-4110-bd8d-c7f7cd8d2445",
+        "name": "bldg_0caa6e51-9f42-4110-bd8d-c7f7cd8d2445",
+        "x": 320.696,
+        "y": -262.198,
+        "width": 35.638,
+        "depth": 37.686,
+        "height": 55.2,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_0d4bb4d1-424a-4fd7-a7c7-203f7d50d461",
+        "name": "bldg_0d4bb4d1-424a-4fd7-a7c7-203f7d50d461",
+        "x": 259.841,
+        "y": -69.432,
+        "width": 33.409,
+        "depth": 23.327,
+        "height": 58.5,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_0e7cc842-260b-4768-8271-d3cdbc3a5c86",
+        "name": "bldg_0e7cc842-260b-4768-8271-d3cdbc3a5c86",
+        "x": -261.396,
+        "y": 259.911,
+        "width": 2.886,
+        "depth": 2.52,
+        "height": 5.593,
+        "usage": "その他"
+      },
+      {
+        "id": "bldg_0ea68be0-7326-47f3-9333-0a54da796ee7",
+        "name": "bldg_0ea68be0-7326-47f3-9333-0a54da796ee7",
+        "x": 367.422,
+        "y": -11.837,
+        "width": 6.495,
+        "depth": 7.569,
+        "height": 14.9,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_0edbc324-009b-40cf-9545-66cdfb56154e",
+        "name": "bldg_0edbc324-009b-40cf-9545-66cdfb56154e",
+        "x": -187.891,
+        "y": 291.769,
+        "width": 6.122,
+        "depth": 4.78,
+        "height": 3.1,
+        "usage": "その他"
+      },
+      {
+        "id": "bldg_0f6c4b9c-ff08-4d89-82ef-3e69085cae7c",
+        "name": "bldg_0f6c4b9c-ff08-4d89-82ef-3e69085cae7c",
+        "x": 272.01,
+        "y": -420.403,
+        "width": 25.744,
+        "depth": 28.387,
+        "height": 33.4,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_104b6adf-6a30-41d4-9bdc-dc866513368e",
+        "name": "新丸の内ビルディング",
+        "x": -36.34,
+        "y": 331.224,
+        "width": 97.744,
+        "depth": 111.528,
+        "height": 199.7,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_1108a28a-dd5c-46fe-888e-37cce6567ff2",
+        "name": "bldg_1108a28a-dd5c-46fe-888e-37cce6567ff2",
+        "x": 202.443,
+        "y": 195.66,
+        "width": 99.26,
+        "depth": 317.328,
+        "height": 13.5,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_11252644-604b-46be-be4a-32fffcb1b9bc",
+        "name": "bldg_11252644-604b-46be-be4a-32fffcb1b9bc",
+        "x": 245.294,
+        "y": -59.67,
+        "width": 5.153,
+        "depth": 4.293,
+        "height": 11.1,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_12470cdc-7c9b-4773-b2a8-8c1be67ef08d",
+        "name": "bldg_12470cdc-7c9b-4773-b2a8-8c1be67ef08d",
+        "x": 351.032,
+        "y": -261.772,
+        "width": 25.465,
+        "depth": 19.085,
+        "height": 27.9,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_1252f8b2-cb4c-4a39-b527-06ce0c515de2",
+        "name": "bldg_1252f8b2-cb4c-4a39-b527-06ce0c515de2",
+        "x": 137.813,
+        "y": -340.02,
+        "width": 11.115,
+        "depth": 11.295,
+        "height": 4.4,
+        "usage": "その他"
+      },
+      {
+        "id": "bldg_125f6304-0dba-4912-8e20-4648e1d5d007",
+        "name": "bldg_125f6304-0dba-4912-8e20-4648e1d5d007",
+        "x": 311.925,
+        "y": -7.414,
+        "width": 7.456,
+        "depth": 10.327,
+        "height": 4.3,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_150bda54-4643-4451-87c5-c157a4936a6c",
+        "name": "bldg_150bda54-4643-4451-87c5-c157a4936a6c",
+        "x": -175.287,
+        "y": -530.461,
+        "width": 162.853,
+        "depth": 154.779,
+        "height": 10.0,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_15acfcd7-ca46-4ad6-957c-593505d8eec7",
+        "name": "bldg_15acfcd7-ca46-4ad6-957c-593505d8eec7",
+        "x": -130.717,
+        "y": 251.942,
+        "width": 5.352,
+        "depth": 5.41,
+        "height": 3.3,
+        "usage": "その他"
+      },
+      {
+        "id": "bldg_1680d5f6-8549-41a1-a043-e596527ea884",
+        "name": "bldg_1680d5f6-8549-41a1-a043-e596527ea884",
+        "x": 285.453,
+        "y": -54.266,
+        "width": 5.944,
+        "depth": 4.961,
+        "height": 4.0,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_16bb96fd-4980-495a-8780-082f523f3c05",
+        "name": "bldg_16bb96fd-4980-495a-8780-082f523f3c05",
+        "x": 148.748,
+        "y": -202.416,
+        "width": 19.696,
+        "depth": 26.519,
+        "height": 8.3,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_173baef3-77cf-4ed3-82b2-978bec2cad07",
+        "name": "bldg_173baef3-77cf-4ed3-82b2-978bec2cad07",
+        "x": 368.074,
+        "y": -193.81,
+        "width": 18.138,
+        "depth": 14.979,
+        "height": 29.0,
+        "usage": "店舗等併用住宅"
+      },
+      {
+        "id": "bldg_18f07c97-24b0-4b2e-97aa-418c80d422e5",
+        "name": "bldg_18f07c97-24b0-4b2e-97aa-418c80d422e5",
+        "x": 87.846,
+        "y": -340.424,
+        "width": 18.158,
+        "depth": 12.586,
+        "height": 13.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_191aa8be-faf4-4d0c-b723-f41625122123",
+        "name": "bldg_191aa8be-faf4-4d0c-b723-f41625122123",
+        "x": 449.584,
+        "y": 96.617,
+        "width": 35.626,
+        "depth": 36.806,
+        "height": 19.3,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_194048b0-76a1-4362-af9f-8022455c92f5",
+        "name": "bldg_194048b0-76a1-4362-af9f-8022455c92f5",
+        "x": 67.144,
+        "y": 333.122,
+        "width": 15.712,
+        "depth": 8.546,
+        "height": 2.9,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_1a3f5ef0-7f96-4a76-829c-9a93d9468e65",
+        "name": "bldg_1a3f5ef0-7f96-4a76-829c-9a93d9468e65",
+        "x": -313.612,
+        "y": 380.069,
+        "width": 31.554,
+        "depth": 41.36,
+        "height": 12.38,
+        "usage": "商業施設"
+      },
+      {
+        "id": "bldg_1a66409f-cc52-44ed-a339-6302a5a164fe",
+        "name": "bldg_1a66409f-cc52-44ed-a339-6302a5a164fe",
+        "x": 462.163,
+        "y": 71.686,
+        "width": 7.154,
+        "depth": 5.189,
+        "height": 3.9,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_1af20ad6-777c-43be-b3d0-cd3e298db087",
+        "name": "bldg_1af20ad6-777c-43be-b3d0-cd3e298db087",
+        "x": 145.468,
+        "y": -329.37,
+        "width": 14.63,
+        "depth": 14.904,
+        "height": 4.4,
+        "usage": "その他"
+      },
+      {
+        "id": "bldg_1bfbaa43-606d-4c13-931d-b1f94c086665",
+        "name": "bldg_1bfbaa43-606d-4c13-931d-b1f94c086665",
+        "x": -57.077,
+        "y": -482.167,
+        "width": 9.436,
+        "depth": 9.571,
+        "height": 2.8,
+        "usage": "その他"
+      },
+      {
+        "id": "bldg_1cc91bcb-8016-4615-b77b-09ff16c051dd",
+        "name": "bldg_1cc91bcb-8016-4615-b77b-09ff16c051dd",
+        "x": 332.055,
+        "y": 307.132,
+        "width": 10.347,
+        "depth": 21.411,
+        "height": 11.7,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_1e6ab200-9005-4ae0-ac7e-59e582326bed",
+        "name": "bldg_1e6ab200-9005-4ae0-ac7e-59e582326bed",
+        "x": -3.426,
+        "y": -182.048,
+        "width": 3.405,
+        "depth": 3.188,
+        "height": 4.6,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_1e9efa0d-2c7c-482b-875c-9f78eb9b52d9",
+        "name": "bldg_1e9efa0d-2c7c-482b-875c-9f78eb9b52d9",
+        "x": -101.413,
+        "y": -63.964,
+        "width": 12.924,
+        "depth": 36.971,
+        "height": 43.0,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_1ec6e695-8c04-4558-a92a-7888c5528411",
+        "name": "bldg_1ec6e695-8c04-4558-a92a-7888c5528411",
+        "x": 321.399,
+        "y": -332.92,
+        "width": 15.333,
+        "depth": 17.39,
+        "height": 43.7,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_1f067b36-d3df-4ad8-b1fa-e1c2f628e59c",
+        "name": "bldg_1f067b36-d3df-4ad8-b1fa-e1c2f628e59c",
+        "x": 158.068,
+        "y": -189.515,
+        "width": 7.844,
+        "depth": 7.584,
+        "height": 4.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_1fcee33e-3608-4265-97b1-120f64967d35",
+        "name": "bldg_1fcee33e-3608-4265-97b1-120f64967d35",
+        "x": 12.768,
+        "y": 362.88,
+        "width": 3.326,
+        "depth": 9.667,
+        "height": 3.0,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_205ca460-5523-4416-b2eb-acc750d0d4b9",
+        "name": "bldg_205ca460-5523-4416-b2eb-acc750d0d4b9",
+        "x": 305.956,
+        "y": -352.042,
+        "width": 9.184,
+        "depth": 11.603,
+        "height": 19.9,
+        "usage": "店舗等併用住宅"
+      },
+      {
+        "id": "bldg_21e25140-0099-4255-b9ac-8e57e924ff3e",
+        "name": "bldg_21e25140-0099-4255-b9ac-8e57e924ff3e",
+        "x": 135.954,
+        "y": -475.236,
+        "width": 29.257,
+        "depth": 25.831,
+        "height": 34.5,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_22bc0196-8dba-46c4-a4a7-c17ffa8c1091",
+        "name": "bldg_22bc0196-8dba-46c4-a4a7-c17ffa8c1091",
+        "x": 323.373,
+        "y": -173.352,
+        "width": 8.209,
+        "depth": 8.33,
+        "height": 4.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_243d890d-ecd6-4589-b5de-1daa238b18e1",
+        "name": "bldg_243d890d-ecd6-4589-b5de-1daa238b18e1",
+        "x": -4.064,
+        "y": -113.407,
+        "width": 29.151,
+        "depth": 77.281,
+        "height": 19.5,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_254c0877-bcb3-4142-a5c6-2a1ec166f91f",
+        "name": "bldg_254c0877-bcb3-4142-a5c6-2a1ec166f91f",
+        "x": -167.167,
+        "y": 129.413,
+        "width": 12.061,
+        "depth": 6.667,
+        "height": 3.1,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_25536656-4e88-43c0-b290-fe02326cfa07",
+        "name": "bldg_25536656-4e88-43c0-b290-fe02326cfa07",
+        "x": -7.705,
+        "y": -433.329,
+        "width": 19.801,
+        "depth": 19.845,
+        "height": 13.2,
+        "usage": "商業施設"
+      },
+      {
+        "id": "bldg_255deeea-8f50-4549-b404-571b83f971eb",
+        "name": "bldg_255deeea-8f50-4549-b404-571b83f971eb",
+        "x": -105.945,
+        "y": -381.492,
+        "width": 34.038,
+        "depth": 12.585,
+        "height": 14.6,
+        "usage": "文教厚生施設"
+      },
+      {
+        "id": "bldg_25d370de-2c35-457b-b756-3444a3d02eb3",
+        "name": "区立城東小学校",
+        "x": 397.465,
+        "y": -59.003,
+        "width": 128.47,
+        "depth": 138.666,
+        "height": 235.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_25e402e5-941e-4012-b2a9-2de327d7a99a",
+        "name": "bldg_25e402e5-941e-4012-b2a9-2de327d7a99a",
+        "x": 406.599,
+        "y": 184.714,
+        "width": 11.774,
+        "depth": 11.582,
+        "height": 4.9,
+        "usage": "商業施設"
+      },
+      {
+        "id": "bldg_261bffcc-43b3-474e-8bc1-a1930b070545",
+        "name": "bldg_261bffcc-43b3-474e-8bc1-a1930b070545",
+        "x": 410.872,
+        "y": -154.039,
+        "width": 20.433,
+        "depth": 24.142,
+        "height": 30.0,
+        "usage": "店舗等併用住宅"
+      },
+      {
+        "id": "bldg_2641ff98-f72e-4ae9-a4ee-7713854864ab",
+        "name": "bldg_2641ff98-f72e-4ae9-a4ee-7713854864ab",
+        "x": 371.998,
+        "y": -181.256,
+        "width": 20.046,
+        "depth": 16.717,
+        "height": 28.4,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_26dee5a7-18fd-40e7-a979-35a59416f8f1",
+        "name": "bldg_26dee5a7-18fd-40e7-a979-35a59416f8f1",
+        "x": 470.877,
+        "y": -88.206,
+        "width": 11.527,
+        "depth": 10.432,
+        "height": 23.2,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_26e12df5-bb39-4683-8cf0-c93e24eed778",
+        "name": "bldg_26e12df5-bb39-4683-8cf0-c93e24eed778",
+        "x": 135.693,
+        "y": -307.861,
+        "width": 4.445,
+        "depth": 2.866,
+        "height": 4.2,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_28362265-0b31-4782-91ea-cd20edf3cf59",
+        "name": "bldg_28362265-0b31-4782-91ea-cd20edf3cf59",
+        "x": 313.608,
+        "y": -352.41,
+        "width": 8.61,
+        "depth": 7.881,
+        "height": 16.6,
+        "usage": "店舗等併用住宅"
+      },
+      {
+        "id": "bldg_28d19c58-bee3-47e2-bf73-7e8777e6e915",
+        "name": "bldg_28d19c58-bee3-47e2-bf73-7e8777e6e915",
+        "x": 0.667,
+        "y": 100.848,
+        "width": 11.629,
+        "depth": 4.149,
+        "height": 2.7,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_2990b54b-2ad4-4cd5-b928-5527bc049def",
+        "name": "bldg_2990b54b-2ad4-4cd5-b928-5527bc049def",
+        "x": -63.167,
+        "y": -83.623,
+        "width": 46.396,
+        "depth": 91.285,
+        "height": 19.6,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_29bd461f-540f-4b5e-beed-165d235ba6a4",
+        "name": "bldg_29bd461f-540f-4b5e-beed-165d235ba6a4",
+        "x": -27.545,
+        "y": 248.891,
+        "width": 5.745,
+        "depth": 4.742,
+        "height": 3.1,
+        "usage": "その他"
+      },
+      {
+        "id": "bldg_2a7ac491-7df6-4ac9-aeb8-24581a398610",
+        "name": "bldg_2a7ac491-7df6-4ac9-aeb8-24581a398610",
+        "x": 301.948,
+        "y": -184.208,
+        "width": 11.221,
+        "depth": 15.182,
+        "height": 23.5,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_2add4862-da32-4310-9ba4-e3d6ac61b833",
+        "name": "bldg_2add4862-da32-4310-9ba4-e3d6ac61b833",
+        "x": 35.234,
+        "y": -419.188,
+        "width": 81.401,
+        "depth": 91.125,
+        "height": 25.2,
+        "usage": "商業施設"
+      },
+      {
+        "id": "bldg_2b101e06-9f9c-488b-b833-26e3ece73683",
+        "name": "bldg_2b101e06-9f9c-488b-b833-26e3ece73683",
+        "x": 215.859,
+        "y": 192.149,
+        "width": 95.322,
+        "depth": 317.495,
+        "height": 12.5,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_2c243ea8-5555-4bc4-8727-24dd85a8a813",
+        "name": "bldg_2c243ea8-5555-4bc4-8727-24dd85a8a813",
+        "x": -144.853,
+        "y": 311.203,
+        "width": 11.064,
+        "depth": 9.815,
+        "height": 21.5,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_2d8fa075-0acb-4a7d-ae53-8474621cf598",
+        "name": "bldg_2d8fa075-0acb-4a7d-ae53-8474621cf598",
+        "x": 328.843,
+        "y": -197.232,
+        "width": 13.509,
+        "depth": 16.605,
+        "height": 22.2,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_2dd92e76-b489-46ee-a04a-b2238d255858",
+        "name": "bldg_2dd92e76-b489-46ee-a04a-b2238d255858",
+        "x": 166.257,
+        "y": 13.01,
+        "width": 5.992,
+        "depth": 5.2,
+        "height": 9.2,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_2e0506ad-1f0e-4177-8f15-72f634343529",
+        "name": "bldg_2e0506ad-1f0e-4177-8f15-72f634343529",
+        "x": 84.254,
+        "y": 276.452,
+        "width": 11.657,
+        "depth": 11.691,
+        "height": 7.6,
+        "usage": "その他"
+      },
+      {
+        "id": "bldg_2f60c661-c07f-41a5-b40b-0b74c52a8006",
+        "name": "bldg_2f60c661-c07f-41a5-b40b-0b74c52a8006",
+        "x": 110.257,
+        "y": -196.248,
+        "width": 35.967,
+        "depth": 43.94,
+        "height": 17.1,
+        "usage": "その他"
+      },
+      {
+        "id": "bldg_2f7fb7d8-a135-4aee-bfc2-3782b645c5af",
+        "name": "bldg_2f7fb7d8-a135-4aee-bfc2-3782b645c5af",
+        "x": 339.001,
+        "y": 379.874,
+        "width": 37.677,
+        "depth": 110.45,
+        "height": 52.2,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_3110e7a0-0350-4749-a869-7647a9f7850d",
+        "name": "bldg_3110e7a0-0350-4749-a869-7647a9f7850d",
+        "x": 136.103,
+        "y": -315.089,
+        "width": 12.383,
+        "depth": 12.8,
+        "height": 4.6,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_32958c4d-00e2-4785-bb85-dc553ed3e0ac",
+        "name": "bldg_32958c4d-00e2-4785-bb85-dc553ed3e0ac",
+        "x": 290.356,
+        "y": -177.484,
+        "width": 24.951,
+        "depth": 21.563,
+        "height": 33.4,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_32ba8db3-4a5a-4eab-9b6a-a095bcdd165b",
+        "name": "bldg_32ba8db3-4a5a-4eab-9b6a-a095bcdd165b",
+        "x": 17.663,
+        "y": 522.597,
+        "width": 98.69,
+        "depth": 98.964,
+        "height": 149.7,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_33ff6ffe-993a-457f-8f37-02a89fa97d53",
+        "name": "bldg_33ff6ffe-993a-457f-8f37-02a89fa97d53",
+        "x": 401.1,
+        "y": -171.539,
+        "width": 21.581,
+        "depth": 21.705,
+        "height": 40.3,
+        "usage": "店舗等併用住宅"
+      },
+      {
+        "id": "bldg_35111177-8da5-4f29-ba8d-b6e4702a0d2a",
+        "name": "東京消防庁丸の内消防署有楽町出張所",
+        "x": 84.179,
+        "y": -359.681,
+        "width": 55.016,
+        "depth": 50.446,
+        "height": 109.7,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_3584d00f-08e9-4f69-b273-305c0c39f768",
+        "name": "bldg_3584d00f-08e9-4f69-b273-305c0c39f768",
+        "x": 310.02,
+        "y": -358.283,
+        "width": 9.778,
+        "depth": 8.718,
+        "height": 19.7,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_363ad53a-4f02-4874-afd0-a0ba6359f8ca",
+        "name": "bldg_363ad53a-4f02-4874-afd0-a0ba6359f8ca",
+        "x": 491.721,
+        "y": 91.145,
+        "width": 3.758,
+        "depth": 3.453,
+        "height": 3.7,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_368795e4-4ea5-4aad-92d8-1524d8463f4a",
+        "name": "bldg_368795e4-4ea5-4aad-92d8-1524d8463f4a",
+        "x": 122.561,
+        "y": 291.7,
+        "width": 51.84,
+        "depth": 68.202,
+        "height": 5.3,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_36c790a9-7f6f-4aa8-8083-66acdb0c8131",
+        "name": "bldg_36c790a9-7f6f-4aa8-8083-66acdb0c8131",
+        "x": 163.663,
+        "y": -305.399,
+        "width": 2.651,
+        "depth": 2.681,
+        "height": 3.5,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_36e32bd1-8aad-4288-96cb-223d6e8c6d9b",
+        "name": "bldg_36e32bd1-8aad-4288-96cb-223d6e8c6d9b",
+        "x": 437.969,
+        "y": -160.541,
+        "width": 18.34,
+        "depth": 16.121,
+        "height": 33.6,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_3782687d-cc34-4fab-b3f6-728a90e5ac0a",
+        "name": "bldg_3782687d-cc34-4fab-b3f6-728a90e5ac0a",
+        "x": 101.249,
+        "y": 74.857,
+        "width": 9.583,
+        "depth": 12.143,
+        "height": 25.0,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_38566a1c-0c0f-468a-bf89-d2f2ab923fda",
+        "name": "bldg_38566a1c-0c0f-468a-bf89-d2f2ab923fda",
+        "x": 282.204,
+        "y": -197.506,
+        "width": 32.631,
+        "depth": 33.809,
+        "height": 34.5,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_38b13eee-7090-40ff-bcf3-05970837b42d",
+        "name": "bldg_38b13eee-7090-40ff-bcf3-05970837b42d",
+        "x": 220.659,
+        "y": -429.44,
+        "width": 14.879,
+        "depth": 14.924,
+        "height": 34.4,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_398cf2a5-a8be-41b6-b37c-13a77af74fed",
+        "name": "bldg_398cf2a5-a8be-41b6-b37c-13a77af74fed",
+        "x": 133.33,
+        "y": -310.212,
+        "width": 2.79,
+        "depth": 3.197,
+        "height": 4.2,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_39bebf14-baf1-44d3-a45a-f83f590af963",
+        "name": "丸の内二重橋ビル",
+        "x": -292.257,
+        "y": -202.4,
+        "width": 110.827,
+        "depth": 118.285,
+        "height": 148.3,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_3a7d9b9c-3744-48ff-9322-4bddafd087d2",
+        "name": "bldg_3a7d9b9c-3744-48ff-9322-4bddafd087d2",
+        "x": 368.603,
+        "y": -246.182,
+        "width": 5.552,
+        "depth": 7.662,
+        "height": 4.1,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_3ad95cb6-3c2b-4d7a-aca1-72dc3cc1bb98",
+        "name": "bldg_3ad95cb6-3c2b-4d7a-aca1-72dc3cc1bb98",
+        "x": 101.196,
+        "y": -406.664,
+        "width": 32.778,
+        "depth": 18.49,
+        "height": 14.1,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_3b79ea3c-daf4-422a-beb5-20f6b4269d48",
+        "name": "bldg_3b79ea3c-daf4-422a-beb5-20f6b4269d48",
+        "x": 60.902,
+        "y": 384.384,
+        "width": 5.72,
+        "depth": 4.408,
+        "height": 4.1,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_3c363b67-675e-4111-80f0-ed954af61b1e",
+        "name": "bldg_3c363b67-675e-4111-80f0-ed954af61b1e",
+        "x": -51.709,
+        "y": -33.841,
+        "width": 17.853,
+        "depth": 12.06,
+        "height": 4.0,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_3de83faa-99f4-488f-86e1-3e2d4bcdbc9d",
+        "name": "bldg_3de83faa-99f4-488f-86e1-3e2d4bcdbc9d",
+        "x": -157.538,
+        "y": 339.417,
+        "width": 57.269,
+        "depth": 51.578,
+        "height": 110.3,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_3e13e559-0fc3-4ac8-9305-27979153be60",
+        "name": "bldg_3e13e559-0fc3-4ac8-9305-27979153be60",
+        "x": 336.077,
+        "y": -229.011,
+        "width": 12.37,
+        "depth": 15.628,
+        "height": 7.3,
+        "usage": "店舗等併用住宅"
+      },
+      {
+        "id": "bldg_3e52828f-1ed2-4c96-868b-ea393127b706",
+        "name": "bldg_3e52828f-1ed2-4c96-868b-ea393127b706",
+        "x": 464.064,
+        "y": -103.061,
+        "width": 12.028,
+        "depth": 8.496,
+        "height": 13.1,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_3eb7da23-0722-4af0-82ce-813d0aa10ff2",
+        "name": "bldg_3eb7da23-0722-4af0-82ce-813d0aa10ff2",
+        "x": 467.836,
+        "y": 126.198,
+        "width": 35.104,
+        "depth": 48.275,
+        "height": 54.2,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_3ebd7110-ecb7-4092-ac8d-999816830d54",
+        "name": "bldg_3ebd7110-ecb7-4092-ac8d-999816830d54",
+        "x": -1.072,
+        "y": -48.327,
+        "width": 17.389,
+        "depth": 12.419,
+        "height": 10.1,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_40c858e0-1b52-460b-87e7-30595af73a6b",
+        "name": "bldg_40c858e0-1b52-460b-87e7-30595af73a6b",
+        "x": -138.846,
+        "y": 45.429,
+        "width": 59.566,
+        "depth": 106.101,
+        "height": 41.0,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_41ee8d63-8d5d-4b89-a76c-52772c42b194",
+        "name": "bldg_41ee8d63-8d5d-4b89-a76c-52772c42b194",
+        "x": 397.316,
+        "y": -144.864,
+        "width": 14.645,
+        "depth": 18.653,
+        "height": 26.8,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_45a9ec00-62e0-406c-a39e-f60c3bafd802",
+        "name": "bldg_45a9ec00-62e0-406c-a39e-f60c3bafd802",
+        "x": 76.825,
+        "y": -258.221,
+        "width": 8.05,
+        "depth": 13.163,
+        "height": 7.3,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_46468e66-bf4d-45ea-8c3f-96a2ad476673",
+        "name": "bldg_46468e66-bf4d-45ea-8c3f-96a2ad476673",
+        "x": 69.473,
+        "y": 321.761,
+        "width": 11.689,
+        "depth": 4.926,
+        "height": 2.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_469141f7-21ba-4852-a57c-1efd324de70a",
+        "name": "bldg_469141f7-21ba-4852-a57c-1efd324de70a",
+        "x": -185.38,
+        "y": -121.957,
+        "width": 33.049,
+        "depth": 39.87,
+        "height": 16.6,
+        "usage": "商業施設"
+      },
+      {
+        "id": "bldg_47b8a7f2-be92-4087-b1d9-804c8b6e283a",
+        "name": "bldg_47b8a7f2-be92-4087-b1d9-804c8b6e283a",
+        "x": 36.286,
+        "y": -496.071,
+        "width": 13.458,
+        "depth": 16.554,
+        "height": 13.9,
+        "usage": "その他"
+      },
+      {
+        "id": "bldg_481cd564-10f4-4b5b-9923-41b94fd9e0c5",
+        "name": "bldg_481cd564-10f4-4b5b-9923-41b94fd9e0c5",
+        "x": 220.399,
+        "y": -299.949,
+        "width": 23.699,
+        "depth": 31.637,
+        "height": 19.6,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_4866a918-0184-4c0d-abbb-85e4ea40d889",
+        "name": "bldg_4866a918-0184-4c0d-abbb-85e4ea40d889",
+        "x": 168.828,
+        "y": -44.452,
+        "width": 4.363,
+        "depth": 5.172,
+        "height": 11.1,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_489aed43-3314-4b80-8cf5-0e1ecd806342",
+        "name": "bldg_489aed43-3314-4b80-8cf5-0e1ecd806342",
+        "x": 174.657,
+        "y": 305.741,
+        "width": 8.523,
+        "depth": 6.523,
+        "height": 23.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_48a1adfd-c74e-4ecc-9ed0-88586edce0bb",
+        "name": "bldg_48a1adfd-c74e-4ecc-9ed0-88586edce0bb",
+        "x": -187.654,
+        "y": -236.54,
+        "width": 24.511,
+        "depth": 36.184,
+        "height": 8.2,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_48fab8e2-9b16-43c2-8f67-4d8c0b64bd63",
+        "name": "bldg_48fab8e2-9b16-43c2-8f67-4d8c0b64bd63",
+        "x": 72.121,
+        "y": 125.688,
+        "width": 51.195,
+        "depth": 92.972,
+        "height": 5.2,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_49790105-59b1-491c-af4a-6fe82ab25334",
+        "name": "bldg_49790105-59b1-491c-af4a-6fe82ab25334",
+        "x": 487.22,
+        "y": -200.081,
+        "width": 82.422,
+        "depth": 62.501,
+        "height": 107.0,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_4a60df00-10d0-4c43-bbda-866ef3ef74d1",
+        "name": "bldg_4a60df00-10d0-4c43-bbda-866ef3ef74d1",
+        "x": 382.793,
+        "y": 325.049,
+        "width": 3.645,
+        "depth": 3.636,
+        "height": 12.7,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_4b35b2e8-c6d1-47c5-bb5a-2675d0b7740d",
+        "name": "bldg_4b35b2e8-c6d1-47c5-bb5a-2675d0b7740d",
+        "x": 359.477,
+        "y": -215.266,
+        "width": 21.151,
+        "depth": 23.968,
+        "height": 28.7,
+        "usage": "共同住宅"
+      },
+      {
+        "id": "bldg_4be3e9a2-842f-4a0f-be08-d2301de84468",
+        "name": "bldg_4be3e9a2-842f-4a0f-be08-d2301de84468",
+        "x": -153.966,
+        "y": -467.012,
+        "width": 71.011,
+        "depth": 78.646,
+        "height": 43.8,
+        "usage": "商業施設"
+      },
+      {
+        "id": "bldg_4c94eaac-a5f4-40b7-8e09-67d26c17c6a1",
+        "name": "bldg_4c94eaac-a5f4-40b7-8e09-67d26c17c6a1",
+        "x": 320.356,
+        "y": -15.457,
+        "width": 3.295,
+        "depth": 3.897,
+        "height": 3.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_4da531c5-5ff5-4f30-817f-c4c4f7bd2e22",
+        "name": "bldg_4da531c5-5ff5-4f30-817f-c4c4f7bd2e22",
+        "x": -239.886,
+        "y": -418.875,
+        "width": 17.586,
+        "depth": 22.97,
+        "height": 8.7,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_4dd5373f-cb99-434f-9de1-6414b082dde9",
+        "name": "bldg_4dd5373f-cb99-434f-9de1-6414b082dde9",
+        "x": 239.285,
+        "y": -436.102,
+        "width": 7.423,
+        "depth": 11.392,
+        "height": 25.6,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_4ef5f71c-6d00-4ac8-826b-c0be10af5482",
+        "name": "bldg_4ef5f71c-6d00-4ac8-826b-c0be10af5482",
+        "x": 337.433,
+        "y": -203.032,
+        "width": 18.853,
+        "depth": 21.537,
+        "height": 23.0,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_4f044965-08dc-45ac-82f0-301c2a131720",
+        "name": "bldg_4f044965-08dc-45ac-82f0-301c2a131720",
+        "x": 78.141,
+        "y": -301.723,
+        "width": 39.473,
+        "depth": 57.17,
+        "height": 7.3,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_4fd39851-e5e6-4e0e-9a32-c2b50b8d96ab",
+        "name": "bldg_4fd39851-e5e6-4e0e-9a32-c2b50b8d96ab",
+        "x": 79.312,
+        "y": 281.842,
+        "width": 9.024,
+        "depth": 12.12,
+        "height": 4.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_50688de8-4117-4a7e-8d02-0b3da49d8727",
+        "name": "bldg_50688de8-4117-4a7e-8d02-0b3da49d8727",
+        "x": -190.864,
+        "y": -323.418,
+        "width": 58.892,
+        "depth": 59.341,
+        "height": 47.2,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_50d14d8e-595d-47fb-bf7c-d8d2962df110",
+        "name": "bldg_50d14d8e-595d-47fb-bf7c-d8d2962df110",
+        "x": 340.072,
+        "y": 71.676,
+        "width": 4.59,
+        "depth": 5.936,
+        "height": 6.0,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_5151a9d4-39ab-413c-ab90-63efe1ebcab8",
+        "name": "bldg_5151a9d4-39ab-413c-ab90-63efe1ebcab8",
+        "x": -194.025,
+        "y": 60.39,
+        "width": 60.394,
+        "depth": 106.261,
+        "height": 43.6,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_520d70a0-75b2-4c16-86d0-ed79beb35379",
+        "name": "bldg_520d70a0-75b2-4c16-86d0-ed79beb35379",
+        "x": 346.383,
+        "y": -205.572,
+        "width": 8.606,
+        "depth": 14.017,
+        "height": 15.5,
+        "usage": "店舗等併用住宅"
+      },
+      {
+        "id": "bldg_5291763f-d52c-43a3-9385-dd12eae0b9e8",
+        "name": "bldg_5291763f-d52c-43a3-9385-dd12eae0b9e8",
+        "x": 156.264,
+        "y": -106.315,
+        "width": 5.302,
+        "depth": 6.071,
+        "height": 9.5,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_5448beba-2eae-42b0-b161-bdffe8bf244f",
+        "name": "bldg_5448beba-2eae-42b0-b161-bdffe8bf244f",
+        "x": -241.829,
+        "y": -56.097,
+        "width": 84.32,
+        "depth": 130.85,
+        "height": 148.0,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_55468d67-6a56-4959-b78e-ad6fabd8dfce",
+        "name": "bldg_55468d67-6a56-4959-b78e-ad6fabd8dfce",
+        "x": 62.23,
+        "y": -183.399,
+        "width": 5.684,
+        "depth": 12.353,
+        "height": 8.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_5609f563-180e-476d-89d7-6a33a5124134",
+        "name": "bldg_5609f563-180e-476d-89d7-6a33a5124134",
+        "x": 68.351,
+        "y": -280.161,
+        "width": 5.953,
+        "depth": 5.839,
+        "height": 6.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_56380287-3b24-4389-a252-d0855fc48ecf",
+        "name": "bldg_56380287-3b24-4389-a252-d0855fc48ecf",
+        "x": 162.95,
+        "y": 5.468,
+        "width": 2.266,
+        "depth": 2.88,
+        "height": 8.7,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_577c07aa-dd00-4792-b3da-686f72153228",
+        "name": "bldg_577c07aa-dd00-4792-b3da-686f72153228",
+        "x": 50.389,
+        "y": 162.62,
+        "width": 9.597,
+        "depth": 6.428,
+        "height": 0.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_5be961f7-d72d-4db4-979e-7c001aa55aa7",
+        "name": "bldg_5be961f7-d72d-4db4-979e-7c001aa55aa7",
+        "x": -168.804,
+        "y": 324.408,
+        "width": 38.962,
+        "depth": 20.769,
+        "height": 3.1,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_5c10c04e-d235-4783-85c3-01b691187319",
+        "name": "bldg_5c10c04e-d235-4783-85c3-01b691187319",
+        "x": 157.695,
+        "y": 206.416,
+        "width": 85.113,
+        "depth": 239.233,
+        "height": 20.7,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_5cf30bba-70c5-4f45-abfd-c0840657708e",
+        "name": "bldg_5cf30bba-70c5-4f45-abfd-c0840657708e",
+        "x": 272.233,
+        "y": -11.243,
+        "width": 9.368,
+        "depth": 7.881,
+        "height": 18.4,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_5d5dd52d-bfdd-4bb6-9cbf-f865fb6946fb",
+        "name": "東京ビルTOKIA",
+        "x": 24.206,
+        "y": -116.124,
+        "width": 67.404,
+        "depth": 118.152,
+        "height": 167.2,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_5ea49e6b-2873-42ac-a934-fb0474025679",
+        "name": "bldg_5ea49e6b-2873-42ac-a934-fb0474025679",
+        "x": 68.452,
+        "y": -165.13,
+        "width": 8.32,
+        "depth": 17.793,
+        "height": 3.9,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_5fddebc8-9ca4-47d5-a9e0-8f02ab7df171",
+        "name": "bldg_5fddebc8-9ca4-47d5-a9e0-8f02ab7df171",
+        "x": 0.223,
+        "y": 170.282,
+        "width": 4.618,
+        "depth": 11.543,
+        "height": 2.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_5ffc2bd4-bd77-45b9-9c03-08520a0220ae",
+        "name": "bldg_5ffc2bd4-bd77-45b9-9c03-08520a0220ae",
+        "x": -1.217,
+        "y": 65.952,
+        "width": 18.834,
+        "depth": 7.549,
+        "height": 7.1,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_60e751ca-2882-462a-8a2f-26fb0ebca53a",
+        "name": "bldg_60e751ca-2882-462a-8a2f-26fb0ebca53a",
+        "x": 71.914,
+        "y": -152.798,
+        "width": 4.662,
+        "depth": 6.627,
+        "height": 4.1,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_617bfe02-5529-4b18-9ee3-f69501d86d99",
+        "name": "bldg_617bfe02-5529-4b18-9ee3-f69501d86d99",
+        "x": 390.585,
+        "y": -140.295,
+        "width": 15.075,
+        "depth": 20.184,
+        "height": 24.0,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_619f9910-e059-478b-8ef9-1cf79bae9086",
+        "name": "bldg_619f9910-e059-478b-8ef9-1cf79bae9086",
+        "x": 489.217,
+        "y": -89.426,
+        "width": 40.584,
+        "depth": 29.66,
+        "height": 40.4,
+        "usage": "宿泊施設"
+      },
+      {
+        "id": "bldg_626918b8-5fc5-4696-89b9-b987f572d09d",
+        "name": "bldg_626918b8-5fc5-4696-89b9-b987f572d09d",
+        "x": 57.113,
+        "y": -380.596,
+        "width": 46.819,
+        "depth": 32.954,
+        "height": 17.5,
+        "usage": "商業施設"
+      },
+      {
+        "id": "bldg_62c10b31-7b88-419d-a05d-36d67035c157",
+        "name": "bldg_62c10b31-7b88-419d-a05d-36d67035c157",
+        "x": 71.871,
+        "y": -271.78,
+        "width": 3.178,
+        "depth": 2.558,
+        "height": 3.6,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_6305895e-96c0-4ee2-8b6b-030e5b3f5b5a",
+        "name": "bldg_6305895e-96c0-4ee2-8b6b-030e5b3f5b5a",
+        "x": 52.562,
+        "y": -342.49,
+        "width": 15.537,
+        "depth": 18.249,
+        "height": 6.0,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_6308dc7c-d514-4732-88ca-6380cead501e",
+        "name": "bldg_6308dc7c-d514-4732-88ca-6380cead501e",
+        "x": 328.934,
+        "y": -176.261,
+        "width": 7.61,
+        "depth": 7.613,
+        "height": 4.2,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_645422b3-0255-4c85-a7dd-a0309de98a02",
+        "name": "bldg_645422b3-0255-4c85-a7dd-a0309de98a02",
+        "x": -68.815,
+        "y": -164.645,
+        "width": 4.719,
+        "depth": 6.121,
+        "height": 3.2,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_64d6ff93-763a-492f-9236-e1f5dea61245",
+        "name": "bldg_64d6ff93-763a-492f-9236-e1f5dea61245",
+        "x": 154.866,
+        "y": 500.27,
+        "width": 40.768,
+        "depth": 60.949,
+        "height": 120.0,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_65eb73f6-4028-4cbf-ae48-64a3df048250",
+        "name": "bldg_65eb73f6-4028-4cbf-ae48-64a3df048250",
+        "x": -302.556,
+        "y": 405.113,
+        "width": 15.976,
+        "depth": 16.578,
+        "height": 7.131,
+        "usage": "商業施設"
+      },
+      {
+        "id": "bldg_6653a54f-6ae8-4fd7-91bc-5130fb086008",
+        "name": "bldg_6653a54f-6ae8-4fd7-91bc-5130fb086008",
+        "x": 162.257,
+        "y": 429.734,
+        "width": 88.171,
+        "depth": 74.868,
+        "height": 89.9,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_66be0e64-a0f8-4974-9b90-cd0da900205d",
+        "name": "丸の内パークビルディング",
+        "x": -144.108,
+        "y": -65.622,
+        "width": 102.103,
+        "depth": 85.882,
+        "height": 171.7,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_66eff301-ecd3-4a38-988f-44457ad3d3cb",
+        "name": "bldg_66eff301-ecd3-4a38-988f-44457ad3d3cb",
+        "x": 367.653,
+        "y": 275.764,
+        "width": 4.349,
+        "depth": 5.635,
+        "height": 13.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_67262e31-5d61-4db1-9be4-566c930d05ba",
+        "name": "bldg_67262e31-5d61-4db1-9be4-566c930d05ba",
+        "x": -58.245,
+        "y": -292.629,
+        "width": 41.482,
+        "depth": 14.863,
+        "height": 24.6,
+        "usage": "文教厚生施設"
+      },
+      {
+        "id": "bldg_6736c1ec-c505-4f25-a7a5-fc0eab3fc7f5",
+        "name": "bldg_6736c1ec-c505-4f25-a7a5-fc0eab3fc7f5",
+        "x": 110.377,
+        "y": -389.604,
+        "width": 3.227,
+        "depth": 3.219,
+        "height": 4.0,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_67823b70-2abf-4c15-b67f-33b390e613a7",
+        "name": "bldg_67823b70-2abf-4c15-b67f-33b390e613a7",
+        "x": 347.263,
+        "y": -270.293,
+        "width": 23.388,
+        "depth": 18.243,
+        "height": 28.3,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_6831738f-19f5-4d7b-8cb8-bb132543fd85",
+        "name": "bldg_6831738f-19f5-4d7b-8cb8-bb132543fd85",
+        "x": 37.104,
+        "y": 53.252,
+        "width": 13.033,
+        "depth": 11.071,
+        "height": 6.9,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_68f866d2-b0f4-4552-8c37-8dc49dbe452b",
+        "name": "bldg_68f866d2-b0f4-4552-8c37-8dc49dbe452b",
+        "x": 488.748,
+        "y": -107.62,
+        "width": 16.61,
+        "depth": 19.484,
+        "height": 18.3,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_69c213d2-4c13-46ee-8e04-cee5404a11b1",
+        "name": "丸の内トラストタワー本館",
+        "x": 415.668,
+        "y": 318.714,
+        "width": 59.509,
+        "depth": 96.413,
+        "height": 176.9,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_6a0da1b7-e94d-444f-a889-bd52494acb28",
+        "name": "bldg_6a0da1b7-e94d-444f-a889-bd52494acb28",
+        "x": 167.634,
+        "y": -473.516,
+        "width": 15.913,
+        "depth": 15.684,
+        "height": 25.5,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_6af58cef-669e-4aca-bc01-355e870d1ad5",
+        "name": "bldg_6af58cef-669e-4aca-bc01-355e870d1ad5",
+        "x": 122.222,
+        "y": 175.346,
+        "width": 108.327,
+        "depth": 313.373,
+        "height": 35.4,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_6b06fc06-9eb4-4534-a7b4-792eff042182",
+        "name": "bldg_6b06fc06-9eb4-4534-a7b4-792eff042182",
+        "x": -3.915,
+        "y": 180.874,
+        "width": 2.356,
+        "depth": 2.73,
+        "height": 2.9,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_6b0716e5-e33c-46c8-b298-2a7e5ed3f098",
+        "name": "bldg_6b0716e5-e33c-46c8-b298-2a7e5ed3f098",
+        "x": 166.602,
+        "y": -172.422,
+        "width": 18.572,
+        "depth": 22.621,
+        "height": 5.5,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_6b65b0e1-c168-4b3f-9f1c-6553044a659e",
+        "name": "bldg_6b65b0e1-c168-4b3f-9f1c-6553044a659e",
+        "x": 62.127,
+        "y": -292.172,
+        "width": 5.091,
+        "depth": 7.386,
+        "height": 10.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_6da3a696-44fd-4b36-bb0b-0b4ea987fdfe",
+        "name": "bldg_6da3a696-44fd-4b36-bb0b-0b4ea987fdfe",
+        "x": 56.228,
+        "y": 121.876,
+        "width": 10.809,
+        "depth": 2.715,
+        "height": 3.1,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_6e871a8a-801c-492f-958b-da3e820c2557",
+        "name": "bldg_6e871a8a-801c-492f-958b-da3e820c2557",
+        "x": 394.862,
+        "y": -189.957,
+        "width": 11.888,
+        "depth": 10.476,
+        "height": 23.3,
+        "usage": "店舗等併用住宅"
+      },
+      {
+        "id": "bldg_7264e942-9071-4142-bdda-161e4d6d4adc",
+        "name": "bldg_7264e942-9071-4142-bdda-161e4d6d4adc",
+        "x": 341.61,
+        "y": 180.305,
+        "width": 14.827,
+        "depth": 37.826,
+        "height": 13.1,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_72b64303-ed0f-484f-a996-3ecabdb2470e",
+        "name": "bldg_72b64303-ed0f-484f-a996-3ecabdb2470e",
+        "x": 183.378,
+        "y": 318.135,
+        "width": 9.663,
+        "depth": 12.517,
+        "height": 4.7,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_736c7a94-7ddf-4fc4-aeef-463085b07bf5",
+        "name": "bldg_736c7a94-7ddf-4fc4-aeef-463085b07bf5",
+        "x": 475.297,
+        "y": 72.697,
+        "width": 2.505,
+        "depth": 2.505,
+        "height": 3.7,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_7420bfd5-a7ca-4083-8260-6d3f967f3bc1",
+        "name": "bldg_7420bfd5-a7ca-4083-8260-6d3f967f3bc1",
+        "x": 365.598,
+        "y": 101.304,
+        "width": 15.459,
+        "depth": 9.452,
+        "height": 3.6,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_74d10abf-f34f-41c1-91fc-2c0902ec8099",
+        "name": "bldg_74d10abf-f34f-41c1-91fc-2c0902ec8099",
+        "x": -85.991,
+        "y": -340.405,
+        "width": 32.889,
+        "depth": 12.706,
+        "height": 19.6,
+        "usage": "文教厚生施設"
+      },
+      {
+        "id": "bldg_74f37035-2f67-4adb-bf92-8e44b91988bf",
+        "name": "bldg_74f37035-2f67-4adb-bf92-8e44b91988bf",
+        "x": 0.909,
+        "y": 139.928,
+        "width": 6.939,
+        "depth": 10.592,
+        "height": 2.7,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_75c6b861-3cb3-45f7-a66e-fbf953e31076",
+        "name": "bldg_75c6b861-3cb3-45f7-a66e-fbf953e31076",
+        "x": -64.913,
+        "y": 499.346,
+        "width": 16.1,
+        "depth": 7.337,
+        "height": 10.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_75f3d534-a420-48d1-a118-7de4019b36a7",
+        "name": "bldg_75f3d534-a420-48d1-a118-7de4019b36a7",
+        "x": -231.061,
+        "y": 22.59,
+        "width": 6.129,
+        "depth": 8.291,
+        "height": 6.5,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_75fb3d16-80d7-408a-9e98-d3537c1b9c47",
+        "name": "bldg_75fb3d16-80d7-408a-9e98-d3537c1b9c47",
+        "x": 347.905,
+        "y": 207.639,
+        "width": 5.937,
+        "depth": 12.389,
+        "height": 16.6,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_7689a5d8-3376-48ac-bfe8-c2690d3ba8ab",
+        "name": "bldg_7689a5d8-3376-48ac-bfe8-c2690d3ba8ab",
+        "x": 363.941,
+        "y": 263.629,
+        "width": 7.052,
+        "depth": 14.637,
+        "height": 15.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_79ca53d2-290f-48f1-b2e1-7f7d9d6e8767",
+        "name": "bldg_79ca53d2-290f-48f1-b2e1-7f7d9d6e8767",
+        "x": 290.703,
+        "y": -38.689,
+        "width": 3.169,
+        "depth": 11.272,
+        "height": 3.6,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_7a1e4eca-ed96-4ec9-9663-ac8c5acb5215",
+        "name": "bldg_7a1e4eca-ed96-4ec9-9663-ac8c5acb5215",
+        "x": 207.357,
+        "y": 321.818,
+        "width": 3.588,
+        "depth": 3.947,
+        "height": 7.2,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_7a92e54b-cdea-47c4-9683-142a236630a9",
+        "name": "bldg_7a92e54b-cdea-47c4-9683-142a236630a9",
+        "x": -179.372,
+        "y": 211.978,
+        "width": 92.842,
+        "depth": 66.372,
+        "height": 69.3,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_7b8cd8b5-5721-4d01-acb0-784d697a2fbc",
+        "name": "bldg_7b8cd8b5-5721-4d01-acb0-784d697a2fbc",
+        "x": -419.517,
+        "y": 273.305,
+        "width": 9.214,
+        "depth": 12.995,
+        "height": 4.311,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_7ca0497c-0e80-4ef8-b8a3-cc30fc8d8ebd",
+        "name": "bldg_7ca0497c-0e80-4ef8-b8a3-cc30fc8d8ebd",
+        "x": 247.714,
+        "y": -397.863,
+        "width": 14.686,
+        "depth": 18.928,
+        "height": 16.1,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_7ce665ad-782f-4590-817e-0fe2c9013080",
+        "name": "bldg_7ce665ad-782f-4590-817e-0fe2c9013080",
+        "x": -461.503,
+        "y": -166.627,
+        "width": 9.072,
+        "depth": 14.201,
+        "height": 4.563,
+        "usage": "その他"
+      },
+      {
+        "id": "bldg_7d3b3518-6850-4400-a94b-5733522dc3c6",
+        "name": "bldg_7d3b3518-6850-4400-a94b-5733522dc3c6",
+        "x": 380.361,
+        "y": 384.186,
+        "width": 59.067,
+        "depth": 66.544,
+        "height": 72.2,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_7d4f7353-56e7-4085-a8ad-b2dc2955eddf",
+        "name": "東京駅",
+        "x": 292.697,
+        "y": 156.844,
+        "width": 150.406,
+        "depth": 411.597,
+        "height": 14.9,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_7d5101c8-07a3-4ab5-9efd-7472899ad292",
+        "name": "bldg_7d5101c8-07a3-4ab5-9efd-7472899ad292",
+        "x": 107.753,
+        "y": -338.488,
+        "width": 54.965,
+        "depth": 29.779,
+        "height": 4.0,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_7fe89678-945b-4627-b239-33ec65a1654c",
+        "name": "bldg_7fe89678-945b-4627-b239-33ec65a1654c",
+        "x": 270.258,
+        "y": -403.375,
+        "width": 14.123,
+        "depth": 13.052,
+        "height": 12.3,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_80156c60-14b4-4e59-988d-0d672f6abd5d",
+        "name": "bldg_80156c60-14b4-4e59-988d-0d672f6abd5d",
+        "x": 148.785,
+        "y": -284.321,
+        "width": 7.393,
+        "depth": 7.334,
+        "height": 6.0,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_81940362-dd15-4423-8b85-0c0ad174922a",
+        "name": "bldg_81940362-dd15-4423-8b85-0c0ad174922a",
+        "x": 112.646,
+        "y": -349.636,
+        "width": 24.27,
+        "depth": 18.656,
+        "height": 6.1,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_82614497-68fa-406f-bdb3-57122df77ceb",
+        "name": "bldg_82614497-68fa-406f-bdb3-57122df77ceb",
+        "x": -108.26,
+        "y": 471.451,
+        "width": 102.266,
+        "depth": 94.742,
+        "height": 150.1,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_8395d6f8-ebd4-491a-aa97-1f2e8560ada1",
+        "name": "bldg_8395d6f8-ebd4-491a-aa97-1f2e8560ada1",
+        "x": 351.863,
+        "y": 224.761,
+        "width": 4.779,
+        "depth": 7.513,
+        "height": 14.6,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_8457b8dd-74d5-444e-af07-d64bf088ee2d",
+        "name": "bldg_8457b8dd-74d5-444e-af07-d64bf088ee2d",
+        "x": 299.377,
+        "y": -253.06,
+        "width": 31.386,
+        "depth": 43.907,
+        "height": 36.9,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_8477944d-1cf4-41a6-badc-073fd87880e5",
+        "name": "bldg_8477944d-1cf4-41a6-badc-073fd87880e5",
+        "x": 18.836,
+        "y": -54.278,
+        "width": 5.235,
+        "depth": 7.771,
+        "height": 3.2,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_84a1a742-521c-4297-ba42-16f64d542990",
+        "name": "bldg_84a1a742-521c-4297-ba42-16f64d542990",
+        "x": 447.615,
+        "y": -217.292,
+        "width": 56.635,
+        "depth": 32.069,
+        "height": 19.3,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_84da57c0-cf68-488d-a650-a45277dc6c57",
+        "name": "bldg_84da57c0-cf68-488d-a650-a45277dc6c57",
+        "x": -245.803,
+        "y": 55.606,
+        "width": 56.295,
+        "depth": 71.662,
+        "height": 49.5,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_85148592-827c-4ef7-aadd-6f00fa4486c9",
+        "name": "bldg_85148592-827c-4ef7-aadd-6f00fa4486c9",
+        "x": -223.573,
+        "y": -343.079,
+        "width": 98.117,
+        "depth": 119.15,
+        "height": 42.0,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_85192508-d370-40c4-aa2e-daa0395fe27c",
+        "name": "bldg_85192508-d370-40c4-aa2e-daa0395fe27c",
+        "x": -90.867,
+        "y": 266.223,
+        "width": 5.333,
+        "depth": 5.23,
+        "height": 3.3,
+        "usage": "その他"
+      },
+      {
+        "id": "bldg_8549e3e7-9619-49c2-9d3c-88d63fab4629",
+        "name": "bldg_8549e3e7-9619-49c2-9d3c-88d63fab4629",
+        "x": -97.194,
+        "y": -308.573,
+        "width": 133.39,
+        "depth": 218.817,
+        "height": 57.6,
+        "usage": "文教厚生施設"
+      },
+      {
+        "id": "bldg_861e9fa3-3ab6-443b-a1b0-6457f4d2e6dd",
+        "name": "bldg_861e9fa3-3ab6-443b-a1b0-6457f4d2e6dd",
+        "x": -35.37,
+        "y": -329.791,
+        "width": 128.266,
+        "depth": 193.519,
+        "height": 57.5,
+        "usage": "文教厚生施設"
+      },
+      {
+        "id": "bldg_8717ff9e-a205-4586-9c99-0c5e4c82971a",
+        "name": "bldg_8717ff9e-a205-4586-9c99-0c5e4c82971a",
+        "x": 218.335,
+        "y": 300.629,
+        "width": 5.352,
+        "depth": 9.304,
+        "height": 11.2,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_8768e1fb-68a6-4079-bc9a-f683759fb6d3",
+        "name": "bldg_8768e1fb-68a6-4079-bc9a-f683759fb6d3",
+        "x": 166.05,
+        "y": 389.576,
+        "width": 2.977,
+        "depth": 2.95,
+        "height": 8.1,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_8995a849-0728-47bc-9340-31f0eca9e77a",
+        "name": "bldg_8995a849-0728-47bc-9340-31f0eca9e77a",
+        "x": 246.683,
+        "y": -415.638,
+        "width": 23.052,
+        "depth": 19.625,
+        "height": 25.0,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_8a547876-0b03-40b5-943d-a310d884980b",
+        "name": "bldg_8a547876-0b03-40b5-943d-a310d884980b",
+        "x": 87.855,
+        "y": -387.79,
+        "width": 10.407,
+        "depth": 11.54,
+        "height": 4.6,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_8b3c0aee-c23f-43bc-9022-f9a4f7724e42",
+        "name": "bldg_8b3c0aee-c23f-43bc-9022-f9a4f7724e42",
+        "x": 199.48,
+        "y": 482.5,
+        "width": 49.934,
+        "depth": 74.204,
+        "height": 151.1,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_8d1da78a-615c-417a-974b-d4556b7aeec4",
+        "name": "bldg_8d1da78a-615c-417a-974b-d4556b7aeec4",
+        "x": 477.216,
+        "y": 71.774,
+        "width": 2.428,
+        "depth": 2.355,
+        "height": 3.7,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_8d7d3637-898d-4343-91ca-0ffcde5c4ca9",
+        "name": "bldg_8d7d3637-898d-4343-91ca-0ffcde5c4ca9",
+        "x": 72.795,
+        "y": -270.331,
+        "width": 3.168,
+        "depth": 2.525,
+        "height": 3.6,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_8ef4229b-0d7e-45a0-b59e-39f1d2c37ede",
+        "name": "bldg_8ef4229b-0d7e-45a0-b59e-39f1d2c37ede",
+        "x": 64.372,
+        "y": 294.349,
+        "width": 3.575,
+        "depth": 5.209,
+        "height": 2.9,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_910c8315-ef41-4371-8680-63c4c164704a",
+        "name": "bldg_910c8315-ef41-4371-8680-63c4c164704a",
+        "x": 147.66,
+        "y": -469.064,
+        "width": 12.048,
+        "depth": 19.984,
+        "height": 34.0,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_940ab637-3ddd-4fc6-9d61-890e2e34238d",
+        "name": "bldg_940ab637-3ddd-4fc6-9d61-890e2e34238d",
+        "x": -278.636,
+        "y": -67.565,
+        "width": 63.792,
+        "depth": 99.216,
+        "height": 32.5,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_950430c8-36d0-4a7c-8c32-33b62dba01da",
+        "name": "bldg_950430c8-36d0-4a7c-8c32-33b62dba01da",
+        "x": 466.898,
+        "y": 78.257,
+        "width": 17.482,
+        "depth": 11.309,
+        "height": 3.7,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_95237b6a-686f-4192-ba27-71b37b28e940",
+        "name": "bldg_95237b6a-686f-4192-ba27-71b37b28e940",
+        "x": 371.247,
+        "y": 287.382,
+        "width": 5.549,
+        "depth": 8.946,
+        "height": 14.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_9602b126-55e2-43c6-9650-e75118492ac5",
+        "name": "bldg_9602b126-55e2-43c6-9650-e75118492ac5",
+        "x": 474.472,
+        "y": 168.697,
+        "width": 44.336,
+        "depth": 42.571,
+        "height": 49.1,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_96189a8e-adde-464b-af79-490e02f2c9c7",
+        "name": "bldg_96189a8e-adde-464b-af79-490e02f2c9c7",
+        "x": 386.127,
+        "y": -295.84,
+        "width": 58.178,
+        "depth": 55.811,
+        "height": 61.2,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_96cb7b7f-f62f-4143-96a6-f9ba222b27eb",
+        "name": "bldg_96cb7b7f-f62f-4143-96a6-f9ba222b27eb",
+        "x": 287.104,
+        "y": -50.488,
+        "width": 7.012,
+        "depth": 6.157,
+        "height": 3.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_97473330-9f59-43c4-9a39-751f497985dd",
+        "name": "bldg_97473330-9f59-43c4-9a39-751f497985dd",
+        "x": 309.696,
+        "y": -201.301,
+        "width": 35.078,
+        "depth": 41.281,
+        "height": 34.4,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_976d83f8-44e8-4cde-aba3-1cb411be23d7",
+        "name": "bldg_976d83f8-44e8-4cde-aba3-1cb411be23d7",
+        "x": 355.979,
+        "y": 237.945,
+        "width": 5.158,
+        "depth": 7.928,
+        "height": 15.3,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_982a7829-06a8-49d8-8ab8-ee6584794864",
+        "name": "bldg_982a7829-06a8-49d8-8ab8-ee6584794864",
+        "x": 162.008,
+        "y": 177.289,
+        "width": 76.31,
+        "depth": 223.393,
+        "height": 10.4,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_9a631ab3-c153-4167-a85a-2c9703ee1169",
+        "name": "bldg_9a631ab3-c153-4167-a85a-2c9703ee1169",
+        "x": 84.196,
+        "y": 325.025,
+        "width": 6.073,
+        "depth": 3.964,
+        "height": 3.4,
+        "usage": "その他"
+      },
+      {
+        "id": "bldg_9af110a8-6d1c-4978-93a5-7b0df6d40b63",
+        "name": "bldg_9af110a8-6d1c-4978-93a5-7b0df6d40b63",
+        "x": 334.752,
+        "y": 320.249,
+        "width": 3.929,
+        "depth": 5.71,
+        "height": 10.7,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_9b183343-f571-44a0-8105-a4b330e5e1db",
+        "name": "bldg_9b183343-f571-44a0-8105-a4b330e5e1db",
+        "x": 228.552,
+        "y": -393.087,
+        "width": 37.959,
+        "depth": 42.365,
+        "height": 25.6,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_9b84d8f4-7de3-4473-9348-ae33c5420c55",
+        "name": "丸の内警察署和田倉門外交番",
+        "x": -204.892,
+        "y": 439.151,
+        "width": 6.437,
+        "depth": 13.335,
+        "height": 6.257,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_9ba22ce3-e90b-4715-a5f6-fd19d84f990d",
+        "name": "bldg_9ba22ce3-e90b-4715-a5f6-fd19d84f990d",
+        "x": -129.591,
+        "y": 388.887,
+        "width": 78.562,
+        "depth": 53.911,
+        "height": 70.1,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_9bd84c58-4d48-4e2c-a81e-8710c40962f5",
+        "name": "bldg_9bd84c58-4d48-4e2c-a81e-8710c40962f5",
+        "x": 59.043,
+        "y": -332.758,
+        "width": 8.959,
+        "depth": 8.978,
+        "height": 8.6,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_9c26a3e8-f042-4778-bee6-669c27c96ea8",
+        "name": "bldg_9c26a3e8-f042-4778-bee6-669c27c96ea8",
+        "x": 62.918,
+        "y": -186.642,
+        "width": 7.741,
+        "depth": 24.212,
+        "height": 4.2,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_9f2d947f-dad5-4096-874e-dead2c75c92f",
+        "name": "bldg_9f2d947f-dad5-4096-874e-dead2c75c92f",
+        "x": 359.453,
+        "y": 249.11,
+        "width": 7.231,
+        "depth": 14.816,
+        "height": 15.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_9fd9bfde-cfc7-4fd8-96c5-cc92d69ee26e",
+        "name": "bldg_9fd9bfde-cfc7-4fd8-96c5-cc92d69ee26e",
+        "x": 59.054,
+        "y": -193.845,
+        "width": 5.128,
+        "depth": 9.874,
+        "height": 3.0,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_a071258e-ba1c-4a59-922b-a0a1cd2fb3dd",
+        "name": "bldg_a071258e-ba1c-4a59-922b-a0a1cd2fb3dd",
+        "x": 154.958,
+        "y": -103.749,
+        "width": 3.756,
+        "depth": 3.827,
+        "height": 8.9,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_a144b000-fa6f-4761-b627-9100c8c978c1",
+        "name": "bldg_a144b000-fa6f-4761-b627-9100c8c978c1",
+        "x": -4.821,
+        "y": 126.783,
+        "width": 5.901,
+        "depth": 7.377,
+        "height": 3.0,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_a167d98a-a942-42f3-9b71-a85483c86a89",
+        "name": "bldg_a167d98a-a942-42f3-9b71-a85483c86a89",
+        "x": 11.886,
+        "y": 120.675,
+        "width": 6.969,
+        "depth": 10.721,
+        "height": 2.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_a16cfc59-110f-47f0-b622-2daff1b7c077",
+        "name": "bldg_a16cfc59-110f-47f0-b622-2daff1b7c077",
+        "x": 108.417,
+        "y": 200.801,
+        "width": 7.992,
+        "depth": 8.228,
+        "height": 6.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_a2c0d075-65fa-401c-8e01-4a50402faafe",
+        "name": "bldg_a2c0d075-65fa-401c-8e01-4a50402faafe",
+        "x": -222.178,
+        "y": 51.641,
+        "width": 7.351,
+        "depth": 14.596,
+        "height": 3.0,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_a2cb7753-a45c-417f-9c16-812513dc4882",
+        "name": "bldg_a2cb7753-a45c-417f-9c16-812513dc4882",
+        "x": 501.363,
+        "y": -59.64,
+        "width": 52.844,
+        "depth": 49.431,
+        "height": 31.3,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_a3fb950d-77c7-4725-900f-8216ee6acadf",
+        "name": "bldg_a3fb950d-77c7-4725-900f-8216ee6acadf",
+        "x": -323.64,
+        "y": -314.318,
+        "width": 113.975,
+        "depth": 119.736,
+        "height": 42.8,
+        "usage": "商業施設"
+      },
+      {
+        "id": "bldg_a4d8d6f6-ec40-42a1-85df-7684afbddb8f",
+        "name": "bldg_a4d8d6f6-ec40-42a1-85df-7684afbddb8f",
+        "x": 20.899,
+        "y": -49.509,
+        "width": 3.701,
+        "depth": 2.729,
+        "height": 3.3,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_a53e5ff7-927b-407a-a8c8-c3ef361bd3de",
+        "name": "bldg_a53e5ff7-927b-407a-a8c8-c3ef361bd3de",
+        "x": 450.628,
+        "y": 17.508,
+        "width": 9.561,
+        "depth": 12.22,
+        "height": 5.1,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_a6af9219-c241-4d86-b3cd-b92b531e3843",
+        "name": "bldg_a6af9219-c241-4d86-b3cd-b92b531e3843",
+        "x": 196.53,
+        "y": 347.605,
+        "width": 3.879,
+        "depth": 3.868,
+        "height": 6.9,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_a98349a1-56c0-4ec4-b22c-abe49301bd04",
+        "name": "丸の内ビルディング",
+        "x": -80.697,
+        "y": 161.817,
+        "width": 98.822,
+        "depth": 110.01,
+        "height": 179.6,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_a9975bb7-7b9b-430b-81d9-2a1d5447dc2b",
+        "name": "bldg_a9975bb7-7b9b-430b-81d9-2a1d5447dc2b",
+        "x": 250.684,
+        "y": -440.295,
+        "width": 21.714,
+        "depth": 16.954,
+        "height": 34.5,
+        "usage": "店舗等併用住宅"
+      },
+      {
+        "id": "bldg_aae132e4-0c50-4b17-b76c-5c25dbb0cf3d",
+        "name": "bldg_aae132e4-0c50-4b17-b76c-5c25dbb0cf3d",
+        "x": 181.142,
+        "y": -414.402,
+        "width": 22.773,
+        "depth": 16.626,
+        "height": 27.0,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_aba9926d-c0a6-4a79-af6a-bcd071f36030",
+        "name": "bldg_aba9926d-c0a6-4a79-af6a-bcd071f36030",
+        "x": 426.813,
+        "y": 24.932,
+        "width": 50.75,
+        "depth": 46.343,
+        "height": 67.6,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_ad5987bb-417e-4181-bf50-0dfe33bfdd85",
+        "name": "bldg_ad5987bb-417e-4181-bf50-0dfe33bfdd85",
+        "x": 468.298,
+        "y": 68.665,
+        "width": 5.195,
+        "depth": 4.164,
+        "height": 3.8,
+        "usage": "その他"
+      },
+      {
+        "id": "bldg_ad9224e8-4fc6-49be-8654-52d3ecaf5963",
+        "name": "bldg_ad9224e8-4fc6-49be-8654-52d3ecaf5963",
+        "x": 357.797,
+        "y": -181.36,
+        "width": 15.352,
+        "depth": 23.236,
+        "height": 12.8,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_af729e27-c3bb-4d1a-b0d9-188b142347fa",
+        "name": "bldg_af729e27-c3bb-4d1a-b0d9-188b142347fa",
+        "x": 336.363,
+        "y": -70.684,
+        "width": 10.901,
+        "depth": 25.706,
+        "height": 18.2,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_b023f8ec-805f-44ef-9c7a-ecabdb2ebd21",
+        "name": "bldg_b023f8ec-805f-44ef-9c7a-ecabdb2ebd21",
+        "x": 193.492,
+        "y": -380.064,
+        "width": 51.72,
+        "depth": 48.868,
+        "height": 45.0,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_b182f3f9-a66b-44e8-b5eb-73094bc9c9d3",
+        "name": "bldg_b182f3f9-a66b-44e8-b5eb-73094bc9c9d3",
+        "x": 447.153,
+        "y": 146.356,
+        "width": 3.844,
+        "depth": 10.298,
+        "height": 3.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_b1ee528f-5ada-45d9-9d10-e0a05aca585c",
+        "name": "bldg_b1ee528f-5ada-45d9-9d10-e0a05aca585c",
+        "x": 102.011,
+        "y": 428.68,
+        "width": 8.703,
+        "depth": 5.21,
+        "height": 9.7,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_b3bff028-8dc1-4887-8895-3b37524b7226",
+        "name": "bldg_b3bff028-8dc1-4887-8895-3b37524b7226",
+        "x": 314.127,
+        "y": 49.108,
+        "width": 98.147,
+        "depth": 226.613,
+        "height": 22.9,
+        "usage": "商業施設"
+      },
+      {
+        "id": "bldg_b43de7b4-6eff-440b-8e0f-a4f23b5a5fa5",
+        "name": "bldg_b43de7b4-6eff-440b-8e0f-a4f23b5a5fa5",
+        "x": 356.962,
+        "y": -240.838,
+        "width": 13.571,
+        "depth": 15.347,
+        "height": 19.8,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_b4bc92ce-65d1-4697-8d87-368cacf1af2b",
+        "name": "bldg_b4bc92ce-65d1-4697-8d87-368cacf1af2b",
+        "x": 105.349,
+        "y": 486.939,
+        "width": 66.426,
+        "depth": 102.719,
+        "height": 85.6,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_b4c23048-b5ee-4ab9-8973-414ddbebd2b2",
+        "name": "bldg_b4c23048-b5ee-4ab9-8973-414ddbebd2b2",
+        "x": -194.098,
+        "y": 269.073,
+        "width": 5.881,
+        "depth": 4.993,
+        "height": 3.1,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_b4c8b06d-7e31-43a2-ab45-effb763f9737",
+        "name": "bldg_b4c8b06d-7e31-43a2-ab45-effb763f9737",
+        "x": 156.704,
+        "y": -480.834,
+        "width": 18.441,
+        "depth": 11.353,
+        "height": 31.7,
+        "usage": "共同住宅"
+      },
+      {
+        "id": "bldg_b51bb5d5-2a19-44c6-a377-48564d96137b",
+        "name": "bldg_b51bb5d5-2a19-44c6-a377-48564d96137b",
+        "x": 421.376,
+        "y": -316.032,
+        "width": 44.018,
+        "depth": 44.573,
+        "height": 62.7,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_b588ed67-fe37-45dc-ad6d-7b90b29b7b85",
+        "name": "bldg_b588ed67-fe37-45dc-ad6d-7b90b29b7b85",
+        "x": 319.42,
+        "y": -215.572,
+        "width": 18.088,
+        "depth": 26.166,
+        "height": 21.5,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_b5b4d7d4-a078-4ca9-8ec3-87e5bdc63cde",
+        "name": "グラントウキョウ  ノースタワー",
+        "x": 391.258,
+        "y": 214.121,
+        "width": 106.714,
+        "depth": 112.718,
+        "height": 202.4,
+        "usage": "商業施設"
+      },
+      {
+        "id": "bldg_b6493c4f-d0dd-4017-8056-783ec82785df",
+        "name": "bldg_b6493c4f-d0dd-4017-8056-783ec82785df",
+        "x": 51.113,
+        "y": 331.574,
+        "width": 5.253,
+        "depth": 9.525,
+        "height": 3.0,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_b8f45af7-2686-439e-be41-d3172681c86b",
+        "name": "bldg_b8f45af7-2686-439e-be41-d3172681c86b",
+        "x": 233.549,
+        "y": -409.062,
+        "width": 15.684,
+        "depth": 19.77,
+        "height": 21.8,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_b9349ae6-7f3c-4988-86c5-54c011b0e054",
+        "name": "bldg_b9349ae6-7f3c-4988-86c5-54c011b0e054",
+        "x": 308.225,
+        "y": -36.506,
+        "width": 3.901,
+        "depth": 5.12,
+        "height": 3.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_b9bc80b6-dec0-4e5b-80d4-eeab0c808ebe",
+        "name": "bldg_b9bc80b6-dec0-4e5b-80d4-eeab0c808ebe",
+        "x": 449.104,
+        "y": 78.209,
+        "width": 9.688,
+        "depth": 6.628,
+        "height": 3.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_b9fc9045-7ca3-4532-812f-b1b5a4bcfdd7",
+        "name": "bldg_b9fc9045-7ca3-4532-812f-b1b5a4bcfdd7",
+        "x": 239.194,
+        "y": -304.221,
+        "width": 41.364,
+        "depth": 44.578,
+        "height": 32.8,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_ba7d7eb7-443e-4534-8ef7-9d71e774c11e",
+        "name": "bldg_ba7d7eb7-443e-4534-8ef7-9d71e774c11e",
+        "x": 450.591,
+        "y": 96.858,
+        "width": 23.482,
+        "depth": 28.92,
+        "height": 40.3,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_bc46f2e2-968d-4614-9785-e517e38e57af",
+        "name": "bldg_bc46f2e2-968d-4614-9785-e517e38e57af",
+        "x": 201.89,
+        "y": -178.168,
+        "width": 63.189,
+        "depth": 63.096,
+        "height": 147.6,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_bd3bb009-64a2-4ab4-bd93-dd398b5a33d1",
+        "name": "bldg_bd3bb009-64a2-4ab4-bd93-dd398b5a33d1",
+        "x": -416.944,
+        "y": -48.756,
+        "width": 7.308,
+        "depth": 9.237,
+        "height": 4.056,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_bfb4a85b-4a98-4743-86b9-033e78ad5636",
+        "name": "bldg_bfb4a85b-4a98-4743-86b9-033e78ad5636",
+        "x": 473.58,
+        "y": -100.793,
+        "width": 26.694,
+        "depth": 21.574,
+        "height": 30.8,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_c0f3d22b-1159-4025-9e8f-ac379b048109",
+        "name": "bldg_c0f3d22b-1159-4025-9e8f-ac379b048109",
+        "x": 315.05,
+        "y": -343.883,
+        "width": 15.082,
+        "depth": 13.49,
+        "height": 14.5,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_c164eb3e-1d5f-403b-b6bb-45fd4b3ddc3b",
+        "name": "有楽町駅",
+        "x": -124.178,
+        "y": -496.368,
+        "width": 164.512,
+        "depth": 157.25,
+        "height": 10.6,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_c18c40a7-fd39-40f9-a503-09e3a56215ff",
+        "name": "bldg_c18c40a7-fd39-40f9-a503-09e3a56215ff",
+        "x": -349.332,
+        "y": -415.485,
+        "width": 107.974,
+        "depth": 89.579,
+        "height": 112.8,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_c29a57a7-32fe-41de-a1a4-83806219875c",
+        "name": "bldg_c29a57a7-32fe-41de-a1a4-83806219875c",
+        "x": 375.275,
+        "y": 300.192,
+        "width": 4.464,
+        "depth": 7.247,
+        "height": 14.6,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_c2f71b82-6c33-450c-8be5-78a13b2de3a5",
+        "name": "bldg_c2f71b82-6c33-450c-8be5-78a13b2de3a5",
+        "x": 69.56,
+        "y": 157.437,
+        "width": 5.965,
+        "depth": 6.366,
+        "height": 3.0,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_c4385bf8-c97b-4414-951e-fbaee53161fb",
+        "name": "bldg_c4385bf8-c97b-4414-951e-fbaee53161fb",
+        "x": 378.363,
+        "y": 310.215,
+        "width": 4.342,
+        "depth": 5.875,
+        "height": 13.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_c461ab4d-ce18-489c-a497-29f08895e35f",
+        "name": "bldg_c461ab4d-ce18-489c-a497-29f08895e35f",
+        "x": -48.118,
+        "y": -472.857,
+        "width": 8.728,
+        "depth": 8.903,
+        "height": 2.8,
+        "usage": "その他"
+      },
+      {
+        "id": "bldg_c4fa981d-b14f-4cb0-821b-a95c0f98447f",
+        "name": "bldg_c4fa981d-b14f-4cb0-821b-a95c0f98447f",
+        "x": 35.197,
+        "y": 307.504,
+        "width": 4.608,
+        "depth": 11.593,
+        "height": 2.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_c5ce1d67-111a-4425-a6d2-0dcea0c774f8",
+        "name": "bldg_c5ce1d67-111a-4425-a6d2-0dcea0c774f8",
+        "x": 232.625,
+        "y": -433.081,
+        "width": 10.853,
+        "depth": 11.4,
+        "height": 27.2,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_c73515a2-f903-442b-ae10-c2c6aa5a6a38",
+        "name": "東京駅",
+        "x": 181.589,
+        "y": 186.42,
+        "width": 81.322,
+        "depth": 224.678,
+        "height": 11.1,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_c747efd1-7354-4674-9e7e-34e339dd7951",
+        "name": "bldg_c747efd1-7354-4674-9e7e-34e339dd7951",
+        "x": 472.964,
+        "y": 26.999,
+        "width": 10.184,
+        "depth": 7.057,
+        "height": 3.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_c7a4f8ca-98d6-4af7-8414-91c4040775ba",
+        "name": "bldg_c7a4f8ca-98d6-4af7-8414-91c4040775ba",
+        "x": -85.339,
+        "y": -127.492,
+        "width": 5.588,
+        "depth": 7.072,
+        "height": 2.9,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_c8e46a73-87cb-45c2-9fbd-5ee369df7d0a",
+        "name": "bldg_c8e46a73-87cb-45c2-9fbd-5ee369df7d0a",
+        "x": 484.223,
+        "y": 101.195,
+        "width": 4.829,
+        "depth": 4.812,
+        "height": 9.9,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_c9598946-4373-4060-832d-eb0f85c43a9f",
+        "name": "bldg_c9598946-4373-4060-832d-eb0f85c43a9f",
+        "x": 381.647,
+        "y": -159.686,
+        "width": 23.369,
+        "depth": 24.165,
+        "height": 38.7,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_ca1c2e17-fcb1-487b-bb88-090818b75639",
+        "name": "bldg_ca1c2e17-fcb1-487b-bb88-090818b75639",
+        "x": 271.727,
+        "y": -321.028,
+        "width": 32.257,
+        "depth": 42.14,
+        "height": 39.9,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_cbea6733-379b-4490-b641-a1e68192107d",
+        "name": "グラントウキョウサウスタワー",
+        "x": 242.324,
+        "y": -106.486,
+        "width": 70.785,
+        "depth": 84.467,
+        "height": 206.6,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_cedf5079-d01d-4d5b-b54a-e67d864795cf",
+        "name": "bldg_cedf5079-d01d-4d5b-b54a-e67d864795cf",
+        "x": 188.828,
+        "y": -228.482,
+        "width": 18.181,
+        "depth": 18.139,
+        "height": 40.4,
+        "usage": "供給処理施設"
+      },
+      {
+        "id": "bldg_cef44fc9-e382-4b37-8300-89fab81882d7",
+        "name": "bldg_cef44fc9-e382-4b37-8300-89fab81882d7",
+        "x": 488.997,
+        "y": 93.075,
+        "width": 3.141,
+        "depth": 3.07,
+        "height": 3.5,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_cf00ef7a-2e7a-4d92-9b86-48a707b0be7a",
+        "name": "bldg_cf00ef7a-2e7a-4d92-9b86-48a707b0be7a",
+        "x": -33.868,
+        "y": 226.035,
+        "width": 5.836,
+        "depth": 4.966,
+        "height": 3.0,
+        "usage": "その他"
+      },
+      {
+        "id": "bldg_d1b75a9e-40c0-4df9-a628-4929b74205ae",
+        "name": "bldg_d1b75a9e-40c0-4df9-a628-4929b74205ae",
+        "x": -247.141,
+        "y": -445.132,
+        "width": 98.396,
+        "depth": 93.456,
+        "height": 47.4,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_d1cabb47-45bd-49af-be17-2e828cf61526",
+        "name": "bldg_d1cabb47-45bd-49af-be17-2e828cf61526",
+        "x": 114.161,
+        "y": -365.148,
+        "width": 7.489,
+        "depth": 8.512,
+        "height": 6.2,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_d21e45a6-4ce1-40aa-90db-441f665edb96",
+        "name": "bldg_d21e45a6-4ce1-40aa-90db-441f665edb96",
+        "x": 156.422,
+        "y": -81.796,
+        "width": 4.192,
+        "depth": 6.149,
+        "height": 11.7,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_d24a8219-ade5-425e-bb19-1a53da7cf3d6",
+        "name": "bldg_d24a8219-ade5-425e-bb19-1a53da7cf3d6",
+        "x": 199.547,
+        "y": -420.959,
+        "width": 16.678,
+        "depth": 15.292,
+        "height": 32.3,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_d25d1e98-1372-45fc-ba92-0b44b9d0021f",
+        "name": "bldg_d25d1e98-1372-45fc-ba92-0b44b9d0021f",
+        "x": 4.26,
+        "y": 111.874,
+        "width": 11.653,
+        "depth": 13.349,
+        "height": 11.0,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_d338c9a8-a1af-437c-93e1-35a2ec6d3690",
+        "name": "bldg_d338c9a8-a1af-437c-93e1-35a2ec6d3690",
+        "x": 70.509,
+        "y": -374.288,
+        "width": 20.704,
+        "depth": 14.126,
+        "height": 9.5,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_d4763692-4aca-46ed-8f5d-aab0460ff5e7",
+        "name": "bldg_d4763692-4aca-46ed-8f5d-aab0460ff5e7",
+        "x": 166.469,
+        "y": -408.298,
+        "width": 14.112,
+        "depth": 12.514,
+        "height": 9.5,
+        "usage": "官公庁施設"
+      },
+      {
+        "id": "bldg_d519dc90-13e7-429e-bd44-1560dc8e9fe9",
+        "name": "bldg_d519dc90-13e7-429e-bd44-1560dc8e9fe9",
+        "x": 137.017,
+        "y": -464.035,
+        "width": 19.127,
+        "depth": 15.197,
+        "height": 38.2,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_d618b80b-097a-4558-9326-8974966a6a4b",
+        "name": "bldg_d618b80b-097a-4558-9326-8974966a6a4b",
+        "x": 173.484,
+        "y": 489.198,
+        "width": 38.014,
+        "depth": 72.092,
+        "height": 23.2,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_d669bd1c-cc05-4b4f-b637-1bc70d7ed3f4",
+        "name": "bldg_d669bd1c-cc05-4b4f-b637-1bc70d7ed3f4",
+        "x": 216.64,
+        "y": 339.862,
+        "width": 9.002,
+        "depth": 16.348,
+        "height": 8.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_d66ec68e-db8a-485f-919c-d18411ca9d82",
+        "name": "丸の内警察署有楽町駅前交番",
+        "x": -72.799,
+        "y": -496.526,
+        "width": 8.22,
+        "depth": 8.164,
+        "height": 5.9,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_d6daf92c-7567-4e57-a191-2f3059213dc8",
+        "name": "bldg_d6daf92c-7567-4e57-a191-2f3059213dc8",
+        "x": -2.212,
+        "y": 119.958,
+        "width": 19.614,
+        "depth": 24.243,
+        "height": 8.1,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_d74ca478-2451-410c-b4a0-65e93fa43018",
+        "name": "bldg_d74ca478-2451-410c-b4a0-65e93fa43018",
+        "x": -211.642,
+        "y": 89.88,
+        "width": 4.575,
+        "depth": 4.228,
+        "height": 3.0,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_d789a902-8a89-4c5d-9766-23981f07b436",
+        "name": "bldg_d789a902-8a89-4c5d-9766-23981f07b436",
+        "x": 103.843,
+        "y": 182.116,
+        "width": 7.016,
+        "depth": 6.369,
+        "height": 3.7,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_d858275a-456f-4658-bd87-f8221649ed95",
+        "name": "bldg_d858275a-456f-4658-bd87-f8221649ed95",
+        "x": 353.891,
+        "y": 231.248,
+        "width": 3.562,
+        "depth": 3.43,
+        "height": 12.7,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_d8f72e9f-85f3-46bb-bbab-c01052c5e001",
+        "name": "bldg_d8f72e9f-85f3-46bb-bbab-c01052c5e001",
+        "x": 131.056,
+        "y": -314.526,
+        "width": 2.138,
+        "depth": 2.143,
+        "height": 4.3,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_d9b0284b-728c-416a-8aeb-c0db7de9789b",
+        "name": "bldg_d9b0284b-728c-416a-8aeb-c0db7de9789b",
+        "x": 82.109,
+        "y": -251.504,
+        "width": 8.281,
+        "depth": 5.079,
+        "height": 2.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_dc5b8e19-3eb5-490d-832d-fbb53c0c5699",
+        "name": "bldg_dc5b8e19-3eb5-490d-832d-fbb53c0c5699",
+        "x": 469.754,
+        "y": -119.289,
+        "width": 10.197,
+        "depth": 9.885,
+        "height": 13.1,
+        "usage": "店舗等併用住宅"
+      },
+      {
+        "id": "bldg_dc9a2856-a179-4795-9ce5-f9169aa59cbd",
+        "name": "bldg_dc9a2856-a179-4795-9ce5-f9169aa59cbd",
+        "x": -186.373,
+        "y": -229.605,
+        "width": 110.209,
+        "depth": 120.148,
+        "height": 42.8,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_dcdd12be-4d5e-49fd-ad14-be56f593729a",
+        "name": "bldg_dcdd12be-4d5e-49fd-ad14-be56f593729a",
+        "x": 156.277,
+        "y": -468.785,
+        "width": 13.06,
+        "depth": 13.754,
+        "height": 33.9,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_dd63f862-3392-481a-b590-7f1b3c1b8591",
+        "name": "bldg_dd63f862-3392-481a-b590-7f1b3c1b8591",
+        "x": 29.428,
+        "y": 286.495,
+        "width": 4.408,
+        "depth": 11.224,
+        "height": 2.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_ded14521-eb40-41b9-90af-eae7e1e59d61",
+        "name": "bldg_ded14521-eb40-41b9-90af-eae7e1e59d61",
+        "x": -77.762,
+        "y": -161.247,
+        "width": 10.518,
+        "depth": 5.917,
+        "height": 3.0,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_df8321c4-9ace-487f-9610-841f61b3d2b0",
+        "name": "bldg_df8321c4-9ace-487f-9610-841f61b3d2b0",
+        "x": 99.981,
+        "y": 393.355,
+        "width": 83.799,
+        "depth": 65.994,
+        "height": 163.5,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_dfc7157b-3a59-41d3-b54b-226ed1c13795",
+        "name": "bldg_dfc7157b-3a59-41d3-b54b-226ed1c13795",
+        "x": 7.194,
+        "y": -454.714,
+        "width": 8.657,
+        "depth": 8.508,
+        "height": 3.4,
+        "usage": "商業施設"
+      },
+      {
+        "id": "bldg_e0f5dff9-af1c-46a9-8c2c-61f3c0c159c3",
+        "name": "bldg_e0f5dff9-af1c-46a9-8c2c-61f3c0c159c3",
+        "x": -241.625,
+        "y": 333.616,
+        "width": 3.196,
+        "depth": 3.108,
+        "height": 5.701,
+        "usage": "その他"
+      },
+      {
+        "id": "bldg_e166dfde-96e3-456c-85d1-d55063156c34",
+        "name": "bldg_e166dfde-96e3-456c-85d1-d55063156c34",
+        "x": 368.031,
+        "y": -395.607,
+        "width": 99.563,
+        "depth": 103.616,
+        "height": 121.9,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_e1ebdba5-5fdc-4a14-9898-f8d22bcedd6f",
+        "name": "bldg_e1ebdba5-5fdc-4a14-9898-f8d22bcedd6f",
+        "x": -120.783,
+        "y": 307.354,
+        "width": 34.387,
+        "depth": 21.384,
+        "height": 8.7,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_e209babf-c656-4911-908b-8b894f1666cf",
+        "name": "bldg_e209babf-c656-4911-908b-8b894f1666cf",
+        "x": 211.097,
+        "y": -425.142,
+        "width": 11.462,
+        "depth": 13.214,
+        "height": 17.2,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_e3b5c50f-39ce-42a8-beba-26f891642b41",
+        "name": "bldg_e3b5c50f-39ce-42a8-beba-26f891642b41",
+        "x": 263.365,
+        "y": -38.81,
+        "width": 24.799,
+        "depth": 42.742,
+        "height": 16.9,
+        "usage": "商業施設"
+      },
+      {
+        "id": "bldg_e3c6e0ea-4eaa-4973-b99c-c0f4032a30ef",
+        "name": "bldg_e3c6e0ea-4eaa-4973-b99c-c0f4032a30ef",
+        "x": 501.852,
+        "y": 32.532,
+        "width": 8.482,
+        "depth": 6.885,
+        "height": 3.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_e67119f3-438e-45f9-90ab-d02a39c36605",
+        "name": "bldg_e67119f3-438e-45f9-90ab-d02a39c36605",
+        "x": 414.904,
+        "y": -0.664,
+        "width": 71.713,
+        "depth": 40.845,
+        "height": 58.6,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_e910fbe9-acc8-4f69-8366-bee646e919e4",
+        "name": "bldg_e910fbe9-acc8-4f69-8366-bee646e919e4",
+        "x": -192.249,
+        "y": 161.085,
+        "width": 91.017,
+        "depth": 57.756,
+        "height": 116.0,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_e935bfae-a483-43dd-aa78-56d3994ce55a",
+        "name": "bldg_e935bfae-a483-43dd-aa78-56d3994ce55a",
+        "x": 124.781,
+        "y": -178.815,
+        "width": 9.085,
+        "depth": 8.071,
+        "height": 4.6,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_ea98fc38-4e35-4c11-98b6-3f1dd290a16b",
+        "name": "bldg_ea98fc38-4e35-4c11-98b6-3f1dd290a16b",
+        "x": 327.408,
+        "y": -220.813,
+        "width": 18.277,
+        "depth": 23.421,
+        "height": 32.9,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_eb0061c9-95f1-467b-b0ca-1a30baa094c6",
+        "name": "bldg_eb0061c9-95f1-467b-b0ca-1a30baa094c6",
+        "x": 191.64,
+        "y": 344.623,
+        "width": 11.318,
+        "depth": 10.682,
+        "height": 11.6,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_eb2fe2f2-0646-41bd-9e20-6eaa630860ca",
+        "name": "bldg_eb2fe2f2-0646-41bd-9e20-6eaa630860ca",
+        "x": -99.114,
+        "y": 34.609,
+        "width": 68.748,
+        "depth": 107.323,
+        "height": 68.4,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_ec96d0c9-80f0-4ccf-90e9-8773f8d80269",
+        "name": "bldg_ec96d0c9-80f0-4ccf-90e9-8773f8d80269",
+        "x": 107.206,
+        "y": -107.016,
+        "width": 5.281,
+        "depth": 7.224,
+        "height": 8.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_ec99485a-a1f8-4ab5-b48f-1019c2e10719",
+        "name": "bldg_ec99485a-a1f8-4ab5-b48f-1019c2e10719",
+        "x": -31.815,
+        "y": -105.01,
+        "width": 60.984,
+        "depth": 94.643,
+        "height": 111.4,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_eca59423-ac27-46b4-8ccf-451b63652d52",
+        "name": "三菱一号館美術館",
+        "x": -137.768,
+        "y": -124.962,
+        "width": 61.333,
+        "depth": 60.938,
+        "height": 19.8,
+        "usage": "文教厚生施設"
+      },
+      {
+        "id": "bldg_edc4ef72-ff55-4649-9dc5-56734c9c4256",
+        "name": "bldg_edc4ef72-ff55-4649-9dc5-56734c9c4256",
+        "x": 170.475,
+        "y": 24.194,
+        "width": 14.214,
+        "depth": 20.192,
+        "height": 12.1,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_eddd0f88-3741-429f-95f1-44d4c6abdcb6",
+        "name": "bldg_eddd0f88-3741-429f-95f1-44d4c6abdcb6",
+        "x": 181.481,
+        "y": 334.796,
+        "width": 24.858,
+        "depth": 20.795,
+        "height": 9.7,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_ee9399f7-2000-42f7-b2d3-1442504b4374",
+        "name": "東京駅",
+        "x": 230.69,
+        "y": 190.58,
+        "width": 110.433,
+        "depth": 409.55,
+        "height": 18.8,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_f0028aa3-e666-4608-8b70-4e981a45d6b5",
+        "name": "JPタワー",
+        "x": 11.851,
+        "y": 21.446,
+        "width": 124.991,
+        "depth": 104.227,
+        "height": 201.0,
+        "usage": "商業施設"
+      },
+      {
+        "id": "bldg_f13fb5ec-a607-4f6b-b549-4e7084dfa416",
+        "name": "bldg_f13fb5ec-a607-4f6b-b549-4e7084dfa416",
+        "x": 459.049,
+        "y": -113.811,
+        "width": 13.747,
+        "depth": 11.559,
+        "height": 19.0,
+        "usage": "店舗等併用住宅"
+      },
+      {
+        "id": "bldg_f1b62617-ee45-495f-a894-ef926761b5d3",
+        "name": "bldg_f1b62617-ee45-495f-a894-ef926761b5d3",
+        "x": 322.768,
+        "y": 15.715,
+        "width": 14.957,
+        "depth": 26.819,
+        "height": 4.3,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_f1cb3d95-878d-4d94-ae2f-214c4c1d96c3",
+        "name": "bldg_f1cb3d95-878d-4d94-ae2f-214c4c1d96c3",
+        "x": -108.453,
+        "y": 116.27,
+        "width": 10.568,
+        "depth": 7.2,
+        "height": 3.0,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_f2e91eb9-c1af-4222-a2a9-3a799c1c826e",
+        "name": "bldg_f2e91eb9-c1af-4222-a2a9-3a799c1c826e",
+        "x": 132.186,
+        "y": -219.14,
+        "width": 11.514,
+        "depth": 8.887,
+        "height": 10.5,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_f31467c0-e075-4d7a-b381-1282a0ac6332",
+        "name": "bldg_f31467c0-e075-4d7a-b381-1282a0ac6332",
+        "x": 215.505,
+        "y": -152.951,
+        "width": 45.105,
+        "depth": 32.128,
+        "height": 2.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_f361d0ab-bd48-42ba-a33e-7f889f4044b3",
+        "name": "丸の内警察署皇居前警備派出所",
+        "x": -468.674,
+        "y": -35.534,
+        "width": 9.733,
+        "depth": 13.515,
+        "height": 9.785,
+        "usage": "官公庁施設"
+      },
+      {
+        "id": "bldg_f3aeec04-0e48-41fa-a01e-ff6613d29879",
+        "name": "日本工業倶楽部会館",
+        "x": -2.99,
+        "y": 440.205,
+        "width": 88.301,
+        "depth": 90.947,
+        "height": 149.6,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_f40e1dda-da33-48f5-b81a-1b310d4bc0c0",
+        "name": "bldg_f40e1dda-da33-48f5-b81a-1b310d4bc0c0",
+        "x": 308.429,
+        "y": 151.926,
+        "width": 155.173,
+        "depth": 410.453,
+        "height": 14.9,
+        "usage": "運輸倉庫施設"
+      },
+      {
+        "id": "bldg_f41f100c-b00e-49a2-b82e-891cd71ffe98",
+        "name": "bldg_f41f100c-b00e-49a2-b82e-891cd71ffe98",
+        "x": 159.658,
+        "y": -186.577,
+        "width": 5.09,
+        "depth": 5.852,
+        "height": 4.4,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_f4d17ac2-2e14-46f3-a028-5ce23384b83d",
+        "name": "bldg_f4d17ac2-2e14-46f3-a028-5ce23384b83d",
+        "x": 97.994,
+        "y": -266.378,
+        "width": 12.013,
+        "depth": 10.567,
+        "height": 4.1,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_f6afbb01-9563-4ea0-9c6e-41addd1c0a9a",
+        "name": "bldg_f6afbb01-9563-4ea0-9c6e-41addd1c0a9a",
+        "x": 136.206,
+        "y": -491.7,
+        "width": 46.201,
+        "depth": 33.029,
+        "height": 50.2,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_f74cea45-e523-47f8-8cb0-afae9cd5497f",
+        "name": "bldg_f74cea45-e523-47f8-8cb0-afae9cd5497f",
+        "x": 64.771,
+        "y": 337.914,
+        "width": 2.766,
+        "depth": 2.6,
+        "height": 2.8,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_f9793478-c291-4f69-a399-16a7bdbe7787",
+        "name": "bldg_f9793478-c291-4f69-a399-16a7bdbe7787",
+        "x": -117.555,
+        "y": 440.013,
+        "width": 83.087,
+        "depth": 36.867,
+        "height": 10.6,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_fb375c04-254e-4c23-ad92-17f377a5d4f3",
+        "name": "bldg_fb375c04-254e-4c23-ad92-17f377a5d4f3",
+        "x": -232.06,
+        "y": 104.167,
+        "width": 50.576,
+        "depth": 46.76,
+        "height": 48.7,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_fb9e6e0a-ccda-4364-86aa-c4c86b6f4197",
+        "name": "bldg_fb9e6e0a-ccda-4364-86aa-c4c86b6f4197",
+        "x": 273.851,
+        "y": -237.829,
+        "width": 52.798,
+        "depth": 55.93,
+        "height": 45.7,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_fc18f830-204b-4489-997a-3d8b527e58dc",
+        "name": "bldg_fc18f830-204b-4489-997a-3d8b527e58dc",
+        "x": 447.526,
+        "y": 128.618,
+        "width": 4.703,
+        "depth": 9.72,
+        "height": 3.5,
+        "usage": "不明"
+      },
+      {
+        "id": "bldg_fe0ea6d6-70d5-4b78-b676-6f01387a98ff",
+        "name": "bldg_fe0ea6d6-70d5-4b78-b676-6f01387a98ff",
+        "x": 448.191,
+        "y": -252.49,
+        "width": 119.555,
+        "depth": 98.053,
+        "height": 167.7,
+        "usage": "業務施設"
+      },
+      {
+        "id": "bldg_ffa0328d-cd21-4944-a497-7c2dbb02a592",
+        "name": "bldg_ffa0328d-cd21-4944-a497-7c2dbb02a592",
+        "x": 356.358,
+        "y": -172.605,
+        "width": 7.797,
+        "depth": 10.167,
+        "height": 7.7,
+        "usage": "店舗等併用住宅"
+      }
+    ]
   }
 ]

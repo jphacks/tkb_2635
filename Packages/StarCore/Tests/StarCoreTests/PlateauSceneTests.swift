@@ -47,6 +47,23 @@ import Testing
         })
     }
 
+    /// 丸の内（KITTE）も同じ手順で作った。PLATEAU では KITTE の低層部と JP タワーが1棟なので、
+    /// JP タワーを hostBuildingId にする（3D では半透明にして、屋上庭園の観測者を見せる）。
+    @Test func bundledMarunouchiUsesPlateauAndKitteIsOnJPTower() throws {
+        let scene = try #require(try SeedData.loadScenes().first { $0.id == "marunouchi" })
+        #expect(scene.source.contains("PLATEAU") && scene.source.contains("CC BY 4.0"))
+        #expect(scene.groundElevation == 3)
+        #expect(scene.buildings.count == 350)
+        let kitte = try #require(try SeedData.loadSpots().first { $0.id == "kitte_garden" })
+        #expect(kitte.sceneId == "marunouchi")
+        let tower = try #require(scene.buildings.first { $0.id == kitte.hostBuildingId })
+        #expect(tower.name == "JPタワー")
+        let p = scene.localPosition(latitude: kitte.latitude, longitude: kitte.longitude)
+        #expect(abs(p.east - tower.x) < tower.width / 2 && abs(p.north - tower.y) < tower.depth / 2)
+        let horizon = HorizonProfile.compute(spot: kitte, scene: scene)
+        #expect(!horizon.isApproximate)
+    }
+
     @Test func rooftopHostResolvesAndGroundIsOutsideBuildings() throws {
         let scene = try #require(try SeedData.loadScenes().first { $0.id == "shibuya" })
         let spots = try SeedData.loadSpots()

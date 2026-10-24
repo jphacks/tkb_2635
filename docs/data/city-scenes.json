@@ -11,5 +11,18 @@
     "manifest": "docs/data/plateau-shinjuku-2025.json",
     "work": "../outputs/plateau-shinjuku-2025",
     "groundPhoto": "../outputs/gsi-shinjuku"
+  },
+  {
+    "id": "marunouchi",
+    "name": "丸の内（東京駅前）",
+    "latitude": 35.6796,
+    "longitude": 139.7647,
+    "buildingRadius": 500,
+    "groundRadius": 800,
+    "groundElevation": null,
+    "atlasBudget": 1,
+    "manifest": "docs/data/plateau-marunouchi-2025.json",
+    "work": "../outputs/plateau-marunouchi-2025",
+    "groundPhoto": "../outputs/gsi-marunouchi"
   }
 ]

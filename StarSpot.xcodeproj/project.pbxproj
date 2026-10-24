@@ -19,6 +19,7 @@
 		5CC95CA726F89DDF9C3A0C44 /* HomeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47050A9D6512E05E3FB7237C /* HomeStyle.swift */; };
 		5DD92D36C8295567AACB5B0F /* RiseSetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2226A2988AF1E32C4EBEE /* RiseSetSection.swift */; };
 		67C15D754C2044BF2418C0A2 /* HomeMapSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA52D2CB71D15A837A60755 /* HomeMapSection.swift */; };
+		7869014903522263F2435E1F /* City_marunouchi.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F5F1649304DDCDDD8B30CDF6 /* City_marunouchi.usdz */; };
 		7B64F7ED77FC9727F5B78DD8 /* City_shinjuku.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5665ABA50F91226C34884D41 /* City_shinjuku.usdz */; };
 		837C7DD37DD459D34DE649A1 /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5D031CC5399C443511121C /* SpotDetailView.swift */; };
 		84AFD976B4CBC5D93D7F9404 /* Concrete034_Roughness.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 308179C5CCF1CE14B9BF6493 /* Concrete034_Roughness.jpg */; };
@@ -87,6 +88,7 @@
 		E977348ECDA6D2A5DE9E28DA /* Asphalt031_NormalGL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Asphalt031_NormalGL.jpg; sourceTree = "<group>"; };
 		EB3ABAC033ABF32304BC5DF1 /* SkyCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCamera.swift; sourceTree = "<group>"; };
 		F15A6BD96245C9D0EB9D555F /* Asphalt031_Roughness.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Asphalt031_Roughness.jpg; sourceTree = "<group>"; };
+		F5F1649304DDCDDD8B30CDF6 /* City_marunouchi.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_marunouchi.usdz; sourceTree = "<group>"; };
 		F5F1C0036CA84BF2DF578446 /* HomeConditionsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConditionsCard.swift; sourceTree = "<group>"; };
 		F77E2A1A6FDB19B5B2E3C66D /* RouteSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +178,7 @@
 				B0C07C8453CFA255AD73FC45 /* Asphalt031_Color.jpg */,
 				E977348ECDA6D2A5DE9E28DA /* Asphalt031_NormalGL.jpg */,
 				F15A6BD96245C9D0EB9D555F /* Asphalt031_Roughness.jpg */,
+				F5F1649304DDCDDD8B30CDF6 /* City_marunouchi.usdz */,
 				B9DA1DEE77A332FC2A04DEF6 /* City_shibuya.usdz */,
 				5665ABA50F91226C34884D41 /* City_shinjuku.usdz */,
 				A93A7469668EA324B724E02C /* Concrete034_Color.jpg */,
@@ -274,6 +277,7 @@
 				F5A23B40904147AA81FD4D03 /* Asphalt031_NormalGL.jpg in Resources */,
 				C40105CC67476B1524DA1791 /* Asphalt031_Roughness.jpg in Resources */,
 				1EFFE3428A12B9632AD2AEB8 /* Assets.xcassets in Resources */,
+				7869014903522263F2435E1F /* City_marunouchi.usdz in Resources */,
 				883CCA595AA0B31955697D89 /* City_shibuya.usdz in Resources */,
 				7B64F7ED77FC9727F5B78DD8 /* City_shinjuku.usdz in Resources */,
 				F18EC5FB9912E1C9058F7313 /* Concrete034_Color.jpg in Resources */,
