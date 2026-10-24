@@ -29,6 +29,7 @@ public enum DataQualityFlag: String, Sendable, CaseIterable {
     case regionalLightUnverified
     case localGlareDeskChecked
     case weatherMissing
+    case weatherOutOfRange
     case horizonApproximate
     case buildingDataSample
     case accessUnverified
@@ -42,6 +43,7 @@ public enum DataQualityFlag: String, Sendable, CaseIterable {
         case .regionalLightUnverified: "地域の光害が未確認のため、暗さは仮の値で計算しています"
         case .localGlareDeskChecked: "近傍照明は机上評価で、現地では未確認です"
         case .weatherMissing: "指定時刻の天気予報を取得できていません"
+        case .weatherOutOfRange: "指定時刻は天気予報の範囲外です（予報は今日から\(OpenMeteoClient.forecastDays)日先まで）"
         case .horizonApproximate: "建物データ未取り込みのため、地平線は暫定値です"
         case .buildingDataSample: "建物は手作りの概略データです（PLATEAU 取り込み前）"
         case .accessUnverified: "営業時間・立入条件は未確認の暫定値です。公式情報を確認してください"
@@ -140,7 +142,8 @@ public enum Recommender {
         100 * (0.35 * openness + 0.40 * weather + 0.25 * darkness)
     }
 
-    public static func evaluate(_ context: SpotContext, target: ObservationTarget, date: Date, weather: Weather?) -> Prediction {
+    public static func evaluate(_ context: SpotContext, target: ObservationTarget, date: Date, weather: Weather?,
+                                forecastCoverage: ForecastCoverage = .inRange) -> Prediction {
         let spot = context.spot
         let moon = Astro.moon(date: date, latitude: spot.latitude, longitude: spot.longitude)
         let sun = Astro.sun(date: date, latitude: spot.latitude, longitude: spot.longitude)
@@ -173,7 +176,7 @@ public enum Recommender {
 
         // STEP 3: 天気
         let w = weather.flatMap(weatherScore)
-        if w == nil { flags.append(.weatherMissing) }
+        if w == nil { flags.append(forecastCoverage.isOutOfRange ? .weatherOutOfRange : .weatherMissing) }
 
         // STEP 4: 暗さ（月を見るときは月明かりを減点しない）
         let m: Double = if case .moon = target { 0 } else { moonEffect(moon: moon, target: position) }
@@ -255,6 +258,8 @@ public enum Recommender {
 
         if let cloud = p.cloudCover {
             lines.append("雲量の予報は \(Int(cloud))% です。")
+        } else if p.dataQualityFlags.contains(.weatherOutOfRange) {
+            lines.append("指定時刻は天気予報の範囲外のため、天気は仮の値で計算しています。")
         }
         if spot.localGlareLevel == nil {
             lines.append("ただし、周辺照明は未確認です。")

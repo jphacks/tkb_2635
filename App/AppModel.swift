@@ -34,7 +34,10 @@ final class AppModel {
     }
 
     var predictions: [Prediction] {
-        Recommender.rank(contexts.map { Recommender.evaluate($0, target: target, date: date, weather: weather(for: $0.spot)) })
+        Recommender.rank(contexts.map {
+            Recommender.evaluate($0, target: target, date: date, weather: weather(for: $0.spot),
+                                 forecastCoverage: forecastCoverage(for: $0.spot))
+        })
     }
 
     func context(id: String) -> SpotContext? {
@@ -44,6 +47,16 @@ final class AppModel {
     func weather(for spot: Spot) -> Weather? {
         let grid = OpenMeteoClient.gridId(latitude: spot.latitude, longitude: spot.longitude)
         return forecasts[grid].flatMap { OpenMeteoClient.nearest($0, to: date) }
+    }
+
+    func forecastCoverage(for spot: Spot) -> ForecastCoverage {
+        let grid = OpenMeteoClient.gridId(latitude: spot.latitude, longitude: spot.longitude)
+        return OpenMeteoClient.coverage(of: forecasts[grid] ?? [], at: date)
+    }
+
+    /// 選んだ日時が予報の範囲外のときに出す文。範囲内なら nil。
+    var forecastOutOfRangeMessage: String? {
+        contexts.lazy.compactMap { self.forecastCoverage(for: $0.spot).message }.first
     }
 
     var moon: MoonInfo {

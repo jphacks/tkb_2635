@@ -17,7 +17,12 @@ struct SpotListView: View {
                     TargetPicker(target: $model.target)
                     MoonSummary(moon: model.moon)
                 } footer: {
-                    Text("スコアは観測条件の目安で、観測できる確率ではありません。")
+                    VStack(alignment: .leading, spacing: 4) {
+                        if let message = model.forecastOutOfRangeMessage {
+                            ForecastOutOfRangeNote(message: message)
+                        }
+                        Text("スコアは観測条件の目安で、観測できる確率ではありません。")
+                    }
                 }
 
                 if let error = model.weatherLoadError {
@@ -77,6 +82,16 @@ struct SpotListView: View {
             }
             .refreshable { await model.refreshWeather() }
         }
+    }
+}
+
+/// 選んだ日時が天気予報の範囲外のときの注意書き
+struct ForecastOutOfRangeNote: View {
+    let message: String
+
+    var body: some View {
+        Label(message, systemImage: "calendar.badge.exclamationmark")
+            .foregroundStyle(.orange)
     }
 }
 

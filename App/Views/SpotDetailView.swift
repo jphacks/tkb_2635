@@ -11,7 +11,8 @@ struct SpotDetailView: View {
         @Bindable var model = model
         let spot = context.spot
         let prediction = Recommender.evaluate(context, target: model.target, date: model.date,
-                                              weather: model.weather(for: spot))
+                                              weather: model.weather(for: spot),
+                                              forecastCoverage: model.forecastCoverage(for: spot))
 
         List {
             Section {
@@ -30,6 +31,10 @@ struct SpotDetailView: View {
 
             Section {
                 TimeSlider(date: $model.date)
+            } footer: {
+                if let message = model.forecastCoverage(for: spot).message {
+                    ForecastOutOfRangeNote(message: message)
+                }
             }
 
             if let partner = model.contexts.comparisonPartner(of: context) {
@@ -62,7 +67,7 @@ struct SpotDetailView: View {
                 if let w = prediction.weatherScore {
                     MetricRow(label: "天気 W", value: w, detail: prediction.cloudCover.map { "雲量 \(Int($0))%" } ?? "")
                 } else {
-                    LabeledContent("天気 W", value: "未取得")
+                    LabeledContent("天気 W", value: prediction.dataQualityFlags.contains(.weatherOutOfRange) ? "予報の範囲外" : "未取得")
                 }
                 MetricRow(label: "暗さ D", value: prediction.darknessScore,
                           detail: spot.localGlareLevel == nil || spot.regionalLightIndex == nil ? "精度不足" : "")

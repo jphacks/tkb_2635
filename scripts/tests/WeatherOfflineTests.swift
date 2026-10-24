@@ -39,7 +39,8 @@ final class WeatherProtocol: URLProtocol, @unchecked Sendable {
         let config = URLSessionConfiguration.ephemeral
         config.protocolClasses = [WeatherProtocol.self]
         let model = AppModel(client: OpenMeteoClient(session: URLSession(configuration: config)))
-        model.date = Date(timeIntervalSince1970: 1_792_836_000)
+        // 通信できないときは今日から16日先までを予報の範囲とみなすので、実行日の今夜にする。
+        model.date = AppModel.tonight()
         return model
     }
 
