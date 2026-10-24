@@ -94,3 +94,7 @@ scripts/plateau_to_json.py PLATEAU 変換のスタブ
 ### PLATEAU原本の取得（2-02）
 
 渋谷駅周辺の2025年度版CityGML原本を取得済みです。出典、利用条件、再取得コマンドは [取得記録](docs/data/plateau-shibuya-2025.md) を参照してください。アプリ向けの変換と建物データの置き換えは次の作業（2-03・2-04）です。
+
+### PLATEAU建物の変換（2-03）
+
+取得したCityGMLから、指定地点の周囲500mの建物をアプリ形式のJSONに変換できます。[実行方法・高さの扱い・制約](docs/data/plateau-converter.md)を参照してください。アプリへのデータ置き換え（2-04）は別作業です。
