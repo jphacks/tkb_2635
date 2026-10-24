@@ -22,6 +22,7 @@ struct CompareView: View {
             Section {
                 DatePicker("観測日時", selection: $model.date)
                     .environment(\.timeZone, TimeZone(identifier: "Asia/Tokyo")!)
+                TimeSlider(date: $model.date)
                 TargetPicker(target: $model.target)
             }
 

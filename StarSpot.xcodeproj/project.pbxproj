@@ -24,6 +24,7 @@
 		B2341704FEB2BD45412EEB6E /* Concrete034_NormalGL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15F0F3CF7CB762C06A5DED0F /* Concrete034_NormalGL.jpg */; };
 		C40105CC67476B1524DA1791 /* Asphalt031_Roughness.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F15A6BD96245C9D0EB9D555F /* Asphalt031_Roughness.jpg */; };
 		D9F4571299DC479495189966 /* CityModelRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9203D1807BE1815AEE18E0B /* CityModelRenderer.swift */; };
+		DB035849474639C5A9C6DCA1 /* TimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA06A0CCFDF479A126260A /* TimeSlider.swift */; };
 		DCCFF7F044F1DDF2AFF1201B /* TargetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA16CE24D5352408F1E495 /* TargetPicker.swift */; };
 		F0A6C29194EF8C66AAD5C1F4 /* SurroundingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D756A88C6BD474D11D3DF42 /* SurroundingsSection.swift */; };
 		F18EC5FB9912E1C9058F7313 /* Concrete034_Color.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A93A7469668EA324B724E02C /* Concrete034_Color.jpg */; };
@@ -38,6 +39,7 @@
 		292EF5205CC96A242DC2B369 /* Sky3DMarkers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sky3DMarkers.swift; sourceTree = "<group>"; };
 		308179C5CCF1CE14B9BF6493 /* Concrete034_Roughness.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Concrete034_Roughness.jpg; sourceTree = "<group>"; };
 		3BA12F120047673D19190040 /* Sky3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sky3DView.swift; sourceTree = "<group>"; };
+		41BA06A0CCFDF479A126260A /* TimeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlider.swift; sourceTree = "<group>"; };
 		5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingNightRenderer.swift; sourceTree = "<group>"; };
 		55DA16CE24D5352408F1E495 /* TargetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetPicker.swift; sourceTree = "<group>"; };
 		5BE617C900ABD7B0CA50F0AE /* CompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				A48E1331041841284856A9DB /* SpotListView.swift */,
 				0D756A88C6BD474D11D3DF42 /* SurroundingsSection.swift */,
 				55DA16CE24D5352408F1E495 /* TargetPicker.swift */,
+				41BA06A0CCFDF479A126260A /* TimeSlider.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				1EE9A584A7D584A4BAEAF1EB /* StarSpotApp.swift in Sources */,
 				F0A6C29194EF8C66AAD5C1F4 /* SurroundingsSection.swift in Sources */,
 				DCCFF7F044F1DDF2AFF1201B /* TargetPicker.swift in Sources */,
+				DB035849474639C5A9C6DCA1 /* TimeSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
