@@ -16,7 +16,8 @@ struct SpotDetailView: View {
     var body: some View {
         @Bindable var model = model
         let prediction = Recommender.evaluate(context, target: model.target, date: model.date,
-                                              weather: model.weather(for: context.spot))
+                                              weather: model.weather(for: context.spot),
+                                              forecastCoverage: model.forecastCoverage(for: context.spot))
 
         ZStack {
             Group {
@@ -36,6 +37,10 @@ struct SpotDetailView: View {
                     .background(.regularMaterial, in: .rect(cornerRadius: 16))
                     .padding(.horizontal, 12)
                     .padding(.top, 4)
+                if let message = model.forecastCoverage(for: context.spot).message {
+                    ForecastOutOfRangeNote(message: message)
+                        .padding(.horizontal, 16)
+                }
                 // 判定は下のシートに出す。出典は利用の条件なので、3D の説明を消しても残す
                 if context.scene.map(CityModelRenderer.hasModel) == true {
                     Text("出典: PLATEAU（CC BY 4.0）・国土地理院")
