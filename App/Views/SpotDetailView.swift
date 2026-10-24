@@ -43,7 +43,7 @@ struct SpotDetailView: View {
                 }
                 // 判定は下のシートに出す。出典は利用の条件なので、3D の説明を消しても残す
                 if context.scene.map(CityModelRenderer.hasModel) == true {
-                    Text("出典: PLATEAU（CC BY 4.0）・国土地理院")
+                    Text(SkyRenderer.credit)
                         .font(.caption2)
                         .foregroundStyle(.white.opacity(0.7))
                         .frame(maxWidth: .infinity, alignment: .trailing)
