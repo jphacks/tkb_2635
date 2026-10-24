@@ -76,7 +76,7 @@ cd Packages/StarCore && swift test
 ```
 App/                       SwiftUI アプリ（一覧・詳細・3D プレビュー）
 Packages/StarCore/         モデル・天体計算・遮蔽判定・天気・スコア（ローカル Swift Package）
-  Sources/StarCore/Resources/spots.json      観測地点（9地点、5種類）
+  Sources/StarCore/Resources/spots.json      観測地点（12地点、5種類）
   Sources/StarCore/Resources/buildings.json  渋谷（PLATEAU 1,497棟）・西新宿（概略）
 scripts/plateau_to_json.py CityGML → アプリ用JSONへの変換
 ```
@@ -87,6 +87,7 @@ scripts/plateau_to_json.py CityGML → アプリ用JSONへの変換
 - 利用時間外・天体が見えない地点は、スコアに関係なく下位にする
 
 ### データについての注意
+* 舎人公園・水元公園・駒沢オリンピック公園を追加し、計12地点。追加3地点は建物・樹木・光害などが未確認のため「要確認」。詳細画面には天候による閉鎖条件・撮影機材の制限も表示する（[出典・実機での確認箇所](docs/facilities/observation-conditions.md)）。都庁南展望室は公式の方角案内を表示するが、窓の境界角度は確認待ち。
 * 公園・広場・河川敷の既存6地点に、確認済みの利用時間と未確認の区別を反映（[1-06の調査と運用](docs/night-access/README.md)）。新宿御苑の季節・休園日判定は2026〜2027年が対象。SHIBUYA SKY・都庁南展望室・KITTEガーデンは1-03〜1-05で確認した公式情報を使用。臨時の閉鎖は公式案内を確認すること
 * 地域の光害指標は VIIRS 夜間光（2025 年の年次合成、約 460 m の画素の年平均）から作った（[手順と出典](docs/data/viirs-light-index.md)）。近傍照明は未確認（画面に表示される）
 * 恒星の位置は歳差を補正していないため、0.4° 程度の誤差がある
