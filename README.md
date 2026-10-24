@@ -51,7 +51,7 @@
 
 ### 独自技術
 #### ハッカソンで開発した独自機能・技術
-* 月・太陽・恒星の位置計算（[Astro.swift](Packages/StarCore/Sources/StarCore/Astro/Astro.swift)）: 天文年鑑の低精度式を Swift で実装。Astronomy Engine と比べ、月の位置の誤差は 0.7° 以内（テストで確認）。惑星（[Planets.swift](Packages/StarCore/Sources/StarCore/Astro/Planets.swift)）は軌道要素から計算し、skyfield（JPL DE421）との差は 0.3° 以内（テストで確認、[説明](docs/astro/planets.md)）
+* 月・太陽・恒星の位置計算（[Astro.swift](Packages/StarCore/Sources/StarCore/Astro/Astro.swift)）: 天文年鑑の低精度式を Swift で実装。Astronomy Engine と比べ、月の位置の誤差は 0.7° 以内（テストで確認）。惑星（[Planets.swift](Packages/StarCore/Sources/StarCore/Astro/Planets.swift)）は軌道要素から計算し、skyfield（JPL DE421）との差は 2 時刻 × 5 惑星で最大 0.013°（テストの許容差は 0.3°、[説明](docs/astro/planets.md)）
 * 地平線プロファイルと空の開放度（[HorizonProfile.swift](Packages/StarCore/Sources/StarCore/Geometry/HorizonProfile.swift)）
 * 観測地点の推薦（[Recommender.swift](Packages/StarCore/Sources/StarCore/Scoring/Recommender.swift)）: 立入条件 → 可視性 → 天気 → 暗さ → 順位付け → 推薦理由
 
