@@ -58,6 +58,7 @@
 ## 開発の始め方
 
 施設情報（SHIBUYA SKY・都庁南展望室・KITTEガーデン）の公式確認と日次更新PRについては、[公式施設情報の運用](docs/facilities/README.md)を参照。
+毎朝の自動確認は、GitHub 側の許可（管理者の設定）待ちで、まだ動いていない。許可が出るまでは、手元で `python3 scripts/update_official_facilities.py --write` を実行し、変更があれば PR を `develop` に出す。
 
 ```bash
 brew install xcodegen
