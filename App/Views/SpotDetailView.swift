@@ -40,15 +40,19 @@ struct SpotDetailView: View {
                     LabeledContent("天気 W", value: "未取得")
                 }
                 MetricRow(label: "暗さ D", value: prediction.darknessScore,
-                          detail: spot.localGlareLevel == nil ? "精度不足" : "")
+                          detail: spot.localGlareLevel == nil || spot.regionalLightIndex == nil ? "精度不足" : "")
                 LabeledContent("月明かりの影響 M", value: model.target == .moon ? "月モードでは減点しない" : String(format: "%.2f", prediction.moonEffect))
             }
 
             Section {
                 LabeledContent("地域の光害（広域）") {
-                    Text(String(format: "%.2f", spot.regionalLightIndex)) + Text("  暫定値").foregroundStyle(.secondary)
+                    if let index = spot.regionalLightIndex {
+                        Text(String(format: "%.2f", index)) + Text("  \(spot.regionalLightShortSource)").foregroundStyle(.secondary)
+                    } else {
+                        Text("未確認").foregroundStyle(.orange)
+                    }
                 }
-                LabeledContent("近傍照明（現地確認）") {
+                LabeledContent(spot.localGlareLabel) {
                     if let level = spot.localGlareLevel {
                         Text("\(level) / 3")
                     } else {
@@ -58,7 +62,13 @@ struct SpotDetailView: View {
             } header: {
                 Text("光害")
             } footer: {
-                Text("地域の光害は衛星夜間光（VIIRS）を取り込む前の暫定値です。近傍照明は現地確認の段階評価で、照度の測定値ではありません。")
+                if spot.regionalLightIndex == nil {
+                    Text("地域の光害は未確認です。\(spot.localGlareNote)")
+                } else if let source = spot.regionalLightSource {
+                    Text("地域の光害は衛星夜間光（\(source)）の年平均から求めた値です。\(spot.localGlareNote)")
+                } else {
+                    Text("地域の光害は衛星夜間光（VIIRS）を取り込む前の暫定値です。\(spot.localGlareNote)")
+                }
             }
 
             Section("施設・地点") {
@@ -78,9 +88,26 @@ struct SpotDetailView: View {
                 if let fee = spot.admissionFee { LabeledContent("料金", value: fee) }
                 if let reservation = spot.reservationRequired { LabeledContent("予約", value: reservation ? "必要・推奨" : "不要") }
                 if let access = spot.accessConditions { Text(access).font(.callout) }
+                LabeledContent("天候による閉鎖条件", value: spot.weatherClosureConditions ?? "未確認")
+                LabeledContent("撮影機材の制限", value: spot.photographyRestrictions ?? "未確認")
                 if let memo = spot.memo { Text(memo).font(.callout).foregroundStyle(.secondary) }
                 LabeledContent("最終確認日", value: spot.lastVerifiedAt ?? "未確認")
                 if let url = spot.officialWebsite { Link("公式情報を開く", destination: url) }
+            }
+
+            if spot.indoorOutdoor != .outdoor || spot.viewingDirectionMask != nil || spot.viewingDirectionNotes != nil {
+                Section {
+                    LabeledContent("観測できる方角", value: spot.viewingDirectionSummary)
+                    LabeledContent("方角の確認", value: spot.hasVerifiedViewingDirections ? "確認済み" : "未確認")
+                    LabeledContent("見上げられる高度の上限", value: spot.visibleAltitudeSummary)
+                    if let notes = spot.viewingDirectionNotes {
+                        Text(notes).font(.callout)
+                    }
+                } header: {
+                    Text("窓・屋根と見える方角")
+                } footer: {
+                    Text("方位は北0°・東90°・南180°・西270°。範囲が北をまたぐ場合は、開始角度から北を通って終了角度までです。方角が未確認の地点は、見える見込みでも「要確認」とします。")
+                }
             }
 
             if let scene = context.scene {
@@ -88,6 +115,7 @@ struct SpotDetailView: View {
                     LabeledContent("収録建物数", value: "\(scene.buildings.count)棟")
                     Text(scene.source).font(.caption).foregroundStyle(.secondary)
                 }
+                SurroundingsSection(context: context)
             }
 
             if !prediction.dataQualityFlags.isEmpty {

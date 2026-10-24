@@ -16,9 +16,11 @@
 		A1577EEB4934E2A2E6BFEDA0 /* BuildingNightRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */; };
 		A195391722902F86D763B56F /* BuildingFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F92338553BC2D572913CBE8 /* BuildingFacade.swift */; };
 		A8AEA27D74F047C4532C6F40 /* StarCore in Frameworks */ = {isa = PBXBuildFile; productRef = C562E67EB8C174B0CC595341 /* StarCore */; };
+		F0A6C29194EF8C66AAD5C1F4 /* SurroundingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D756A88C6BD474D11D3DF42 /* SurroundingsSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D756A88C6BD474D11D3DF42 /* SurroundingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurroundingsSection.swift; sourceTree = "<group>"; };
 		1DA8483FB629B08A3E5A4BE0 /* StarSpotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSpotApp.swift; sourceTree = "<group>"; };
 		3BA12F120047673D19190040 /* Sky3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sky3DView.swift; sourceTree = "<group>"; };
 		5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingNightRenderer.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				3BA12F120047673D19190040 /* Sky3DView.swift */,
 				DB5D031CC5399C443511121C /* SpotDetailView.swift */,
 				A48E1331041841284856A9DB /* SpotListView.swift */,
+				0D756A88C6BD474D11D3DF42 /* SurroundingsSection.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				837C7DD37DD459D34DE649A1 /* SpotDetailView.swift in Sources */,
 				2728E18A4E52AF0C17714287 /* SpotListView.swift in Sources */,
 				1EE9A584A7D584A4BAEAF1EB /* StarSpotApp.swift in Sources */,
+				F0A6C29194EF8C66AAD5C1F4 /* SurroundingsSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
