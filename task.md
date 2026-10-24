@@ -113,7 +113,7 @@
 | 6-03 | 衛星の夜間光（VIIRS）から、地点ごとの地域の光害の値を作る | `regionalLightIndex` が暫定値でなくなる。出典を書く | P1 | ミスミ | ✅ |
 | 6-04 | 近くの照明を、夜の写真や現地で 0〜3 の段階で評価する | `localGlareLevel` と `lightingCheckDate` が入る | P1 | ミスミ | ✅ |
 | 6-05 | PLATEAU の建物の用途から、周りが商業地・住宅地などを参考表示する | 詳細画面に「周辺: 商業施設が多い」などと出る | P2 | ミスミ | ✅ |
-| 6-06 | World Atlas（Falchi 2016）から地点ごとの天頂の空の明るさを取り、Bortle 等級相当を参考表示する（スコアには使わない）。**2026-10-24 時点で配布サーバー datapub.gfz.de に接続できず原本が未取得のため保留**（[記録](docs/data/world-atlas-sky-brightness.md)） | 詳細画面に「空の明るさ（天頂） 18.2 mag/arcsec²・Bortle 9 相当」などと出る | P2 | ミスミ | ⬜ |
+| 6-06 | World Atlas（Falchi 2016）から地点ごとの天頂の空の明るさを取り、Bortle 等級相当を参考表示する（スコアには使わない）。**備考: 配布サーバーに到達できず未取得（2026-10-24）**（[記録](docs/data/world-atlas-sky-brightness.md)） | 詳細画面に「空の明るさ（天頂） 18.2 mag/arcsec²・Bortle 9 相当」などと出る | P2 | ミスミ | ⬜ |
 
 ## 7. 推薦・スコア
 

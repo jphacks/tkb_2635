@@ -24,6 +24,7 @@ VIIRS（6-03）は「地上から上向きに出る光の量」で、星を見�
 | 案内ページの「Download data and description」 | `https://dataservices.gfz.de/landing-page-downloads/3/primary` → `https://datapub.gfz.de/download/10.5880.GFZ.1.4.2016.001/` へ転送 |
 | `datapub.gfz.de` への接続（curl・アプリ内ブラウザ、2026-10-24 に数回） | **つながらない**。名前は 139.17.228.237 に引けるが、443 番への接続が時間切れになる。`www.gfz.de` と `dataservices.gfz.de` は開ける |
 | ミスミの Chrome（2026-10-24） | 同じく `ERR_CONNECTION_TIMED_OUT`（応答時間が長すぎる） |
+| 依頼元セッションの Chrome・curl（2026-10-24） | https・http とも 20 秒で時間切れ。旧ホスト名 `datapub.gfz-potsdam.de` も同じ IP（139.17.228.237）で同じ結果。案内ページ `dataservices.gfz.de` は 200 で開く |
 | ほかの配布元 | 公式のミラーは見つからなかった。CIRES の KMZ は表示用の画像で、輝度の値は取れない |
 
 登録が要るかどうかは、ファイル一覧のページが開けないため確かめられていない（案内ページまでは登録なしで開ける）。
