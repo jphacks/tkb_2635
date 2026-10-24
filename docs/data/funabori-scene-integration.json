@@ -1,0 +1,34 @@
+{
+  "sceneId": "funabori",
+  "radiusMeters": 500,
+  "scanned": 11247,
+  "selected": 1941,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53394618_bldg_6697_op.gml",
+      "sha256": "df50a8a699e4b01063830b21a094ff310430fdac3ba6c7c5b4c439894c5a48af",
+      "buildingsScanned": 2734
+    },
+    {
+      "name": "53394619_bldg_6697_op.gml",
+      "sha256": "ce7a19eb5e033fa878d61ce0a43cf2aaa6d05130a45a378c718a690b409af981",
+      "buildingsScanned": 4224
+    },
+    {
+      "name": "53394628_bldg_6697_op.gml",
+      "sha256": "cf602069f0eb871f71c45194efa1b39a20502a03d5a1ccec86b2a8ab8c137ea2",
+      "buildingsScanned": 869
+    },
+    {
+      "name": "53394629_bldg_6697_op.gml",
+      "sha256": "2033f0d8e59f342bc491a4d8ef9fe58d9c7bdc65d9d04dcf022f36d4857dc780",
+      "buildingsScanned": 3420
+    }
+  ],
+  "groundElevation": -1.0,
+  "belowSceneGround": 0
+}

@@ -1,0 +1,34 @@
+{
+  "sceneId": "yumenoshima_park",
+  "radiusMeters": 500,
+  "scanned": 1520,
+  "selected": 122,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53393675_bldg_6697_op.gml",
+      "sha256": "590cf90e08732e87385927451739be6db4312f8bb70158c61c20f305743b4d2e",
+      "buildingsScanned": 438
+    },
+    {
+      "name": "53393676_bldg_6697_op.gml",
+      "sha256": "d48e0ab421aa95b947defcfeb279f73fea4bafd33db06fea47bc127f0d86780d",
+      "buildingsScanned": 453
+    },
+    {
+      "name": "53393685_bldg_6697_op.gml",
+      "sha256": "c245e6dfdbbf7f729bdab68ead6928c9e98ecaeceb4d07c13533b81cd289d202",
+      "buildingsScanned": 426
+    },
+    {
+      "name": "53393686_bldg_6697_op.gml",
+      "sha256": "e3b09f39e9c8938c895ed3c9b527ea74c3c1497eb2fd3c8aca01a4f32723a297",
+      "buildingsScanned": 203
+    }
+  ],
+  "groundElevation": 5.0,
+  "belowSceneGround": 5
+}

@@ -76,24 +76,58 @@ import Testing
         }
     }
 
-    /// 展望台4か所（スカイツリー・東京タワー・サンシャイン60・東京シティビュー）と足元の地上の組。
-    /// 展望台は建物の中（3D では半透明）、地上はどの建物の箱の外にもある。
-    @Test func observatoryPairsStandInsideTheirTowerAndGroundIsOutside() throws {
+    /// 展望台・屋上は立っている建物（hostBuildingId）の上か中にあり、比べる相手（comparisonSpotId）は同じシーンにある。
+    /// 地上の広場（デモ用の代表点）はどの建物の箱の外にもある。
+    @Test func hostsAndComparisonPairsAreConsistent() throws {
         let scenes = Dictionary(uniqueKeysWithValues: try SeedData.loadScenes().map { ($0.id, $0) })
         let spots = try SeedData.loadSpots()
-        for id in ["skytree_tembo_deck", "tokyo_tower_main_deck", "sunshine60_observatory", "tokyo_city_view"] {
-            let deck = try #require(spots.first { $0.id == id })
+        let byId = Dictionary(uniqueKeysWithValues: spots.map { ($0.id, $0) })
+        for spot in spots {
+            let scene = try #require(spot.sceneId.flatMap { scenes[$0] }, "\(spot.id)")
+            let p = scene.localPosition(latitude: spot.latitude, longitude: spot.longitude)
+            if let hostId = spot.hostBuildingId {
+                let host = try #require(scene.buildings.first { $0.id == hostId }, "\(spot.id)")
+                #expect(abs(p.east - host.x) < host.width / 2 && abs(p.north - host.y) < host.depth / 2, "\(spot.id)")
+            }
+            if let partner = spot.comparisonSpotId {
+                #expect(byId[partner]?.sceneId == spot.sceneId, "\(spot.id)")
+            }
+            if spot.category == .plaza {
+                #expect(!scene.buildings.contains {
+                    abs(p.east - $0.x) <= $0.width / 2 && abs(p.north - $0.y) <= $0.depth / 2
+                }, "\(spot.id)")
+            }
+        }
+        // 屋内の展望台は建物の屋根より低い（3D では建物を半透明にする）
+        for id in ["skytree_tembo_deck", "tokyo_tower_main_deck", "tokyo_tower_top_deck", "sunshine60_observatory",
+                   "tokyo_city_view", "caretta_sky_view", "tower_hall_funabori"] {
+            let deck = try #require(byId[id])
             let scene = try #require(deck.sceneId.flatMap { scenes[$0] })
             let host = try #require(scene.buildings.first { $0.id == deck.hostBuildingId })
-            let p = scene.localPosition(latitude: deck.latitude, longitude: deck.longitude)
-            #expect(abs(p.east - host.x) < host.width / 2 && abs(p.north - host.y) < host.depth / 2, "\(id)")
             #expect(deck.observerElevation < scene.groundElevation + host.height, "\(id)")
-            let ground = try #require(spots.first { $0.id == deck.comparisonSpotId })
-            #expect(ground.sceneId == deck.sceneId)
-            let g = scene.localPosition(latitude: ground.latitude, longitude: ground.longitude)
-            #expect(!scene.buildings.contains {
-                abs(g.east - $0.x) <= $0.width / 2 && abs(g.north - $0.y) <= $0.depth / 2
-            }, "\(ground.id)")
+        }
+    }
+
+    /// 方位の範囲を絞った計算が、全方位を調べた計算と同じになる（実データの全地点で確かめる）。
+    @Test func limitedAzimuthRangeMatchesFullSearch() throws {
+        for context in try SeedData.loadContexts() {
+            guard let scene = context.scene else { continue }
+            let spot = context.spot
+            let p = scene.localPosition(latitude: spot.latitude, longitude: spot.longitude)
+            var full = Array(repeating: 0.0, count: 360)
+            for i in 0..<360 {
+                let a = Double(i) * .pi / 180
+                for b in scene.buildings where b.id != spot.hostBuildingId {
+                    let top = scene.groundElevation + b.height
+                    guard top > spot.observerElevation,
+                          let d = HorizonProfile.rayHit(ox: p.east, oy: p.north, dx: sin(a), dy: cos(a),
+                                                        minX: b.x - b.width / 2, maxX: b.x + b.width / 2,
+                                                        minY: b.y - b.depth / 2, maxY: b.y + b.depth / 2)
+                    else { continue }
+                    full[i] = max(full[i], atan2(top - spot.observerElevation, d) * 180 / .pi)
+                }
+            }
+            #expect(context.horizon.samples == full, "\(spot.id)")
         }
     }
 
