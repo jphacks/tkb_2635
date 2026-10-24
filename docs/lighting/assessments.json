@@ -158,5 +158,61 @@
     "checkedAt": "2026-10-24",
     "sources": [],
     "note": "追加タスク f で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "skytree_tembo_deck": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "展望台と足元の地上の組（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "oshiage_ground": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "展望台と足元の地上の組（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "tokyo_tower_main_deck": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "展望台と足元の地上の組（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "shibakoen_ground": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "展望台と足元の地上の組（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "sunshine60_observatory": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "展望台と足元の地上の組（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "higashi_ikebukuro_ground": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "展望台と足元の地上の組（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "tokyo_city_view": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "展望台と足元の地上の組（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "roppongi_ground": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "展望台と足元の地上の組（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
   }
 }
