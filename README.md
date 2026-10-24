@@ -9,7 +9,7 @@
 都市部では、天気が良くても高層ビルに遮られて星や月が見えないことが多い。人工照明や雲、観測場所の高さによっても見え方は変わる。展望台や屋上には営業時間・料金・立入制限もある。これらをまとめて確かめる手段がない。
 
 ### 製品説明（具体的な製品の説明）
-東京都23区の公園・広場・河川敷・展望台・屋上を対象に、指定した日時と天体（月・明るい恒星）について、観測に向いた地点を推薦する iPhone アプリ。
+東京都23区の公園・広場・河川敷・展望台・屋上を対象に、指定した日時と天体（月・惑星・明るい恒星）について、観測に向いた地点を推薦する iPhone アプリ。
 建物の形、観測者の目の高さ、天体の位置、雲量、光害、施設の利用時間をもとに判定し、建物と天体の位置関係を 3D で表示する。
 
 ### 特長
@@ -37,7 +37,7 @@
 #### API・データ
 * [Open-Meteo](https://open-meteo.com/) Forecast API（雲量・降水量・風速・視程、CC BY 4.0）
 * 地域の光害: [VIIRS Nighttime Lights](https://eogdata.mines.edu/products/vnl/) 年次合成 v2.2（Earth Observation Group, Payne Institute for Public Policy, Colorado School of Mines、CC BY 4.0）を加工
-* Bright Star Catalogue（明るい恒星の J2000.0 座標を抜粋）
+* Bright Star Catalogue（明るい恒星 52 個の J2000.0 座標・等級を抜粋）、惑星（水星〜土星）は Paul Schlyter「[Computing planetary positions](https://stjarnhimlen.se/comp/ppcomp.html)」の軌道要素
 * 建物データ: [東京都・PLATEAU渋谷区2025年度版](https://www.geospatial.jp/ckan/dataset/plateau-13113-shibuya-ku-2025)を加工（CC BY 4.0）。渋谷駅周囲500mの1,497棟を直方体近似。西新宿は手作りの概略データ。
 
 #### フレームワーク・ライブラリ・モジュール
@@ -51,7 +51,7 @@
 
 ### 独自技術
 #### ハッカソンで開発した独自機能・技術
-* 月・太陽・恒星の位置計算（[Astro.swift](Packages/StarCore/Sources/StarCore/Astro/Astro.swift)）: 天文年鑑の低精度式を Swift で実装。Astronomy Engine と比べ、月の位置の誤差は 0.7° 以内（テストで確認）
+* 月・太陽・恒星の位置計算（[Astro.swift](Packages/StarCore/Sources/StarCore/Astro/Astro.swift)）: 天文年鑑の低精度式を Swift で実装。Astronomy Engine と比べ、月の位置の誤差は 0.7° 以内（テストで確認）。惑星（[Planets.swift](Packages/StarCore/Sources/StarCore/Astro/Planets.swift)）は軌道要素から計算し、skyfield（JPL DE421）との差は 0.3° 以内（テストで確認、[説明](docs/astro/planets.md)）
 * 地平線プロファイルと空の開放度（[HorizonProfile.swift](Packages/StarCore/Sources/StarCore/Geometry/HorizonProfile.swift)）
 * 観測地点の推薦（[Recommender.swift](Packages/StarCore/Sources/StarCore/Scoring/Recommender.swift)）: 立入条件 → 可視性 → 天気 → 暗さ → 順位付け → 推薦理由
 

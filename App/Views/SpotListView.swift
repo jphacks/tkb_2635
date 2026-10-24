@@ -16,8 +16,15 @@ struct SpotListView: View {
                         .environment(\.timeZone, TimeZone(identifier: "Asia/Tokyo")!)
                     Picker("見たい天体", selection: $model.target) {
                         Text("月").tag(ObservationTarget.moon)
-                        ForEach(StarCatalog.stars) { star in
-                            Text(star.name).tag(ObservationTarget.star(star))
+                        Section("惑星") {
+                            ForEach(PlanetCatalog.planets) { planet in
+                                Text(planet.name).tag(ObservationTarget.planet(planet))
+                            }
+                        }
+                        Section("恒星") {
+                            ForEach(StarCatalog.stars) { star in
+                                Text(star.name).tag(ObservationTarget.star(star))
+                            }
                         }
                     }
                     MoonSummary(moon: model.moon)

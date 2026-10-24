@@ -3,11 +3,13 @@ import Foundation
 /// 観測したい天体
 public enum ObservationTarget: Hashable, Sendable {
     case moon
+    case planet(Planet)
     case star(Star)
 
     public var id: String {
         switch self {
         case .moon: "moon"
+        case .planet(let p): p.id
         case .star(let s): s.id
         }
     }
@@ -15,6 +17,7 @@ public enum ObservationTarget: Hashable, Sendable {
     public var name: String {
         switch self {
         case .moon: "月"
+        case .planet(let p): p.name
         case .star(let s): s.name
         }
     }
@@ -146,6 +149,7 @@ public enum Recommender {
         let skyTooBright: Bool = if case .moon = target { false } else { !Twilight.allowsStars(sunAltitude: sun.altitude) }
         let position: HorizontalCoord = switch target {
         case .moon: moon.position
+        case .planet(let p): Astro.planet(p, date: date, latitude: spot.latitude, longitude: spot.longitude)
         case .star(let s): Astro.star(s, date: date, latitude: spot.latitude, longitude: spot.longitude)
         }
 
