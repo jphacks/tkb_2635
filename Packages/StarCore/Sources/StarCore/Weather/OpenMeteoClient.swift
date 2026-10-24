@@ -43,7 +43,9 @@ public struct OpenMeteoClient: Sendable {
             URLQueryItem(name: "timeformat", value: "unixtime"),
             URLQueryItem(name: "forecast_days", value: "7"),
         ]
-        let (data, response) = try await session.data(from: components.url!)
+        var request = URLRequest(url: components.url!)
+        request.timeoutInterval = 15
+        let (data, response) = try await session.data(for: request)
         guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw URLError(.badServerResponse) }
         return try Self.decode(data, gridId: Self.gridId(latitude: latitude, longitude: longitude), fetchedAt: Date())
     }
