@@ -21,22 +21,26 @@ final class CityModelRenderer {
     /// シーン原点を原点とした、1単位 = 1m の都市モデル。呼ぶたびに複製を返す（形のデータは共有）。
     func city(for scene: CityScene) async -> Entity? {
         if templates[scene.id] == nil {
+            // 1シーンで実写のアトラスが GPU メモリを 100MB ほど使うので、ほかのシーンの元データは手放す
+            // （表示中の複製が残っていれば、その分は複製が消えるまで残る）。
+            templates.removeAll()
             guard let url = Bundle.main.url(forResource: "City_\(scene.id)", withExtension: "usdz"),
                   let loaded = try? await Entity(contentsOf: url) else { return nil }
             let roof = await roof()
             for model in Self.models(in: loaded) {
                 guard let mesh = model.model?.mesh else { continue }
                 let material: any RealityKit.Material
-                if model.name == "ground_night", let photo = model.model?.materials.first as? PhysicallyBasedMaterial {
+                let name = Self.partName(model.name)
+                if name == "ground_night", let photo = model.model?.materials.first as? PhysicallyBasedMaterial {
                     // 夜の暗さと街灯の明かりは Blender で写真に焼き込んであるので、照明に関係なくそのまま出す。
                     var unlit = UnlitMaterial()
                     unlit.color = .init(tint: .white, texture: photo.baseColor.texture)
                     material = unlit
-                } else if model.name.hasPrefix("atlas_") || model.name == "ground_photo", let photo = model.model?.materials.first as? PhysicallyBasedMaterial {
+                } else if name.hasPrefix("atlas_") || name == "ground_photo", let photo = model.model?.materials.first as? PhysicallyBasedMaterial {
                     material = Self.night(photo)
-                } else if let light = Self.lightColor(for: model.name) {
+                } else if let light = Self.lightColor(for: name) {
                     material = UnlitMaterial(color: light)
-                } else if model.name == "roof" || model.name.hasPrefix("facade_") {
+                } else if name == "roof" || name.hasPrefix("facade_") {
                     // 写真の無い面（全体の約1割）は、写真の調子から浮かないようコンクリートでそろえる。
                     material = roof
                 } else {
@@ -57,10 +61,33 @@ final class CityModelRenderer {
     /// 窓明かりを、地点の時刻に合わせてグループごとに点けたり消したりする（部品の名前は windows_<グループ>_<色>）。
     static func updateWindows(in city: Entity, date: Date) {
         for model in models(in: city) where model.name.hasPrefix("windows_") {
-            let parts = model.name.split(separator: "_")
+            let parts = partName(model.name).split(separator: "_")
             guard parts.count == 3, let group = Int(parts[1]) else { continue }
             model.isEnabled = NightLightSchedule.windowsOn(group: group, at: date)
         }
+    }
+
+    /// 観測者が中にいる建物（屋内の展望室など）を半透明にして、外から観測者の位置が見えるようにする。
+    /// その建物の部品は、名前の最後に hostTag が付いている（scripts/plateau_shapes.py）。
+    static func revealHost(_ buildingId: String, in city: Entity) {
+        let tag = hostTag(for: buildingId)
+        for model in models(in: city) where model.name.hasSuffix(tag) {
+            model.components.set(OpacityComponent(opacity: hostOpacity))
+        }
+    }
+
+    private static let hostOpacity: Float = 0.3
+
+    /// scripts/plateau_shapes.py の host_tag と同じ規則（_h と gml:id の英数字の先頭 8 文字）。
+    static func hostTag(for buildingId: String) -> String {
+        let id = buildingId.hasPrefix("bldg_") ? String(buildingId.dropFirst(5)) : buildingId
+        return "_h" + String(id.filter { $0.isLetter || $0.isNumber }.prefix(8)).lowercased()
+    }
+
+    /// 部品の名前から、観測者のいる建物の目印（_h + 英数字 8 文字）を外した名前。材質と明かりはこの名前で決める。
+    private static func partName(_ name: String) -> String {
+        guard let range = name.range(of: #"_h[0-9a-z]{8}$"#, options: .regularExpression) else { return name }
+        return String(name[..<range.lowerBound])
     }
 
     /// 窓（色の番号 0: 暖色、1: 白っぽい暖色、2: 青白い）・街灯・遠くの街・航空障害灯の色。明かりの部品でなければ nil。

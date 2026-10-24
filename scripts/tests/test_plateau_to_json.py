@@ -61,6 +61,13 @@ class PlateauConversionTests(unittest.TestCase):
         self.assertEqual(evidence['baseElevation'], 30)
         self.assertIsNone(result['usage'])
 
+    def test_building_below_scene_ground_is_skipped_and_recorded(self):
+        # 坂の下で屋根がシーンの地面（15m）より低い建物は、平坦と見なすと空をふさがないので入れない。
+        low = building('low', base=2, roof=10, measured='8')
+        scenes, report = self.run_files(document(building('one'), low))
+        self.assertEqual([b['id'] for b in scenes[0]['buildings']], ['one'])
+        self.assertEqual(report['belowSceneGround'], ['low'])
+
     def test_east_north_axes_have_expected_sign_and_scale(self):
         result, _ = self.run_building(building(bounds=(90, -220, 110, -180)))
         self.assertEqual((result['x'], result['y']), (100, -200))

@@ -19,10 +19,32 @@ import Testing
             let dy = max(abs(building.y) - building.depth / 2, 0)
             #expect(hypot(dx, dy) <= 500.01)
         }
-        let shinjuku = try #require(scenes.first { $0.id == "shinjuku" })
-        #expect(shinjuku.buildings.count == 8)
-        #expect(shinjuku.source.contains("手作り"))
-        #expect(shinjuku.buildings.contains { $0.id == "tocho_1" })
+    }
+
+    /// 西新宿も渋谷と同じ手順（scripts/build_city_scene.py）で PLATEAU から作った（2-05）。
+    @Test func bundledShinjukuUsesPlateauAndTochoHostsTheObservatory() throws {
+        let scene = try #require(try SeedData.loadScenes().first { $0.id == "shinjuku" })
+        #expect(scene.source.contains("PLATEAU"))
+        #expect(scene.source.contains("CC BY 4.0"))
+        #expect(scene.groundElevation == 36)
+        #expect(scene.buildings.count == 791)
+        #expect(Set(scene.buildings.map(\.id)).count == scene.buildings.count)
+        #expect(scene.buildings.allSatisfy { $0.id.hasPrefix("bldg_") && $0.height > 0 })
+
+        let spots = try SeedData.loadSpots()
+        let tocho = try #require(spots.first { $0.id == "tocho_observatory" })
+        let host = try #require(scene.buildings.first { $0.id == tocho.hostBuildingId })
+        #expect(host.name == "東京都庁第一本庁舎")
+        let p = scene.localPosition(latitude: tocho.latitude, longitude: tocho.longitude)
+        #expect(abs(p.east - host.x) < host.width / 2 && abs(p.north - host.y) < host.depth / 2)
+        // 展望室は屋内なので、目の高さは建物の屋根より低い（3D では建物を半透明にする）
+        #expect(tocho.observerElevation < scene.groundElevation + host.height)
+
+        let park = try #require(spots.first { $0.id == "shinjuku_central_park" })
+        let g = scene.localPosition(latitude: park.latitude, longitude: park.longitude)
+        #expect(!scene.buildings.contains {
+            abs(g.east - $0.x) <= $0.width / 2 && abs(g.north - $0.y) <= $0.depth / 2
+        })
     }
 
     @Test func rooftopHostResolvesAndGroundIsOutsideBuildings() throws {

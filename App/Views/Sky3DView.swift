@@ -169,6 +169,10 @@ struct Sky3DView: View {
                 city.position = [-Float(me.east) * Self.scale, 0, Float(me.north) * Self.scale]
                 city.name = Self.cityName
                 CityModelRenderer.updateWindows(in: city, date: date)
+                if let host = scene.buildings.first(where: { $0.id == spot.hostBuildingId }),
+                   spot.observerElevation < groundElevation + host.height {
+                    CityModelRenderer.revealHost(host.id, in: city)
+                }
                 world.addChild(city)
             } else {
                 for building in scene.buildings {

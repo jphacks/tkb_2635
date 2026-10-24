@@ -82,8 +82,8 @@ import Testing
         #expect((summary.buildingCount ?? 0) >= Surroundings.minimumBuildingCount)
         #expect(summary.headline.hasPrefix("周辺: "))
         #expect(summary.headline.contains("が多い（"))
-        // 手作り 8 棟の西新宿はデータ不足
+        // 西新宿も PLATEAU から作ったので（2-05）、周辺の用途が出る
         let central = try #require(contexts.first { $0.id == "shinjuku_central_park" })
-        #expect(Surroundings.summarize(central).isInsufficient)
+        #expect(!Surroundings.summarize(central).isInsufficient)
     }
 }

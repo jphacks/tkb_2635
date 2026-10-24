@@ -10,11 +10,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('shapes', type=Path, help='plateau_shapes.py の出力')
     parser.add_argument('--output', type=Path, required=True, help='GML を置いたフォルダ')
+    parser.add_argument('--manifest', type=Path, default=Path(__file__).resolve().parents[1] / 'docs/data/plateau-shibuya-2025.json',
+                        help='download_plateau.py と同じ目録。省略時は渋谷')
     args = parser.parse_args()
-    manifest = Path(__file__).resolve().parents[1] / 'docs/data/plateau-shibuya-2025.json'
     # 画像は GML と同じ場所の「<区画>_bldg_6697_appearance/」にある。
     bases = {item['name'].removesuffix('_op.gml'): item['url'].rsplit('/', 1)[0]
-             for item in json.loads(manifest.read_text())['files'] if item['name'].endswith('_op.gml')}
+             for item in json.loads(args.manifest.read_text())['files'] if item['name'].endswith('_op.gml')}
     images = json.loads(args.shapes.read_text())['images']
 
     def fetch(relative):

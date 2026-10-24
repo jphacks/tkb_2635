@@ -313,7 +313,7 @@
     "accessConditions": "45階の屋内展望室。事前予約・団体予約の受付なし。一部照明の消灯案内あり（照明の段階評価は未確認）。",
     "officialWebsite": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou",
     "sceneId": "shinjuku",
-    "hostBuildingId": "tocho_1",
+    "hostBuildingId": "bldg_94caaf2f-dec2-41a7-8b0f-06ecd0fac6c7",
     "regionalLightIndex": 0.82,
     "regionalLightSource": "VIIRS VNL v2.2 2025 annual average_masked（EOG, Colorado School of Mines）",
     "regionalLightMeasuredAt": "2025",
