@@ -1,0 +1,173 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.7995,35.6666,139.8171,35.681",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/b9/2ef019-a7da-4491-a881-6c3bca15311f/13108_koto-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53394604_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/bldg/53394604_bldg_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 2742,
+      "lod2": 143,
+      "bytes": 38473835,
+      "sha256": "6e6564fc377b120ef200ec7254eb922d9a68de535ca854ba81c3093998fa5ccc"
+    },
+    {
+      "name": "53394605_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/bldg/53394605_bldg_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1533,
+      "lod2": 0,
+      "bytes": 20203139,
+      "sha256": "d5ef3ae78a1b83f90e1d15e60516056c83a61c620339db49a8cf173098b94f83"
+    },
+    {
+      "name": "53394614_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/bldg/53394614_bldg_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 3243,
+      "lod2": 0,
+      "bytes": 41333949,
+      "sha256": "0a48ab4bb92628512e99e6512456cdb114174dfe972943a8c4c179f157e0f934"
+    },
+    {
+      "name": "53394615_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/bldg/53394615_bldg_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 3497,
+      "lod2": 0,
+      "bytes": 43990877,
+      "sha256": "5907ee921787235b6fa2807e65d6a6d4655ae4ec0b0cf513378fe142979a1a34"
+    },
+    {
+      "name": "53393693_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/tran/53393693_tran_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 64,
+      "lod2": 26,
+      "bytes": 8874384,
+      "sha256": "a87ea5db9c8cf43fa9583646c5be5b2d3e6e8d48fcfef44e6058a49970c55080"
+    },
+    {
+      "name": "53393694_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/tran/53393694_tran_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 400,
+      "lod2": 6,
+      "bytes": 1128557,
+      "sha256": "f830f6bc990c304c355a5f666c415ab8a74dd265a2a62ccad4b53e88d001621d"
+    },
+    {
+      "name": "53393695_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/tran/53393695_tran_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 121,
+      "lod2": 0,
+      "bytes": 334194,
+      "sha256": "deecb8f3952664c5cebca2c1d9bb2e8d92b1942bacb126b251241d497defa26f"
+    },
+    {
+      "name": "53394603_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/tran/53394603_tran_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 836,
+      "lod2": 308,
+      "bytes": 3045598,
+      "sha256": "e37f4dd967021c62d6d4147b2e833b643bdf5546376abcbe20e816d85721fda2"
+    },
+    {
+      "name": "53394604_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/tran/53394604_tran_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 638,
+      "lod2": 56,
+      "bytes": 1842893,
+      "sha256": "6a62bfbe394c80344e20d21ce54b8ad763f97b7ef57895f634b37d92d2987f84"
+    },
+    {
+      "name": "53394605_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/tran/53394605_tran_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 328,
+      "lod2": 0,
+      "bytes": 885902,
+      "sha256": "4fd8ab79f080c1dc568568932e2847fde61e3a5a878f167d3fdd4e9d60a30bcf"
+    },
+    {
+      "name": "53394613_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/tran/53394613_tran_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 813,
+      "lod2": 285,
+      "bytes": 2988080,
+      "sha256": "4151c01d30cd55820623542a00584586b73e6ac304a96b817589919a352bc0c9"
+    },
+    {
+      "name": "53394614_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/tran/53394614_tran_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 865,
+      "lod2": 0,
+      "bytes": 2268419,
+      "sha256": "97abd004fda735cd901dd26b27c3db073b5716f676cc25071909b2935fe673c0"
+    },
+    {
+      "name": "53394615_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/55/c134fe-ccfb-4c1b-9054-d8c6f44b7597/13108_koto-ku_pref_2025_citygml_1_op/udx/tran/53394615_tran_6697_op.gml",
+      "cityCode": "13108",
+      "cityName": "江東区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 696,
+      "lod2": 0,
+      "bytes": 1820129,
+      "sha256": "bfc836aa241e247179e080cdfbe952033d69f489a27acf7c20934809a60acfdc"
+    }
+  ]
+}

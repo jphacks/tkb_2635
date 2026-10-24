@@ -68,9 +68,9 @@ import Testing
     }
 
     @Test func spotWithoutSceneIsInsufficient() throws {
-        let contexts = try SeedData.loadContexts()
-        let park = try #require(contexts.first { $0.scene == nil })
-        let summary = Surroundings.summarize(park)
+        // 全地点にシーンが入ったので、シーンを外した地点で確かめる
+        let spot = try #require(try SeedData.loadSpots().first { $0.id == "yoyogi_park" })
+        let summary = Surroundings.summarize(SpotContext(spot: spot, scene: nil))
         #expect(summary.buildingCount == nil)
         #expect(summary.isInsufficient)
     }

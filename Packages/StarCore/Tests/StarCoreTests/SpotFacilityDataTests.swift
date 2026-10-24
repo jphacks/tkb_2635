@@ -49,7 +49,8 @@ import Testing
             #expect(spot.weatherClosureConditions == nil)
             #expect(spot.photographyRestrictions == nil)
             let result = Recommender.evaluate(context, target: .moon, date: date, weather: nil)
-            #expect(result.tier == .needsCheck)
+            // 建物に隠れる地点は「見えない」、隠れなければ入場・照明が未確認なので「要確認」
+            #expect(result.tier == (result.geometricVisibility ? .needsCheck : .notVisible))
             #expect(result.totalScore.isFinite)
             #expect(result.dataQualityFlags.contains(.regionalLightUnverified))
             #expect(result.dataQualityFlags.contains(.directionMaskUnverified))
@@ -72,13 +73,15 @@ import Testing
             let spot = context.spot
             #expect(spot.category == .park)
             #expect(spot.officialWebsite != nil)
-            #expect(spot.sceneId == nil)
+            // a で全地点に PLATEAU の建物（シーン ID = 地点 ID）を入れた
+            #expect(spot.sceneId == id)
             #expect(spot.approxHorizonElevation.map { (5...15).contains($0) } == true)
             #expect(spot.regionalLightSource != nil)
             #expect(spot.regionalLightMeasuredAt == "2025")
             #expect(spot.localGlareLevel == nil)
             let result = Recommender.evaluate(context, target: .moon, date: date, weather: nil)
-            #expect(result.tier == .needsCheck)
+            // 建物に隠れる地点は「見えない」、隠れなければ入場・照明が未確認なので「要確認」
+            #expect(result.tier == (result.geometricVisibility ? .needsCheck : .notVisible))
             #expect(result.totalScore.isFinite)
             if verified.contains(id) {
                 #expect(spot.lastVerifiedAt == "2026-10-24")

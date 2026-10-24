@@ -1,0 +1,173 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.6114,35.6232,139.629,35.6376",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/e2/2fab92-164c-458c-8eee-94b46668b872/13112_setagaya-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53393459_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/b4/38c131-2e1e-4226-95f7-44f2b12debd7/13112_setagaya-ku_pref_2025_citygml_1_op/udx/bldg/53393459_bldg_6697_op.gml",
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1595,
+      "lod2": 0,
+      "bytes": 21734167,
+      "sha256": "7808539dd00ca39a088f75a684892e86b2c5989afbae75bb207d498999fd1263"
+    },
+    {
+      "name": "53393469_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/b4/38c131-2e1e-4226-95f7-44f2b12debd7/13112_setagaya-ku_pref_2025_citygml_1_op/udx/bldg/53393469_bldg_6697_op.gml",
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 3663,
+      "lod2": 0,
+      "bytes": 48292549,
+      "sha256": "4c66235f78f947e2a3030fe7debdc3bcf89a7ded927bfac81e68dfe39c949827"
+    },
+    {
+      "name": "53393550_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/b4/38c131-2e1e-4226-95f7-44f2b12debd7/13112_setagaya-ku_pref_2025_citygml_1_op/udx/bldg/53393550_bldg_6697_op.gml",
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 3358,
+      "lod2": 38,
+      "bytes": 46484628,
+      "sha256": "888c279207b7643a9c2cb07229805a08e77a06f8cc3595a6fb225174e3494574"
+    },
+    {
+      "name": "53393560_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/b4/38c131-2e1e-4226-95f7-44f2b12debd7/13112_setagaya-ku_pref_2025_citygml_1_op/udx/bldg/53393560_bldg_6697_op.gml",
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 2547,
+      "lod2": 0,
+      "bytes": 34061517,
+      "sha256": "2c88e61b30eccbb9eb0bf5389278fa2294fc15ae61a05eb2a5c1894ecbdff9bd"
+    },
+    {
+      "name": "53393448_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/b4/38c131-2e1e-4226-95f7-44f2b12debd7/13112_setagaya-ku_pref_2025_citygml_1_op/udx/tran/53393448_tran_6697_op.gml",
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 956,
+      "lod2": 0,
+      "bytes": 2594763,
+      "sha256": "878450da767671ac8727b09e3460ecc433d25c12ea19706409f5060fa2528545"
+    },
+    {
+      "name": "53393449_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/b4/38c131-2e1e-4226-95f7-44f2b12debd7/13112_setagaya-ku_pref_2025_citygml_1_op/udx/tran/53393449_tran_6697_op.gml",
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 980,
+      "lod2": 0,
+      "bytes": 2616231,
+      "sha256": "2f58c2b8dadbbc358f22ea13394248dfc8d4541477ee4f7ee4b002c6f46ca28b"
+    },
+    {
+      "name": "53393458_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/b4/38c131-2e1e-4226-95f7-44f2b12debd7/13112_setagaya-ku_pref_2025_citygml_1_op/udx/tran/53393458_tran_6697_op.gml",
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 915,
+      "lod2": 0,
+      "bytes": 2560043,
+      "sha256": "ebb92e9c3b4e0c471e47ad12f72540fe5ec3102752ffd5cf4c66559979dd0d29"
+    },
+    {
+      "name": "53393459_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/b4/38c131-2e1e-4226-95f7-44f2b12debd7/13112_setagaya-ku_pref_2025_citygml_1_op/udx/tran/53393459_tran_6697_op.gml",
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 458,
+      "lod2": 0,
+      "bytes": 1260629,
+      "sha256": "cb53de873a67b9c8e12d8fd948134722c5397a0c723902087f4754968a2cf1b6"
+    },
+    {
+      "name": "53393468_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/b4/38c131-2e1e-4226-95f7-44f2b12debd7/13112_setagaya-ku_pref_2025_citygml_1_op/udx/tran/53393468_tran_6697_op.gml",
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 983,
+      "lod2": 7,
+      "bytes": 2696147,
+      "sha256": "31a394988a725ed0af31093ba83ff0b5f32653e70cc8f4279aca31cd3e230fad"
+    },
+    {
+      "name": "53393469_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/b4/38c131-2e1e-4226-95f7-44f2b12debd7/13112_setagaya-ku_pref_2025_citygml_1_op/udx/tran/53393469_tran_6697_op.gml",
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1078,
+      "lod2": 0,
+      "bytes": 2926982,
+      "sha256": "886387328b34072e43e7d9da83151be3206ec33507267579af44fc315a508201"
+    },
+    {
+      "name": "53393540_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/b4/38c131-2e1e-4226-95f7-44f2b12debd7/13112_setagaya-ku_pref_2025_citygml_1_op/udx/tran/53393540_tran_6697_op.gml",
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1045,
+      "lod2": 0,
+      "bytes": 2790001,
+      "sha256": "5d5beaea26dfacc664353bca38d9e3c8829c80ada5ded4962248dce4309d6094"
+    },
+    {
+      "name": "53393550_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/b4/38c131-2e1e-4226-95f7-44f2b12debd7/13112_setagaya-ku_pref_2025_citygml_1_op/udx/tran/53393550_tran_6697_op.gml",
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 978,
+      "lod2": 27,
+      "bytes": 2761329,
+      "sha256": "d4d13ebeb94a1c214cdbd863d89e632e47cb2d9a06ea7acb56dc3de7021e29a4"
+    },
+    {
+      "name": "53393560_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/b4/38c131-2e1e-4226-95f7-44f2b12debd7/13112_setagaya-ku_pref_2025_citygml_1_op/udx/tran/53393560_tran_6697_op.gml",
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 719,
+      "lod2": 0,
+      "bytes": 1933331,
+      "sha256": "8404e0ae02bc21d9a6b8ab852c5e53b5bbb82efd8bd125fe2e89b63e07ee6a62"
+    }
+  ]
+}

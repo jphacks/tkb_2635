@@ -102,8 +102,13 @@ def build(name, polygons, collection, material, with_uv=True):
 def pack(paths, budget=ATLAS_BUDGET):
     """画像を縮めて棚詰めでアトラスに並べる。戻り値は (アトラスの画素の列, 画像ごとの (番号, x, y, 幅, 高さ))。"""
     images = [bpy.data.images.load(str(p), check_existing=False) for p in paths]
+    if not images:
+        # 実写テクスチャが無いシーン（LOD1 だけの地域）はアトラスを作らない
+        return [], []
     area = sum(i.size[0] * i.size[1] for i in images)
-    scale = min(1.0, math.sqrt(ATLAS * ATLAS * budget * 0.8 / area))
+    largest = max(max(i.size) for i in images)
+    # 1枚の写真がアトラスの幅を超えないようにもする
+    scale = min(1.0, math.sqrt(ATLAS * ATLAS * budget * 0.8 / area), (ATLAS - 2 * PAD) / largest)
     sizes = [(max(4, round(i.size[0] * scale)), max(4, round(i.size[1] * scale))) for i in images]
     order = sorted(range(len(images)), key=lambda k: -sizes[k][1])
     pages, places = [], [None] * len(images)

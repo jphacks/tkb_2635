@@ -53,7 +53,11 @@ def suggest_ground(scene, evidence, radius=GROUND_SAMPLE_RADIUS):
     near = {b['id'] for b in scene['buildings'] if (b['x'] ** 2 + b['y'] ** 2) ** 0.5 <= radius}
     bases = [e['baseElevation'] for e in evidence if e['id'] in near]
     if not bases:
-        raise ValueError(f'原点から {radius}m 以内に建物がありません')
+        # 広い公園などで近くに建物が無いときは、シーンの全部の建物を使う
+        inside = {b['id'] for b in scene['buildings']}
+        bases = [e['baseElevation'] for e in evidence if e['id'] in inside]
+    if not bases:
+        raise ValueError('シーンに建物がありません')
     return float(round(statistics.median(bases)))
 
 
@@ -74,12 +78,13 @@ def dataset_urls(manifest):
     return pages
 
 
-def source_text(manifest, ground):
-    cities = '・'.join(c['cityName'] for c in manifest['cities'])
-    return (f'東京都「3D都市モデル（Project PLATEAU）{cities}（2025年度）」 {" ".join(dataset_urls(manifest))} '
+def source_text(manifest, ground, derived=True):
+    cities = '・'.join(f"{c['cityName']}（{c.get('year', 2025)}年度）" for c in manifest['cities'])
+    return (f'「3D都市モデル（Project PLATEAU）{cities}」 {" ".join(dataset_urls(manifest))} '
             'を加工してAsteraチームが作成（CC BY 4.0）。LOD1等を直方体近似。'
-            f'基準標高{ground:g}mは原点から{GROUND_SAMPLE_RADIUS:g}m以内の建物の地盤標高の中央値。'
-            '観測地点の標高は暫定値、現況・現地未確認。')
+            + (f'基準標高{ground:g}mは原点の近く（{GROUND_SAMPLE_RADIUS:g}m以内。無ければシーン全体）の建物の地盤標高の中央値。'
+               if derived else f'基準標高{ground:g}mは地点の床の標高に合わせた（設定で指定）。')
+            + '観測地点の標高は暫定値、現況・現地未確認。')
 
 
 def run(*command):
@@ -105,7 +110,8 @@ def boxes(config, work, manifest):
         scenes, report = convert(gml(work, 'bldg'), ground=0.0, source='', **common)
         ground = suggest_ground(scenes[0], report['buildings'])
         print(f'基準標高 {ground:g}m（原点から {GROUND_SAMPLE_RADIUS:g}m 以内の建物の地盤標高の中央値）')
-    scenes, report = convert(gml(work, 'bldg'), ground=ground, source=source_text(manifest, ground), **common)
+    scenes, report = convert(gml(work, 'bldg'), ground=ground,
+                             source=source_text(manifest, ground, config.get('groundElevation') is None), **common)
     write_json(work / f'{config["id"]}-buildings.report.json', report)
     merged = merge_scene(json.loads(BUILDINGS.read_text()), scenes[0])
     BUILDINGS.write_text(json.dumps(merged, ensure_ascii=False, indent=2) + '\n')

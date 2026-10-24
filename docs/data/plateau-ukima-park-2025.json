@@ -1,0 +1,118 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "13117",
+      "cityName": "北区",
+      "year": 2025
+    },
+    {
+      "cityCode": "13119",
+      "cityName": "板橋区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.6848,35.7856,139.7026,35.8",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/bb/7ba272-66b0-4a03-bcbd-eeea91268d12/13117_kita-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53395545_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/01/9a60eb-4cd2-4bfe-907e-1338e0eacd8e/13117_kita-ku_pref_2025_citygml_1_op/udx/bldg/53395545_bldg_6697_op.gml",
+      "cityCode": "13117",
+      "cityName": "北区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1986,
+      "lod2": 107,
+      "bytes": 30644806,
+      "sha256": "dcc0ba05961715a25a3a0d0e356155d9e48a05d698e365e2929f71eb7890586e"
+    },
+    {
+      "name": "53395555_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/01/9a60eb-4cd2-4bfe-907e-1338e0eacd8e/13117_kita-ku_pref_2025_citygml_1_op/udx/bldg/53395555_bldg_6697_op.gml",
+      "cityCode": "13117",
+      "cityName": "北区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1155,
+      "lod2": 638,
+      "bytes": 27739975,
+      "sha256": "65269117371ef6ee4e0b8d5e1f85e5803cc5a647aa96de59163e320604d9118c"
+    },
+    {
+      "name": "53395544_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/26/859c29-8352-4339-b764-8e6eb42e9eeb/13119_itabashi-ku_pref_2025_citygml_1_op/udx/tran/53395544_tran_6697_op.gml",
+      "cityCode": "13119",
+      "cityName": "板橋区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 676,
+      "lod2": 0,
+      "bytes": 1840358,
+      "sha256": "a3229f3d66a286fb232547ab0c87a96a2d2da7a7fa3e62e1e54c34fea0b2a639"
+    },
+    {
+      "name": "53395545_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/01/9a60eb-4cd2-4bfe-907e-1338e0eacd8e/13117_kita-ku_pref_2025_citygml_1_op/udx/tran/53395545_tran_6697_op.gml",
+      "cityCode": "13117",
+      "cityName": "北区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 549,
+      "lod2": 0,
+      "bytes": 1498368,
+      "sha256": "58a7f2280ff0ff05a37e09a2236b11412693d71f32390b4cd654ebf03b0d3ecb"
+    },
+    {
+      "name": "53395546_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/01/9a60eb-4cd2-4bfe-907e-1338e0eacd8e/13117_kita-ku_pref_2025_citygml_1_op/udx/tran/53395546_tran_6697_op.gml",
+      "cityCode": "13117",
+      "cityName": "北区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 654,
+      "lod2": 0,
+      "bytes": 1775303,
+      "sha256": "389c1ff7ec3a5dee30ac88dc6a469174f81e8741fd0a4f98f88bc9780c3ca716"
+    },
+    {
+      "name": "53395554_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/26/859c29-8352-4339-b764-8e6eb42e9eeb/13119_itabashi-ku_pref_2025_citygml_1_op/udx/tran/53395554_tran_6697_op.gml",
+      "cityCode": "13119",
+      "cityName": "板橋区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 309,
+      "lod2": 0,
+      "bytes": 863587,
+      "sha256": "149d46b1f050b7e9e724e69a9dc732b5f26676113251f9512ce528324849556e"
+    },
+    {
+      "name": "53395555_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/01/9a60eb-4cd2-4bfe-907e-1338e0eacd8e/13117_kita-ku_pref_2025_citygml_1_op/udx/tran/53395555_tran_6697_op.gml",
+      "cityCode": "13117",
+      "cityName": "北区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 357,
+      "lod2": 0,
+      "bytes": 975258,
+      "sha256": "7cebdb5bd77c5a12e72c1aba2a0d3e89a3c565da818e381040c7e5ba46231726"
+    },
+    {
+      "name": "53395556_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/01/9a60eb-4cd2-4bfe-907e-1338e0eacd8e/13117_kita-ku_pref_2025_citygml_1_op/udx/tran/53395556_tran_6697_op.gml",
+      "cityCode": "13117",
+      "cityName": "北区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 32,
+      "lod2": 0,
+      "bytes": 86945,
+      "sha256": "7ae9d8d3c660d48620dcfda8462edc4cb651bddc34fc7a8125c82783aa5ea33b"
+    }
+  ]
+}

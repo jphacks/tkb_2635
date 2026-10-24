@@ -13,8 +13,8 @@ from plateau_shapes import host_tag
 URL = 'https://example.com/{code}_{name}_pref_2025_citygml_1_op/udx/{kind}/{mesh}_{kind}_6697_op.gml'
 
 
-def city(code, name, label, meshes):
-    return {'cityCode': code, 'cityName': label,
+def city(code, name, label, meshes, year=2025):
+    return {'cityCode': code, 'cityName': label, 'year': year,
             'metadataZipUrls': [f'https://example.com/{code}_{name}_pref_2025_citygml_1_op_codelists.zip'],
             'files': {kind: [{'code': m, 'maxLod': 2, 'url': URL.format(code=code, name=name, kind=kind, mesh=m)}
                              for m in meshes] for kind in ('bldg', 'tran')}}
@@ -52,12 +52,19 @@ class CatalogTests(unittest.TestCase):
         self.assertNotIn('53394514_bldg_6697_op.gml', [n for _, n in names])
         self.assertFalse(any('53394600' in n for _, n in names))
 
+    def test_tokyo_ward_is_preferred_over_neighbor_prefecture(self):
+        # 県境の向こうの市（埼玉県、コード 11）の同じメッシュは、別年度の別ファイルなので選ばない
+        catalog = {'cities': [city('11203', 'kawaguchi-shi', '川口市', ['53394525'], year=2024),
+                              city('13104', 'shinjuku-ku', '新宿区', ['53394525'])]}
+        files = select_files(catalog, bounding_box(35.6896, 139.6917, 500), bounding_box(35.6896, 139.6917, 800))
+        self.assertEqual({f['cityCode'] for f in files}, {'13104'})
+
     def test_manifest_lists_cities_codelists_and_license(self):
         manifest = build_manifest(self.catalog, latitude=35.6896, longitude=139.6917, building_radius=500,
                                   road_radius=800, query='q')
         self.assertEqual(manifest['license'], 'CC-BY-4.0')
         self.assertTrue(manifest['codelists'].endswith('13104_shinjuku-ku_pref_2025_citygml_1_op_codelists.zip'))
-        self.assertIn({'cityCode': '13104', 'cityName': '新宿区'}, manifest['cities'])
+        self.assertIn({'cityCode': '13104', 'cityName': '新宿区', 'year': 2025}, manifest['cities'])
         self.assertTrue(all('sha256' not in f for f in manifest['files']))
 
     def test_empty_area_fails(self):
@@ -96,8 +103,10 @@ class SceneTests(unittest.TestCase):
         evidence = [{'id': 'a', 'baseElevation': 34.6}, {'id': 'b', 'baseElevation': 36.2},
                     {'id': 'c', 'baseElevation': 38.0}, {'id': 'far', 'baseElevation': 5.0}]
         self.assertEqual(suggest_ground(scene, evidence), 36.0)
+        # 近くに建物が無い広い公園では、シーン全部の建物を使う
+        self.assertEqual(suggest_ground({'buildings': [{'id': 'far', 'x': 900, 'y': 0}]}, evidence), 5.0)
         with self.assertRaises(ValueError):
-            suggest_ground({'buildings': [{'id': 'far', 'x': 900, 'y': 0}]}, evidence)
+            suggest_ground({'buildings': []}, [])
 
     def test_hosts_are_taken_from_spots_of_the_scene(self):
         spots = [{'sceneId': 'shinjuku', 'hostBuildingId': 'bldg_b'}, {'sceneId': 'shinjuku'},

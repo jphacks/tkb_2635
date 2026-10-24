@@ -1,0 +1,113 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "13121",
+      "cityName": "足立区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.7629,35.7935,139.7806,35.8079",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/e2/78504a-82b2-4791-88ef-52bca00a11bb/13121_adachi-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53395651_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/77/d608e2-b588-4ff4-997b-da1bf308d434/13121_adachi-ku_pref_2025_citygml_1_op/udx/bldg/53395651_bldg_6697_op.gml",
+      "cityCode": "13121",
+      "cityName": "足立区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1351,
+      "lod2": 0,
+      "bytes": 19241160,
+      "sha256": "1fc89365fdf5ad8bc25c6571a79faaddefb7854531742b2c981cf24f0f6d192a"
+    },
+    {
+      "name": "53395652_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/77/d608e2-b588-4ff4-997b-da1bf308d434/13121_adachi-ku_pref_2025_citygml_1_op/udx/bldg/53395652_bldg_6697_op.gml",
+      "cityCode": "13121",
+      "cityName": "足立区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 4193,
+      "lod2": 0,
+      "bytes": 58416302,
+      "sha256": "273c2720379fcb9ed76e278cf2671d37b7448b9b4e8453df1375908b4aefb7fa"
+    },
+    {
+      "name": "53395661_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/77/d608e2-b588-4ff4-997b-da1bf308d434/13121_adachi-ku_pref_2025_citygml_1_op/udx/bldg/53395661_bldg_6697_op.gml",
+      "cityCode": "13121",
+      "cityName": "足立区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 2627,
+      "lod2": 0,
+      "bytes": 35708404,
+      "sha256": "46b8b877fe96e0414fb1e6ede5736f64cf4d8e903ab74d2cb38f384b286b65c8"
+    },
+    {
+      "name": "53395662_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/77/d608e2-b588-4ff4-997b-da1bf308d434/13121_adachi-ku_pref_2025_citygml_1_op/udx/bldg/53395662_bldg_6697_op.gml",
+      "cityCode": "13121",
+      "cityName": "足立区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 4068,
+      "lod2": 0,
+      "bytes": 58617856,
+      "sha256": "e919d66901f7f45b8cfac846db5a768196044f5b159425ab8d100b58068e0cf8"
+    },
+    {
+      "name": "53395651_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/77/d608e2-b588-4ff4-997b-da1bf308d434/13121_adachi-ku_pref_2025_citygml_1_op/udx/tran/53395651_tran_6697_op.gml",
+      "cityCode": "13121",
+      "cityName": "足立区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 403,
+      "lod2": 0,
+      "bytes": 1045830,
+      "sha256": "cf1cb81d2401e31d6793af2d26c07b4a7e6fcf8e1fbfd3518525a515db80699d"
+    },
+    {
+      "name": "53395652_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/77/d608e2-b588-4ff4-997b-da1bf308d434/13121_adachi-ku_pref_2025_citygml_1_op/udx/tran/53395652_tran_6697_op.gml",
+      "cityCode": "13121",
+      "cityName": "足立区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1430,
+      "lod2": 0,
+      "bytes": 3657777,
+      "sha256": "af18ad5c733553357179e7f4179115090648efcfbf0608e9affa1c9e9d76aba9"
+    },
+    {
+      "name": "53395661_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/77/d608e2-b588-4ff4-997b-da1bf308d434/13121_adachi-ku_pref_2025_citygml_1_op/udx/tran/53395661_tran_6697_op.gml",
+      "cityCode": "13121",
+      "cityName": "足立区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 759,
+      "lod2": 0,
+      "bytes": 1924134,
+      "sha256": "13433da135647a2c800ccc7d43bfcb9939b4b54a7a2799e30fcd85a30cdc6539"
+    },
+    {
+      "name": "53395662_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/77/d608e2-b588-4ff4-997b-da1bf308d434/13121_adachi-ku_pref_2025_citygml_1_op/udx/tran/53395662_tran_6697_op.gml",
+      "cityCode": "13121",
+      "cityName": "足立区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1258,
+      "lod2": 0,
+      "bytes": 3190789,
+      "sha256": "1d76f54e9938fb7f3f8438836b217faece1911304cf72b9125077ff114fcbe0c"
+    }
+  ]
+}

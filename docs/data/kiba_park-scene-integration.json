@@ -1,0 +1,34 @@
+{
+  "sceneId": "kiba_park",
+  "radiusMeters": 500,
+  "scanned": 11015,
+  "selected": 1497,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53394604_bldg_6697_op.gml",
+      "sha256": "6e6564fc377b120ef200ec7254eb922d9a68de535ca854ba81c3093998fa5ccc",
+      "buildingsScanned": 2742
+    },
+    {
+      "name": "53394605_bldg_6697_op.gml",
+      "sha256": "d5ef3ae78a1b83f90e1d15e60516056c83a61c620339db49a8cf173098b94f83",
+      "buildingsScanned": 1533
+    },
+    {
+      "name": "53394614_bldg_6697_op.gml",
+      "sha256": "0a48ab4bb92628512e99e6512456cdb114174dfe972943a8c4c179f157e0f934",
+      "buildingsScanned": 3243
+    },
+    {
+      "name": "53394615_bldg_6697_op.gml",
+      "sha256": "5907ee921787235b6fa2807e65d6a6d4655ae4ec0b0cf513378fe142979a1a34",
+      "buildingsScanned": 3497
+    }
+  ],
+  "groundElevation": 2.0,
+  "belowSceneGround": 3
+}
