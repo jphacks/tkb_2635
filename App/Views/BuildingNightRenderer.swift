@@ -56,7 +56,7 @@ final class BuildingNightRenderer {
         }
     }
 
-    func facade(_ appearance: BuildingFacade) -> PhysicallyBasedMaterial {
+    private func facade(_ appearance: BuildingFacade) -> PhysicallyBasedMaterial {
         let key = appearance.style.rawValue * 4 + appearance.variant
         if let cached = facades[key] { return cached }
         var material = PhysicallyBasedMaterial()

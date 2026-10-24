@@ -26,7 +26,7 @@ struct Sky3DView: View {
             BuildingNightRenderer.shared.configureEnvironment(in: root)
             var city: Entity?
             if let scene = context.scene {
-                city = await CityModelRenderer.shared.city(for: scene, hostBuildingId: context.spot.hostBuildingId)
+                city = await CityModelRenderer.shared.city(for: scene)
             }
             let ground = await CityModelRenderer.shared.ground(meters: Self.groundMeters, scale: Self.scale)
             buildScene(into: root, city: city, ground: ground)
@@ -81,8 +81,17 @@ struct Sky3DView: View {
                 .foregroundStyle(prediction.geometricVisibility ? .green : .red)
             Text(context.scene?.name ?? "建物データなし（地平線は暫定値）")
                 .foregroundStyle(.secondary)
-            Text("外壁・窓明かりはイメージ")
-                .foregroundStyle(.secondary)
+            if context.scene.map(CityModelRenderer.hasModel) == true {
+                Text("建物・地面は昼の実写を暗く表示")
+                    .foregroundStyle(.secondary)
+                // 地理院タイルは出典の明示が利用の条件
+                Text("出典: PLATEAU（CC BY 4.0）・国土地理院")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+            } else {
+                Text("外壁・窓明かりはイメージ")
+                    .foregroundStyle(.secondary)
+            }
             if !prediction.geometricVisibility && !prediction.blockedByDirectionMask && prediction.altitude > 0 {
                 Label("赤い枠は判定に使った建物の箱", systemImage: "cube")
                     .foregroundStyle(Color(red: 1, green: 0.45, blue: 0.35))
