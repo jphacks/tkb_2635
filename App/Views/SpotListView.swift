@@ -14,19 +14,7 @@ struct SpotListView: View {
                 Section {
                     DatePicker("観測日時", selection: $model.date)
                         .environment(\.timeZone, TimeZone(identifier: "Asia/Tokyo")!)
-                    Picker("見たい天体", selection: $model.target) {
-                        Text("月").tag(ObservationTarget.moon)
-                        Section("惑星") {
-                            ForEach(PlanetCatalog.planets) { planet in
-                                Text(planet.name).tag(ObservationTarget.planet(planet))
-                            }
-                        }
-                        Section("恒星") {
-                            ForEach(StarCatalog.stars) { star in
-                                Text(star.name).tag(ObservationTarget.star(star))
-                            }
-                        }
-                    }
+                    TargetPicker(target: $model.target)
                     MoonSummary(moon: model.moon)
                 } footer: {
                     Text("スコアは観測条件の目安で、観測できる確率ではありません。")
@@ -69,6 +57,11 @@ struct SpotListView: View {
             .navigationDestination(for: String.self) { id in
                 if let context = model.context(id: id) {
                     SpotDetailView(context: context)
+                }
+            }
+            .navigationDestination(for: ComparisonRoute.self) { route in
+                if let first = model.context(id: route.firstId), let second = model.context(id: route.secondId) {
+                    CompareView(first: first, second: second)
                 }
             }
             .toolbar {

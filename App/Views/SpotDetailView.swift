@@ -19,6 +19,16 @@ struct SpotDetailView: View {
                 Text("ドラッグで視点を回転、ピンチで拡大縮小。線の先の球が\(model.target.name)の方向です（緑=見える、赤=遮られる）。")
             }
 
+            if let partner = model.contexts.comparisonPartner(of: context) {
+                Section {
+                    NavigationLink(value: ComparisonRoute(firstId: context.id, secondId: partner.id)) {
+                        Label("\(partner.spot.name)と比べる", systemImage: "rectangle.split.2x1")
+                    }
+                } footer: {
+                    Text("同じ時刻の\(model.target.name)が、目の高さでどう変わるかを並べて見られます。")
+                }
+            }
+
             Section("判定") {
                 HStack {
                     ScoreBadge(score: prediction.totalScore, tier: prediction.tier)

@@ -1,6 +1,7 @@
 [
   {
     "id": "shibuya_east_plaza",
+    "comparisonSpotId": "shibuya_sky",
     "name": "渋谷駅東口 地上（デモ用）",
     "ward": "渋谷区",
     "category": "plaza",
@@ -68,6 +69,7 @@
   },
   {
     "id": "shinjuku_central_park",
+    "comparisonSpotId": "tocho_observatory",
     "name": "新宿中央公園",
     "ward": "新宿区",
     "category": "park",
