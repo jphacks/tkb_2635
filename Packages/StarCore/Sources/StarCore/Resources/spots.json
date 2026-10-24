@@ -4,7 +4,7 @@
     "name": "渋谷駅東口 地上（デモ用）",
     "ward": "渋谷区",
     "category": "plaza",
-    "latitude": 35.657638,
+    "latitude": 35.658,
     "longitude": 139.702816,
     "floorElevation": 15,
     "eyeHeight": 1.5,
@@ -16,16 +16,16 @@
     "accessConditions": "公道・駅前の歩行空間。通行の妨げにならないこと",
     "sceneId": "shibuya",
     "regionalLightIndex": 0.95,
-    "modelVersion": "sample-0.1",
-    "memo": "SHIBUYA SKY と同じ付近の地上地点。高さによる見え方の違いを比べるための地点"
+    "modelVersion": "plateau-shibuya-2025-1",
+    "memo": "高さによる見え方を比べるデモ用の代表点。元の座標がPLATEAUの建物外接矩形内に重なったため約40m北へ調整。現地の歩行可能範囲・夜間利用・床面標高15mは未確認。"
   },
   {
     "id": "shibuya_sky",
     "name": "SHIBUYA SKY",
     "ward": "渋谷区",
     "category": "observatory",
-    "latitude": 35.658,
-    "longitude": 139.70204,
+    "latitude": 35.658384,
+    "longitude": 139.702242,
     "floorElevation": 244,
     "eyeHeight": 1.5,
     "indoorOutdoor": "outdoor",
@@ -42,10 +42,11 @@
     "accessConditions": "日時指定券の事前購入を推奨。大人券はWEB完売時、窓口も完売。屋上の開放は天候次第。お客さまの安全確保のため、強風、降雨、積雪、雷雲接近、光化学スモッグ・異常高温等の気象条件の際は、屋上を閉鎖する場合がございます。あらかじめご了承ください。 屋上への持込不可: カバン・リュックサック・ポーチ等の手荷物、三脚・一脚・自撮り棒、イヤホン・ヘッドホン、帽子・キャップ・ニット帽、飲食物、飛散や落下の可能性があるもの、ベビーカー。持込可能: ネックストラップ付またはポケットに入るサイズのカメラ、ネックストラップ付またはポケットに入るサイズの双眼鏡、スマートフォン。",
     "officialWebsite": "https://www.shibuya-scramble-square.com/sky/ticket/",
     "sceneId": "shibuya",
-    "hostBuildingId": "scramble_square",
+    "hostBuildingId": "bldg_7b006717-e9e6-4a94-8843-1f4ce13b2509",
     "regionalLightIndex": 0.95,
-    "modelVersion": "sample-0.1",
-    "lastVerifiedAt": "2026-10-24"
+    "modelVersion": "plateau-shibuya-2025-1",
+    "lastVerifiedAt": "2026-10-24",
+    "memo": "PLATEAU建物の外接矩形中心を使った屋上の代表点。建物IDは位置と周辺配置から照合。floorElevation=244mは既存の暫定標高で、PLATEAUの屋根標高234.6mとは異なる。現地の観測面標高は未確認（1-07で確認予定）。"
   },
   {
     "id": "shinjuku_central_park",

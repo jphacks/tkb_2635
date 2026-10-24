@@ -1,0 +1,50 @@
+{
+  "sceneId": "shibuya",
+  "radiusMeters": 500.0,
+  "scanned": 9535,
+  "selected": 1497,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53393585_bldg_6697_op.gml",
+      "sha256": "b15701cede323e2e8aafb6c0ce651f2211b1c050a6f7354c73a50bf54572f7cb",
+      "buildingsScanned": 2737
+    },
+    {
+      "name": "53393586_bldg_6697_op.gml",
+      "sha256": "7e3bc860ec6404e4c3b131fbcabf42e74f91b695809aa79c868306d9e7b1fc14",
+      "buildingsScanned": 2616
+    },
+    {
+      "name": "53393595_bldg_6697_op.gml",
+      "sha256": "f510af46f1548f584f257a85796e3e0afcf504490974163757f12b06b3aa4ec9",
+      "buildingsScanned": 2236
+    },
+    {
+      "name": "53393596_bldg_6697_op.gml",
+      "sha256": "88dab9e2cc41dc75b37a83ca3ad78dfa0eb1f081b918af56fc79851c80150724",
+      "buildingsScanned": 1946
+    }
+  ],
+  "heightFallbackCount": 47,
+  "hostBuildingId": "bldg_7b006717-e9e6-4a94-8843-1f4ce13b2509",
+  "hostEvidence": {
+    "id": "bldg_7b006717-e9e6-4a94-8843-1f4ce13b2509",
+    "baseElevation": 14.6,
+    "geometryRoofElevation": 234.6,
+    "measuredHeight": 220.0,
+    "rawMeasuredHeight": 220.0,
+    "adoptedRoofElevation": 234.6,
+    "usageCode": "401",
+    "usageCodeSpace": "../../codelists/Building_usage.xml"
+  },
+  "knownLimitations": [
+    "基準標高15m・床面標高は暫定値",
+    "観測位置はモデル上の代表点。現地検証は未実施",
+    "平面形は外接矩形・建物底面は共通基準標高へ延長",
+    "原点から500m内のみ。遠方の高層建築物は未収録"
+  ]
+}
