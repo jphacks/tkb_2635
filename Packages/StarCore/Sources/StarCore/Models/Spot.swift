@@ -99,6 +99,8 @@ public struct Spot: Codable, Identifiable, Sendable {
     public var lightingCheckMethod: String?
     public var modelVersion: String
     public var memo: String?
+    /// 高さによる見え方を並べて比べる相手の地点 ID（例: 地上 → 展望台）。nil は比較なし。
+    public var comparisonSpotId: String?
 
     /// 観測者の目の標高 = z_floor + h_eye（仕様書 4.1）
     public var observerElevation: Double { floorElevation + eyeHeight }

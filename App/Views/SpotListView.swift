@@ -64,6 +64,11 @@ struct SpotListView: View {
                     SpotDetailView(context: context)
                 }
             }
+            .navigationDestination(for: ComparisonRoute.self) { route in
+                if let first = model.context(id: route.firstId), let second = model.context(id: route.secondId) {
+                    CompareView(first: first, second: second)
+                }
+            }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     if model.isLoadingWeather {
