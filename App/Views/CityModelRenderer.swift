@@ -90,12 +90,10 @@ final class CityModelRenderer {
         return material
     }
 
-
     private static func models(in entity: Entity) -> [ModelEntity] {
         let own: [ModelEntity] = (entity as? ModelEntity).map { [$0] } ?? []
         return own + entity.children.flatMap { models(in: $0) }
     }
-
 
     private static func texture(_ name: String, semantic: TextureResource.Semantic) async -> MaterialParameters.Texture? {
         guard let url = Bundle.main.url(forResource: name, withExtension: "jpg"),
