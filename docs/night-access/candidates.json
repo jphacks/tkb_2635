@@ -1,0 +1,419 @@
+[
+  {
+    "id": "shibuya_east_plaza",
+    "name": "渋谷駅東口 地上（デモ用）",
+    "wards": [
+      "渋谷区"
+    ],
+    "existingSpot": true,
+    "nightAccess": null,
+    "hours": null,
+    "scope": "登録座標の地上地点。広場・管理範囲は未特定",
+    "candidateReason": "展望台と地上の比較に使う既存地点",
+    "notes": "公式の地区整備情報では登録座標の夜間滞在可否を確認できない。通路の通行可否と観測目的の滞在を混同しない。",
+    "sourceIds": [
+      "shibuya_ground"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": null,
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "shinjuku_central_park",
+    "name": "新宿中央公園",
+    "wards": [
+      "新宿区"
+    ],
+    "existingSpot": true,
+    "nightAccess": true,
+    "hours": "24時間（通常時）",
+    "scope": "公園の一般開放部分",
+    "candidateReason": "広場があり、都庁との地上比較に使う既存地点",
+    "notes": "新宿観光振興協会の施設紹介に24時間営業の記載。2026/10/30〜11/13の芝生広場全面閉鎖予告あり。公園全体の閉園とは区別する。",
+    "sourceIds": [
+      "shinjuku_tourism",
+      "shinjuku_central",
+      "shinjuku_central_hours",
+      "shinjuku_central_closure"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": "2026-10-24",
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "yoyogi_park",
+    "name": "代々木公園",
+    "wards": [
+      "渋谷区"
+    ],
+    "existingSpot": true,
+    "nightAccess": true,
+    "hours": "常時開園（通常時）",
+    "scope": "東京都公園協会が案内するA・B地区の一般開放部分",
+    "candidateReason": "広場を持つ既存地点",
+    "notes": "神南一丁目地区は別管理。2026/10/5〜11/12はサイクリングコース周辺の設営工事に伴う通行・利用制限あり。11/13〜2027/1/11はサイクリングコースを17:00〜22:00利用不可。公園全体の閉鎖とは区別する。",
+    "sourceIds": [
+      "yoyogi",
+      "yoyogi_notices"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": "2026-10-24",
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "shinjuku_gyoen",
+    "name": "新宿御苑",
+    "wards": [
+      "新宿区"
+    ],
+    "existingSpot": true,
+    "nightAccess": false,
+    "hours": "10/1〜3/14 09:00〜16:30（最終入園16:00）。3/15〜6/10・8/1〜9/30 09:00〜18:00（最終17:30）。6/11〜7/31 09:00〜19:00（最終18:30）",
+    "scope": "通常営業の庭園内。夜間特別イベントは対象外",
+    "candidateReason": "夜間候補から除外するために確認する既存地点",
+    "notes": "通常の閉園後の観測は不可。夏の夕方利用まで一律に不可とはしない。月曜休園（休日なら翌平日）、12/29〜1/3休園。3/25〜4/24・11/1〜15は月曜も開園。臨時変更・予約条件は公式案内を確認。",
+    "sourceIds": [
+      "gyoen_hours",
+      "gyoen_notices"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": "2026-10-24",
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "arakawa_riverside",
+    "name": "荒川河川敷（船堀付近）",
+    "wards": [
+      "江戸川区"
+    ],
+    "existingSpot": true,
+    "nightAccess": null,
+    "hours": null,
+    "scope": "既存の登録座標周辺。占用施設と出入口は未特定",
+    "candidateReason": "河川敷の開けた空を想定した既存地点",
+    "notes": "国の一般利用ルールだけでは登録地点の夜間滞在・進入経路は確定できない。占用地には個別規則あり。区の駐車場には季節別の時間制限があるが、歩行者の入場時間には転用しない。",
+    "sourceIds": [
+      "arakawa_rules",
+      "arakawa_parking"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": null,
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "kasai_rinkai_park",
+    "name": "葛西臨海公園",
+    "wards": [
+      "江戸川区"
+    ],
+    "existingSpot": true,
+    "nightAccess": true,
+    "hours": "常時開園（通常時）",
+    "scope": "葛西臨海公園の一般開放部分",
+    "candidateReason": "海側の広場を持つ既存地点",
+    "notes": "隣接する葛西海浜公園の西なぎさとは別施設。クリスタルビュー等の館内施設には別の開閉時間がある。",
+    "sourceIds": [
+      "kasai"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": "2026-10-24",
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "mizumoto",
+    "name": "水元公園",
+    "wards": [
+      "葛飾区"
+    ],
+    "existingSpot": false,
+    "nightAccess": true,
+    "hours": "常時開園（通常時）",
+    "scope": "公園の一般開放部分",
+    "candidateReason": "水辺と広場がある",
+    "notes": "水辺・樹林・運動施設を分けて観測位置を選ぶ。公園は三郷市側にもまたがるため候補は葛飾区側に限る。",
+    "sourceIds": [
+      "mizumoto"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": "2026-10-24",
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "toneri",
+    "name": "舎人公園",
+    "wards": [
+      "足立区"
+    ],
+    "existingSpot": false,
+    "nightAccess": true,
+    "hours": "常時開園（通常時）",
+    "scope": "公園の一般開放部分",
+    "candidateReason": "広場と池がある",
+    "notes": "有料運動施設や催事区域を自由に使えるとは判断しない。",
+    "sourceIds": [
+      "toneri"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": "2026-10-24",
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "hikarigaoka",
+    "name": "光が丘公園",
+    "wards": [
+      "練馬区",
+      "板橋区"
+    ],
+    "existingSpot": false,
+    "nightAccess": true,
+    "hours": "常時開園（通常時）",
+    "scope": "公園の一般開放部分",
+    "candidateReason": "大きな芝生広場がある",
+    "notes": "バードサンクチュアリ・屋敷森跡地等は別の開放時間。",
+    "sourceIds": [
+      "hikarigaoka"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": "2026-10-24",
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "shinozaki",
+    "name": "篠崎公園",
+    "wards": [
+      "江戸川区"
+    ],
+    "existingSpot": false,
+    "nightAccess": true,
+    "hours": "常時開園（通常時）",
+    "scope": "公園の一般開放部分",
+    "candidateReason": "公式案内が空の広い芝山・草地を紹介している",
+    "notes": "A・B地区、運動施設、花火大会等の規制を区別する。",
+    "sourceIds": [
+      "shinozaki"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": "2026-10-24",
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "ojima_komatsugawa",
+    "name": "大島小松川公園",
+    "wards": [
+      "江東区",
+      "江戸川区"
+    ],
+    "existingSpot": false,
+    "nightAccess": true,
+    "hours": "常時開園（通常時）",
+    "scope": "公園の一般開放部分",
+    "candidateReason": "河川に近い広場がある",
+    "notes": "公園と荒川河川敷の管理範囲は同一と判断しない。",
+    "sourceIds": [
+      "ojima-komatsugawa"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": "2026-10-24",
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "kiba",
+    "name": "木場公園",
+    "wards": [
+      "江東区"
+    ],
+    "existingSpot": false,
+    "nightAccess": true,
+    "hours": "常時開園（通常時）",
+    "scope": "公園の一般開放部分",
+    "candidateReason": "大きな広場がある",
+    "notes": "木場ミドリアム・運動施設等は別の利用時間。",
+    "sourceIds": [
+      "kiba"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": "2026-10-24",
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "komazawa_olympic",
+    "name": "駒沢オリンピック公園",
+    "wards": [
+      "世田谷区",
+      "目黒区"
+    ],
+    "existingSpot": false,
+    "nightAccess": true,
+    "hours": "常時開園（通常時）",
+    "scope": "公園の一般開放部分",
+    "candidateReason": "開けた園内空間がある",
+    "notes": "有料運動施設への入場や占用を含めない。",
+    "sourceIds": [
+      "komazawa-olympic"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": "2026-10-24",
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "kinuta",
+    "name": "砧公園",
+    "wards": [
+      "世田谷区"
+    ],
+    "existingSpot": false,
+    "nightAccess": true,
+    "hours": "常時開園（通常時）",
+    "scope": "公園の一般開放部分",
+    "candidateReason": "広い芝生とゆるやかな起伏がある",
+    "notes": "公式のお知らせに立入制限エリアの案内あり。現地掲示・最新図面を確認して観測場所を選ぶ。",
+    "sourceIds": [
+      "kinuta"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": "2026-10-24",
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "yumenoshima",
+    "name": "夢の島公園",
+    "wards": [
+      "江東区"
+    ],
+    "existingSpot": false,
+    "nightAccess": true,
+    "hours": "24時間（通常時）",
+    "scope": "公園の一般開放部分",
+    "candidateReason": "広場と水辺を持つ",
+    "notes": "競技場・バーベキュー広場・熱帯植物館はそれぞれ利用時間や休場がある。",
+    "sourceIds": [
+      "yumenoshima",
+      "yumenoshima_rules",
+      "yumenoshima_notices"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": "2026-10-24",
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "odaiba",
+    "name": "お台場海浜公園",
+    "wards": [
+      "港区"
+    ],
+    "existingSpot": false,
+    "nightAccess": null,
+    "hours": "参考: 公式観光案内の検索結果に24時間と記載（本文取得は失敗。現在の夜間開放は未確認）",
+    "scope": "公園の一般開放部分。台場公園を同一地点として扱わない",
+    "candidateReason": "海側を見渡す場所がある",
+    "notes": "人工海浜・イベント規制区域・台場公園の条件を分ける。照明や夜景が明るいため星の見やすさは未確認。 24時間という根拠のページは本日の直接取得が502/503のため、今回の確定値にはしない。",
+    "sourceIds": [
+      "odaiba",
+      "odaiba_tourism"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": null,
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "shiokaze",
+    "name": "潮風公園",
+    "wards": [
+      "品川区"
+    ],
+    "existingSpot": false,
+    "nightAccess": null,
+    "hours": "参考: 公式観光案内の検索結果に24時間と記載（本文取得は失敗。現在の夜間開放は未確認）",
+    "scope": "公園の一般開放部分",
+    "candidateReason": "海側のデッキ・広場がある",
+    "notes": "管理者の案内に北側の一部立入制限あり。駐車場24時間という情報だけで公園全体を判定しない。 24時間という根拠のページは本日の直接取得が502/503のため、今回の確定値にはしない。",
+    "sourceIds": [
+      "shiokaze",
+      "shiokaze_tourism"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": null,
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "tatsumi",
+    "name": "辰巳の森海浜公園",
+    "wards": [
+      "江東区"
+    ],
+    "existingSpot": false,
+    "nightAccess": null,
+    "hours": null,
+    "scope": "公園の一般開放部分",
+    "candidateReason": "広い緑地を持つ",
+    "notes": "東京都観光案内は営業時間の設定なし・年中無休と記載するが、管理者から夜間開放の明記を確認できていない。ニュースポーツ・ドッグラン等の時間を公園全体へ転用しない。",
+    "sourceIds": [
+      "tatsumi",
+      "tatsumi_tourism"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": null,
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "jonanjima",
+    "name": "城南島海浜公園",
+    "wards": [
+      "大田区"
+    ],
+    "existingSpot": false,
+    "nightAccess": null,
+    "hours": null,
+    "scope": "一般園地・つばさ浜・ボードウォークを要区別",
+    "candidateReason": "海側に開けた空間がある",
+    "notes": "東京都観光案内は営業時間の設定なしと記載。つばさ浜には季節別の開放時間がある。管理者に夜間観測の場所と進入経路を確認するまで、園内一律の24時間開放は採用しない。",
+    "sourceIds": [
+      "jonanjima",
+      "jonanjima_beach",
+      "jonanjima_tourism"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": null,
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "wakasu",
+    "name": "若洲海浜公園（海釣り施設・防波堤）",
+    "wards": [
+      "江東区"
+    ],
+    "existingSpot": false,
+    "nightAccess": true,
+    "hours": "06:00〜21:00（海釣り施設・防波堤）",
+    "scope": "公式に時間が確認できた海釣り施設に限る",
+    "candidateReason": "海側に開けた場所がある",
+    "notes": "21:00以降は入場不可。悪天候時は閉鎖あり。公園全体・サイクリングロード・江東区立若洲公園・橋上歩道の時間には転用しない。釣り利用との共存・観測目的の機材設置は要確認。",
+    "sourceIds": [
+      "wakasu",
+      "wakasu_qa"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": "2026-10-24",
+    "localGlareLevel": null,
+    "horizonVerified": false
+  }
+]
