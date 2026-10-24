@@ -37,6 +37,7 @@
 ### 活用した技術
 #### API・データ
 * [Open-Meteo](https://open-meteo.com/) Forecast API（雲量・降水量・風速・視程、CC BY 4.0）
+* 地域の光害: [VIIRS Nighttime Lights](https://eogdata.mines.edu/products/vnl/) 年次合成 v2.2（Earth Observation Group, Payne Institute for Public Policy, Colorado School of Mines、CC BY 4.0）を加工
 * Bright Star Catalogue（明るい恒星の J2000.0 座標を抜粋）
 * 建物データ: [東京都・PLATEAU渋谷区2025年度版](https://www.geospatial.jp/ckan/dataset/plateau-13113-shibuya-ku-2025)を加工（CC BY 4.0）。渋谷駅周囲500mの1,497棟を直方体近似。西新宿は手作りの概略データ。
 
@@ -88,7 +89,7 @@ scripts/plateau_to_json.py CityGML → アプリ用JSONへの変換
 
 ### データについての注意
 * 公園・広場・河川敷の既存6地点に、確認済みの利用時間と未確認の区別を反映（[1-06の調査と運用](docs/night-access/README.md)）。新宿御苑の季節・休園日判定は2026〜2027年が対象。SHIBUYA SKY・都庁南展望室・KITTEガーデンは1-03〜1-05で確認した公式情報を使用。臨時の閉鎖は公式案内を確認すること
-* 地域の光害指標・近傍照明は未取り込み・未確認（画面に表示される）
+* 地域の光害指標は VIIRS 夜間光から作る（[手順と出典](docs/data/viirs-light-index.md)）。原本を取り込むまでは手入力の暫定値で、画面に「暫定値」と出る。近傍照明は未確認（画面に表示される）
 * 恒星の位置は歳差を補正していないため、0.4° 程度の誤差がある
 
 ### PLATEAU原本の取得（2-02）
