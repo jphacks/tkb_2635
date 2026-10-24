@@ -27,8 +27,15 @@ final class CityModelRenderer {
             for model in Self.models(in: loaded) {
                 guard let mesh = model.model?.mesh else { continue }
                 let material: any RealityKit.Material
-                if model.name.hasPrefix("atlas_") || model.name == "ground_photo", let photo = model.model?.materials.first as? PhysicallyBasedMaterial {
+                if model.name == "ground_night", let photo = model.model?.materials.first as? PhysicallyBasedMaterial {
+                    // 夜の暗さと街灯の明かりは Blender で写真に焼き込んであるので、照明に関係なくそのまま出す。
+                    var unlit = UnlitMaterial()
+                    unlit.color = .init(tint: .white, texture: photo.baseColor.texture)
+                    material = unlit
+                } else if model.name.hasPrefix("atlas_") || model.name == "ground_photo", let photo = model.model?.materials.first as? PhysicallyBasedMaterial {
                     material = Self.night(photo)
+                } else if let light = Self.lightColor(for: model.name) {
+                    material = UnlitMaterial(color: light)
                 } else if model.name == "roof" || model.name.hasPrefix("facade_") {
                     // 写真の無い面（全体の約1割）は、写真の調子から浮かないようコンクリートでそろえる。
                     material = roof
@@ -39,7 +46,45 @@ final class CityModelRenderer {
             }
             templates[scene.id] = loaded
         }
-        return templates[scene.id]?.clone(recursive: true)
+        guard let city = templates[scene.id]?.clone(recursive: true) else { return nil }
+        // 複製にはアニメーションが引き継がれないので、ここで点滅を始める。
+        for model in Self.models(in: city) where model.name == "aviation" {
+            Self.blink(model)
+        }
+        return city
+    }
+
+    /// 窓明かりを、地点の時刻に合わせてグループごとに点けたり消したりする（部品の名前は windows_<グループ>_<色>）。
+    static func updateWindows(in city: Entity, date: Date) {
+        for model in models(in: city) where model.name.hasPrefix("windows_") {
+            let parts = model.name.split(separator: "_")
+            guard parts.count == 3, let group = Int(parts[1]) else { continue }
+            model.isEnabled = NightLightSchedule.windowsOn(group: group, at: date)
+        }
+    }
+
+    /// 窓（色の番号 0: 暖色、1: 白っぽい暖色、2: 青白い）・街灯・遠くの街・航空障害灯の色。明かりの部品でなければ nil。
+    private static func lightColor(for name: String) -> UIColor? {
+        if name.hasPrefix("windows_"), let tone = name.split(separator: "_").last.flatMap({ Int($0) }) {
+            return [UIColor(red: 1.0, green: 0.74, blue: 0.40, alpha: 1),
+                    UIColor(red: 1.0, green: 0.88, blue: 0.66, alpha: 1),
+                    UIColor(red: 0.86, green: 0.91, blue: 0.98, alpha: 1)][min(tone, 2)]
+        }
+        switch name {
+        case "lamps": return UIColor(red: 1.0, green: 0.82, blue: 0.56, alpha: 1)
+        case "far_lights": return UIColor(red: 0.95, green: 0.70, blue: 0.42, alpha: 1)
+        case "aviation": return UIColor(red: 1.0, green: 0.12, blue: 0.08, alpha: 1)
+        default: return nil
+        }
+    }
+
+    /// 航空障害灯を、ゆっくり明るくなったり暗くなったりさせる。
+    private static func blink(_ model: ModelEntity) {
+        let animation = FromToByAnimation<Float>(from: 1, to: 0.05, duration: 0.75, timing: .easeInOut,
+                                                 bindTarget: .opacity, repeatMode: .autoReverse)
+        guard let resource = try? AnimationResource.generate(with: animation) else { return }
+        model.components.set(OpacityComponent(opacity: 1))
+        model.playAnimation(resource)
     }
 
     /// PLATEAU の実写テクスチャと地面の航空写真（どちらも昼の写真）を、夜の薄明かりで見ている調子にする。
@@ -58,7 +103,7 @@ final class CityModelRenderer {
     }
 
     private static let nightTint = UIColor(red: 0.16, green: 0.18, blue: 0.27, alpha: 1)
-    private static let nightGlowIntensity: Float = 0.26
+    private static let nightGlowIntensity: Float = 0.3
 
     /// CC0 のアスファルトを貼った地面。meters は1辺の長さ [m]、scale はシーンの1mあたりの単位。
     func ground(meters: Float, scale: Float) async -> ModelEntity {

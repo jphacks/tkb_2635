@@ -19,6 +19,7 @@ struct Sky3DView: View {
     private static let skyRadius: Float = 4
     private static let groundMeters: Float = 3_000
     private static let dynamicName = "timeDependent"
+    private static let cityName = "city"
 
     var body: some View {
         RealityView { content in
@@ -45,6 +46,9 @@ struct Sky3DView: View {
             // 時刻スライダーで動かすたびに街を作り直さず、時刻で変わる物だけを置き直す
             if let dynamic = content.entities.first?.findEntity(named: Self.dynamicName) {
                 buildTimeDependent(into: dynamic)
+            }
+            if let city = content.entities.first?.findEntity(named: Self.cityName) {
+                CityModelRenderer.updateWindows(in: city, date: date)
             }
         }
         .id("\(context.id)-\(prediction.celestialBodyId)")
@@ -88,6 +92,8 @@ struct Sky3DView: View {
                 .foregroundStyle(.secondary)
             if context.scene.map(CityModelRenderer.hasModel) == true {
                 Text("建物・地面は昼の実写を暗く表示")
+                    .foregroundStyle(.secondary)
+                Text("窓・街灯の明かりはイメージ")
                     .foregroundStyle(.secondary)
                 // 地理院タイルは出典の明示が利用の条件
                 Text("出典: PLATEAU（CC BY 4.0）・国土地理院")
@@ -138,6 +144,8 @@ struct Sky3DView: View {
                 // 都市モデルは1単位 = 1m、シーン原点が原点。観測者を原点に合わせて縮める。
                 city.scale = .init(repeating: Self.scale)
                 city.position = [-Float(me.east) * Self.scale, 0, Float(me.north) * Self.scale]
+                city.name = Self.cityName
+                CityModelRenderer.updateWindows(in: city, date: date)
                 world.addChild(city)
             } else {
                 for building in scene.buildings {

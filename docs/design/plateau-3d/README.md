@@ -6,7 +6,20 @@
 |---|---|---|
 | ![](shibuya-sky.png) | ![](shibuya-sky-deck.png) | ![](ground-blocked.png) |
 
-2026-10-24 21:00 の月。iPhone 17 Pro シミュレータで撮影。
+2026-10-24 21:00 の月。iPhone 17 Pro シミュレータで撮影（4-08 の時点。4-09 で下の夜の明かりを足した）。
+
+## 4-09 夜の明かり
+
+| SHIBUYA SKY 21:00 | SHIBUYA SKY 1:00（窓が減る） | 渋谷駅東口 地上 21:00 |
+|---|---|---|
+| ![](night-sky-21.png) | ![](night-sky-01.png) | ![](night-ground-21.png) |
+
+- **窓明かり**: 壁ごとに、階（3.6m）と窓の間隔（3.2m）で窓を並べ、建物 ID・階・列から決まる乱数で点ける（毎回同じ模様）。事務所は階ごとに帯で点き、住宅は窓ごとにばらばらに点く。1 階の店先は横長の帯。位置はイメージで、実物の窓とは合わない
+- **時刻で減る**: 窓を消える順に 3 グループに分け、時刻スライダーの時刻で切り替える（17 時に点き、事務所は 22 時、次は 23 時半、住宅などは翌 5 時に消える。`NightLightSchedule`）
+- **道路と街灯**: PLATEAU の道路（tran、LOD1）の縁に沿って 25m おきに街灯（高さ 6m の光の点）を 4,779 本並べ、路面と街灯の下の明るさを地面の写真に焼き込んだ（夜の暗さも焼き込み済みで、アプリは照明に関係なくそのまま表示する）
+- **航空障害灯**: 高さ 60m 以上の 33 棟の屋上の角に赤い光を置き、ゆっくり点滅させる
+- **遠くの街**: 地面の写真の外（約 1.45km まで）に、道路のような列の光を散らした。形は作り物
+- 凡例に「窓・街灯の明かりはイメージ」と出す。判定・スコアは変えていない（地上は「遮られる」、SHIBUYA SKY は「見える」のまま）
 
 ## 何が変わったか
 
@@ -36,13 +49,23 @@ python3 scripts/download_plateau_textures.py $O/shibuya-shapes.json --output $O
 # 4. 地面の航空写真（地理院タイル z18、14×14 枚）を取得
 python3 scripts/download_gsi_photo.py --latitude 35.658 --longitude 139.7016 --radius 800 --output ../outputs/gsi-shibuya
 
-# 5. Blender（4.0.2 で確認）で USDZ にする
+# 5. 道路の面を取り出す（地面の写真の範囲だけ。1 の取得に道路の GML も入っている）
+python3 scripts/plateau_roads.py $O/*_tran_6697_op.gml \
+  --buildings Packages/StarCore/Sources/StarCore/Resources/buildings.json \
+  --scene-id shibuya --ground ../outputs/gsi-shibuya/ground.json --output $O/shibuya-roads.json
+
+# 6. Blender（4.0.2 で確認）で USDZ にする。作業用の画像は出力先の atlas-work/ にできるので、
+#    出力はリポジトリの外に置き、できた USDZ だけを App/Resources/City/ に写す
 /Applications/Blender.app/Contents/MacOS/Blender -b --python scripts/blender_city_usdz.py -- \
-  $O/shibuya-shapes.json App/Resources/City/City_shibuya.usdz ../outputs/gsi-shibuya
+  $O/shibuya-shapes.json $O/night/City_shibuya.usdz ../outputs/gsi-shibuya $O/shibuya-roads.json
+cp $O/night/City_shibuya.usdz App/Resources/City/
 ```
 
+- 2 の `plateau_shapes.py` が、窓明かりと航空障害灯の位置も一緒に書き出す（`scripts/night_lights.py`）
+
 - 実写テクスチャは合計 3.4 億画素あり、そのままでは実機の GPU メモリに入らない。Blender で 28% に縮め、4096px 四方の画像（アトラス）2 枚にまとめた（GPU 上ではミップマップ込みで 1 枚約 90MB）
-- 部品の名前（`atlas_0`・`atlas_1`・`ground_photo`・`roof`・`facade_*`）で、アプリが夜の調子の材質を付ける
+- 部品の名前（`atlas_0`・`atlas_1`・`ground_night`・`roof`・`facade_*`・`windows_<グループ>_<色>`・`lamps`・`far_lights`・`aviation`）で、アプリが夜の調子の材質を付ける
+- 3D ファイルは 29MB（4-08 の 22MB から、窓 4.2 万枚・街灯・遠くの光のぶん増えた）。明かりの部品は UV を書き出さずに小さくしている
 - 座標は x=東・y=北・z=シーンの地面からの高さ [m]。RealityKit は Z 上向きの USD を Y 上向きに直して読むことを確かめた
 - 坂の上の建物が浮かないよう、壁の下端はシーンの地面（15m）まで伸ばす（箱と同じ扱い）。地面の写真は 0.3m 下に置く
 - 中庭などの穴（内側の輪）は扱わず、屋根は埋まる
@@ -57,12 +80,15 @@ LOD2 の最も高い点は、判定の箱（`measuredHeight` と LOD1 から作�
 - 建物の形・外壁と屋上の写真: 東京都「3D都市モデル（Project PLATEAU）渋谷区（2025年度）」 https://www.geospatial.jp/ckan/dataset/plateau-13113-shibuya-ku-2025 を加工して作成。CC BY 4.0
 - 地面の写真: 国土地理院「地理院タイル（全国最新写真（シームレス））」 https://maps.gsi.go.jp/development/ichiran.html を加工して作成
 - 写真の無い屋上・壁: ambientCG「Concrete034」 https://ambientcg.com/a/Concrete034 （CC0）
+- 道路の形（街灯の位置・路面の明るさ）: 同じ PLATEAU 渋谷区（2025年度）の道路（tran）を加工して作成。CC BY 4.0
 - 写真の外側の地面: ambientCG「Asphalt031」 https://ambientcg.com/a/Asphalt031 （CC0）
 
 地理院タイルは出典の明示が利用の条件なので、3D の凡例に「出典: PLATEAU（CC BY 4.0）・国土地理院」と出す。
 
 ## 確かめていないこと
 
-- 実機での描画速度・メモリ・アプリの大きさ（3D ファイルは 22MB。シミュレータでは 3D が出るまで 1〜2 秒）
+- 実機での描画速度・メモリ・アプリの大きさ（3D ファイルは 29MB。シミュレータでは 3D が出るまで 1〜2 秒）
+- 窓・街灯の数や明るさが実際の渋谷の夜景に近いか（参考画像に寄せて目で調整しただけ）
+- 航空障害灯の点滅の速さ・色は実物の決まりに合わせていない
 - 3D の向きが実物と合っているか（4-04）。写真と形・地面の写真は、見た目ではずれていない
 - 西新宿・丸の内は PLATEAU 化していないので箱のまま（2-05）
