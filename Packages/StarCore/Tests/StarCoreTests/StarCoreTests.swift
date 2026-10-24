@@ -109,6 +109,23 @@ private func utc(_ iso: String) -> Date {
         #expect(s.tier == .needsCheck)
     }
 
+    @Test func regionalLightWithoutSourceIsProvisional() throws {
+        let context = try #require(try SeedData.loadContexts().first { $0.id == "shibuya_east_plaza" })
+        var spot = context.spot
+        let date = utc("2026-10-24T12:00:00Z")
+
+        spot.regionalLightSource = nil
+        let provisional = Recommender.evaluate(SpotContext(spot: spot, scene: context.scene), target: .moon, date: date, weather: nil)
+        #expect(provisional.dataQualityFlags.contains(.regionalLightProvisional))
+        #expect(spot.regionalLightShortSource == "暫定値")
+
+        spot.regionalLightSource = "VIIRS VNL v2.2 2023 annual average_masked（EOG, Colorado School of Mines）"
+        spot.regionalLightMeasuredAt = "2023"
+        let measured = Recommender.evaluate(SpotContext(spot: spot, scene: context.scene), target: .moon, date: date, weather: nil)
+        #expect(!measured.dataQualityFlags.contains(.regionalLightProvisional))
+        #expect(spot.regionalLightShortSource == "VIIRS 2023")
+    }
+
     @Test func closedFacilityIsUnavailable() throws {
         let gyoen = try #require(try SeedData.loadContexts().first { $0.id == "shinjuku_gyoen" })
         let p = Recommender.evaluate(gyoen, target: .moon, date: utc("2026-10-24T12:00:00Z"), weather: nil)

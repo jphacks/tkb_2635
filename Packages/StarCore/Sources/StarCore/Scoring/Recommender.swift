@@ -30,6 +30,7 @@ public enum DataQualityFlag: String, Sendable, CaseIterable {
     case accessUnverified
     case directionMaskUnverified
     case areaAccessRestricted
+    case regionalLightProvisional
 
     public var message: String {
         switch self {
@@ -41,6 +42,7 @@ public enum DataQualityFlag: String, Sendable, CaseIterable {
         case .accessUnverified: "営業時間・立入条件は未確認の暫定値です。公式情報を確認してください"
         case .directionMaskUnverified: "窓・柵などで見える方角は未確認です"
         case .areaAccessRestricted: "園内の一部に利用制限があります。登録地点と制限区域の対応は未確認です"
+        case .regionalLightProvisional: "地域の光害は衛星データ取り込み前の暫定値です"
         }
     }
 }
@@ -164,6 +166,7 @@ public enum Recommender {
                             localGlareLevel: spot.localGlareLevel, moonEffect: m)
         if spot.regionalLightIndex == nil { flags.append(.regionalLightUnverified) }
         if dark.assumed { flags.append(.localGlareUnverified) }
+        if spot.regionalLightProvisional { flags.append(.regionalLightProvisional) }
 
         // STEP 5: スコアと段階。天気が無いときは 0 にせず 0.5 で仮計算し、推薦段階には入れない。
         let openness = context.horizon.openness

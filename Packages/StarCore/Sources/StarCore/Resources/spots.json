@@ -17,6 +17,8 @@
     "accessConditions": "この地点で、夜間に観測のため滞在できるかは未確認です。工事や通行制限、現地の案内を確認してください。",
     "sceneId": "shibuya",
     "regionalLightIndex": 0.95,
+    "regionalLightSource": "VIIRS VNL v2.2 2025 annual average_masked（EOG, Colorado School of Mines）",
+    "regionalLightMeasuredAt": "2025",
     "modelVersion": "plateau-shibuya-2025-1",
     "memo": "高さによる見え方を比べるデモ用の代表点です。正確な観測位置・歩行可能範囲・夜間利用・床面標高15mは未確認です。",
     "accessRules": {
@@ -50,6 +52,8 @@
     "sceneId": "shibuya",
     "hostBuildingId": "bldg_7b006717-e9e6-4a94-8843-1f4ce13b2509",
     "regionalLightIndex": 0.95,
+    "regionalLightSource": "VIIRS VNL v2.2 2025 annual average_masked（EOG, Colorado School of Mines）",
+    "regionalLightMeasuredAt": "2025",
     "modelVersion": "plateau-shibuya-2025-1",
     "lastVerifiedAt": "2026-10-24",
     "memo": "位置は建物モデル上の屋上の代表点です。床面標高244mは暫定値で、実際の屋上の標高は未確認です。",
@@ -73,7 +77,9 @@
     },
     "officialWebsite": "https://www.kanko-shinjuku.jp/spot/c004/article_358.html",
     "sceneId": "shinjuku",
-    "regionalLightIndex": 0.9,
+    "regionalLightIndex": 0.85,
+    "regionalLightSource": "VIIRS VNL v2.2 2025 annual average_masked（EOG, Colorado School of Mines）",
+    "regionalLightMeasuredAt": "2025",
     "modelVersion": "sample-0.1",
     "accessRules": {
       "areaRestrictions": [
@@ -297,7 +303,9 @@
     "officialWebsite": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou",
     "sceneId": "shinjuku",
     "hostBuildingId": "tocho_1",
-    "regionalLightIndex": 0.9,
+    "regionalLightIndex": 0.82,
+    "regionalLightSource": "VIIRS VNL v2.2 2025 annual average_masked（EOG, Colorado School of Mines）",
+    "regionalLightMeasuredAt": "2025",
     "modelVersion": "sample-0.1",
     "memo": "見上げられる高度の上限 35° は窓の高さからの暫定値",
     "lastVerifiedAt": "2026-10-24",
@@ -481,7 +489,9 @@
     "accessConditions": "6階の屋上庭園。JR東京駅丸の内駅舎を望める。観測可能な正確な方位範囲・周辺照明の強さは公式情報では未確認。",
     "officialWebsite": "https://marunouchi.jp-kitte.jp/guide/facilities.jsp",
     "approxHorizonElevation": 25,
-    "regionalLightIndex": 0.95,
+    "regionalLightIndex": 0.87,
+    "regionalLightSource": "VIIRS VNL v2.2 2025 annual average_masked（EOG, Colorado School of Mines）",
+    "regionalLightMeasuredAt": "2025",
     "modelVersion": "sample-0.1",
     "lastVerifiedAt": "2026-10-24",
     "weatherClosureConditions": "天候により閉鎖する場合があります。具体的な風速・降雨量の基準は未確認です。",
@@ -504,7 +514,9 @@
     },
     "officialWebsite": "https://www.tokyo-park.or.jp/park/yoyogi/index.html",
     "approxHorizonElevation": 15,
-    "regionalLightIndex": 0.8,
+    "regionalLightIndex": 0.72,
+    "regionalLightSource": "VIIRS VNL v2.2 2025 annual average_masked（EOG, Colorado School of Mines）",
+    "regionalLightMeasuredAt": "2025",
     "modelVersion": "sample-0.1",
     "accessRules": {
       "areaRestrictions": [
@@ -547,7 +559,9 @@
     "reservationRequired": false,
     "officialWebsite": "https://policies.env.go.jp/national-garden/shinjukugyoen/guide/information/",
     "approxHorizonElevation": 12,
-    "regionalLightIndex": 0.8,
+    "regionalLightIndex": 0.81,
+    "regionalLightSource": "VIIRS VNL v2.2 2025 annual average_masked（EOG, Colorado School of Mines）",
+    "regionalLightMeasuredAt": "2025",
     "modelVersion": "sample-0.1",
     "accessRules": {
       "seasonalHours": [
@@ -719,7 +733,9 @@
       "note": "指定地点の夜間入場可否は未確認です。利用できることを確認してからお出かけください。"
     },
     "approxHorizonElevation": 3,
-    "regionalLightIndex": 0.6,
+    "regionalLightIndex": 0.63,
+    "regionalLightSource": "VIIRS VNL v2.2 2025 annual average_masked（EOG, Colorado School of Mines）",
+    "regionalLightMeasuredAt": "2025",
     "modelVersion": "sample-0.1",
     "accessRules": {
       "unverified": true
@@ -745,7 +761,9 @@
     },
     "officialWebsite": "https://www.tokyo-park.or.jp/park/kasairinkai/index.html",
     "approxHorizonElevation": 4,
-    "regionalLightIndex": 0.55,
+    "regionalLightIndex": 0.71,
+    "regionalLightSource": "VIIRS VNL v2.2 2025 annual average_masked（EOG, Colorado School of Mines）",
+    "regionalLightMeasuredAt": "2025",
     "modelVersion": "sample-0.1",
     "accessRules": {},
     "accessConditions": "隣接する葛西海浜公園の西なぎさとは別施設。クリスタルビュー等の館内施設には別の開閉時間がある。",

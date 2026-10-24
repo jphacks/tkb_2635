@@ -43,6 +43,8 @@ import Testing
             #expect(spot.lastVerifiedAt == "2026-10-24")
             #expect(spot.accessStatus(at: date) == .open)
             #expect(spot.regionalLightIndex == nil)
+            #expect(spot.regionalLightShortSource == "未確認")
+            #expect(!spot.regionalLightProvisional)
             #expect(spot.localGlareLevel == nil)
             #expect(spot.weatherClosureConditions == nil)
             #expect(spot.photographyRestrictions == nil)

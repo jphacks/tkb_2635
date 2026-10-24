@@ -47,7 +47,7 @@ struct SpotDetailView: View {
             Section {
                 LabeledContent("地域の光害（広域）") {
                     if let index = spot.regionalLightIndex {
-                        Text(String(format: "%.2f", index)) + Text("  暫定値").foregroundStyle(.secondary)
+                        Text(String(format: "%.2f", index)) + Text("  \(spot.regionalLightShortSource)").foregroundStyle(.secondary)
                     } else {
                         Text("未確認").foregroundStyle(.orange)
                     }
@@ -62,7 +62,13 @@ struct SpotDetailView: View {
             } header: {
                 Text("光害")
             } footer: {
-                Text("地域の光害は衛星夜間光（VIIRS）を取り込む前の暫定値です。近傍照明は現地確認の段階評価で、照度の測定値ではありません。")
+                if spot.regionalLightIndex == nil {
+                    Text("地域の光害は未確認です。近傍照明は現地確認の段階評価で、照度の測定値ではありません。")
+                } else if let source = spot.regionalLightSource {
+                    Text("地域の光害は衛星夜間光（\(source)）の年平均から求めた値です。近傍照明は現地確認の段階評価で、照度の測定値ではありません。")
+                } else {
+                    Text("地域の光害は衛星夜間光（VIIRS）を取り込む前の暫定値です。近傍照明は現地確認の段階評価で、照度の測定値ではありません。")
+                }
             }
 
             Section("施設・地点") {
@@ -109,6 +115,7 @@ struct SpotDetailView: View {
                     LabeledContent("収録建物数", value: "\(scene.buildings.count)棟")
                     Text(scene.source).font(.caption).foregroundStyle(.secondary)
                 }
+                SurroundingsSection(context: context)
             }
 
             if !prediction.dataQualityFlags.isEmpty {
