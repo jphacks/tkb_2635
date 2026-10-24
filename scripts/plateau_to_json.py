@@ -6,11 +6,11 @@ from pathlib import Path
 from zipfile import BadZipFile
 import xml.etree.ElementTree as ET
 
-from plateau_citygml import convert_building, finite, iter_buildings, load_codelists, to_local
+from plateau_citygml import BelowSceneGround, convert_building, finite, iter_buildings, load_codelists, to_local
 
 
 def convert(paths, *, scene_id, name, latitude, longitude, ground, radius, source, codelists=None):
-    buildings, evidence, files = {}, {}, []
+    buildings, evidence, files, below = {}, {}, [], set()
     scanned = duplicates = 0
     for path in sorted(set(map(Path, paths))):
         count = 0
@@ -20,6 +20,9 @@ def convert(paths, *, scene_id, name, latitude, longitude, ground, radius, sourc
             try:
                 converted = convert_building(element, srs, dimension, (latitude, longitude),
                                              ground, radius, codelists or {})
+            except BelowSceneGround:
+                below.add(element.get('{http://www.opengis.net/gml}id'))
+                continue
             except (ValueError, TypeError) as error:
                 raise ValueError(f'{path.name} / {element.get("{http://www.opengis.net/gml}id")}: {error}') from error
             if converted is None:
@@ -45,6 +48,7 @@ def convert(paths, *, scene_id, name, latitude, longitude, ground, radius, sourc
              'buildings': [buildings[i] for i in identifiers]}
     report = {'sceneId': scene_id, 'radiusMeters': radius, 'scanned': scanned,
               'selected': len(buildings), 'duplicatesRemoved': duplicates,
+              'belowSceneGround': sorted(below - set(buildings)),
               'coordinateSystem': 'EPSG:6697 (latitude, longitude, orthometric height)',
               'heightRule': 'max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation',
               'selectionRule': 'axis-aligned building bounding rectangle intersects radius circle',

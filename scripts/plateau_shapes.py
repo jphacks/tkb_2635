@@ -35,6 +35,15 @@ def facade_key(usage, identifier):
     return f'facade_{style}_{value % 4}'
 
 
+def host_tag(identifier):
+    """観測者が中にいる建物の部品に付ける目印（_h と gml:id の英数字の先頭 8 文字）。
+
+    App/Views/CityModelRenderer.swift の hostTag(for:) と同じ規則。部品名の長さの上限に収めるため短くする。
+    """
+    letters = ''.join(c for c in identifier.removeprefix('bldg_') if c.isalnum())
+    return '_h' + letters[:8].lower()
+
+
 def load_textures(path):
     """ファイル先頭の appearanceMember から、外周の輪の ID → (画像の相対パス, UV の列) を作る。"""
     result = {}
@@ -125,7 +134,8 @@ def surfaces(building):
             yield 'lod1', ring_id, ring
 
 
-def convert(paths, scene):
+def convert(paths, scene, hosts=()):
+    """hosts の建物（観測者が中にいる建物）は、部品名に host_tag を付けて別の部品にする（アプリで半透明にするため）。"""
     origin = (scene['originLatitude'], scene['originLongitude'])
     ground = scene['groundElevation']
     boxes = {b['id']: b for b in scene['buildings']}
@@ -154,7 +164,8 @@ def convert(paths, scene):
                 return base is not None and alt <= base + 0.3
 
             clamped = False
-            key = facade_key(box.get('usage'), identifier)
+            suffix = host_tag(identifier) if identifier in hosts else ''
+            key = facade_key(box.get('usage'), identifier) + suffix
             is_lod1 = any(role == 'lod1' for role, _, _ in raw)
             roof_points = []
             for role, ring_id, ring in raw:
@@ -194,18 +205,18 @@ def convert(paths, scene):
                 if role == 'wall':
                     for name, quads in window_quads(points, normal(points), identifier, box.get('usage'),
                                                     stats['polygons']).items():
-                        windows.setdefault(name, []).extend(quads)
+                        windows.setdefault(name + suffix, []).extend(quads)
                         stats['windowQuads'] += len(quads)
                 else:
                     roof_points += points
                 if uv:
                     # 実写テクスチャがある面。画像は通し番号で持つ。
                     index = images.setdefault(texture[0], len(images))
-                    textured.append([index, flat, [round(c, 6) for p in uv for c in p]])
+                    textured.append([index, flat, [round(c, 6) for p in uv for c in p], suffix])
                     stats['texturedPolygons'] += 1
                 else:
                     # 写真の無い面は、屋根・設備は屋上素材、壁は用途ごとの窓の素材にまとめる。
-                    groups.setdefault(key if role == 'wall' else 'roof', []).append(flat)
+                    groups.setdefault(key if role == 'wall' else 'roof' + suffix, []).append(flat)
             lights = aviation_points(roof_points, box['height'])
             aviation += lights
             stats['aviationLights'] += len(lights)
@@ -222,9 +233,11 @@ def main():
     parser.add_argument('--buildings', type=Path, required=True, help='アプリの buildings.json')
     parser.add_argument('--scene-id', required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--host', action='append', default=[],
+                        help='観測者が中にいる建物の gml:id（別の部品にする。複数指定可）')
     args = parser.parse_args()
     scene = next(s for s in json.loads(args.buildings.read_text()) if s['id'] == args.scene_id)
-    shapes, stats = convert(args.gml, scene)
+    shapes, stats = convert(args.gml, scene, set(args.host))
     if stats['buildings'] != len(scene['buildings']):
         missing = len(scene['buildings']) - stats['buildings']
         print(f'注意: buildings.json の {missing} 棟は形状が見つからず、3D ファイルに入りません')

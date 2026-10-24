@@ -117,6 +117,10 @@ def solid_points(building, srs, dimension):
     return points
 
 
+class BelowSceneGround(ValueError):
+    """屋根がシーンの基準標高より低い建物（坂の下など）。平坦と見なすシーンでは空をふさがないので入れない。"""
+
+
 def convert_building(element, srs, dimension, origin, ground, radius, codelists):
     identifier = element.get(G + 'id')
     if not identifier:
@@ -146,8 +150,10 @@ def convert_building(element, srs, dimension, origin, ground, radius, codelists)
     # 平坦なシーンでも元の屋根標高を失わない。両方あるときは高い方を採用。
     roof = max(roof, base + height) if height is not None else roof
     effective_height = roof - ground
-    if right <= left or top <= bottom or effective_height <= 0 or roof <= base:
+    if right <= left or top <= bottom or roof <= base:
         raise ValueError('建物の幅・奥行き・高さが正ではありません')
+    if effective_height <= 0:
+        raise BelowSceneGround(f'屋根 {roof:.1f}m がシーンの地面 {ground:g}m より低い')
     usage = element.find(B + 'usage')
     label = None
     code = usage.text.strip() if usage is not None and usage.text else None

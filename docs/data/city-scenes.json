@@ -1,0 +1,15 @@
+[
+  {
+    "id": "shinjuku",
+    "name": "西新宿",
+    "latitude": 35.6896,
+    "longitude": 139.6917,
+    "buildingRadius": 500,
+    "groundRadius": 800,
+    "groundElevation": null,
+    "atlasBudget": 1,
+    "manifest": "docs/data/plateau-shinjuku-2025.json",
+    "work": "../outputs/plateau-shinjuku-2025",
+    "groundPhoto": "../outputs/gsi-shinjuku"
+  }
+]

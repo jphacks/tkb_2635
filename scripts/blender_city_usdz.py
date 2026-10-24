@@ -99,11 +99,11 @@ def build(name, polygons, collection, material, with_uv=True):
     return len(mesh.polygons)
 
 
-def pack(paths):
+def pack(paths, budget=ATLAS_BUDGET):
     """画像を縮めて棚詰めでアトラスに並べる。戻り値は (アトラスの画素の列, 画像ごとの (番号, x, y, 幅, 高さ))。"""
     images = [bpy.data.images.load(str(p), check_existing=False) for p in paths]
     area = sum(i.size[0] * i.size[1] for i in images)
-    scale = min(1.0, math.sqrt(ATLAS * ATLAS * ATLAS_BUDGET * 0.8 / area))
+    scale = min(1.0, math.sqrt(ATLAS * ATLAS * budget * 0.8 / area))
     sizes = [(max(4, round(i.size[0] * scale)), max(4, round(i.size[1] * scale))) for i in images]
     order = sorted(range(len(images)), key=lambda k: -sizes[k][1])
     pages, places = [], [None] * len(images)
@@ -319,6 +319,9 @@ def ground_photo(folder, data, collection, work, roads):
 
 def main():
     arguments = sys.argv[sys.argv.index('--') + 1:]
+    # --atlas-budget=<枚数> でアトラスの枚数の目安を変えられる（容量と GPU メモリを抑えたいシーン向け）
+    options = dict(a[2:].split('=', 1) for a in arguments if a.startswith('--'))
+    arguments = [a for a in arguments if not a.startswith('--')]
     source, output = arguments[:2]
     source = Path(source)
     data = json.loads(source.read_text())
@@ -329,19 +332,21 @@ def main():
         # アプリが名前で素材を差し替えるときの目印として、部品と同じ名前の仮の素材を付ける。
         counts[name] = build(name, [(p, None) for p in polygons], collection, bpy.data.materials.new(name))
 
-    pages, places = pack([source.parent / p for p in data['images']])
+    pages, places = pack([source.parent / p for p in data['images']], int(options.get('atlas-budget', ATLAS_BUDGET)))
     folder = Path(output).parent / 'atlas-work'
     folder.mkdir(exist_ok=True)
-    grouped = [[] for _ in pages]
-    for index, flat, uv in data['textured']:
+    materials = [atlas_material(page, pixels, folder) for page, pixels in enumerate(pages)]
+    grouped = {}
+    for index, flat, uv, *rest in data['textured']:
         page, x, y, w, h = places[index]
         # 写真の中の位置を、アトラスの中の位置へ置き換える（UV は左下が原点）。
         mapped = [((x + min(max(u, 0), 1) * w) / ATLAS, (y + min(max(v, 0), 1) * h) / ATLAS)
                   for u, v in zip(uv[::2], uv[1::2])]
-        grouped[page].append((flat, [c for p in mapped for c in p]))
-    for page, polygons in enumerate(grouped):
-        name = f'atlas_{page}'
-        counts[name] = build(name, polygons, collection, atlas_material(page, pages[page], folder))
+        # 観測者が中にいる建物は atlas_<番号>_h<目印> の別の部品にする（素材は同じアトラス）。
+        name = f'atlas_{page}' + (rest[0] if rest else '')
+        grouped.setdefault((name, page), []).append((flat, [c for p in mapped for c in p]))
+    for (name, page), polygons in sorted(grouped.items()):
+        counts[name] = build(name, polygons, collection, materials[page])
 
     for name, quads in sorted(data.get('windows', {}).items()):
         counts[name] = build(name, [(q, None) for q in quads], collection, bpy.data.materials.new(name), with_uv=False)
