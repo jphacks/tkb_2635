@@ -74,6 +74,8 @@ struct Sky3DView: View {
                 .foregroundStyle(prediction.geometricVisibility ? .green : .red)
             Text(context.scene?.name ?? "建物データなし（地平線は暫定値）")
                 .foregroundStyle(.secondary)
+            Text("外壁・窓明かりはイメージ")
+                .foregroundStyle(.secondary)
         }
         .font(.caption.bold())
         .padding(8)
@@ -98,18 +100,15 @@ struct Sky3DView: View {
         root.addChild(world)
 
         let ground = ModelEntity(mesh: .generatePlane(width: 12, depth: 12),
-                                 materials: [SimpleMaterial(color: UIColor(white: 0.18, alpha: 1), isMetallic: false)])
+                                 materials: [SimpleMaterial(color: UIColor(red: 0.07, green: 0.09, blue: 0.13, alpha: 1), isMetallic: false)])
         world.addChild(ground)
 
         if let scene = context.scene {
             let me = scene.localPosition(latitude: spot.latitude, longitude: spot.longitude)
             for building in scene.buildings {
                 let size = SIMD3<Float>(Float(building.width), Float(building.height), Float(building.depth)) * Self.scale
-                let isHost = building.id == spot.hostBuildingId
-                let color = isHost ? UIColor.systemTeal.withAlphaComponent(0.35) : UIColor(white: 0.75, alpha: 1)
-                var material = SimpleMaterial(color: color, isMetallic: false)
-                material.roughness = 0.8
-                let box = ModelEntity(mesh: .generateBox(size: size), materials: [material])
+                let box = BuildingNightRenderer.shared.entity(for: building, scale: Self.scale,
+                                                              isHost: building.id == spot.hostBuildingId)
                 box.position = [Float(building.x - me.east) * Self.scale, size.y / 2,
                                 -Float(building.y - me.north) * Self.scale]
                 world.addChild(box)
@@ -149,11 +148,13 @@ struct Sky3DView: View {
         }
 
         let sun = DirectionalLight()
-        sun.light.intensity = 3_000
+        sun.light.intensity = 1_600
+        sun.light.color = .init(red: 0.77, green: 0.85, blue: 1, alpha: 1)
         sun.look(at: .zero, from: [3, 6, 4], relativeTo: nil)
         root.addChild(sun)
         let fill = DirectionalLight()
-        fill.light.intensity = 1_200
+        fill.light.intensity = 600
+        fill.light.color = .init(red: 0.66, green: 0.76, blue: 1, alpha: 1)
         fill.look(at: .zero, from: [-4, 3, -3], relativeTo: nil)
         root.addChild(fill)
     }
