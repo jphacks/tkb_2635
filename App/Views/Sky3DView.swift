@@ -12,6 +12,8 @@ struct Sky3DView: View {
     var sharedCamera: Binding<SkyCamera>? = nil
     /// 比較画面では、左上の説明を判定と出典だけにする
     var compact = false
+    /// false にすると左上の説明を出さない（判定と出典を別の場所に出す画面向け）
+    var showsLegend = true
 
     @State private var ownCamera = SkyCamera()
     @State private var dragStart: (yaw: Float, pitch: Float)?
@@ -111,7 +113,9 @@ struct Sky3DView: View {
                     .foregroundStyle(.white)
             }
         }
-        .overlay(alignment: .topLeading) { legend }
+        .overlay(alignment: .topLeading) {
+            if showsLegend { legend }
+        }
         .accessibilityElement()
         .accessibilityLabel(prediction.accessStatus.label + "。" + (prediction.geometricVisibility
                             ? "\(Angle.directionName(prediction.azimuth))の空に見える見込み"
