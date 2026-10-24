@@ -64,6 +64,7 @@ public struct Spot: Codable, Identifiable, Sendable {
     public var maxVisibleAltitude: Double?
     public var directionMaskVerified: Bool
     public var openingHours: OpeningHours
+    public var accessRules: SpotAccessRules?
     public var admissionFee: String?
     public var reservationRequired: Bool?
     public var accessConditions: String?

@@ -58,13 +58,17 @@ struct Sky3DView: View {
         )
         .overlay(alignment: .topLeading) { legend }
         .accessibilityElement()
-        .accessibilityLabel(prediction.geometricVisibility
+        .accessibilityLabel(prediction.accessStatus.label + "。" + (prediction.geometricVisibility
                             ? "\(Angle.directionName(prediction.azimuth))の空に見える見込み"
-                            : "建物などに遮られる見込み")
+                            : "建物などに遮られる見込み"))
     }
 
     private var legend: some View {
         VStack(alignment: .leading, spacing: 2) {
+            if prediction.accessStatus != .open {
+                Label(prediction.accessStatus.label, systemImage: "exclamationmark.triangle")
+                    .foregroundStyle(.orange)
+            }
             Label(prediction.geometricVisibility ? "見える見込み" : (prediction.altitude <= 0 ? "地平線の下" : "遮られる見込み"),
                   systemImage: prediction.geometricVisibility ? "eye" : "eye.slash")
                 .foregroundStyle(prediction.geometricVisibility ? .green : .red)

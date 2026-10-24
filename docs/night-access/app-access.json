@@ -1,0 +1,168 @@
+{
+  "shibuya_east_plaza": {
+    "patch": {
+      "openingHours": {
+        "alwaysOpen": false,
+        "note": "指定地点の夜間入場可否は未確認です。利用できることを確認してからお出かけください。"
+      },
+      "accessRules": {
+        "unverified": true
+      },
+      "accessConditions": "この地点で、夜間に観測のため滞在できるかは未確認です。工事や通行制限、現地の案内を確認してください。",
+      "officialWebsite": "https://www.city.shibuya.tokyo.jp/kankyo/shuhen-machizukuri/kento/shibuya_higasiguti_mati_0514.html",
+      "lastVerifiedAt": null
+    }
+  },
+  "shinjuku_central_park": {
+    "patch": {
+      "openingHours": {
+        "alwaysOpen": true,
+        "note": "通常の一般開放部分の案内。園内施設・工事区域の利用時間は別途確認。"
+      },
+      "accessRules": {
+        "areaRestrictions": [
+          {
+            "from": "2026-10-30",
+            "through": "2026-11-13",
+            "message": "芝生広場は全面閉鎖の予告があります。公園全体の閉園とは異なります。利用場所は公式図面・現地掲示で確認してください。",
+            "source": "https://shinjukuchuo-park.jp/2026/10/06/10-30%E9%87%91%EF%BD%9E11-13%E9%87%91%E3%80%80%E8%8A%9D%E7%94%9F%E5%BA%83%E5%A0%B4%E5%85%A8%E9%9D%A2%E9%96%89%E9%8E%96%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B/"
+          }
+        ]
+      },
+      "accessConditions": "新宿観光振興協会の施設紹介に24時間営業の記載。2026/10/30〜11/13の芝生広場全面閉鎖予告あり。公園全体の閉園とは区別する。",
+      "officialWebsite": "https://www.kanko-shinjuku.jp/spot/c004/article_358.html",
+      "lastVerifiedAt": "2026-10-24"
+    }
+  },
+  "yoyogi_park": {
+    "patch": {
+      "openingHours": {
+        "alwaysOpen": true,
+        "note": "通常の一般開放部分の案内。園内施設・工事区域の利用時間は別途確認。"
+      },
+      "accessRules": {
+        "areaRestrictions": [
+          {
+            "from": "2026-10-05",
+            "through": "2026-11-12",
+            "message": "サイクリングコース周辺は設営工事のため、一部に通行・利用制限があります。",
+            "source": "https://www.tokyo-park.or.jp/park/yoyogi/news/2026/park_info_73.html"
+          },
+          {
+            "from": "2026-11-13",
+            "through": "2027-01-11",
+            "message": "イベント期間の17:00〜22:00はサイクリングコースを利用できません。公園全体の閉園とは異なります。",
+            "source": "https://www.tokyo-park.or.jp/park/yoyogi/news/2026/park_info_73.html"
+          }
+        ]
+      },
+      "accessConditions": "神南一丁目地区は別管理。2026/10/5〜11/12はサイクリングコース周辺の設営工事に伴う通行・利用制限あり。11/13〜2027/1/11はサイクリングコースを17:00〜22:00利用不可。公園全体の閉鎖とは区別する。",
+      "officialWebsite": "https://www.tokyo-park.or.jp/park/yoyogi/index.html",
+      "lastVerifiedAt": "2026-10-24"
+    }
+  },
+  "shinjuku_gyoen": {
+    "patch": {
+      "openingHours": {
+        "alwaysOpen": false,
+        "open": "09:00",
+        "close": "16:30",
+        "lastAdmission": "16:00",
+        "note": "季節別の利用時間を表示。月曜休園（休日なら翌平日）、12/29〜1/3休園。3/25〜4/24・11/1〜15は月曜も開園。祝日・休園日の判定対象は2026〜2027年。臨時閉園・夜間イベント・予約条件は公式案内を確認。"
+      },
+      "accessRules": {
+        "seasonalHours": [
+          {
+            "fromMonthDay": "10-01",
+            "throughMonthDay": "03-14",
+            "hours": {
+              "alwaysOpen": false,
+              "open": "09:00",
+              "close": "16:30",
+              "lastAdmission": "16:00"
+            }
+          },
+          {
+            "fromMonthDay": "03-15",
+            "throughMonthDay": "06-10",
+            "hours": {
+              "alwaysOpen": false,
+              "open": "09:00",
+              "close": "18:00",
+              "lastAdmission": "17:30"
+            }
+          },
+          {
+            "fromMonthDay": "06-11",
+            "throughMonthDay": "07-31",
+            "hours": {
+              "alwaysOpen": false,
+              "open": "09:00",
+              "close": "19:00",
+              "lastAdmission": "18:30"
+            }
+          },
+          {
+            "fromMonthDay": "08-01",
+            "throughMonthDay": "09-30",
+            "hours": {
+              "alwaysOpen": false,
+              "open": "09:00",
+              "close": "18:00",
+              "lastAdmission": "17:30"
+            }
+          }
+        ]
+      },
+      "accessConditions": "通常の閉園後の観測は不可。夏の夕方利用まで一律に不可とはしない。月曜休園（休日なら翌平日）、12/29〜1/3休園。3/25〜4/24・11/1〜15は月曜も開園。臨時変更・予約条件は公式案内を確認。",
+      "officialWebsite": "https://policies.env.go.jp/national-garden/shinjukugyoen/guide/information/",
+      "lastVerifiedAt": "2026-10-24"
+    },
+    "calendarRule": {
+      "weeklyClosedWeekday": 0,
+      "shiftHolidayClosure": true,
+      "annualClosedRanges": [
+        [
+          "12-29",
+          "01-03"
+        ]
+      ],
+      "annualOpenRanges": [
+        [
+          "03-25",
+          "04-24"
+        ],
+        [
+          "11-01",
+          "11-15"
+        ]
+      ]
+    }
+  },
+  "arakawa_riverside": {
+    "patch": {
+      "openingHours": {
+        "alwaysOpen": false,
+        "note": "指定地点の夜間入場可否は未確認です。利用できることを確認してからお出かけください。"
+      },
+      "accessRules": {
+        "unverified": true
+      },
+      "accessConditions": "この付近の夜間利用時間と出入口は未確認です。公園や運動場などは、管理者ごとに利用ルールが異なります。駐車場の利用時間も別に確認してください。",
+      "officialWebsite": "https://www.ktr.mlit.go.jp/arage/arage00138.html",
+      "lastVerifiedAt": null
+    }
+  },
+  "kasai_rinkai_park": {
+    "patch": {
+      "openingHours": {
+        "alwaysOpen": true,
+        "note": "通常の一般開放部分の案内。園内施設・工事区域の利用時間は別途確認。"
+      },
+      "accessRules": {},
+      "accessConditions": "隣接する葛西海浜公園の西なぎさとは別施設。クリスタルビュー等の館内施設には別の開閉時間がある。",
+      "officialWebsite": "https://www.tokyo-park.or.jp/park/kasairinkai/index.html",
+      "lastVerifiedAt": "2026-10-24"
+    }
+  }
+}
