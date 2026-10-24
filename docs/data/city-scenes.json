@@ -206,5 +206,57 @@
     "manifest": "docs/data/plateau-jonanjima-kaihin-park-2025.json",
     "work": "../outputs/plateau-jonanjima_kaihin_park",
     "groundPhoto": "../outputs/gsi-jonanjima_kaihin_park"
+  },
+  {
+    "id": "oshiage",
+    "name": "押上（東京スカイツリー）",
+    "latitude": 35.710063,
+    "longitude": 139.8107,
+    "buildingRadius": 500,
+    "groundRadius": 800,
+    "groundElevation": null,
+    "atlasBudget": 1,
+    "manifest": "docs/data/plateau-oshiage-2025.json",
+    "work": "../outputs/plateau-oshiage",
+    "groundPhoto": "../outputs/gsi-oshiage"
+  },
+  {
+    "id": "shibakoen",
+    "name": "芝公園（東京タワー）",
+    "latitude": 35.658581,
+    "longitude": 139.745433,
+    "buildingRadius": 500,
+    "groundRadius": 800,
+    "groundElevation": null,
+    "atlasBudget": 1,
+    "manifest": "docs/data/plateau-shibakoen-2025.json",
+    "work": "../outputs/plateau-shibakoen",
+    "groundPhoto": "../outputs/gsi-shibakoen"
+  },
+  {
+    "id": "higashi_ikebukuro",
+    "name": "東池袋（サンシャイン60）",
+    "latitude": 35.729503,
+    "longitude": 139.71834,
+    "buildingRadius": 500,
+    "groundRadius": 800,
+    "groundElevation": null,
+    "atlasBudget": 1,
+    "manifest": "docs/data/plateau-higashi-ikebukuro-2025.json",
+    "work": "../outputs/plateau-higashi_ikebukuro",
+    "groundPhoto": "../outputs/gsi-higashi_ikebukuro"
+  },
+  {
+    "id": "roppongi",
+    "name": "六本木（六本木ヒルズ）",
+    "latitude": 35.660464,
+    "longitude": 139.729249,
+    "buildingRadius": 500,
+    "groundRadius": 800,
+    "groundElevation": null,
+    "atlasBudget": 1,
+    "manifest": "docs/data/plateau-roppongi-2025.json",
+    "work": "../outputs/plateau-roppongi",
+    "groundPhoto": "../outputs/gsi-roppongi"
   }
 ]

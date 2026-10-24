@@ -31,7 +31,7 @@ import Testing
 
     @Test func addedParksLoadThroughRecommendationPipeline() throws {
         let contexts = try SeedData.loadContexts()
-        #expect(contexts.count == 19)
+        #expect(contexts.count == 27)  // 19 地点＋展望台と足元の地上の4組（a）
         #expect(Set(contexts.map(\.id)).count == contexts.count)
         let date = ISO8601DateFormatter().date(from: "2026-10-24T12:00:00Z")!
         let newIDs = ["toneri_park", "mizumoto_park", "komazawa_olympic_park"]

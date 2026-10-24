@@ -1,0 +1,171 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "year": 2025
+    },
+    {
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025
+    },
+    {
+      "cityCode": "13116",
+      "cityName": "豊島区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.7095,35.7223,139.7272,35.7367",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/0d/92f892-53b4-4534-82ea-c1c012827a93/13105_bunkyo-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53394567_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/bldg/53394567_bldg_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 4145,
+      "lod2": 223,
+      "bytes": 58606563,
+      "sha256": "a234ba926a60976877ec52699dc489ca42c5eb742d44534f71849112c81f321a"
+    },
+    {
+      "name": "53394577_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/bldg/53394577_bldg_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 2921,
+      "lod2": 2042,
+      "bytes": 168102762,
+      "sha256": "96b2c510ac44d955c0902612d0c702ee3594ca699993e0b187cbff86c2b82c37"
+    },
+    {
+      "name": "53394587_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/cc/d90677-ae87-4718-8899-f6131004cfa5/13116_toshima-ku_pref_2025_citygml_1_op/udx/bldg/53394587_bldg_6697_op.gml",
+      "cityCode": "13116",
+      "cityName": "豊島区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 5295,
+      "lod2": 156,
+      "bytes": 72851591,
+      "sha256": "4a9d6fe3cbd2eff02272676dacda8e807344b8e0108df8345106e20cf0f1855e"
+    },
+    {
+      "name": "53394566_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/tran/53394566_tran_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 828,
+      "lod2": 14,
+      "bytes": 2582632,
+      "sha256": "9c806cb5901a7b1b9c4ad94d3552ec132b889a6f602cccee0e6ed5c2a359084f"
+    },
+    {
+      "name": "53394567_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/tran/53394567_tran_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 1299,
+      "lod2": 95,
+      "bytes": 7457664,
+      "sha256": "0a354e59b0d036dca92d73ee17be3781d03e038d05805969889658c824c9a170"
+    },
+    {
+      "name": "53394568_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/tran/53394568_tran_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 744,
+      "lod2": 0,
+      "bytes": 2032133,
+      "sha256": "9b81e0df5ca6d352781f65d5f59ecd11209f4a21ca3a28c124b5faf1bc7542e3"
+    },
+    {
+      "name": "53394576_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/cc/d90677-ae87-4718-8899-f6131004cfa5/13116_toshima-ku_pref_2025_citygml_1_op/udx/tran/53394576_tran_6697_op.gml",
+      "cityCode": "13116",
+      "cityName": "豊島区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 1010,
+      "lod2": 478,
+      "bytes": 20812006,
+      "sha256": "6cc53f9c3ddfa90423ae1ae5c5741ceb004be2ddd6580b533644c449a7d068f7"
+    },
+    {
+      "name": "53394577_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/tran/53394577_tran_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 1167,
+      "lod2": 896,
+      "bytes": 32601545,
+      "sha256": "052919a57424e9a6d33edc1bbaad8e2bdea91dac33ebaeb62c032769e0b52cb2"
+    },
+    {
+      "name": "53394578_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/tran/53394578_tran_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 1461,
+      "lod2": 562,
+      "bytes": 8528690,
+      "sha256": "9f74310c734e66f0474f257cad0407792331d3af00736f9b57dc7ceafc504044"
+    },
+    {
+      "name": "53394586_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/cc/d90677-ae87-4718-8899-f6131004cfa5/13116_toshima-ku_pref_2025_citygml_1_op/udx/tran/53394586_tran_6697_op.gml",
+      "cityCode": "13116",
+      "cityName": "豊島区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 1636,
+      "lod2": 141,
+      "bytes": 4870723,
+      "sha256": "ec7b9d22a1774de7e664904181b66bc6d6b8a75bdbc37a3f9a2aa6284e9d1da7"
+    },
+    {
+      "name": "53394587_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/cc/d90677-ae87-4718-8899-f6131004cfa5/13116_toshima-ku_pref_2025_citygml_1_op/udx/tran/53394587_tran_6697_op.gml",
+      "cityCode": "13116",
+      "cityName": "豊島区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 1447,
+      "lod2": 71,
+      "bytes": 7495279,
+      "sha256": "7622ce1c9e5dca3d6d50b4f6eb0dc6b8f1c2f7950b6e36e73b6ebb6533e4a246"
+    },
+    {
+      "name": "53394588_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/cc/d90677-ae87-4718-8899-f6131004cfa5/13116_toshima-ku_pref_2025_citygml_1_op/udx/tran/53394588_tran_6697_op.gml",
+      "cityCode": "13116",
+      "cityName": "豊島区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1379,
+      "lod2": 255,
+      "bytes": 4271512,
+      "sha256": "28bb0dbf76b40df187475e1e03e45641d64f3c65aa973e3a29d4a2472087de8f"
+    }
+  ]
+}
