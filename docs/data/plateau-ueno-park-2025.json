@@ -1,0 +1,118 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025
+    },
+    {
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.7656,35.7084,139.7834,35.7228",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/0d/92f892-53b4-4534-82ea-c1c012827a93/13105_bunkyo-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53394651_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/bldg/53394651_bldg_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1576,
+      "lod2": 1030,
+      "bytes": 40685563,
+      "sha256": "0c2985bea2d72f359dad1267cdd7aadbc6005e1ced291ff776b475a86c52356c"
+    },
+    {
+      "name": "53394652_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/80/45b2b1-5a88-40ab-9877-70b540b8707e/13106_taito-ku_city_2025_citygml_1_op/udx/bldg/53394652_bldg_6697_op.gml",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 3988,
+      "lod2": 3988,
+      "bytes": 142434145,
+      "sha256": "a9a447f1e8e8bd3b74cac7db755aef86776624bdf391ac3e502e3a33051dc77d"
+    },
+    {
+      "name": "53394661_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/bldg/53394661_bldg_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 3957,
+      "lod2": 2557,
+      "bytes": 102705561,
+      "sha256": "b40f735bae9f99581e25d09d460ecc702e1a2cf1ec3744a26aabfcbc0bece6d3"
+    },
+    {
+      "name": "53394662_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/80/45b2b1-5a88-40ab-9877-70b540b8707e/13106_taito-ku_city_2025_citygml_1_op/udx/bldg/53394662_bldg_6697_op.gml",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 3517,
+      "lod2": 3488,
+      "bytes": 105337997,
+      "sha256": "b0c2850ea3972ca8e29cdc8c06742adf2ff1d474d76525cdb623a2bb6f2f7ef1"
+    },
+    {
+      "name": "53394651_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/tran/53394651_tran_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 377,
+      "lod2": 302,
+      "bytes": 2295701,
+      "sha256": "f9314d3a9457a0712b83b35cbaefb0e0afa7c7248b5bff51e5c4201893efec75"
+    },
+    {
+      "name": "53394652_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/80/45b2b1-5a88-40ab-9877-70b540b8707e/13106_taito-ku_city_2025_citygml_1_op/udx/tran/53394652_tran_6697_op.gml",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 1187,
+      "lod2": 1187,
+      "bytes": 7610604,
+      "sha256": "4d63a7100b5fe28ba21c6476279a1a5b00158536f34b7d550708b7ba96d2d54e"
+    },
+    {
+      "name": "53394661_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/tran/53394661_tran_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1037,
+      "lod2": 804,
+      "bytes": 4307689,
+      "sha256": "4c3566995b897f290b019d6827286c944c2d146adde076de4d73b1776fcab81f"
+    },
+    {
+      "name": "53394662_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/80/45b2b1-5a88-40ab-9877-70b540b8707e/13106_taito-ku_city_2025_citygml_1_op/udx/tran/53394662_tran_6697_op.gml",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1084,
+      "lod2": 1084,
+      "bytes": 5565152,
+      "sha256": "bb54b175f34c01acd1ae9cfb69ff730c1a298fe28e9b77fd329bb878fa21a9fe"
+    }
+  ]
+}

@@ -214,5 +214,110 @@
     "checkedAt": "2026-10-25",
     "sources": [],
     "note": "展望台と足元の地上の組（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "asakusa_terrace": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "asakusa_ground": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "caretta_sky_view": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "shiodome_ground": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "tower_hall_funabori": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "funabori_ground": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "ueno_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "hibiya_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "sumida_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "wakasu_kaihin_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "yumenoshima_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "shakujii_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "rinshi_no_mori_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "tokyo_tower_top_deck": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "roppongi_sky_deck": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
   }
 }

@@ -1,0 +1,34 @@
+{
+  "sceneId": "rinshi_no_mori_park",
+  "radiusMeters": 500,
+  "scanned": 19834,
+  "selected": 3196,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53393545_bldg_6697_op.gml",
+      "sha256": "baa900ffcbfafb213cd74b5f1d2416e5bb1bb50bb8adb4d841b88eb57e5d33a9",
+      "buildingsScanned": 5580
+    },
+    {
+      "name": "53393546_bldg_6697_op.gml",
+      "sha256": "ae18badd3bb44c68f50a239bb4c8043cbc464a47a6a74284f310fe95232ad537",
+      "buildingsScanned": 5374
+    },
+    {
+      "name": "53393555_bldg_6697_op.gml",
+      "sha256": "55f5b624032c46b77445d20b7f8548452d93e881bba6a730146c03e06cd672f6",
+      "buildingsScanned": 4590
+    },
+    {
+      "name": "53393556_bldg_6697_op.gml",
+      "sha256": "9794b8d6596dfd7d6082f8c80afd2914c104b176a1522806a7700900cd5f2bfc",
+      "buildingsScanned": 4290
+    }
+  ],
+  "groundElevation": 26.0,
+  "belowSceneGround": 499
+}

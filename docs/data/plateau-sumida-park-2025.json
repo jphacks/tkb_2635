@@ -1,0 +1,166 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025
+    },
+    {
+      "cityCode": "13107",
+      "cityName": "墨田区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.7931,35.7053,139.8109,35.7197",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/27/460e0e-61f1-40d2-9bff-87a4c462fec4/13106_taito-ku_city_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53394643_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/80/45b2b1-5a88-40ab-9877-70b540b8707e/13106_taito-ku_city_2025_citygml_1_op/udx/bldg/53394643_bldg_6697_op.gml",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 3304,
+      "lod2": 2002,
+      "bytes": 81932615,
+      "sha256": "63ce73148698b691cc723efc969d7c29ed1e86991ce4d1b38b58596367ec88b5"
+    },
+    {
+      "name": "53394644_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/af/d16ede-837d-458a-af51-16771bbb96d8/13107_sumida-ku_pref_2025_citygml_1_op/udx/bldg/53394644_bldg_6697_op.gml",
+      "cityCode": "13107",
+      "cityName": "墨田区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 4650,
+      "lod2": 145,
+      "bytes": 62075569,
+      "sha256": "e6a9c46082dfcfee696c748e0322756c20d79e82f6b82ce004d29b63c1af085a"
+    },
+    {
+      "name": "53394653_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/80/45b2b1-5a88-40ab-9877-70b540b8707e/13106_taito-ku_city_2025_citygml_1_op/udx/bldg/53394653_bldg_6697_op.gml",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025,
+      "maxLod": 4,
+      "features": 4614,
+      "lod2": 4536,
+      "bytes": 142672806,
+      "sha256": "57e8a933ccf054d5e1eece56ebe23ff38392522d8f7037c467cd81d792f6f644"
+    },
+    {
+      "name": "53394654_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/80/45b2b1-5a88-40ab-9877-70b540b8707e/13106_taito-ku_city_2025_citygml_1_op/udx/bldg/53394654_bldg_6697_op.gml",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 3228,
+      "lod2": 1060,
+      "bytes": 60522567,
+      "sha256": "5de887bf15dba176514ff1bac48528b52c0154bc710de04c16296e79c3e4d8cf"
+    },
+    {
+      "name": "53394663_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/80/45b2b1-5a88-40ab-9877-70b540b8707e/13106_taito-ku_city_2025_citygml_1_op/udx/bldg/53394663_bldg_6697_op.gml",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 5894,
+      "lod2": 5894,
+      "bytes": 167854485,
+      "sha256": "bce67fe2da9318fb6d004e85ba1f6f6a6eaa53dd046ae1d92d4495f59f4ea8dc"
+    },
+    {
+      "name": "53394664_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/80/45b2b1-5a88-40ab-9877-70b540b8707e/13106_taito-ku_city_2025_citygml_1_op/udx/bldg/53394664_bldg_6697_op.gml",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 3889,
+      "lod2": 2742,
+      "bytes": 93454988,
+      "sha256": "7c16abcecf098adfbd889d456e3ddad137a400d42231066026dc198735d926d9"
+    },
+    {
+      "name": "53394643_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/80/45b2b1-5a88-40ab-9877-70b540b8707e/13106_taito-ku_city_2025_citygml_1_op/udx/tran/53394643_tran_6697_op.gml",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1193,
+      "lod2": 754,
+      "bytes": 5014947,
+      "sha256": "d9dfd9fed20ce6b53ea6cb729c40eff4fd9a1449653c4492dbbc650586c90ed3"
+    },
+    {
+      "name": "53394644_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/af/d16ede-837d-458a-af51-16771bbb96d8/13107_sumida-ku_pref_2025_citygml_1_op/udx/tran/53394644_tran_6697_op.gml",
+      "cityCode": "13107",
+      "cityName": "墨田区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1208,
+      "lod2": 60,
+      "bytes": 3279380,
+      "sha256": "8be4da14b0586fcbb8167c11ae07e53cbe1446610bd0ad5c76769680281b31b5"
+    },
+    {
+      "name": "53394653_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/80/45b2b1-5a88-40ab-9877-70b540b8707e/13106_taito-ku_city_2025_citygml_1_op/udx/tran/53394653_tran_6697_op.gml",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 1365,
+      "lod2": 1343,
+      "bytes": 9697421,
+      "sha256": "abaf5f70bc658a4a64c19f5531c3a204e6e415432bb2d457ca49d9bdc4fef01d"
+    },
+    {
+      "name": "53394654_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/80/45b2b1-5a88-40ab-9877-70b540b8707e/13106_taito-ku_city_2025_citygml_1_op/udx/tran/53394654_tran_6697_op.gml",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 890,
+      "lod2": 342,
+      "bytes": 3303530,
+      "sha256": "8adcb7afd865b1307fe444311cbcecd276b71b5402f4a03aa1ab5fdcc0886aaa"
+    },
+    {
+      "name": "53394663_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/80/45b2b1-5a88-40ab-9877-70b540b8707e/13106_taito-ku_city_2025_citygml_1_op/udx/tran/53394663_tran_6697_op.gml",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1807,
+      "lod2": 1807,
+      "bytes": 8727299,
+      "sha256": "452748ae19a57f25d13022b35e620ab93a104a676179c3b9a8ec701f74e09e44"
+    },
+    {
+      "name": "53394664_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/80/45b2b1-5a88-40ab-9877-70b540b8707e/13106_taito-ku_city_2025_citygml_1_op/udx/tran/53394664_tran_6697_op.gml",
+      "cityCode": "13106",
+      "cityName": "台東区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1062,
+      "lod2": 684,
+      "bytes": 4234191,
+      "sha256": "06ec563c63fa6b32296f601cdb4faf59ae02d1aa5717bf9e09340b220570ae14"
+    }
+  ]
+}

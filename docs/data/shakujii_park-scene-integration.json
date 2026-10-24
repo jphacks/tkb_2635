@@ -1,0 +1,34 @@
+{
+  "sceneId": "shakujii_park",
+  "radiusMeters": 500,
+  "scanned": 14629,
+  "selected": 2297,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53394477_bldg_6697_op.gml",
+      "sha256": "a2dd4b454f8cad65938c6f05d0b96f0c4a5bf78ba7f602982c0d08892e38ce7b",
+      "buildingsScanned": 3496
+    },
+    {
+      "name": "53394478_bldg_6697_op.gml",
+      "sha256": "af4f9e72fea3e904f2a64ab8585f6edf00f08c87f5ed44093afa7d91ebe6b09a",
+      "buildingsScanned": 4387
+    },
+    {
+      "name": "53394487_bldg_6697_op.gml",
+      "sha256": "a38eda86ba4e0387a557187c19f9e25dd75beba516905a6d2f493156f24a471f",
+      "buildingsScanned": 3274
+    },
+    {
+      "name": "53394488_bldg_6697_op.gml",
+      "sha256": "720b29d539046079d03b98646588a02dbf7193b1c2717b428e09fd0199a4aa88",
+      "buildingsScanned": 3472
+    }
+  ],
+  "groundElevation": 44.0,
+  "belowSceneGround": 1
+}
