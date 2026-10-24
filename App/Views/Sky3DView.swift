@@ -18,6 +18,7 @@ struct Sky3DView: View {
     private static let scale: Float = 1 / 100
     private static let skyRadius: Float = 4
     private static let groundMeters: Float = 3_000
+    private static let dynamicName = "timeDependent"
 
     var body: some View {
         RealityView { content in
@@ -41,8 +42,12 @@ struct Sky3DView: View {
             if let camera = content.entities.first(where: { $0.name == "camera" }) {
                 placeCamera(camera)
             }
+            // 時刻スライダーで動かすたびに街を作り直さず、時刻で変わる物だけを置き直す
+            if let dynamic = content.entities.first?.findEntity(named: Self.dynamicName) {
+                buildTimeDependent(into: dynamic)
+            }
         }
-        .id("\(context.id)-\(prediction.celestialBodyId)-\(date.timeIntervalSince1970)")
+        .id("\(context.id)-\(prediction.celestialBodyId)")
         .background(Color(red: 0.02, green: 0.03, blue: 0.10))
         .gesture(
             DragGesture()
@@ -152,13 +157,6 @@ struct Sky3DView: View {
                 }
             }
 
-            // 建物に遮られる見込みのとき、判定に使った箱（実際の形より大きい直方体）を枠で示す。
-            if !prediction.geometricVisibility && !prediction.blockedByDirectionMask && prediction.altitude > 0,
-               let blocker = HorizonProfile.highestBuilding(spot: spot, scene: scene, azimuth: prediction.azimuth) {
-                let (center, size) = box(blocker)
-                world.addChild(Sky3DMarkers.judgmentFrame(center: center, size: size,
-                                                          color: UIColor(red: 1, green: 0.45, blue: 0.35, alpha: 1)))
-            }
         }
 
         // 観測者
@@ -177,21 +175,10 @@ struct Sky3DView: View {
         north.position = direction(altitude: 0, azimuth: 0) * (Self.skyRadius + 0.3)
         root.addChild(north)
 
-        // 対象天体と視線
-        if prediction.altitude > -5 {
-            let dir = direction(altitude: prediction.altitude, azimuth: prediction.azimuth)
-            let color: UIColor = prediction.geometricVisibility ? .systemGreen : .systemRed
-            let body = sphere(radius: 0.22, color: prediction.celestialBodyId == "moon" ? .systemYellow : .white)
-            body.position = dir * Self.skyRadius
-            root.addChild(body)
-
-            let length = Self.skyRadius - 0.25
-            let ray = ModelEntity(mesh: .generateCylinder(height: length, radius: 0.015),
-                                  materials: [UnlitMaterial(color: color)])
-            ray.orientation = simd_quatf(from: [0, 1, 0], to: dir)
-            ray.position = dir * (length / 2)
-            root.addChild(ray)
-        }
+        let dynamic = Entity()
+        dynamic.name = Self.dynamicName
+        root.addChild(dynamic)
+        buildTimeDependent(into: dynamic)
 
         let sun = DirectionalLight()
         sun.light.intensity = 700
@@ -203,6 +190,40 @@ struct Sky3DView: View {
         fill.light.color = .init(red: 0.66, green: 0.76, blue: 1, alpha: 1)
         fill.look(at: .zero, from: [-4, 3, -3], relativeTo: nil)
         root.addChild(fill)
+    }
+
+    /// 時刻で変わる物（対象天体・視線・判定に使った建物の枠）。呼ぶたびに中身を作り直す。
+    private func buildTimeDependent(into dynamic: Entity) {
+        dynamic.children.removeAll()
+        let spot = context.spot
+
+        // 建物に遮られる見込みのとき、判定に使った箱（実際の形より大きい直方体）を枠で示す。
+        if let scene = context.scene,
+           !prediction.geometricVisibility && !prediction.blockedByDirectionMask && prediction.altitude > 0,
+           let blocker = HorizonProfile.highestBuilding(spot: spot, scene: scene, azimuth: prediction.azimuth) {
+            let me = scene.localPosition(latitude: spot.latitude, longitude: spot.longitude)
+            let eyeY = Float(spot.observerElevation - scene.groundElevation) * Self.scale
+            let size = SIMD3<Float>(Float(blocker.width), Float(blocker.height), Float(blocker.depth)) * Self.scale
+            let center = SIMD3<Float>(Float(blocker.x - me.east) * Self.scale, size.y / 2 - eyeY,
+                                      -Float(blocker.y - me.north) * Self.scale)
+            dynamic.addChild(Sky3DMarkers.judgmentFrame(center: center, size: size,
+                                                        color: UIColor(red: 1, green: 0.45, blue: 0.35, alpha: 1)))
+        }
+
+        // 対象天体と視線
+        guard prediction.altitude > -5 else { return }
+        let dir = direction(altitude: prediction.altitude, azimuth: prediction.azimuth)
+        let color: UIColor = prediction.geometricVisibility ? .systemGreen : .systemRed
+        let body = sphere(radius: 0.22, color: prediction.celestialBodyId == "moon" ? .systemYellow : .white)
+        body.position = dir * Self.skyRadius
+        dynamic.addChild(body)
+
+        let length = Self.skyRadius - 0.25
+        let ray = ModelEntity(mesh: .generateCylinder(height: length, radius: 0.015),
+                              materials: [UnlitMaterial(color: color)])
+        ray.orientation = simd_quatf(from: [0, 1, 0], to: dir)
+        ray.position = dir * (length / 2)
+        dynamic.addChild(ray)
     }
 
     private func sphere(radius: Float, color: UIColor) -> ModelEntity {

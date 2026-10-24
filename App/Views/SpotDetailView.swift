@@ -6,6 +6,7 @@ struct SpotDetailView: View {
     let context: SpotContext
 
     var body: some View {
+        @Bindable var model = model
         let spot = context.spot
         let prediction = Recommender.evaluate(context, target: model.target, date: model.date,
                                               weather: model.weather(for: spot))
@@ -17,6 +18,10 @@ struct SpotDetailView: View {
                     .listRowInsets(EdgeInsets())
             } footer: {
                 Text("ドラッグで視点を回転、ピンチで拡大縮小。線の先の球が\(model.target.name)の方向です（緑=見える、赤=遮られる）。")
+            }
+
+            Section {
+                TimeSlider(date: $model.date)
             }
 
             if let partner = model.contexts.comparisonPartner(of: context) {
