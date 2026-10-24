@@ -176,10 +176,11 @@ xcodegen generate   # City_<ID>.usdz を足したとき
 - 建物の形・外壁と屋上の写真・道路: 東京都「3D都市モデル（Project PLATEAU）新宿区（2025年度）」 https://www.geospatial.jp/ckan/dataset/plateau-13104-shinjuku-ku-2025 を加工して作成（CC BY 4.0）。取得したファイルと SHA-256 は [plateau-shinjuku-2025.json](../../data/plateau-shinjuku-2025.json)
 - 残り 14 地点: 同じく PLATEAU の各区（2025年度）を加工して作成（CC BY 4.0）。区と取得したファイルは `docs/data/plateau-<地点>-2025.json`、出典の文は `buildings.json` の各シーンの `source`
 - 丸の内: 東京都「3D都市モデル（Project PLATEAU）千代田区（2025年度）」 https://www.geospatial.jp/ckan/dataset/plateau-13101-chiyoda-ku-2025 を加工して作成（CC BY 4.0）。[plateau-marunouchi-2025.json](../../data/plateau-marunouchi-2025.json)
-- 地面の写真: 国土地理院「地理院タイル（全国最新写真（シームレス））」 https://maps.gsi.go.jp/development/ichiran.html を加工して作成
+- 地面の写真: 国土地理院「地理院タイル（全国最新写真（シームレス））」 https://maps.gsi.go.jp/development/ichiran.html を加工して作成（遠くの地面にも使用）
+- 遠くの地面の夜間光: NASA Earth Observatory「Black Marble 2016」（NASA GIBS で配信）を加工して作成
 - 写真の無い屋上・壁、写真の外側の地面: ambientCG「Concrete034」「Asphalt031」（CC0）
 
-3D の凡例に「出典: PLATEAU（CC BY 4.0）・国土地理院」が出る（渋谷と同じ）。
+3D の凡例に「出典: PLATEAU（CC BY 4.0）・国土地理院・NASA（SVS・Black Marble）・ESA/Gaia/DPAC」が出る。
 
 ## 確かめていないこと
 

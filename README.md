@@ -39,6 +39,7 @@
 * 地域の光害: [VIIRS Nighttime Lights](https://eogdata.mines.edu/products/vnl/) 年次合成 v2.2（Earth Observation Group, Payne Institute for Public Policy, Colorado School of Mines、CC BY 4.0）を加工
 * Bright Star Catalogue（明るい恒星 52 個の J2000.0 座標・等級を抜粋）、惑星（水星〜土星）は Paul Schlyter「[Computing planetary positions](https://stjarnhimlen.se/comp/ppcomp.html)」の軌道要素
 * 建物データ: [東京都・PLATEAU渋谷区2025年度版](https://www.geospatial.jp/ckan/dataset/plateau-13113-shibuya-ku-2025)を加工（CC BY 4.0）。渋谷駅周囲500mの1,497棟を直方体近似。西新宿は[東京都・PLATEAU新宿区2025年度版](https://www.geospatial.jp/ckan/dataset/plateau-13104-shinjuku-ku-2025)を加工（CC BY 4.0）し、都庁周囲500mの791棟を直方体近似。丸の内は[東京都・PLATEAU千代田区2025年度版](https://www.geospatial.jp/ckan/dataset/plateau-13101-chiyoda-ku-2025)を加工（CC BY 4.0）し、KITTE周囲500mの350棟を直方体近似。ほかの14地点（公園など）も同じく各区のPLATEAU（2025年度、CC BY 4.0）を加工し、地点の周囲500mを直方体近似東京スカイツリー・東京タワー・サンシャイン60・東京シティビューの展望台と、それぞれの足元の地上の4組も足した。さらに浅草・汐留・船堀の展望室と、上野・日比谷・隅田・若洲・夢の島・石神井・林試の森の公園も足した（[作り方・区ごとの出典](docs/design/city-scenes/README.md)）。
+* 3D の遠くの地面（4-11）: 国土地理院「地理院タイル（全国最新写真（シームレス））」と NASA Earth Observatory「Black Marble 2016」（NASA GIBS）を加工。明かりの点の位置はイメージ（[作り方](docs/design/city-scenes/README.md#4-11-遠くの地面)）。
 
 #### フレームワーク・ライブラリ・モジュール
 * SwiftUI（画面はすべて SwiftUI）
