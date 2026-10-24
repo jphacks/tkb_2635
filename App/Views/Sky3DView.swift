@@ -22,6 +22,7 @@ struct Sky3DView: View {
         RealityView { content in
             content.camera = .virtual
             let root = Entity()
+            BuildingNightRenderer.shared.configureEnvironment(in: root)
             buildScene(into: root)
             content.add(root)
 
@@ -148,12 +149,12 @@ struct Sky3DView: View {
         }
 
         let sun = DirectionalLight()
-        sun.light.intensity = 1_600
+        sun.light.intensity = 700
         sun.light.color = .init(red: 0.77, green: 0.85, blue: 1, alpha: 1)
         sun.look(at: .zero, from: [3, 6, 4], relativeTo: nil)
         root.addChild(sun)
         let fill = DirectionalLight()
-        fill.light.intensity = 600
+        fill.light.intensity = 220
         fill.light.color = .init(red: 0.66, green: 0.76, blue: 1, alpha: 1)
         fill.look(at: .zero, from: [-4, 3, -3], relativeTo: nil)
         root.addChild(fill)
@@ -167,5 +168,16 @@ struct Sky3DView: View {
     private func direction(altitude: Double, azimuth: Double) -> SIMD3<Float> {
         let a = altitude * .pi / 180, z = azimuth * .pi / 180
         return SIMD3<Float>(Float(cos(a) * sin(z)), Float(sin(a)), Float(-cos(a) * cos(z)))
+    }
+}
+
+#Preview("夜景・SHIBUYA SKY") {
+    if let context = try? SeedData.loadContexts().first(where: { $0.id == "shibuya_sky" }),
+       let date = ISO8601DateFormatter().date(from: "2026-10-24T12:00:00Z") {
+        Sky3DView(context: context,
+                  prediction: Recommender.evaluate(context, target: .moon, date: date, weather: nil),
+                  date: date)
+            .frame(height: 500)
+            .preferredColorScheme(.dark)
     }
 }

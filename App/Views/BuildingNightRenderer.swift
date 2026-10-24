@@ -11,6 +11,32 @@ final class BuildingNightRenderer {
     private let roof = SimpleMaterial(color: .init(red: 0.09, green: 0.12, blue: 0.17, alpha: 1),
                                       roughness: 0.95, isMetallic: false)
 
+    // RealityViewの明るい既定IBLに依存せず、同じ夜空の反射を各ビューで使う。
+    private lazy var nightEnvironment: EnvironmentResource? = {
+        let width = 128, height = 64
+        guard let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8,
+                                      bytesPerRow: width * 4, space: CGColorSpace(name: CGColorSpace.sRGB)!,
+                                      bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return nil }
+        for row in 0..<height {
+            let t = Double(row) / Double(height - 1)
+            let horizon = max(0, 1 - abs(t - 0.5) * 2)
+            context.setFillColor(CGColor(red: 0.10 + horizon * 0.32,
+                                         green: 0.17 + horizon * 0.30,
+                                         blue: 0.29 + horizon * 0.25, alpha: 1))
+            context.fill(CGRect(x: 0, y: row, width: width, height: 1))
+        }
+        guard let image = context.makeImage() else { return nil }
+        return try? EnvironmentResource(equirectangular: image)
+    }()
+
+    func configureEnvironment(in root: Entity) {
+        guard let environment = nightEnvironment else { return }
+        let probe = Entity()
+        probe.components.set(ImageBasedLightComponent(source: .single(environment), intensityExponent: 0))
+        root.addChild(probe)
+        root.components.set(ImageBasedLightReceiverComponent(imageBasedLight: probe))
+    }
+
     func entity(for building: Building, scale: Float, isHost: Bool) -> ModelEntity {
         let size = SIMD3<Float>(Float(building.width), Float(building.height), Float(building.depth)) * scale
         if isHost {
@@ -37,9 +63,9 @@ final class BuildingNightRenderer {
         material.baseColor = .init(tint: .init(cgColor: appearance.wall))
         material.roughness = .init(scale: appearance.style == .glass ? 0.38 : 0.85)
         material.metallic = .init(scale: appearance.style == .glass ? 0.15 : 0)
-        if let base = appearance.image(emission: false), let glow = appearance.image(emission: true),
-           let baseTexture = try? TextureResource.generate(from: base, options: .init(semantic: .color)),
-           let glowTexture = try? TextureResource.generate(from: glow, options: .init(semantic: .color)) {
+        func texture(_ map: BuildingFacade.Map) -> MaterialParameters.Texture? {
+            guard let image = appearance.image(map: map),
+                  let resource = try? TextureResource(image: image, options: .init(semantic: map == .normal ? .normal : (map == .roughness ? .scalar : .color))) else { return nil }
             var sampler = MaterialParameters.Texture.Sampler()
             sampler.modify { descriptor in
                 descriptor.sAddressMode = .repeat
@@ -47,11 +73,22 @@ final class BuildingNightRenderer {
                 descriptor.minFilter = .linear
                 descriptor.magFilter = .linear
                 descriptor.mipFilter = .linear
+                descriptor.maxAnisotropy = 8
             }
-            material.baseColor = .init(texture: .init(baseTexture, sampler: sampler))
-            material.emissiveColor = .init(color: .white, texture: .init(glowTexture, sampler: sampler))
-            material.emissiveIntensity = 0.45
+            return .init(resource, sampler: sampler)
         }
+        if let base = texture(.color) {
+            // テクスチャだけの白いtintにせず、夜景の色調を明示して白飛びを抑える。
+            material.baseColor = .init(tint: .init(red: 0.55, green: 0.64, blue: 0.75, alpha: 1), texture: base)
+        }
+        material.roughness = .init(scale: 1, texture: texture(.roughness))
+        material.normal = .init(texture: texture(.normal))
+        if let glow = texture(.emission) {
+            // 発光色の定数を足すと壁全体まで光るため、窓だけの画像を渡す。
+            material.emissiveColor = .init(texture: glow)
+            material.emissiveIntensity = 0.55
+        }
+        material.specular = .init(scale: 0.35)
         facades[key] = material
         return material
     }
@@ -76,7 +113,9 @@ final class BuildingNightRenderer {
             let width = face < 2 ? meters.x : meters.z
             let u = max(1, width / BuildingFacade.columnMeters) / Float(BuildingFacade.tileColumns)
             let v = max(1, meters.y / BuildingFacade.floorMeters) / Float(BuildingFacade.tileRows)
-            uv += [[0,0],[u,0],[u,v],[0,v]]
+            // 各面を整数の窓ベイ単位でずらし、隣接面で点灯模様を繰り返さない。
+            let offset = Float(face * 3) / Float(BuildingFacade.tileColumns)
+            uv += [[offset,0],[u+offset,0],[u+offset,v],[offset,v]]
             indices += [start,start+1,start+2,start,start+2,start+3]
             // 上下の面には窓を描かず、暗い屋根素材を割り当てる。
             materials += [face < 4 ? 0 : 1, face < 4 ? 0 : 1]
