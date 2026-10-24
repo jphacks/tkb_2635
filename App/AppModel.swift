@@ -9,12 +9,14 @@ final class AppModel {
     var date: Date = AppModel.tonight()
     var target: ObservationTarget = .moon
     var isLoadingWeather = false
+    var weatherLoadError: String?
     var loadError: String?
     /// 格子 ID ごとの時別予報
     private var forecasts: [String: [Weather]] = [:]
-    private let client = OpenMeteoClient()
+    private let client: OpenMeteoClient
 
-    init() {
+    init(client: OpenMeteoClient = OpenMeteoClient()) {
+        self.client = client
         do {
             contexts = try SeedData.loadContexts()
         } catch {
@@ -49,12 +51,15 @@ final class AppModel {
     }
 
     func refreshWeather() async {
+        guard !isLoadingWeather else { return }
         isLoadingWeather = true
+        weatherLoadError = nil
         defer { isLoadingWeather = false }
         var grids: [String: Spot] = [:]
         for spot in contexts.map(\.spot) {
             grids[OpenMeteoClient.gridId(latitude: spot.latitude, longitude: spot.longitude)] = spot
         }
+        var failedCount = 0
         await withTaskGroup(of: (String, [Weather]?).self) { group in
             for (grid, spot) in grids {
                 group.addTask { [client] in
@@ -62,8 +67,19 @@ final class AppModel {
                 }
             }
             for await (grid, samples) in group {
-                if let samples { forecasts[grid] = samples }
+                if let samples, !samples.isEmpty {
+                    forecasts[grid] = samples
+                } else {
+                    // 更新に失敗した地域の古い予報を、最新の天気として使わない。
+                    forecasts.removeValue(forKey: grid)
+                    failedCount += 1
+                }
             }
+        }
+        if failedCount > 0 {
+            weatherLoadError = failedCount == grids.count
+                ? "天気：未取得。通信状況を確認し、「天気を更新」で再取得してください。"
+                : "一部の地点の天気：未取得。通信状況を確認し、「天気を更新」で再取得してください。"
         }
     }
 }

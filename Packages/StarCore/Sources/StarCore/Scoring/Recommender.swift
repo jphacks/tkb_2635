@@ -88,8 +88,14 @@ public struct Prediction: Identifiable, Sendable {
     /// W（天気が無いときは nil）
     public var weatherScore: Double?
     public var cloudCover: Double?
+    /// 太陽による明るさを掛けたあとの暗さ D
     public var darknessScore: Double
     public var moonEffect: Double
+    /// 指定時刻の太陽高度 [deg]
+    public var sunAltitude: Double
+    public var skyState: SkyState
+    /// 太陽が市民薄明の限界より上で、恒星が見えない
+    public var skyTooBright: Bool
     public var totalScore: Double
     public var tier: RecommendationTier
     public var recommendationReasons: [String]
@@ -134,6 +140,10 @@ public enum Recommender {
     public static func evaluate(_ context: SpotContext, target: ObservationTarget, date: Date, weather: Weather?) -> Prediction {
         let spot = context.spot
         let moon = Astro.moon(date: date, latitude: spot.latitude, longitude: spot.longitude)
+        let sun = Astro.sun(date: date, latitude: spot.latitude, longitude: spot.longitude)
+        let skyState = Twilight.state(sunAltitude: sun.altitude)
+        // 昼間・市民薄明では恒星は見えない。月は空が明るくても見えることがあるので除外しない
+        let skyTooBright: Bool = if case .moon = target { false } else { !Twilight.allowsStars(sunAltitude: sun.altitude) }
         let position: HorizontalCoord = switch target {
         case .moon: moon.position
         case .star(let s): Astro.star(s, date: date, latitude: spot.latitude, longitude: spot.longitude)
@@ -170,16 +180,20 @@ public enum Recommender {
         if dark.assumed { flags.append(.localGlareUnverified) }
         if spot.localGlareDeskChecked { flags.append(.localGlareDeskChecked) }
         if spot.regionalLightProvisional { flags.append(.regionalLightProvisional) }
+        // 薄明の間は太陽の光が空に残るので、暗さを下げる（昼間は 0）
+        let darknessValue = dark.value * (1 - Twilight.skyBrightnessFactor(sunAltitude: sun.altitude))
 
         // STEP 5: スコアと段階。天気が無いときは 0 にせず 0.5 で仮計算し、推薦段階には入れない。
         let openness = context.horizon.openness
-        let total = score(openness: openness, weather: w ?? 0.5, darkness: dark.value)
+        let total = score(openness: openness, weather: w ?? 0.5, darkness: darknessValue)
         let tier: RecommendationTier
+        // 月を昼間・市民薄明に見るときは「推薦」にはしない
+        let moonInBrightSky = !skyTooBright && !Twilight.allowsStars(sunAltitude: sun.altitude)
         if accessStatus == .closed {
             tier = .unavailable
-        } else if !visible {
+        } else if !visible || skyTooBright {
             tier = .notVisible
-        } else if accessStatus == .unverified || hasAreaRestriction || !spot.accessVerified || w == nil || !spot.hasVerifiedViewingDirections || context.horizon.isApproximate || spot.regionalLightIndex == nil {
+        } else if moonInBrightSky || accessStatus == .unverified || hasAreaRestriction || !spot.accessVerified || w == nil || !spot.hasVerifiedViewingDirections || context.horizon.isApproximate || spot.regionalLightIndex == nil {
             tier = .needsCheck
         } else {
             tier = .recommended
@@ -190,7 +204,9 @@ public enum Recommender {
             azimuth: position.azimuth, altitude: position.altitude,
             obstructionElevation: obstruction, geometricVisibility: visible, blockedByDirectionMask: maskBlocked,
             isOpen: isOpen, accessStatus: accessStatus, openness: openness, weatherScore: w, cloudCover: weather?.cloudCover,
-            darknessScore: dark.value, moonEffect: m, totalScore: total, tier: tier,
+            darknessScore: darknessValue, moonEffect: m,
+            sunAltitude: sun.altitude, skyState: skyState, skyTooBright: skyTooBright,
+            totalScore: total, tier: tier,
             recommendationReasons: [], dataQualityFlags: flags)
 
         // STEP 6: 推薦理由
@@ -214,6 +230,14 @@ public enum Recommender {
             lines.append("指定時刻の入場可否は未確認です。利用できることを確認してからお出かけください。")
         } else if !p.isOpen {
             lines.append("指定時刻は利用時間外または休園日です（\(spot.accessHoursText(at: date))）。")
+        }
+        let sunAlt = String(format: "%.0f", p.sunAltitude)
+        if p.skyTooBright {
+            lines.append("指定時刻は\(p.skyState.label)（太陽高度\(sunAlt)°）で空が明るいため、恒星は見えません。太陽が−6°より下がると見え始めます。")
+        } else if p.skyState == .daylight || p.skyState == .civilTwilight {
+            lines.append("指定時刻は\(p.skyState.label)（太陽高度\(sunAlt)°）です。月は空が明るくても見えることがありますが、星空観測には向きません。")
+        } else if p.skyState != .night {
+            lines.append("\(p.skyState.label)（太陽高度\(sunAlt)°）のため空にまだ光が残り、暗さを下げて計算しています。")
         }
         if p.altitude <= 0 {
             lines.append("指定時刻の\(target.name)は地平線の下にあります。")

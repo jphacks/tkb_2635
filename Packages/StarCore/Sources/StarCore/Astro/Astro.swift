@@ -44,8 +44,9 @@ public struct Star: Codable, Identifiable, Sendable, Hashable {
 }
 
 /// 月・太陽・恒星の位置計算。
-/// 月・太陽は天文年鑑の低精度式（月の位置誤差はおおむね 0.3° 以内）を使う。
-/// 恒星は歳差を無視しているため、2026年時点で 0.4° 程度の誤差がある。
+/// 月・太陽は天文年鑑の低精度式（月の位置誤差はおおむね 0.4° 以内）を使う。
+/// 恒星は J2000.0 の座標に歳差補正をかける（章動・光行差は未補正で、誤差は 0.01° 程度）。
+/// 精度の検証は docs/astro/verification.md。
 public enum Astro {
     static let deg = Double.pi / 180
 
@@ -129,8 +130,30 @@ public enum Astro {
     }
 
     public static func star(_ star: Star, date: Date, latitude: Double, longitude: Double) -> HorizontalCoord {
-        horizontal(ra: star.rightAscension * 15, dec: star.declination,
-                   d: daysSinceJ2000(date), latitude: latitude, longitude: longitude)
+        let d = daysSinceJ2000(date)
+        let eq = precessFromJ2000(ra: star.rightAscension * 15, dec: star.declination, d: d)
+        return horizontal(ra: eq.ra, dec: eq.dec, d: d, latitude: latitude, longitude: longitude)
+    }
+
+    /// 秒角 → 度
+    static let arcsecond = 1.0 / 3600
+
+    /// J2000.0 の赤経・赤緯 [度] を、観測日の平均分点の赤経・赤緯 [度] に変換する（歳差補正）。
+    /// IAU 1976 の歳差（ζ, z, θ の 3 回転）。式は Meeus『Astronomical Algorithms』第 2 版 第 21 章
+    /// の式 (21.3)（元期を J2000.0 にした場合）と (21.4)。章動・光行差は入れていない
+    static func precessFromJ2000(ra: Double, dec: Double, d: Double) -> (ra: Double, dec: Double) {
+        let t = d / 36_525
+        let zeta = (2306.2181 * t + 0.30188 * t * t + 0.017998 * t * t * t) * arcsecond
+        let z = (2306.2181 * t + 1.09468 * t * t + 0.018203 * t * t * t) * arcsecond
+        let theta = (2004.3109 * t - 0.42665 * t * t - 0.041833 * t * t * t) * arcsecond
+
+        let a0 = (ra + zeta) * deg, d0 = dec * deg, th = theta * deg
+        let a = cos(d0) * sin(a0)
+        let b = cos(th) * cos(d0) * cos(a0) - sin(th) * sin(d0)
+        let c = sin(th) * cos(d0) * cos(a0) + cos(th) * sin(d0)
+        // 天の北極の近く（北極星など）でも誤差が出にくいよう、赤緯は asin ではなく atan2 で求める
+        let newDec = atan2(c, (a * a + b * b).squareRoot()) / deg
+        return (Angle.normalize(atan2(a, b) / deg + z), newDec)
     }
 
     /// 2つの地平座標の角距離 [度]

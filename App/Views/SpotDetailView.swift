@@ -32,6 +32,8 @@ struct SpotDetailView: View {
                 ForEach(prediction.recommendationReasons, id: \.self) { Text($0) }
             }
 
+            RiseSetSection(context: context)
+
             Section("観測条件") {
                 MetricRow(label: "空の開放度 O", value: prediction.openness, detail: context.horizon.isApproximate ? "暫定値" : "建物データから計算")
                 if let w = prediction.weatherScore {
@@ -42,6 +44,7 @@ struct SpotDetailView: View {
                 MetricRow(label: "暗さ D", value: prediction.darknessScore,
                           detail: spot.localGlareLevel == nil || spot.regionalLightIndex == nil ? "精度不足" : "")
                 LabeledContent("月明かりの影響 M", value: model.target == .moon ? "月モードでは減点しない" : String(format: "%.2f", prediction.moonEffect))
+                LabeledContent("太陽高度", value: "\(String(format: "%.0f", prediction.sunAltitude))°（\(prediction.skyState.label)）")
             }
 
             Section {

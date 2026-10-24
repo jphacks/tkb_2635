@@ -12,6 +12,7 @@
 		21DA8A0B28A2AD383FB85084 /* Sky3DMarkers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292EF5205CC96A242DC2B369 /* Sky3DMarkers.swift */; };
 		2728E18A4E52AF0C17714287 /* SpotListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48E1331041841284856A9DB /* SpotListView.swift */; };
 		4887106743DC6CFC45CF3DDF /* Sky3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA12F120047673D19190040 /* Sky3DView.swift */; };
+		5DD92D36C8295567AACB5B0F /* RiseSetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2226A2988AF1E32C4EBEE /* RiseSetSection.swift */; };
 		837C7DD37DD459D34DE649A1 /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5D031CC5399C443511121C /* SpotDetailView.swift */; };
 		84AFD976B4CBC5D93D7F9404 /* Concrete034_Roughness.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 308179C5CCF1CE14B9BF6493 /* Concrete034_Roughness.jpg */; };
 		883CCA595AA0B31955697D89 /* City_shibuya.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B9DA1DEE77A332FC2A04DEF6 /* City_shibuya.usdz */; };
@@ -38,6 +39,7 @@
 		5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingNightRenderer.swift; sourceTree = "<group>"; };
 		5C8AFF653702BECCFC11DC7A /* StarCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StarCore; path = Packages/StarCore; sourceTree = SOURCE_ROOT; };
 		7E2AE00460F10C5D00FB4FC0 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		81E2226A2988AF1E32C4EBEE /* RiseSetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiseSetSection.swift; sourceTree = "<group>"; };
 		9F92338553BC2D572913CBE8 /* BuildingFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingFacade.swift; sourceTree = "<group>"; };
 		A48E1331041841284856A9DB /* SpotListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListView.swift; sourceTree = "<group>"; };
 		A93A7469668EA324B724E02C /* Concrete034_Color.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Concrete034_Color.jpg; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				9F92338553BC2D572913CBE8 /* BuildingFacade.swift */,
 				5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */,
 				D9203D1807BE1815AEE18E0B /* CityModelRenderer.swift */,
+				81E2226A2988AF1E32C4EBEE /* RiseSetSection.swift */,
 				292EF5205CC96A242DC2B369 /* Sky3DMarkers.swift */,
 				3BA12F120047673D19190040 /* Sky3DView.swift */,
 				DB5D031CC5399C443511121C /* SpotDetailView.swift */,
@@ -224,6 +227,7 @@
 				A195391722902F86D763B56F /* BuildingFacade.swift in Sources */,
 				A1577EEB4934E2A2E6BFEDA0 /* BuildingNightRenderer.swift in Sources */,
 				D9F4571299DC479495189966 /* CityModelRenderer.swift in Sources */,
+				5DD92D36C8295567AACB5B0F /* RiseSetSection.swift in Sources */,
 				21DA8A0B28A2AD383FB85084 /* Sky3DMarkers.swift in Sources */,
 				4887106743DC6CFC45CF3DDF /* Sky3DView.swift in Sources */,
 				837C7DD37DD459D34DE649A1 /* SpotDetailView.swift in Sources */,
