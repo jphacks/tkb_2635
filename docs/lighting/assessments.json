@@ -109,5 +109,54 @@
     "checkedAt": "2026-10-24",
     "sources": [],
     "note": "1-10 で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "hikarigaoka_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "追加タスク f で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "ukima_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "追加タスク f で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "kiba_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "追加タスク f で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "kinuta_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "追加タスク f で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "odaiba_kaihin_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "追加タスク f で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "harumi_futo_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "追加タスク f で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "jonanjima_kaihin_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "追加タスク f で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
   }
 }

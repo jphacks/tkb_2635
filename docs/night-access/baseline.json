@@ -135,6 +135,21 @@
       "url": "https://www.kanko-shinjuku.jp/spot/c004/article_358.html",
       "title": "新宿中央公園| 一般社団法人新宿観光振興協会",
       "sha256": "294de03824f554555d7534217eb9302e2d402fc63d8e0a6d62b0b3bc2fe83f50"
+    },
+    "ukima": {
+      "url": "https://www.tokyo-park.or.jp/park/ukima/index.html",
+      "title": "浮間公園|公園へ行こう!",
+      "sha256": "1fbe56cc1fcccd1624783cf9ce5737cd92a50ecbdb965770b9c5e27efddfd24f"
+    },
+    "odaiba_qa": {
+      "url": "https://www.tptc.co.jp/park/01_02/qa",
+      "title": "公園Q&A|お台場海浜公園&台場公園|海上公園なび",
+      "sha256": "3277ecff24272291481f51fcf8196099d240744e840303d3bc57de984efe7cd6"
+    },
+    "harumi_futo": {
+      "url": "https://www.tptc.co.jp/park/02_01",
+      "title": "晴海ふ頭公園|海上公園なび",
+      "sha256": "9f8d4f7832b2f7822489eec076590e9a2dc25d0197af337cd04c655321069a85"
     }
   }
 }

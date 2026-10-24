@@ -137,12 +137,12 @@ class NightAccessTests(unittest.TestCase):
                 self.assertEqual(runner.main(), 1)
             self.assertEqual((root / "baseline.json").read_bytes(), before)
 
-    def test_twenty_candidates_and_existing_six_are_tracked(self):
+    def test_candidates_and_existing_six_are_tracked(self):
         directory = runner.DEFAULT_DIRECTORY
         candidates = json.loads((directory / "candidates.json").read_text())
         sources = json.loads((directory / "sources.json").read_text())
-        self.assertEqual(len(candidates), 20)
-        self.assertEqual(len({c["id"] for c in candidates}), 20)
+        self.assertEqual(len(candidates), 22)
+        self.assertEqual(len({c["id"] for c in candidates}), 22)
         self.assertEqual(sum(c["existingSpot"] for c in candidates), 6)
         self.assertEqual(set(sources), {s for c in candidates for s in c["sourceIds"]})
         for candidate in candidates:

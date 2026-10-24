@@ -29,10 +29,10 @@ import Testing
         #expect(kitte.photographyRestrictions == nil)
     }
 
-    @Test func twelveUniqueSpotsLoadThroughRecommendationPipeline() throws {
+    @Test func addedParksLoadThroughRecommendationPipeline() throws {
         let contexts = try SeedData.loadContexts()
-        #expect(contexts.count == 12)
-        #expect(Set(contexts.map(\.id)).count == 12)
+        #expect(contexts.count == 19)
+        #expect(Set(contexts.map(\.id)).count == contexts.count)
         let date = ISO8601DateFormatter().date(from: "2026-10-24T12:00:00Z")!
         let newIDs = ["toneri_park", "mizumoto_park", "komazawa_olympic_park"]
         for id in newIDs {
@@ -58,6 +58,35 @@ import Testing
             darkAssumption.regionalLightIndex = 0
             let zero = Recommender.evaluate(SpotContext(spot: darkAssumption, scene: nil), target: .moon, date: date, weather: nil)
             #expect(result.darknessScore < zero.darknessScore)
+        }
+    }
+
+    /// 追加タスク f の7地点。入場を確認できた4地点と、未確認の3地点を分けて扱う。
+    @Test func moreParksKeepVerifiedAndUnverifiedAccessApart() throws {
+        let contexts = try SeedData.loadContexts()
+        let date = ISO8601DateFormatter().date(from: "2026-10-28T12:00:00Z")!
+        let verified = ["hikarigaoka_park", "ukima_park", "kiba_park", "kinuta_park"]
+        let unverified = ["odaiba_kaihin_park", "harumi_futo_park", "jonanjima_kaihin_park"]
+        for id in verified + unverified {
+            let context = try #require(contexts.first { $0.id == id })
+            let spot = context.spot
+            #expect(spot.category == .park)
+            #expect(spot.officialWebsite != nil)
+            #expect(spot.sceneId == nil)
+            #expect(spot.approxHorizonElevation.map { (5...15).contains($0) } == true)
+            #expect(spot.regionalLightSource != nil)
+            #expect(spot.regionalLightMeasuredAt == "2025")
+            #expect(spot.localGlareLevel == nil)
+            let result = Recommender.evaluate(context, target: .moon, date: date, weather: nil)
+            #expect(result.tier == .needsCheck)
+            #expect(result.totalScore.isFinite)
+            if verified.contains(id) {
+                #expect(spot.lastVerifiedAt == "2026-10-24")
+                #expect(spot.accessStatus(at: date) == .open)
+            } else {
+                #expect(spot.lastVerifiedAt == nil)
+                #expect(spot.accessStatus(at: date) == .unverified)
+            }
         }
     }
 }
