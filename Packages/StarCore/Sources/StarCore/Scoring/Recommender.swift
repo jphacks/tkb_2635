@@ -28,6 +28,7 @@ public enum DataQualityFlag: String, Sendable, CaseIterable {
     case buildingDataSample
     case accessUnverified
     case directionMaskUnverified
+    case areaAccessRestricted
 
     public var message: String {
         switch self {
@@ -37,6 +38,7 @@ public enum DataQualityFlag: String, Sendable, CaseIterable {
         case .buildingDataSample: "建物は手作りの概略データです（PLATEAU 取り込み前）"
         case .accessUnverified: "営業時間・立入条件は未確認の暫定値です。公式情報を確認してください"
         case .directionMaskUnverified: "窓・柵などで見える方角は未確認です"
+        case .areaAccessRestricted: "園内の一部に利用制限があります。登録地点と制限区域の対応は未確認です"
         }
     }
 }
@@ -75,6 +77,7 @@ public struct Prediction: Identifiable, Sendable {
     public var geometricVisibility: Bool
     public var blockedByDirectionMask: Bool
     public var isOpen: Bool
+    public var accessStatus: SpotAccessStatus
     public var openness: Double
     /// W（天気が無いときは nil）
     public var weatherScore: Double?
@@ -132,8 +135,11 @@ public enum Recommender {
         var flags: [DataQualityFlag] = []
 
         // STEP 1: 立入条件
-        let isOpen = spot.openingHours.isOpen(at: date)
-        if !spot.accessVerified { flags.append(.accessUnverified) }
+        let accessStatus = spot.accessStatus(at: date)
+        let isOpen = accessStatus == .open
+        if !spot.accessVerified || accessStatus == .unverified { flags.append(.accessUnverified) }
+        let hasAreaRestriction = !spot.accessNotices(at: date).isEmpty
+        if hasAreaRestriction { flags.append(.areaAccessRestricted) }
 
         // STEP 2: 天体の可視性 V = [a > h(A) + δ]、窓・屋根のマスク
         let obstruction = context.horizon.elevation(at: position.azimuth)
@@ -159,11 +165,11 @@ public enum Recommender {
         let openness = context.horizon.openness
         let total = score(openness: openness, weather: w ?? 0.5, darkness: dark.value)
         let tier: RecommendationTier
-        if !isOpen {
+        if accessStatus == .closed {
             tier = .unavailable
         } else if !visible {
             tier = .notVisible
-        } else if w == nil || !spot.directionMaskVerified || context.horizon.isApproximate {
+        } else if accessStatus == .unverified || hasAreaRestriction || !spot.accessVerified || w == nil || !spot.directionMaskVerified || context.horizon.isApproximate {
             tier = .needsCheck
         } else {
             tier = .recommended
@@ -173,13 +179,13 @@ public enum Recommender {
             spotId: spot.id, celestialBodyId: target.id,
             azimuth: position.azimuth, altitude: position.altitude,
             obstructionElevation: obstruction, geometricVisibility: visible, blockedByDirectionMask: maskBlocked,
-            isOpen: isOpen, openness: openness, weatherScore: w, cloudCover: weather?.cloudCover,
+            isOpen: isOpen, accessStatus: accessStatus, openness: openness, weatherScore: w, cloudCover: weather?.cloudCover,
             darknessScore: dark.value, moonEffect: m, totalScore: total, tier: tier,
             recommendationReasons: [], dataQualityFlags: flags)
 
         // STEP 6: 推薦理由
         var result = prediction
-        result.recommendationReasons = reasons(for: prediction, spot: spot, target: target)
+        result.recommendationReasons = reasons(for: prediction, spot: spot, target: target, date: date)
         return result
     }
 
@@ -188,14 +194,16 @@ public enum Recommender {
         predictions.sorted { ($0.tier, -$0.totalScore) < ($1.tier, -$1.totalScore) }
     }
 
-    static func reasons(for p: Prediction, spot: Spot, target: ObservationTarget) -> [String] {
+    static func reasons(for p: Prediction, spot: Spot, target: ObservationTarget, date: Date) -> [String] {
         var lines: [String] = []
         let dir = Angle.directionName(p.azimuth)
         let alt = String(format: "%.0f", p.altitude)
         let obs = String(format: "%.0f", p.obstructionElevation)
 
-        if !p.isOpen {
-            lines.append("指定時刻は利用時間外です（\(spot.openingHours.displayText)）。")
+        if p.accessStatus == .unverified {
+            lines.append("指定時刻の入場可否は未確認です。利用できることを確認してからお出かけください。")
+        } else if !p.isOpen {
+            lines.append("指定時刻は利用時間外または休園日です（\(spot.accessHoursText(at: date))）。")
         }
         if p.altitude <= 0 {
             lines.append("指定時刻の\(target.name)は地平線の下にあります。")
