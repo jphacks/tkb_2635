@@ -1,5 +1,6 @@
 """数画素の疑似 GeoTIFF で VIIRS の変換を検証する。通信は行わない。"""
 import json
+import math
 from pathlib import Path
 import sys
 import tempfile
@@ -47,10 +48,11 @@ class LightIndexTest(unittest.TestCase):
         self.assertEqual(viirs.light_index(500.0), 1.0)
 
     def test_between_is_logarithmic(self):
-        # 幾何平均 sqrt(1×150) はちょうど中間の 0.5 になる
-        self.assertAlmostEqual(viirs.light_index(150 ** 0.5), 0.5)
-        # log10(10) / log10(150) = 1 / 2.1761
-        self.assertAlmostEqual(viirs.light_index(10.0), 0.459540, places=6)
+        # 幾何平均 sqrt(R_DARK×R_BRIGHT) はちょうど中間の 0.5 になる
+        self.assertAlmostEqual(viirs.light_index((viirs.R_DARK * viirs.R_BRIGHT) ** 0.5), 0.5)
+        # R_DARK = 1 のとき log10(10) / log10(R_BRIGHT)
+        self.assertAlmostEqual(viirs.light_index(10.0), 1 / math.log10(viirs.R_BRIGHT))
+        self.assertLess(viirs.light_index(10.0), viirs.light_index(100.0))
 
     def test_year_from_file_name(self):
         self.assertEqual(viirs.guess_year("VNL_npp_2023_global_vcmslcfg_v2_c202402081600.average_masked.dat.tif"),
@@ -110,7 +112,7 @@ class RasterTest(unittest.TestCase):
             viirs.sample_spots(self.raster, [spot("a", 10, 10)])
 
     def test_write_updates_only_light_fields(self):
-        write_raster(self.raster, [[150] * 3, [150] * 3, [150] * 3])
+        write_raster(self.raster, [[300] * 3, [300] * 3, [300] * 3])
         spots_path, record_path = self.root / "spots.json", self.root / "record.json"
         original = [spot("a", 1, 1, memo="そのまま", lastVerifiedAt=None), spot("b", 1, 1)]
         spots_path.write_text(json.dumps(original, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -135,10 +137,11 @@ class RasterTest(unittest.TestCase):
             self.assertEqual(rest, {k: v for k, v in before.items() if not k.startswith("regionalLight")})
 
         saved = json.loads(record_path.read_text(encoding="utf-8"))
-        self.assertEqual(saved["file"], self.raster.name)
-        self.assertEqual(len(saved["sha256"]), 64)
+        self.assertEqual(saved["raster"]["file"], self.raster.name)
+        self.assertEqual(len(saved["raster"]["sha256"]), 64)
+        self.assertIsNone(saved["archive"])
         self.assertEqual(saved["year"], 2023)
-        self.assertEqual([s["radiance"] for s in saved["spots"]], [150.0, 150.0])
+        self.assertEqual([s["radiance"] for s in saved["spots"]], [300.0, 300.0])
 
         # もう一度書いても同じ結果になる（キーが重複しない）
         viirs.main([str(self.raster), "--write", "--spots", str(spots_path), "--record", str(record_path)])

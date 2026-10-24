@@ -20,7 +20,7 @@ RECORD = ROOT / "docs/data/viirs-light-index.json"
 
 # 変換のしきい値 [nW/cm²/sr]。根拠は docs/data/viirs-light-index.md
 R_DARK = 1.0      # これ以下は 0（郊外・暗い場所）
-R_BRIGHT = 150.0  # これ以上は 1（都心の繁華街）
+R_BRIGHT = 250.0  # これ以上は 1（渋谷駅周辺の実測 235 を上限の目安にした）
 WINDOW_SIZE = 3   # 地点の画素を中心に平均する一辺の画素数
 INDEX_DIGITS = 2
 PRODUCT = "VIIRS VNL v2.2"
@@ -127,14 +127,18 @@ def sha256(path):
     return digest.hexdigest()
 
 
-def record(raster, year, results):
+def file_entry(path):
+    return {"file": Path(path).name, "bytes": Path(path).stat().st_size, "sha256": sha256(path)}
+
+
+def record(raster, year, results, archive=None):
     return {
         "product": PRODUCT,
         "layer": LAYER,
         "provider": PROVIDER,
         "year": year,
-        "file": Path(raster).name,
-        "sha256": sha256(raster),
+        "raster": file_entry(raster),
+        "archive": file_entry(archive) if archive else None,
         "unit": "nW/cm²/sr",
         "conversion": {
             "formula": "clamp((log10(R) - log10(R_DARK)) / (log10(R_BRIGHT) - log10(R_DARK)), 0, 1)",
@@ -165,6 +169,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("raster", type=Path, help="EOG VNL v2.2 の average_masked GeoTIFF（.tif または .tif.gz）")
     parser.add_argument("--year", type=int, help="データの年。省略するとファイル名から取る")
+    parser.add_argument("--archive", type=Path, help="配布された .tif.gz（記録に名前と SHA-256 を残す）")
     parser.add_argument("--spots", type=Path, default=SPOTS)
     parser.add_argument("--record", type=Path, default=RECORD)
     mode = parser.add_mutually_exclusive_group()
@@ -175,6 +180,8 @@ def main(argv=None):
 
     if not args.raster.is_file():
         parser.error(f"ファイルがありません: {args.raster}")
+    if args.archive and not args.archive.is_file():
+        parser.error(f"ファイルがありません: {args.archive}")
     year = args.year or guess_year(args.raster)
     if year is None:
         parser.error("ファイル名から年が分かりません。--year で指定してください")
@@ -191,7 +198,7 @@ def main(argv=None):
         print("（確認のみ。書き換えるには --write を付ける）")
         return 0
     write_json(args.spots, apply(spots, results, year))
-    write_json(args.record, record(args.raster, year, results))
+    write_json(args.record, record(args.raster, year, results, args.archive))
     print(f"書き換えました: {args.spots} / {args.record}")
     return 0
 
