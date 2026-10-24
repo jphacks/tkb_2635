@@ -25,6 +25,14 @@ struct SpotListView: View {
                     Text("スコアは観測条件の目安で、観測できる確率ではありません。")
                 }
 
+                if let error = model.weatherLoadError {
+                    Section {
+                        Label(error, systemImage: "cloud.slash")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+
                 Section {
                     SpotMap(contexts: model.contexts, predictions: predictions)
                         .frame(height: 200)
