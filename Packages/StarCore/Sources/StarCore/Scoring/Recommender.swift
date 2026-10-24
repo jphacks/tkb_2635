@@ -23,6 +23,7 @@ public enum ObservationTarget: Hashable, Sendable {
 /// 推薦に使ったデータの不足・未確認の内容
 public enum DataQualityFlag: String, Sendable, CaseIterable {
     case localGlareUnverified
+    case localGlareDeskChecked
     case weatherMissing
     case horizonApproximate
     case buildingDataSample
@@ -34,6 +35,7 @@ public enum DataQualityFlag: String, Sendable, CaseIterable {
     public var message: String {
         switch self {
         case .localGlareUnverified: "近傍照明が未確認のため、暗さの推定精度が不足しています"
+        case .localGlareDeskChecked: "近傍照明は机上評価で、現地では未確認です"
         case .weatherMissing: "指定時刻の天気予報を取得できていません"
         case .horizonApproximate: "建物データ未取り込みのため、地平線は暫定値です"
         case .buildingDataSample: "建物は手作りの概略データです（PLATEAU 取り込み前）"
@@ -162,6 +164,7 @@ public enum Recommender {
         let m: Double = if case .moon = target { 0 } else { moonEffect(moon: moon, target: position) }
         let dark = darkness(skyBrightness: spot.regionalLightIndex, localGlareLevel: spot.localGlareLevel, moonEffect: m)
         if dark.assumed { flags.append(.localGlareUnverified) }
+        if spot.localGlareDeskChecked { flags.append(.localGlareDeskChecked) }
         if spot.regionalLightProvisional { flags.append(.regionalLightProvisional) }
 
         // STEP 5: スコアと段階。天気が無いときは 0 にせず 0.5 で仮計算し、推薦段階には入れない。
@@ -223,6 +226,8 @@ public enum Recommender {
         }
         if spot.localGlareLevel == nil {
             lines.append("ただし、周辺照明は未確認です。")
+        } else if spot.localGlareDeskChecked {
+            lines.append("周辺照明は写真などによる机上評価です（現地未確認）。")
         }
         if spot.indoorOutdoor == .indoor {
             lines.append("屋内のため、室内照明の窓への映り込みに注意してください。")

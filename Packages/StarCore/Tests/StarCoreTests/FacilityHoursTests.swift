@@ -58,7 +58,11 @@ import Testing
             let spot = try #require(spots.first { $0.id == id })
             #expect(spot.lastVerifiedAt != nil)
             #expect(spot.officialWebsite != nil)
-            #expect(spot.localGlareLevel == nil)
+            // 近傍照明は 6-04 の机上評価。値があるなら確かめ方と日付も入っている
+            if spot.localGlareLevel != nil {
+                #expect(spot.lightingCheckMethod != nil)
+                #expect(spot.lightingCheckDate != nil)
+            }
         }
     }
 }
