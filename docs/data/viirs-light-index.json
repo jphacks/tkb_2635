@@ -110,6 +110,76 @@
       "validPixels": 9,
       "radiance": 50.81501505109999,
       "index": 0.71
+    },
+    {
+      "id": "hikarigaoka_park",
+      "latitude": 35.7628,
+      "longitude": 139.6277,
+      "row": 9417,
+      "col": 76711,
+      "validPixels": 9,
+      "radiance": 40.76123661465115,
+      "index": 0.67
+    },
+    {
+      "id": "ukima_park",
+      "latitude": 35.7928,
+      "longitude": 139.6937,
+      "row": 9410,
+      "col": 76726,
+      "validPixels": 9,
+      "radiance": 37.86793899536133,
+      "index": 0.66
+    },
+    {
+      "id": "kiba_park",
+      "latitude": 35.6738,
+      "longitude": 139.8083,
+      "row": 9438,
+      "col": 76754,
+      "validPixels": 9,
+      "radiance": 65.34873369004991,
+      "index": 0.76
+    },
+    {
+      "id": "kinuta_park",
+      "latitude": 35.6304,
+      "longitude": 139.6202,
+      "row": 9449,
+      "col": 76709,
+      "validPixels": 9,
+      "radiance": 31.775347815619575,
+      "index": 0.63
+    },
+    {
+      "id": "odaiba_kaihin_park",
+      "latitude": 35.6297,
+      "longitude": 139.7745,
+      "row": 9449,
+      "col": 76746,
+      "validPixels": 9,
+      "radiance": 55.41681120130751,
+      "index": 0.73
+    },
+    {
+      "id": "harumi_futo_park",
+      "latitude": 35.648,
+      "longitude": 139.771,
+      "row": 9444,
+      "col": 76745,
+      "validPixels": 9,
+      "radiance": 42.216919793023,
+      "index": 0.68
+    },
+    {
+      "id": "jonanjima_kaihin_park",
+      "latitude": 35.5792,
+      "longitude": 139.7859,
+      "row": 9461,
+      "col": 76749,
+      "validPixels": 9,
+      "radiance": 23.750026173061794,
+      "index": 0.57
     }
   ]
 }

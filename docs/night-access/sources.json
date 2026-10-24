@@ -186,5 +186,20 @@
     "label": "新宿中央公園（新宿観光振興協会）",
     "identity": "新宿中央公園",
     "url": "https://www.kanko-shinjuku.jp/spot/c004/article_358.html"
+  },
+  "ukima": {
+    "label": "浮間公園",
+    "url": "https://www.tokyo-park.or.jp/park/ukima/index.html",
+    "identity": "浮間公園"
+  },
+  "odaiba_qa": {
+    "label": "お台場海浜公園 公園Q&A",
+    "url": "https://www.tptc.co.jp/park/01_02/qa",
+    "identity": "お台場海浜公園"
+  },
+  "harumi_futo": {
+    "label": "晴海ふ頭公園",
+    "url": "https://www.tptc.co.jp/park/02_01",
+    "identity": "晴海ふ頭公園"
   }
 }

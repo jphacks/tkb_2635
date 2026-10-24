@@ -1,0 +1,123 @@
+{
+  "verifiedAt": "2026-10-24",
+  "task": "f（関連 1-10）",
+  "elevations": {
+    "hikarigaoka_park": {
+      "latitude": 35.7628,
+      "longitude": 139.6277,
+      "source": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.6277&lat=35.7628&outtype=JSON",
+      "response": {
+        "elevation": 37.3,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "ukima_park": {
+      "latitude": 35.7928,
+      "longitude": 139.6937,
+      "source": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.6937&lat=35.7928&outtype=JSON",
+      "response": {
+        "elevation": 1,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "kiba_park": {
+      "latitude": 35.6738,
+      "longitude": 139.8083,
+      "source": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.8083&lat=35.6738&outtype=JSON",
+      "response": {
+        "elevation": 3,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "kinuta_park": {
+      "latitude": 35.6304,
+      "longitude": 139.6202,
+      "source": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.6202&lat=35.6304&outtype=JSON",
+      "response": {
+        "elevation": 38.9,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "odaiba_kaihin_park": {
+      "latitude": 35.6297,
+      "longitude": 139.7745,
+      "source": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.7745&lat=35.6297&outtype=JSON",
+      "response": {
+        "elevation": 1.9,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "harumi_futo_park": {
+      "latitude": 35.648,
+      "longitude": 139.771,
+      "source": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.771&lat=35.648&outtype=JSON",
+      "response": {
+        "elevation": 3.6,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "jonanjima_kaihin_park": {
+      "latitude": 35.5792,
+      "longitude": 139.7859,
+      "source": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.7859&lat=35.5792&outtype=JSON",
+      "response": {
+        "elevation": 0.9,
+        "hsrc": "1m（レーザ）"
+      }
+    }
+  },
+  "addresses": {
+    "hikarigaoka_park": {
+      "source": "https://mreversegeocoder.gsi.go.jp/reverse-geocoder/LonLatToAddress?lat=35.7628&lon=139.6277",
+      "response": {
+        "muniCd": "13120",
+        "lv01Nm": "光が丘四丁目"
+      }
+    },
+    "ukima_park": {
+      "source": "https://mreversegeocoder.gsi.go.jp/reverse-geocoder/LonLatToAddress?lat=35.7928&lon=139.6937",
+      "response": {
+        "muniCd": "13117",
+        "lv01Nm": "浮間二丁目"
+      }
+    },
+    "kiba_park": {
+      "source": "https://mreversegeocoder.gsi.go.jp/reverse-geocoder/LonLatToAddress?lat=35.6738&lon=139.8083",
+      "response": {
+        "muniCd": "13108",
+        "lv01Nm": "木場四丁目"
+      }
+    },
+    "kinuta_park": {
+      "source": "https://mreversegeocoder.gsi.go.jp/reverse-geocoder/LonLatToAddress?lat=35.6304&lon=139.6202",
+      "response": {
+        "muniCd": "13112",
+        "lv01Nm": "砧公園"
+      }
+    },
+    "odaiba_kaihin_park": {
+      "source": "https://mreversegeocoder.gsi.go.jp/reverse-geocoder/LonLatToAddress?lat=35.6297&lon=139.7745",
+      "response": {
+        "muniCd": "13103",
+        "lv01Nm": "台場一丁目"
+      }
+    },
+    "harumi_futo_park": {
+      "source": "https://mreversegeocoder.gsi.go.jp/reverse-geocoder/LonLatToAddress?lat=35.648&lon=139.771",
+      "response": {
+        "muniCd": "13102",
+        "lv01Nm": "晴海五丁目"
+      }
+    },
+    "jonanjima_kaihin_park": {
+      "source": "https://mreversegeocoder.gsi.go.jp/reverse-geocoder/LonLatToAddress?lat=35.5792&lon=139.7859",
+      "response": {
+        "muniCd": "13111",
+        "lv01Nm": "城南島四丁目"
+      }
+    }
+  },
+  "coordinateMapSource": "https://maps.gsi.go.jp/",
+  "placeNameSearch": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E6%B5%AE%E9%96%93%E5%85%AC%E5%9C%92",
+  "notes": "地理院地図で園内に代表点を置き、逆ジオコーダで所在地の町名が公式案内の所在地と合うことを確かめた。浮間公園は地名検索の代表点。海の上（標高が「-----」）になった点は採用していない。国土地理院の応答は2026-10-24の保存値。観測する立ち位置・視界は現地未確認。"
+}

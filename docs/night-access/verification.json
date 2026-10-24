@@ -83,5 +83,33 @@
     "githubActionsRun": false,
     "pullRequestUrl": "https://github.com/jphacks/tkb_2635/pull/8",
     "integrationNote": "2-04のPLATEAU建物・観測地点・注意書きを維持し、渋谷地上の夜間入場未確認の条件を統合。"
+  },
+  "moreParks": {
+    "verifiedAt": "2026-10-24T21:46:31.490321+09:00",
+    "task": "f（関連 1-10）",
+    "addedSources": [
+      "ukima",
+      "odaiba_qa",
+      "harumi_futo"
+    ],
+    "baselineAdded": [
+      "ukima",
+      "odaiba_qa",
+      "harumi_futo"
+    ],
+    "recheckNewSourcesUnchanged": true,
+    "otherChangesNotAccepted": [
+      "yoyogi",
+      "kasai",
+      "mizumoto",
+      "toneri",
+      "hikarigaoka",
+      "shinozaki",
+      "kiba",
+      "komazawa-olympic",
+      "kinuta"
+    ],
+    "otherChangesNote": "東京都公園協会の9ページが朝の比較基準と異なると出た。何が変わったかは調べておらず、人が確認していないため基準は更新していない。",
+    "nightAccessPythonTestsPassed": 23
   }
 }

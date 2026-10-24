@@ -321,10 +321,11 @@
     "hours": "参考: 公式観光案内の検索結果に24時間と記載（本文取得は失敗。現在の夜間開放は未確認）",
     "scope": "公園の一般開放部分。台場公園を同一地点として扱わない",
     "candidateReason": "海側を見渡す場所がある",
-    "notes": "人工海浜・イベント規制区域・台場公園の条件を分ける。照明や夜景が明るいため星の見やすさは未確認。 24時間という根拠のページは本日の直接取得が502/503のため、今回の確定値にはしない。",
+    "notes": "人工海浜・イベント規制区域・台場公園の条件を分ける。照明や夜景が明るいため星の見やすさは未確認。 24時間という根拠のページは本日の直接取得が502/503のため、今回の確定値にはしない。 2026-10-24（追加タスク f）: 公式の公園Q&Aに「年中無休で開園」とあるが、夜間に入れる時間の記載はないため未確認のまま。",
     "sourceIds": [
       "odaiba",
-      "odaiba_tourism"
+      "odaiba_tourism",
+      "odaiba_qa"
     ],
     "checkedAt": "2026-10-24",
     "accessVerifiedAt": null,
@@ -413,6 +414,47 @@
     ],
     "checkedAt": "2026-10-24",
     "accessVerifiedAt": "2026-10-24",
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "ukima",
+    "name": "浮間公園",
+    "wards": [
+      "北区",
+      "板橋区"
+    ],
+    "existingSpot": false,
+    "nightAccess": true,
+    "hours": "常時開園（通常時）",
+    "scope": "公園の一般開放部分",
+    "candidateReason": "池の周りに開けた空がある（追加タスク f）",
+    "notes": "公園は北区と板橋区にまたがる。登録地点は北区側。サービスセンター・各施設は年末年始休業で、公園の開園とは区別する。",
+    "sourceIds": [
+      "ukima"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": "2026-10-24",
+    "localGlareLevel": null,
+    "horizonVerified": false
+  },
+  {
+    "id": "harumi_futo",
+    "name": "晴海ふ頭公園",
+    "wards": [
+      "中央区"
+    ],
+    "existingSpot": false,
+    "nightAccess": null,
+    "hours": null,
+    "scope": "公園の一般開放部分",
+    "candidateReason": "ふ頭の先端で三方が海（追加タスク f）",
+    "notes": "公式案内に開園時間の記載がない。駐車場の24時間営業を公園の開放時間に転用しない。モニュメントは日没から23時までライトアップ。2026-10-24は東京湾大華火祭のため一部閉鎖。",
+    "sourceIds": [
+      "harumi_futo"
+    ],
+    "checkedAt": "2026-10-24",
+    "accessVerifiedAt": null,
     "localGlareLevel": null,
     "horizonVerified": false
   }
