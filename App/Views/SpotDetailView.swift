@@ -46,7 +46,7 @@ struct SpotDetailView: View {
 
             Section {
                 LabeledContent("地域の光害（広域）") {
-                    Text(String(format: "%.2f", spot.regionalLightIndex)) + Text("  暫定値").foregroundStyle(.secondary)
+                    Text(String(format: "%.2f", spot.regionalLightIndex)) + Text("  \(spot.regionalLightShortSource)").foregroundStyle(.secondary)
                 }
                 LabeledContent("近傍照明（現地確認）") {
                     if let level = spot.localGlareLevel {
@@ -58,7 +58,11 @@ struct SpotDetailView: View {
             } header: {
                 Text("光害")
             } footer: {
-                Text("地域の光害は衛星夜間光（VIIRS）を取り込む前の暫定値です。近傍照明は現地確認の段階評価で、照度の測定値ではありません。")
+                if let source = spot.regionalLightSource {
+                    Text("地域の光害は衛星夜間光（\(source)）の年平均から求めた値です。近傍照明は現地確認の段階評価で、照度の測定値ではありません。")
+                } else {
+                    Text("地域の光害は衛星夜間光（VIIRS）を取り込む前の暫定値です。近傍照明は現地確認の段階評価で、照度の測定値ではありません。")
+                }
             }
 
             Section("施設・地点") {
