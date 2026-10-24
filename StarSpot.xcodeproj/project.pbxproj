@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1EE9A584A7D584A4BAEAF1EB /* StarSpotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA8483FB629B08A3E5A4BE0 /* StarSpotApp.swift */; };
+		1EFFE3428A12B9632AD2AEB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0998F6616654F6C8506DC67 /* Assets.xcassets */; };
 		2728E18A4E52AF0C17714287 /* SpotListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48E1331041841284856A9DB /* SpotListView.swift */; };
 		4887106743DC6CFC45CF3DDF /* Sky3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA12F120047673D19190040 /* Sky3DView.swift */; };
 		837C7DD37DD459D34DE649A1 /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5D031CC5399C443511121C /* SpotDetailView.swift */; };
@@ -21,6 +22,7 @@
 		5C8AFF653702BECCFC11DC7A /* StarCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StarCore; path = Packages/StarCore; sourceTree = SOURCE_ROOT; };
 		7E2AE00460F10C5D00FB4FC0 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		A48E1331041841284856A9DB /* SpotListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListView.swift; sourceTree = "<group>"; };
+		B0998F6616654F6C8506DC67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE6E07D95BA4F5CEAEF24248 /* StarSpot.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = StarSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB5D031CC5399C443511121C /* SpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,6 +43,7 @@
 			isa = PBXGroup;
 			children = (
 				7E2AE00460F10C5D00FB4FC0 /* AppModel.swift */,
+				B0998F6616654F6C8506DC67 /* Assets.xcassets */,
 				1DA8483FB629B08A3E5A4BE0 /* StarSpotApp.swift */,
 				53A82B4FAE89D1657F4BA5C8 /* Views */,
 			);
@@ -90,6 +93,7 @@
 			buildConfigurationList = AADF1C7A6744F6231E080AD8 /* Build configuration list for PBXNativeTarget "StarSpot" */;
 			buildPhases = (
 				FEE5AE84C023FCF5D50F73EA /* Sources */,
+				5D7691C20FF44206166619C6 /* Resources */,
 				9AC6C7B1DB82572C1657522F /* Frameworks */,
 			);
 			buildRules = (
@@ -114,6 +118,7 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					E1CD8D617C5B43FE66792F95 = {
+						DevelopmentTeam = NMJFRR7D86;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -139,6 +144,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5D7691C20FF44206166619C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EFFE3428A12B9632AD2AEB8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FEE5AE84C023FCF5D50F73EA /* Sources */ = {
@@ -219,8 +235,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NMJFRR7D86;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "星見スポット";
+				INFOPLIST_KEY_CFBundleDisplayName = Astera;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -243,8 +260,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NMJFRR7D86;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "星見スポット";
+				INFOPLIST_KEY_CFBundleDisplayName = Astera;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
