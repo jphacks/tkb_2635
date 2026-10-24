@@ -4,12 +4,14 @@ import SwiftUI
 
 struct SpotListView: View {
     @Environment(AppModel.self) private var model
+    /// 一覧の行とマップのピンの両方から、同じ詳細画面へ遷移するための経路
+    @State private var path = NavigationPath()
 
     var body: some View {
         @Bindable var model = model
         let predictions = model.predictions
 
-        NavigationStack {
+        NavigationStack(path: $path) {
             List {
                 Section {
                     DatePicker("観測日時", selection: $model.date)
@@ -34,7 +36,9 @@ struct SpotListView: View {
                 }
 
                 Section {
-                    SpotMap(contexts: model.contexts, predictions: predictions)
+                    SpotMap(contexts: model.contexts, predictions: predictions) { id in
+                        path.append(id)
+                    }
                         .frame(height: 200)
                         .listRowInsets(EdgeInsets())
                 }
@@ -114,6 +118,7 @@ struct MoonSummary: View {
 }
 
 struct SpotRow: View {
+    @Environment(LocationModel.self) private var location
     let spot: Spot
     let prediction: Prediction
 
@@ -125,6 +130,11 @@ struct SpotRow: View {
                 Text("\(spot.category.label)・\(spot.ward)・目の高さ 標高\(Int(spot.observerElevation))m")
                     .font(.caption)
                     .foregroundStyle(.secondary)
+                if let km = location.distanceKm(to: spot) {
+                    Text("\(Image(systemName: "location")) 現在地から \(Distance.label(km: km))")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
                 if let first = prediction.recommendationReasons.first {
                     Text(first)
                         .font(.caption)
@@ -158,6 +168,8 @@ struct ScoreBadge: View {
 struct SpotMap: View {
     let contexts: [SpotContext]
     let predictions: [Prediction]
+    /// ピンを押したときに、その地点の ID を渡す
+    let onSelect: (String) -> Void
 
     var body: some View {
         Map(initialPosition: .region(MKCoordinateRegion(
@@ -165,12 +177,39 @@ struct SpotMap: View {
             span: MKCoordinateSpan(latitudeDelta: 0.12, longitudeDelta: 0.22)))) {
             ForEach(contexts) { context in
                 let tier = predictions.first { $0.spotId == context.id }?.tier ?? .needsCheck
-                Marker(context.spot.name, systemImage: tier == .recommended ? "star.fill" : "mappin",
-                       coordinate: CLLocationCoordinate2D(latitude: context.spot.latitude, longitude: context.spot.longitude))
-                    .tint(tier.color)
+                Annotation(context.spot.name,
+                           coordinate: CLLocationCoordinate2D(latitude: context.spot.latitude, longitude: context.spot.longitude)) {
+                    SpotPin(tier: tier) { onSelect(context.id) }
+                }
             }
         }
         .mapStyle(.standard(pointsOfInterest: .excludingAll))
+    }
+}
+
+/// マップ上の押せるピン。推薦は星、それ以外はピンの形で、段階の色を付ける
+private struct SpotPin: View {
+    /// 指で押しやすい大きさ（Apple の推奨する最小の当たり判定 44pt）
+    private static let hitSize: CGFloat = 44
+    private static let iconSize: CGFloat = 28
+
+    let tier: RecommendationTier
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Image(systemName: tier == .recommended ? "star.fill" : "mappin")
+                .font(.system(size: 13, weight: .bold))
+                .foregroundStyle(.white)
+                .frame(width: Self.iconSize, height: Self.iconSize)
+                .background(tier.color, in: .circle)
+                .overlay(Circle().stroke(.white, lineWidth: 1.5))
+                .shadow(radius: 2)
+                .frame(width: Self.hitSize, height: Self.hitSize)
+                .contentShape(.rect)
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(tier.label)
     }
 }
 
