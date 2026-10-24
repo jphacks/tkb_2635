@@ -12,6 +12,10 @@ struct CompareView: View {
     @Environment(AppModel.self) private var model
     let first: SpotContext
     let second: SpotContext
+    /// 地点を切り替えても、3D の向きと距離はそのまま
+    @State private var camera = SkyCamera()
+    /// 3D に出している地点（false = first）。3D を2つ同時に描くと描画用のメモリが足りなくなるので、1つを切り替える
+    @State private var showsSecond = false
 
     var body: some View {
         @Bindable var model = model
@@ -34,13 +38,20 @@ struct CompareView: View {
             Section {
                 Text(comparison.summary)
                     .font(.headline)
-                HStack(alignment: .top, spacing: 12) {
-                    HeightGauge(side: comparison.first, targetName: model.target.name)
-                    HeightGauge(side: comparison.second, targetName: model.target.name)
+            }
+
+            Section {
+                HStack(spacing: 8) {
+                    SideButton(side: comparison.first, isSelected: !showsSecond) { showsSecond = false }
+                    SideButton(side: comparison.second, isSelected: showsSecond) { showsSecond = true }
                 }
-                .padding(.vertical, 4)
+                let shown = showsSecond ? comparison.second : comparison.first
+                Sky3DView(context: showsSecond ? second : first, prediction: shown.prediction, date: model.date,
+                          sharedCamera: $camera, compact: true)
+                    .frame(height: 300)
+                    .listRowInsets(EdgeInsets())
             } footer: {
-                Text("棒の灰色は、\(model.target.name)の方角で建物がふさぐ高さ（遮蔽仰角）です。印が灰色より上なら見えます。「高さの余裕」は天体の高度からふさぐ高さを引いた値で、マイナスなら隠れます。")
+                Text("ボタンで地点を切り替えると、同じ向き・同じ時刻のまま 3D が変わります。線が緑なら見え、赤なら建物に遮られます。")
             }
 
             Section("くらべる") {
@@ -58,63 +69,35 @@ struct CompareView: View {
     }
 }
 
-/// 天体の高度と、その方角の遮蔽仰角を、0〜90° の縦の棒で表す
-private struct HeightGauge: View {
+/// 3D に出す地点を選ぶボタン。地点名・目の高さ・判定を出す
+private struct SideButton: View {
     let side: SpotComparison.Side
-    let targetName: String
+    let isSelected: Bool
+    let action: () -> Void
 
     private var prediction: Prediction { side.prediction }
 
     var body: some View {
-        VStack(spacing: 8) {
-            Text(side.spot.name)
-                .font(.subheadline.bold())
-                .lineLimit(2, reservesSpace: true)
-                .multilineTextAlignment(.center)
-            Text("目の高さ 標高\(Int(side.spot.observerElevation))m")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-
-            GeometryReader { geo in
-                let h = geo.size.height
-                let y = { (deg: Double) in h * (1 - min(max(deg, 0), 90) / 90) }
-                ZStack(alignment: .bottom) {
-                    RoundedRectangle(cornerRadius: 6)
-                        .fill(Color(red: 0.05, green: 0.07, blue: 0.2))
-                    Rectangle()
-                        .fill(.gray.opacity(0.7))
-                        .frame(height: h - y(prediction.obstructionElevation))
-                    if prediction.altitude > 0 {
-                        Image(systemName: targetSymbol)
-                            .font(.title2)
-                            .foregroundStyle(prediction.geometricVisibility ? .yellow : .red)
-                            .position(x: geo.size.width / 2, y: y(prediction.altitude))
-                    }
-                    VStack {
-                        Text("真上 90°")
-                        Spacer()
-                        Text("地平線 0°")
-                    }
-                    .font(.caption2)
-                    .foregroundStyle(.white.opacity(0.6))
-                    .padding(4)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                .clipShape(.rect(cornerRadius: 6))
+        Button(action: action) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(side.spot.name)
+                    .font(.subheadline.bold())
+                    .lineLimit(2, reservesSpace: true)
+                Text("目の高さ 標高\(Int(side.spot.observerElevation))m")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                Label(verdict, systemImage: prediction.geometricVisibility ? "eye" : "eye.slash")
+                    .font(.subheadline.bold())
+                    .foregroundStyle(prediction.geometricVisibility ? .green : .red)
             }
-            .frame(height: 180)
-            .accessibilityElement()
-            .accessibilityLabel("\(targetName)の高度\(Int(prediction.altitude))度、建物がふさぐ高さ\(Int(prediction.obstructionElevation))度")
-
-            Label(verdict, systemImage: prediction.geometricVisibility ? "eye" : "eye.slash")
-                .font(.subheadline.bold())
-                .foregroundStyle(prediction.geometricVisibility ? .green : .red)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(10)
+            .background(isSelected ? Color.accentColor.opacity(0.25) : Color.secondary.opacity(0.12),
+                        in: .rect(cornerRadius: 10))
+            .overlay(RoundedRectangle(cornerRadius: 10).stroke(isSelected ? Color.accentColor : .clear, lineWidth: 2))
         }
-        .frame(maxWidth: .infinity)
-    }
-
-    private var targetSymbol: String {
-        prediction.celestialBodyId == ObservationTarget.moon.id ? "moon.fill" : "star.fill"
+        .buttonStyle(.plain)
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 
     private var verdict: String {

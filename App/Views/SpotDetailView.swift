@@ -4,6 +4,8 @@ import SwiftUI
 struct SpotDetailView: View {
     @Environment(AppModel.self) private var model
     let context: SpotContext
+    /// 比較画面へ進んで隠れている間は 3D を外す。3D を3つ同時に描くと、描画用のメモリが足りなくなる。
+    @State private var isOnScreen = false
 
     var body: some View {
         @Bindable var model = model
@@ -14,9 +16,15 @@ struct SpotDetailView: View {
 
         List {
             Section {
-                Sky3DView(context: context, prediction: prediction, date: model.date)
-                    .frame(height: 340)
-                    .listRowInsets(EdgeInsets())
+                Group {
+                    if isOnScreen {
+                        Sky3DView(context: context, prediction: prediction, date: model.date)
+                    } else {
+                        Color(red: 0.02, green: 0.03, blue: 0.10)
+                    }
+                }
+                .frame(height: 340)
+                .listRowInsets(EdgeInsets())
             } footer: {
                 Text("ドラッグで視点を回転、ピンチで拡大縮小。線の先の球が\(model.target.name)の方向です（緑=見える、赤=遮られる）。")
             }
@@ -156,6 +164,8 @@ struct SpotDetailView: View {
         }
         .navigationTitle(spot.name)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear { isOnScreen = true }
+        .onDisappear { isOnScreen = false }
     }
 }
 
