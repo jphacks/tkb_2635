@@ -1,0 +1,75 @@
+{
+  "sceneId": "shibuya",
+  "radiusMeters": 500.0,
+  "scanned": 9535,
+  "selected": 1497,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53393585_bldg_6697_op.gml",
+      "sha256": "b15701cede323e2e8aafb6c0ce651f2211b1c050a6f7354c73a50bf54572f7cb",
+      "buildingsScanned": 2737
+    },
+    {
+      "name": "53393586_bldg_6697_op.gml",
+      "sha256": "7e3bc860ec6404e4c3b131fbcabf42e74f91b695809aa79c868306d9e7b1fc14",
+      "buildingsScanned": 2616
+    },
+    {
+      "name": "53393595_bldg_6697_op.gml",
+      "sha256": "f510af46f1548f584f257a85796e3e0afcf504490974163757f12b06b3aa4ec9",
+      "buildingsScanned": 2236
+    },
+    {
+      "name": "53393596_bldg_6697_op.gml",
+      "sha256": "88dab9e2cc41dc75b37a83ca3ad78dfa0eb1f081b918af56fc79851c80150724",
+      "buildingsScanned": 1946
+    }
+  ],
+  "heightFallbackCount": 47,
+  "hostBuildingId": "bldg_7b006717-e9e6-4a94-8843-1f4ce13b2509",
+  "hostEvidence": {
+    "id": "bldg_7b006717-e9e6-4a94-8843-1f4ce13b2509",
+    "baseElevation": 14.6,
+    "geometryRoofElevation": 234.6,
+    "measuredHeight": 220.0,
+    "rawMeasuredHeight": 220.0,
+    "adoptedRoofElevation": 234.6,
+    "usageCode": "401",
+    "usageCodeSpace": "../../codelists/Building_usage.xml"
+  },
+  "knownLimitations": [
+    "基準標高15m・床面標高は暫定値",
+    "観測位置はモデル上の代表点。現地検証は未実施",
+    "平面形は外接矩形・建物底面は共通基準標高へ延長",
+    "原点から500m内のみ。遠方の高層建築物は未収録"
+  ],
+  "source": "東京都「3D都市モデル（Project PLATEAU）渋谷区（2025年度）」 https://www.geospatial.jp/ckan/dataset/plateau-13113-shibuya-ku-2025 を加工してAsteraチームが作成（CC BY 4.0）。LOD1等を直方体近似。基準標高15m・観測地点の標高は暫定値、現況・現地未確認。",
+  "integrationDate": "2026-10-24",
+  "sceneSha256": "bbf9fbe7046e07f6373984146fe90f6cd961cafdc9fdc951e53c311011988ead",
+  "representativeSpots": [
+    {
+      "id": "shibuya_east_plaza",
+      "latitude": 35.658,
+      "longitude": 139.702816,
+      "floorElevation": 15,
+      "eyeHeight": 1.5,
+      "hostBuildingId": null,
+      "modelVersion": "plateau-shibuya-2025-1",
+      "memo": "高さによる見え方を比べるデモ用の代表点です。正確な観測位置・歩行可能範囲・夜間利用・床面標高15mは未確認です。"
+    },
+    {
+      "id": "shibuya_sky",
+      "latitude": 35.658384,
+      "longitude": 139.702242,
+      "floorElevation": 244,
+      "eyeHeight": 1.5,
+      "hostBuildingId": "bldg_7b006717-e9e6-4a94-8843-1f4ce13b2509",
+      "modelVersion": "plateau-shibuya-2025-1",
+      "memo": "位置は建物モデル上の屋上の代表点です。床面標高244mは暫定値で、実際の屋上の標高は未確認です。"
+    }
+  ]
+}

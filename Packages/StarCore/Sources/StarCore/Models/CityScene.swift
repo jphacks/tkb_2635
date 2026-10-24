@@ -10,12 +10,12 @@ public struct Building: Codable, Identifiable, Sendable {
     public var width: Double
     /// 南北方向の奥行き [m]
     public var depth: Double
-    /// 地面からの高さ [m]
+    /// シーンの共通 groundElevation から屋根までの有効高さ [m]
     public var height: Double
     public var usage: String?
 }
 
-/// 代表地点の周辺建物をまとめたもの。MVP では PLATEAU を取り込まず手作りの概略データを使う。
+/// 代表地点の周辺建物。原典と近似・暫定値の注意は source に記録する。
 public struct CityScene: Codable, Identifiable, Sendable {
     public var id: String
     public var name: String
