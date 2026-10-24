@@ -74,12 +74,14 @@
     "githubActionsRun": false
   },
   "pullRequestValidation": {
-    "verifiedAt": "2026-10-24T16:11:17.995980+09:00",
-    "developRevision": "ebe83317cef1d7b8f45c9f3d7f84bf1e973d83fd",
-    "swiftTestsPassed": 30,
+    "verifiedAt": "2026-10-24T16:19:04.484818+09:00",
+    "developRevision": "698fae99d9e3bc3ebfb84d3f7c98bc689773aa07",
+    "swiftTestsPassed": 33,
     "nightAccessPythonTestsPassed": 23,
     "existingPythonTestsPassed": 22,
     "simulatorBuildSucceeded": true,
-    "githubActionsRun": false
+    "githubActionsRun": false,
+    "pullRequestUrl": "https://github.com/jphacks/tkb_2635/pull/8",
+    "integrationNote": "2-04のPLATEAU建物・観測地点・注意書きを維持し、渋谷地上の夜間入場未確認の条件を統合。"
   }
 }

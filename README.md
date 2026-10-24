@@ -24,7 +24,7 @@
 「せっかく出かけたのにビルで見えなかった」「展望台が閉まっていた」を事前に避けられる。
 
 ### 今後の展望
-- PLATEAU の建物データ・国土地理院 DEM の取り込み（現在は手作りの概略データ）
+- PLATEAU の対象地域拡大・国土地理院 DEM の取り込み（渋谷はPLATEAUを導入済み。西新宿は概略データ）
 - VIIRS 夜間光による地域の光害指標（現在は暫定値）
 - 現地調査による近傍照明の評価、施設情報の確認
 - 地上と展望台の比較画面、時刻スライダー、現在地からの距離
@@ -38,7 +38,7 @@
 #### API・データ
 * [Open-Meteo](https://open-meteo.com/) Forecast API（雲量・降水量・風速・視程、CC BY 4.0）
 * Bright Star Catalogue（明るい恒星の J2000.0 座標を抜粋）
-* 建物データ: 手作りの概略データ（PLATEAU 取り込み予定）
+* 建物データ: [東京都・PLATEAU渋谷区2025年度版](https://www.geospatial.jp/ckan/dataset/plateau-13113-shibuya-ku-2025)を加工（CC BY 4.0）。渋谷駅周囲500mの1,497棟を直方体近似。西新宿は手作りの概略データ。
 
 #### フレームワーク・ライブラリ・モジュール
 * SwiftUI（画面はすべて SwiftUI）
@@ -77,8 +77,8 @@ cd Packages/StarCore && swift test
 App/                       SwiftUI アプリ（一覧・詳細・3D プレビュー）
 Packages/StarCore/         モデル・天体計算・遮蔽判定・天気・スコア（ローカル Swift Package）
   Sources/StarCore/Resources/spots.json      観測地点（9地点、5種類）
-  Sources/StarCore/Resources/buildings.json  渋谷・西新宿の建物（概略）
-scripts/plateau_to_json.py PLATEAU 変換のスタブ
+  Sources/StarCore/Resources/buildings.json  渋谷（PLATEAU 1,497棟）・西新宿（概略）
+scripts/plateau_to_json.py CityGML → アプリ用JSONへの変換
 ```
 
 ### スコア
@@ -93,8 +93,14 @@ scripts/plateau_to_json.py PLATEAU 変換のスタブ
 
 ### PLATEAU原本の取得（2-02）
 
-渋谷駅周辺の2025年度版CityGML原本を取得済みです。出典、利用条件、再取得コマンドは [取得記録](docs/data/plateau-shibuya-2025.md) を参照してください。アプリ向けの変換と建物データの置き換えは次の作業（2-03・2-04）です。
+渋谷駅周辺の2025年度版CityGML原本を取得済みです。出典、利用条件、再取得コマンドは [取得記録](docs/data/plateau-shibuya-2025.md) を参照してください。変換（2-03）と渋谷シーンへの組み込み（2-04）まで実施済みです。
 
 ### PLATEAU建物の変換（2-03）
 
-取得したCityGMLから、指定地点の周囲500mの建物をアプリ形式のJSONに変換できます。[実行方法・高さの扱い・制約](docs/data/plateau-converter.md)を参照してください。アプリへのデータ置き換え（2-04）は別作業です。
+取得したCityGMLから、指定地点の周囲500mの建物をアプリ形式のJSONに変換できます。[実行方法・高さの扱い・制約](docs/data/plateau-converter.md)を参照してください。渋谷シーンへの組み込みは[導入記録（2-04）](docs/data/shibuya-scene-integration.md)に記載しています。
+
+### 渋谷のPLATEAU建物（2-04）
+
+東京都「3D都市モデル（Project PLATEAU）渋谷区（2025年度）」を加工してAsteraチームが作成しました（CC BY 4.0）。出典URL・原本のSHA-256・変換規則・建物IDの対応付けは[導入記録](docs/data/shibuya-scene-integration.md)に記載しています。詳細画面の「建物データ」でも出典と収録建物数を確認できます。
+
+建物は外接直方体による近似です。建物ごとの地盤差は屋根標高に反映しますが、地形そのものは再現していません。観測地点の位置はデモ用の代表点、床面標高は暫定値です。原点から500m外の高層建物や現地の立入可否は未確認です。
