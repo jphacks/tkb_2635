@@ -5,11 +5,11 @@ import Foundation
 public enum StarVisibility {
     /// 星図の段階
     public enum Level: Int, CaseIterable, Sendable {
-        /// 都心（約 3 等まで）
+        /// 都心（約 2.5 等まで。オリオン座の主な星くらい）
         case city
-        /// 郊外（約 4.5 等まで）
+        /// 郊外（約 4 等まで）
         case suburban
-        /// 暗い場所（約 6 等まで。天の川が見える）
+        /// 暗い場所（星図の全部。天の川が見える）
         case dark
 
         /// 画像の名前（App/Resources/Sky/）
@@ -21,12 +21,13 @@ public enum StarVisibility {
             }
         }
 
-        /// 見える一番暗い星の等級（画像を作るときの目安）
-        public var limitingMagnitude: Double {
+        /// 見える一番暗い星の等級（画像を作るときの目安。scripts/make_sky_textures.swift と合わせる）。
+        /// 暗い場所は星図の星を全部出すので nil
+        public var limitingMagnitude: Double? {
             switch self {
-            case .city: 3.0
-            case .suburban: 4.5
-            case .dark: 6.0
+            case .city: 2.5
+            case .suburban: 4.0
+            case .dark: nil
             }
         }
     }

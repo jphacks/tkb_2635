@@ -56,13 +56,14 @@ struct Sky3DView: View {
             let camera = PerspectiveCamera()
             camera.name = "camera"
             camera.camera.fieldOfViewInDegrees = 55
+            // 星空の球（半径 300 単位）まで描く
+            camera.camera.far = SkyRenderer.domeRadius * 2
             content.add(camera)
             placeCamera(camera)
             isLoaded = true
         } update: { content in
-            if let camera = content.entities.first(where: { $0.name == "camera" }) {
-                placeCamera(camera)
-            }
+            let camera = content.entities.first(where: { $0.name == "camera" })
+            if let camera { placeCamera(camera) }
             guard let root = content.entities.first(where: { $0.name == Self.rootName }) else { return }
             // 比較画面で地点を切り替えたときは、RealityView を作り直さず中の地点だけを入れ替える。
             // 作り直すと、シミュレータでは新しい 3D が描かれないことがあった。
@@ -76,6 +77,12 @@ struct Sky3DView: View {
                 }
                 if let city = active.findEntity(named: Self.cityName) {
                     CityModelRenderer.updateWindows(in: city, date: date)
+                }
+                if let dome = active.findEntity(named: SkyRenderer.domeName) as? ModelEntity {
+                    SkyRenderer.shared.updateDome(dome, spot: context.spot, date: date)
+                }
+                if let moon = active.findEntity(named: SkyRenderer.moonName), let camera {
+                    SkyRenderer.orientMoon(moon, cameraPosition: camera.position(relativeTo: nil), brightLimb: moonBrightLimb)
                 }
             } else {
                 Task {
@@ -127,45 +134,6 @@ struct Sky3DView: View {
         nonmutating set {
             if let sharedCamera { sharedCamera.wrappedValue = newValue } else { ownCamera = newValue }
         }
-    }
-
-    private var legend: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            if prediction.accessStatus != .open && !compact {
-                Label(prediction.accessStatus.label, systemImage: "exclamationmark.triangle")
-                    .foregroundStyle(.orange)
-            }
-            Label(prediction.geometricVisibility ? "見える見込み" : (prediction.altitude <= 0 ? "地平線の下" : "遮られる見込み"),
-                  systemImage: prediction.geometricVisibility ? "eye" : "eye.slash")
-                .foregroundStyle(prediction.geometricVisibility ? .green : .red)
-            if !compact {
-                Text(context.scene?.name ?? "建物データなし（地平線は暫定値）")
-                    .foregroundStyle(.secondary)
-            }
-            if context.scene.map(CityModelRenderer.hasModel) == true {
-                if !compact {
-                    Text("建物・地面は昼の実写を暗く表示")
-                        .foregroundStyle(.secondary)
-                    Text("窓・街灯の明かりはイメージ")
-                        .foregroundStyle(.secondary)
-                }
-                // 地理院タイルは出典の明示が利用の条件。小さい表示でも消さない
-                Text("出典: PLATEAU（CC BY 4.0）・国土地理院")
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-            } else if !compact {
-                Text("外壁・窓明かりはイメージ")
-                    .foregroundStyle(.secondary)
-            }
-            if !compact && !prediction.geometricVisibility && !prediction.blockedByDirectionMask && prediction.altitude > 0 {
-                Label("赤い枠は判定に使った建物の箱", systemImage: "cube")
-                    .foregroundStyle(Color(red: 1, green: 0.45, blue: 0.35))
-            }
-        }
-        .font(.caption.bold())
-        .padding(8)
-        .background(.ultraThinMaterial, in: .rect(cornerRadius: 8))
-        .padding(8)
     }
 
     private func placeCamera(_ camera: Entity) {
@@ -229,14 +197,20 @@ struct Sky3DView: View {
         for az in stride(from: 0, to: 360, by: 5) {
             let h = context.horizon.samples[az]
             let dot = sphere(radius: 0.025, color: UIColor(white: 0.9, alpha: 0.6))
-            dot.position = direction(altitude: h, azimuth: Double(az)) * Self.skyRadius
+            dot.position = SkyRenderer.direction(altitude: h, azimuth: Double(az)) * Self.skyRadius
             root.addChild(dot)
         }
 
         // 方位の目印（北）
         let north = sphere(radius: 0.08, color: .systemRed)
-        north.position = direction(altitude: 0, azimuth: 0) * (Self.skyRadius + 0.3)
+        north.position = SkyRenderer.direction(altitude: 0, azimuth: 0) * (Self.skyRadius + 0.3)
         root.addChild(north)
+
+        // 星空（4-12）。観測者を中心に、地点・時刻の空に合わせて回す
+        if let dome = SkyRenderer.shared.makeDome() {
+            SkyRenderer.shared.updateDome(dome, spot: spot, date: date)
+            root.addChild(dome)
+        }
 
         let dynamic = Entity()
         dynamic.name = Self.dynamicName
@@ -273,13 +247,23 @@ struct Sky3DView: View {
                                                         color: UIColor(red: 1, green: 0.45, blue: 0.35, alpha: 1)))
         }
 
+        // 月（4-10）。どの天体を見ていても、本物の位置に満ち欠けつきで出す
+        let moon = Astro.moon(date: date, latitude: spot.latitude, longitude: spot.longitude)
+        if moon.position.altitude > -5 {
+            let disk = SkyRenderer.shared.makeMoon(fraction: moon.illuminatedFraction)
+            disk.position = SkyRenderer.direction(altitude: moon.position.altitude, azimuth: moon.position.azimuth) * Self.skyRadius
+            dynamic.addChild(disk)
+        }
+
         // 対象天体と視線
         guard prediction.altitude > -5 else { return }
-        let dir = direction(altitude: prediction.altitude, azimuth: prediction.azimuth)
+        let dir = SkyRenderer.direction(altitude: prediction.altitude, azimuth: prediction.azimuth)
         let color: UIColor = prediction.geometricVisibility ? .systemGreen : .systemRed
-        let body = sphere(radius: 0.22, color: prediction.celestialBodyId == "moon" ? .systemYellow : .white)
-        body.position = dir * Self.skyRadius
-        dynamic.addChild(body)
+        if prediction.celestialBodyId != ObservationTarget.moon.id {
+            let body = sphere(radius: 0.12, color: .white)
+            body.position = dir * Self.skyRadius
+            dynamic.addChild(body)
+        }
 
         let length = Self.skyRadius - 0.25
         let ray = ModelEntity(mesh: .generateCylinder(height: length, radius: 0.015),
@@ -293,10 +277,12 @@ struct Sky3DView: View {
         ModelEntity(mesh: .generateSphere(radius: radius), materials: [UnlitMaterial(color: color)])
     }
 
-    /// 高度・方位から RealityKit 座標系の単位ベクトルへ
-    private func direction(altitude: Double, azimuth: Double) -> SIMD3<Float> {
-        let a = altitude * .pi / 180, z = azimuth * .pi / 180
-        return SIMD3<Float>(Float(cos(a) * sin(z)), Float(sin(a)), Float(-cos(a) * cos(z)))
+    /// 月の明るい側が向いている 3D の向き（太陽と重なるときは nil）
+    private var moonBrightLimb: SIMD3<Float>? {
+        let spot = context.spot
+        let moon = Astro.moon(date: date, latitude: spot.latitude, longitude: spot.longitude).position
+        let sun = Astro.sun(date: date, latitude: spot.latitude, longitude: spot.longitude)
+        return MoonPhase.brightLimbDirection(moon: moon, sun: sun).map(SkyRenderer.vector)
     }
 }
 

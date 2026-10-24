@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BCBE2FFED07A397A75FC465 /* moon_disk.png in Resources */ = {isa = PBXBuildFile; fileRef = 7944EBD89043BE39136383F9 /* moon_disk.png */; };
 		1EE9A584A7D584A4BAEAF1EB /* StarSpotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA8483FB629B08A3E5A4BE0 /* StarSpotApp.swift */; };
 		1EFFE3428A12B9632AD2AEB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0998F6616654F6C8506DC67 /* Assets.xcassets */; };
 		21DA8A0B28A2AD383FB85084 /* Sky3DMarkers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292EF5205CC96A242DC2B369 /* Sky3DMarkers.swift */; };
@@ -19,16 +20,21 @@
 		84AFD976B4CBC5D93D7F9404 /* Concrete034_Roughness.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 308179C5CCF1CE14B9BF6493 /* Concrete034_Roughness.jpg */; };
 		883CCA595AA0B31955697D89 /* City_shibuya.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B9DA1DEE77A332FC2A04DEF6 /* City_shibuya.usdz */; };
 		941EB8CCC608EC6AEF1A799B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2AE00460F10C5D00FB4FC0 /* AppModel.swift */; };
+		A0C4D04CA160BB68147FA787 /* stars_dark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4B36386F5ACC0AE96E2D1907 /* stars_dark.jpg */; };
 		A1577EEB4934E2A2E6BFEDA0 /* BuildingNightRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */; };
 		A195391722902F86D763B56F /* BuildingFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F92338553BC2D572913CBE8 /* BuildingFacade.swift */; };
 		A8AEA27D74F047C4532C6F40 /* StarCore in Frameworks */ = {isa = PBXBuildFile; productRef = C562E67EB8C174B0CC595341 /* StarCore */; };
+		AE24484038DB256EF86F4D59 /* SkyRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10FDF1767A8F3FBE5AB83AC /* SkyRenderer.swift */; };
 		B2341704FEB2BD45412EEB6E /* Concrete034_NormalGL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15F0F3CF7CB762C06A5DED0F /* Concrete034_NormalGL.jpg */; };
+		BE2A286238AB0A9753FBD5BC /* stars_city.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FEF251F6D24883BF3D089 /* stars_city.jpg */; };
 		C40105CC67476B1524DA1791 /* Asphalt031_Roughness.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F15A6BD96245C9D0EB9D555F /* Asphalt031_Roughness.jpg */; };
 		D9F4571299DC479495189966 /* CityModelRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9203D1807BE1815AEE18E0B /* CityModelRenderer.swift */; };
 		DB035849474639C5A9C6DCA1 /* TimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA06A0CCFDF479A126260A /* TimeSlider.swift */; };
+		DBC5F6D2888529D0501928A9 /* Sky3DLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40396066617C3F4F1E1FBFC5 /* Sky3DLegend.swift */; };
 		DCCFF7F044F1DDF2AFF1201B /* TargetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA16CE24D5352408F1E495 /* TargetPicker.swift */; };
 		F09D164C5551911F331E5F2D /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861A3D3E8ABDCDCD34315D5E /* BottomSheet.swift */; };
 		F0A6C29194EF8C66AAD5C1F4 /* SurroundingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D756A88C6BD474D11D3DF42 /* SurroundingsSection.swift */; };
+		F171E95D86CA69A8CE35DE20 /* stars_suburban.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4968E735EEAF8D40EE572062 /* stars_suburban.jpg */; };
 		F18EC5FB9912E1C9058F7313 /* Concrete034_Color.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A93A7469668EA324B724E02C /* Concrete034_Color.jpg */; };
 		F5A23B40904147AA81FD4D03 /* Asphalt031_NormalGL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E977348ECDA6D2A5DE9E28DA /* Asphalt031_NormalGL.jpg */; };
 		FB1A99E53861267831B15C85 /* SpotInfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0658849C23DAC8B10EF85EF /* SpotInfoList.swift */; };
@@ -42,15 +48,21 @@
 		292EF5205CC96A242DC2B369 /* Sky3DMarkers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sky3DMarkers.swift; sourceTree = "<group>"; };
 		308179C5CCF1CE14B9BF6493 /* Concrete034_Roughness.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Concrete034_Roughness.jpg; sourceTree = "<group>"; };
 		3BA12F120047673D19190040 /* Sky3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sky3DView.swift; sourceTree = "<group>"; };
+		40396066617C3F4F1E1FBFC5 /* Sky3DLegend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sky3DLegend.swift; sourceTree = "<group>"; };
 		41BA06A0CCFDF479A126260A /* TimeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlider.swift; sourceTree = "<group>"; };
+		4968E735EEAF8D40EE572062 /* stars_suburban.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stars_suburban.jpg; sourceTree = "<group>"; };
+		4B36386F5ACC0AE96E2D1907 /* stars_dark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stars_dark.jpg; sourceTree = "<group>"; };
 		5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingNightRenderer.swift; sourceTree = "<group>"; };
 		55DA16CE24D5352408F1E495 /* TargetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetPicker.swift; sourceTree = "<group>"; };
 		5BE617C900ABD7B0CA50F0AE /* CompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareView.swift; sourceTree = "<group>"; };
 		5C8AFF653702BECCFC11DC7A /* StarCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StarCore; path = Packages/StarCore; sourceTree = SOURCE_ROOT; };
+		7944EBD89043BE39136383F9 /* moon_disk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moon_disk.png; sourceTree = "<group>"; };
+		7A4FEF251F6D24883BF3D089 /* stars_city.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stars_city.jpg; sourceTree = "<group>"; };
 		7E2AE00460F10C5D00FB4FC0 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		81E2226A2988AF1E32C4EBEE /* RiseSetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiseSetSection.swift; sourceTree = "<group>"; };
 		861A3D3E8ABDCDCD34315D5E /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		9F92338553BC2D572913CBE8 /* BuildingFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingFacade.swift; sourceTree = "<group>"; };
+		A10FDF1767A8F3FBE5AB83AC /* SkyRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyRenderer.swift; sourceTree = "<group>"; };
 		A48E1331041841284856A9DB /* SpotListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListView.swift; sourceTree = "<group>"; };
 		A93A7469668EA324B724E02C /* Concrete034_Color.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Concrete034_Color.jpg; sourceTree = "<group>"; };
 		B0998F6616654F6C8506DC67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				CE80059D42265AC5123D9315 /* City */,
+				DD40FB723829B4258263CC9B /* Sky */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -114,9 +127,11 @@
 				D9203D1807BE1815AEE18E0B /* CityModelRenderer.swift */,
 				5BE617C900ABD7B0CA50F0AE /* CompareView.swift */,
 				81E2226A2988AF1E32C4EBEE /* RiseSetSection.swift */,
+				40396066617C3F4F1E1FBFC5 /* Sky3DLegend.swift */,
 				292EF5205CC96A242DC2B369 /* Sky3DMarkers.swift */,
 				3BA12F120047673D19190040 /* Sky3DView.swift */,
 				EB3ABAC033ABF32304BC5DF1 /* SkyCamera.swift */,
+				A10FDF1767A8F3FBE5AB83AC /* SkyRenderer.swift */,
 				DB5D031CC5399C443511121C /* SpotDetailView.swift */,
 				C0658849C23DAC8B10EF85EF /* SpotInfoList.swift */,
 				A48E1331041841284856A9DB /* SpotListView.swift */,
@@ -147,6 +162,17 @@
 				308179C5CCF1CE14B9BF6493 /* Concrete034_Roughness.jpg */,
 			);
 			path = City;
+			sourceTree = "<group>";
+		};
+		DD40FB723829B4258263CC9B /* Sky */ = {
+			isa = PBXGroup;
+			children = (
+				7944EBD89043BE39136383F9 /* moon_disk.png */,
+				7A4FEF251F6D24883BF3D089 /* stars_city.jpg */,
+				4B36386F5ACC0AE96E2D1907 /* stars_dark.jpg */,
+				4968E735EEAF8D40EE572062 /* stars_suburban.jpg */,
+			);
+			path = Sky;
 			sourceTree = "<group>";
 		};
 		DEF55B7A44A66744EE540BC8 = {
@@ -231,6 +257,10 @@
 				F18EC5FB9912E1C9058F7313 /* Concrete034_Color.jpg in Resources */,
 				B2341704FEB2BD45412EEB6E /* Concrete034_NormalGL.jpg in Resources */,
 				84AFD976B4CBC5D93D7F9404 /* Concrete034_Roughness.jpg in Resources */,
+				0BCBE2FFED07A397A75FC465 /* moon_disk.png in Resources */,
+				BE2A286238AB0A9753FBD5BC /* stars_city.jpg in Resources */,
+				A0C4D04CA160BB68147FA787 /* stars_dark.jpg in Resources */,
+				F171E95D86CA69A8CE35DE20 /* stars_suburban.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,9 +278,11 @@
 				D9F4571299DC479495189966 /* CityModelRenderer.swift in Sources */,
 				411A70FAB6BF96C3637A776C /* CompareView.swift in Sources */,
 				5DD92D36C8295567AACB5B0F /* RiseSetSection.swift in Sources */,
+				DBC5F6D2888529D0501928A9 /* Sky3DLegend.swift in Sources */,
 				21DA8A0B28A2AD383FB85084 /* Sky3DMarkers.swift in Sources */,
 				4887106743DC6CFC45CF3DDF /* Sky3DView.swift in Sources */,
 				4ED97639264344F7F880D1F3 /* SkyCamera.swift in Sources */,
+				AE24484038DB256EF86F4D59 /* SkyRenderer.swift in Sources */,
 				837C7DD37DD459D34DE649A1 /* SpotDetailView.swift in Sources */,
 				FB1A99E53861267831B15C85 /* SpotInfoList.swift in Sources */,
 				2728E18A4E52AF0C17714287 /* SpotListView.swift in Sources */,
