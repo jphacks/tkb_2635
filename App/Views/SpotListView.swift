@@ -114,6 +114,7 @@ struct MoonSummary: View {
 }
 
 struct SpotRow: View {
+    @Environment(LocationModel.self) private var location
     let spot: Spot
     let prediction: Prediction
 
@@ -125,6 +126,11 @@ struct SpotRow: View {
                 Text("\(spot.category.label)・\(spot.ward)・目の高さ 標高\(Int(spot.observerElevation))m")
                     .font(.caption)
                     .foregroundStyle(.secondary)
+                if let km = location.distanceKm(to: spot) {
+                    Text("\(Image(systemName: "location")) 現在地から \(Distance.label(km: km))")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
                 if let first = prediction.recommendationReasons.first {
                     Text(first)
                         .font(.caption)

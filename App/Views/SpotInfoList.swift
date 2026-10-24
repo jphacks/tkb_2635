@@ -92,6 +92,8 @@ struct SpotInfoList: View {
                 if let url = spot.officialWebsite { Link("公式情報を開く", destination: url) }
             }
 
+            RouteSection(spot: spot)
+
             if spot.indoorOutdoor != .outdoor || spot.viewingDirectionMask != nil || spot.viewingDirectionNotes != nil {
                 Section {
                     LabeledContent("観測できる方角", value: spot.viewingDirectionSummary)
