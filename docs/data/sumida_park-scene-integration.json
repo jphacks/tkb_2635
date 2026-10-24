@@ -1,0 +1,44 @@
+{
+  "sceneId": "sumida_park",
+  "radiusMeters": 500,
+  "scanned": 25578,
+  "selected": 2212,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53394643_bldg_6697_op.gml",
+      "sha256": "63ce73148698b691cc723efc969d7c29ed1e86991ce4d1b38b58596367ec88b5",
+      "buildingsScanned": 3304
+    },
+    {
+      "name": "53394644_bldg_6697_op.gml",
+      "sha256": "e6a9c46082dfcfee696c748e0322756c20d79e82f6b82ce004d29b63c1af085a",
+      "buildingsScanned": 4650
+    },
+    {
+      "name": "53394653_bldg_6697_op.gml",
+      "sha256": "57e8a933ccf054d5e1eece56ebe23ff38392522d8f7037c467cd81d792f6f644",
+      "buildingsScanned": 4613
+    },
+    {
+      "name": "53394654_bldg_6697_op.gml",
+      "sha256": "5de887bf15dba176514ff1bac48528b52c0154bc710de04c16296e79c3e4d8cf",
+      "buildingsScanned": 3228
+    },
+    {
+      "name": "53394663_bldg_6697_op.gml",
+      "sha256": "bce67fe2da9318fb6d004e85ba1f6f6a6eaa53dd046ae1d92d4495f59f4ea8dc",
+      "buildingsScanned": 5894
+    },
+    {
+      "name": "53394664_bldg_6697_op.gml",
+      "sha256": "7c16abcecf098adfbd889d456e3ddad137a400d42231066026dc198735d926d9",
+      "buildingsScanned": 3889
+    }
+  ],
+  "groundElevation": 3.0,
+  "belowSceneGround": 2
+}

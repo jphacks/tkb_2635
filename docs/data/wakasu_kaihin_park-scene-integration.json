@@ -1,0 +1,29 @@
+{
+  "sceneId": "wakasu_kaihin_park",
+  "radiusMeters": 500,
+  "scanned": 167,
+  "selected": 73,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53393636_bldg_6697_op.gml",
+      "sha256": "8180175753aefa6c0752360f6890c16e3771692cf57f525de2674baf11dd3bf0",
+      "buildingsScanned": 11
+    },
+    {
+      "name": "53393646_bldg_6697_op.gml",
+      "sha256": "2b95174ad114b249a99f6394eb6d9f1623de3529ed8e0d4bc42d6dab2bb50439",
+      "buildingsScanned": 152
+    },
+    {
+      "name": "53393647_bldg_6697_op.gml",
+      "sha256": "2edd1a36d0db22f9f4443170ab2385d74f1c3f9dc0ed6a37847a79ab837a9882",
+      "buildingsScanned": 4
+    }
+  ],
+  "groundElevation": 6.0,
+  "belowSceneGround": 3
+}

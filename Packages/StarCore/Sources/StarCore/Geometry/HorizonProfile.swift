@@ -38,22 +38,41 @@ public struct HorizonProfile: Sendable {
     public static func compute(observerEast ox: Double, observerNorth oy: Double, eyeElevation: Double,
                                groundElevation: Double, buildings: [Building]) -> HorizonProfile {
         var samples = Array(repeating: 0.0, count: 360)
-        // 目より低い建物は空をふさがないので、方位ごとに調べる前に除く（地点ごとに千棟以上あるため）
-        let tall = buildings.filter { groundElevation + $0.height > eyeElevation }
-        for i in 0..<360 {
+        let directions = (0..<360).map { i -> (dx: Double, dy: Double) in
             let a = Double(i) * .pi / 180
-            let dx = sin(a), dy = cos(a)
-            for b in tall {
-                let top = groundElevation + b.height
+            return (sin(a), cos(a))
+        }
+        // 目より低い建物は空をふさがないので除く。残りも、建物の角が見える方位の範囲だけを調べる
+        // （範囲の外の方位の半直線はその建物に当たらないので、結果は全方位を調べたときと同じ）。
+        for b in buildings where groundElevation + b.height > eyeElevation {
+            let top = groundElevation + b.height
+            let minX = b.x - b.width / 2, maxX = b.x + b.width / 2
+            let minY = b.y - b.depth / 2, maxY = b.y + b.depth / 2
+            for i in azimuthRange(ox: ox, oy: oy, minX: minX, maxX: maxX, minY: minY, maxY: maxY) {
+                let index = (i % 360 + 360) % 360
+                let (dx, dy) = directions[index]
                 guard let distance = rayHit(ox: ox, oy: oy, dx: dx, dy: dy,
-                                            minX: b.x - b.width / 2, maxX: b.x + b.width / 2,
-                                            minY: b.y - b.depth / 2, maxY: b.y + b.depth / 2)
+                                            minX: minX, maxX: maxX, minY: minY, maxY: maxY)
                 else { continue }
                 let elevation = atan2(top - eyeElevation, distance) * 180 / .pi
-                samples[i] = max(samples[i], elevation)
+                samples[index] = max(samples[index], elevation)
             }
         }
         return HorizonProfile(samples: samples, isApproximate: false)
+    }
+
+    /// 観測者から見て長方形の角がある方位 [度] の範囲（両側に 1° の余裕）。観測者が長方形の中か縁なら全方位。
+    static func azimuthRange(ox: Double, oy: Double,
+                             minX: Double, maxX: Double, minY: Double, maxY: Double) -> ClosedRange<Int> {
+        if ox >= minX - 1, ox <= maxX + 1, oy >= minY - 1, oy <= maxY + 1 { return 0...359 }
+        let center = atan2((minX + maxX) / 2 - ox, (minY + maxY) / 2 - oy) * 180 / .pi
+        var low = 0.0, high = 0.0
+        for (x, y) in [(minX, minY), (minX, maxY), (maxX, minY), (maxX, maxY)] {
+            let delta = Angle.normalize(atan2(x - ox, y - oy) * 180 / .pi - center + 180) - 180
+            low = min(low, delta)
+            high = max(high, delta)
+        }
+        return Int((center + low).rounded(.down)) - 1...Int((center + high).rounded(.up)) + 1
     }
 
     /// 2D の半直線と長方形の交差（スラブ法）。観測者の外側で当たったときの距離を返す。

@@ -1,0 +1,34 @@
+{
+  "sceneId": "shiodome",
+  "radiusMeters": 500,
+  "scanned": 6161,
+  "selected": 753,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53393690_bldg_6697_op.gml",
+      "sha256": "4933b9993e196f20e2a3a54309127b0039fd30c9b310786566f56fe8fe82cfc7",
+      "buildingsScanned": 1727
+    },
+    {
+      "name": "53393691_bldg_6697_op.gml",
+      "sha256": "26dca6b4be08d746229573ffad6648956385e1abca1b4317eed551b57a189475",
+      "buildingsScanned": 923
+    },
+    {
+      "name": "53394600_bldg_6697_op.gml",
+      "sha256": "37a6b704405654c2301743826cc7ef4b622c0e0d4838f7a252566c757a1e85cd",
+      "buildingsScanned": 1214
+    },
+    {
+      "name": "53394601_bldg_6697_op.gml",
+      "sha256": "f2ed9a5be5bfeabe84c9b32ff7978d1932059d584d9a84251635f87ba2920822",
+      "buildingsScanned": 2297
+    }
+  ],
+  "groundElevation": 3.0,
+  "belowSceneGround": 0
+}

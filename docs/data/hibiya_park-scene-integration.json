@@ -1,0 +1,24 @@
+{
+  "sceneId": "hibiya_park",
+  "radiusMeters": 500,
+  "scanned": 1310,
+  "selected": 427,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53394600_bldg_6697_op.gml",
+      "sha256": "37a6b704405654c2301743826cc7ef4b622c0e0d4838f7a252566c757a1e85cd",
+      "buildingsScanned": 1214
+    },
+    {
+      "name": "53394610_bldg_6697_op.gml",
+      "sha256": "f2b58e205f91d9b5b4fce2eea6a9aa34ed5278eecf682bd1c0afdb87b10db403",
+      "buildingsScanned": 96
+    }
+  ],
+  "groundElevation": 4.0,
+  "belowSceneGround": 0
+}
