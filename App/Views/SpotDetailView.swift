@@ -42,6 +42,7 @@ struct SpotDetailView: View {
                 MetricRow(label: "暗さ D", value: prediction.darknessScore,
                           detail: spot.localGlareLevel == nil || spot.regionalLightIndex == nil ? "精度不足" : "")
                 LabeledContent("月明かりの影響 M", value: model.target == .moon ? "月モードでは減点しない" : String(format: "%.2f", prediction.moonEffect))
+                LabeledContent("太陽高度", value: "\(String(format: "%.0f", prediction.sunAltitude))°（\(prediction.skyState.label)）")
             }
 
             Section {
