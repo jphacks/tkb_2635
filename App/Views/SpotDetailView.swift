@@ -9,9 +9,10 @@ struct SpotDetailView: View {
     @State private var isOnScreen = false
     @State private var sheetDetent: BottomSheet<SpotSheetHeader, SpotInfoList>.Detent = .collapsed
 
-    /// シートをいちばん下にしたときの高さ（比較ボタンがあるときは、その分高くする）
-    private static let collapsedHeight: CGFloat = 140
-    private static let collapsedHeightWithCompare: CGFloat = 196
+    /// シートをいちばん下にしたときの高さ（取っ手＋地点名。比較ボタンがあるときは、その分高くする）。
+    /// 判定はシートの中に出すので、たたんだときは見出しだけにして 3D を広く見せる
+    private static let collapsedHeight: CGFloat = 70
+    private static let collapsedHeightWithCompare: CGFloat = 114
 
     var body: some View {
         @Bindable var model = model
@@ -55,8 +56,7 @@ struct SpotDetailView: View {
             let partner = model.contexts.comparisonPartner(of: context)
             BottomSheet(detent: $sheetDetent,
                         collapsedHeight: partner == nil ? Self.collapsedHeight : Self.collapsedHeightWithCompare) {
-                SpotSheetHeader(spot: context.spot, prediction: prediction, targetName: model.target.name,
-                                partner: partner)
+                SpotSheetHeader(spot: context.spot, targetName: model.target.name, partner: partner)
             } content: {
                 SpotInfoList(context: context, prediction: prediction)
             }
@@ -68,17 +68,20 @@ struct SpotDetailView: View {
     }
 }
 
-/// シートをいちばん下にしたときにも見える、地点名・スコア・判定と、比較画面へのボタン
+/// シートをいちばん下にしたときにも見える、地点名と比較画面へのボタン。
+/// 判定はシートの中（SpotInfoList の「判定」）に出し、たたんだときは 3D を広く見せる。
 struct SpotSheetHeader: View {
     let spot: Spot
-    let prediction: Prediction
     let targetName: String
     /// spots.json の comparisonSpotId に書かれた比較相手。nil ならボタンを出さない。
     let partner: SpotContext?
 
     var body: some View {
         VStack(spacing: 10) {
-            summary
+            Text(spot.name)
+                .font(.headline)
+                .lineLimit(1)
+                .frame(maxWidth: .infinity, alignment: .leading)
             if let partner {
                 NavigationLink(value: ComparisonRoute(firstId: spot.id, secondId: partner.id)) {
                     Label("\(partner.spot.name)と比べる", systemImage: "rectangle.split.2x1")
@@ -89,32 +92,6 @@ struct SpotSheetHeader: View {
                 .accessibilityHint("同じ時刻の\(targetName)が、目の高さでどう変わるかを並べて見られます")
             }
         }
-    }
-
-    private var summary: some View {
-        HStack(alignment: .center, spacing: 12) {
-            ScoreBadge(score: prediction.totalScore, tier: prediction.tier)
-            VStack(alignment: .leading, spacing: 4) {
-                Text(spot.name)
-                    .font(.headline)
-                    .lineLimit(1)
-                Label(verdict, systemImage: prediction.geometricVisibility ? "eye" : "eye.slash")
-                    .font(.subheadline.bold())
-                    .foregroundStyle(prediction.geometricVisibility ? .green : .red)
-                Text("\(targetName)：\(Angle.directionName(prediction.azimuth)) 高度\(String(format: "%.0f", prediction.altitude))°・\(prediction.accessStatus.label)")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                    .lineLimit(1)
-            }
-            Spacer(minLength: 0)
-        }
-        .accessibilityElement(children: .combine)
-    }
-
-    private var verdict: String {
-        if prediction.altitude <= 0 { return "地平線の下" }
-        if prediction.blockedByDirectionMask { return "窓の外で見えない" }
-        return prediction.geometricVisibility ? "見える見込み" : "建物に遮られる見込み"
     }
 }
 

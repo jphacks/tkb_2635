@@ -28,9 +28,12 @@ struct BottomSheet<Header: View, Content: View>: View {
     var body: some View {
         GeometryReader { geo in
             let total = geo.size.height
+            let full = height(of: .large, in: total)
             let resting = height(of: detent, in: total)
-            let shown = min(max(resting - dragOffset, collapsedHeight), height(of: .large, in: total))
+            let shown = min(max(resting - dragOffset, collapsedHeight), full)
 
+            // シートの高さはいつも全開のままにし、下へずらして隠す。高さをドラッグのたびに変えると、
+            // 中の List をそのたびに並べ直すので、3D の描画と重なって引っかかる
             VStack(spacing: 0) {
                 VStack(spacing: 10) {
                     // タップで開閉するのは取っ手だけ。見出し全体にすると、中のボタンを押したのを横取りする
@@ -51,7 +54,8 @@ struct BottomSheet<Header: View, Content: View>: View {
                 .frame(maxWidth: .infinity)
                 .contentShape(.rect)
                 .gesture(
-                    DragGesture()
+                    // シートは位置をずらして動かすので、シートの中の座標で測るとずれた分だけ指の動きが打ち消される
+                    DragGesture(coordinateSpace: .global)
                         .updating($dragOffset) { value, state, _ in state = value.translation.height }
                         .onEnded { value in
                             detent = nearest(to: resting - value.predictedEndTranslation.height, in: total)
@@ -60,9 +64,14 @@ struct BottomSheet<Header: View, Content: View>: View {
 
                 content
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    // 画面の外に隠れている分だけ下に余白を足し、半分のときも最後までスクロールできるようにする。
+                    // 段階が決まったときだけ変わるので、ドラッグ中は並べ直さない。中身はアニメーションさせない
+                    .contentMargins(.bottom, full - resting, for: .scrollContent)
+                    .transaction { $0.animation = nil }
             }
-            .frame(height: shown, alignment: .top)
-            .clipped()
+            .frame(height: full, alignment: .top)
+            // ホームバーの所に中身がのぞかないよう、見せる高さで切り取る（背景は切らない）
+            .mask(alignment: .top) { Rectangle().frame(height: shown) }
             .background {
                 UnevenRoundedRectangle(topLeadingRadius: 24, topTrailingRadius: 24)
                     .fill(.regularMaterial)
@@ -70,6 +79,7 @@ struct BottomSheet<Header: View, Content: View>: View {
                     .shadow(color: .black.opacity(0.35), radius: 12, y: -2)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+            .offset(y: full - shown)
             .animation(.spring(duration: 0.3), value: detent)
         }
     }
