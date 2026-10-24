@@ -1,0 +1,140 @@
+import Foundation
+
+/// 観測地点の種類（仕様書 2.1）
+public enum SpotCategory: String, Codable, CaseIterable, Sendable {
+    case park, plaza, riverside, observatory, rooftop
+
+    public var label: String {
+        switch self {
+        case .park: "公園"
+        case .plaza: "広場"
+        case .riverside: "河川敷"
+        case .observatory: "展望台"
+        case .rooftop: "屋上"
+        }
+    }
+}
+
+public enum IndoorOutdoor: String, Codable, Sendable {
+    case indoor, outdoor, partiallyCovered
+
+    public var label: String {
+        switch self {
+        case .indoor: "屋内"
+        case .outdoor: "屋外"
+        case .partiallyCovered: "一部屋根あり"
+        }
+    }
+}
+
+/// 方位角の範囲（北=0°、時計回り）。from > to のときは北をまたぐ範囲。
+public struct AzimuthRange: Codable, Sendable, Hashable {
+    public var from: Double
+    public var to: Double
+
+    public init(from: Double, to: Double) {
+        self.from = from
+        self.to = to
+    }
+
+    public func contains(_ azimuth: Double) -> Bool {
+        let a = Angle.normalize(azimuth)
+        let f = Angle.normalize(from)
+        let t = Angle.normalize(to)
+        return f <= t ? (a >= f && a <= t) : (a >= f || a <= t)
+    }
+}
+
+/// 営業時間。時刻は東京時間の "HH:mm"。close が open 以前なら日をまたぐ。
+public struct OpeningHours: Codable, Sendable {
+    public var alwaysOpen: Bool
+    public var open: String?
+    public var close: String?
+    public var lastAdmission: String?
+    public var note: String?
+
+    public init(alwaysOpen: Bool, open: String? = nil, close: String? = nil, lastAdmission: String? = nil, note: String? = nil) {
+        self.alwaysOpen = alwaysOpen
+        self.open = open
+        self.close = close
+        self.lastAdmission = lastAdmission
+        self.note = note
+    }
+
+    /// 指定時刻に滞在できるか。入場は最終入場時刻まで、滞在は閉館時刻まで、と見なす。
+    public func isOpen(at date: Date, calendar: Calendar = .tokyo) -> Bool {
+        if alwaysOpen { return true }
+        guard let open = Self.minutes(open), let close = Self.minutes(close) else { return false }
+        let c = calendar.dateComponents([.hour, .minute], from: date)
+        let now = (c.hour ?? 0) * 60 + (c.minute ?? 0)
+        if open < close {
+            return now >= open && now < close
+        }
+        return now >= open || now < close
+    }
+
+    public var displayText: String {
+        if alwaysOpen { return "常時開放" }
+        var text = "\(open ?? "?")〜\(close ?? "?")"
+        if let lastAdmission { text += "（最終入場 \(lastAdmission)）" }
+        return text
+    }
+
+    static func minutes(_ hhmm: String?) -> Int? {
+        guard let parts = hhmm?.split(separator: ":"), parts.count == 2,
+              let h = Int(parts[0]), let m = Int(parts[1]) else { return nil }
+        return h * 60 + m
+    }
+}
+
+/// 観測地点（仕様書 7.1）
+public struct Spot: Codable, Identifiable, Sendable {
+    public var id: String
+    public var name: String
+    public var ward: String
+    public var category: SpotCategory
+    public var latitude: Double
+    public var longitude: Double
+    /// 観測地点の床面標高 [m]（建物データと同じ基準）
+    public var floorElevation: Double
+    /// 床面からの目線高さ [m]
+    public var eyeHeight: Double
+    public var indoorOutdoor: IndoorOutdoor
+    /// 窓・屋根などで観測できる方位が限られる場合の範囲。nil は全方位。
+    public var viewingDirectionMask: [AzimuthRange]?
+    /// 屋根・窓枠などで見上げられる上限の高度 [deg]。nil は制限なし。
+    public var maxVisibleAltitude: Double?
+    public var directionMaskVerified: Bool
+    public var openingHours: OpeningHours
+    public var admissionFee: String?
+    public var reservationRequired: Bool?
+    public var accessConditions: String?
+    public var officialWebsite: URL?
+    /// 施設情報の最終確認日。nil は未確認。
+    public var lastVerifiedAt: String?
+    /// 3D建物データのシーン ID。nil の地点は簡易地平線を使う。
+    public var sceneId: String?
+    /// 観測者が立っている建物（遮蔽判定から除外する）
+    public var hostBuildingId: String?
+    /// 建物データが無い地点の暫定の地平線仰角 [deg]
+    public var approxHorizonElevation: Double?
+    /// 地域の人工光の指標 0〜1（VIIRS 取り込み前の暫定値）
+    public var regionalLightIndex: Double
+    /// 近傍照明の段階評価 0〜3。nil は現地未確認。
+    public var localGlareLevel: Int?
+    public var lightingCheckDate: String?
+    public var modelVersion: String
+    public var memo: String?
+
+    /// 観測者の目の標高 = z_floor + h_eye（仕様書 4.1）
+    public var observerElevation: Double { floorElevation + eyeHeight }
+    public var accessVerified: Bool { lastVerifiedAt != nil }
+}
+
+public extension Calendar {
+    static let tokyo: Calendar = {
+        var c = Calendar(identifier: .gregorian)
+        c.timeZone = TimeZone(identifier: "Asia/Tokyo")!
+        return c
+    }()
+}

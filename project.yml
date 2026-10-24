@@ -1,0 +1,36 @@
+name: StarSpot
+options:
+  bundleIdPrefix: jp.jphacks.tkb2635
+  deploymentTarget:
+    iOS: "18.0"
+  developmentLanguage: ja
+packages:
+  StarCore:
+    path: Packages/StarCore
+targets:
+  StarSpot:
+    type: application
+    platform: iOS
+    sources: [App]
+    dependencies:
+      - package: StarCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: jp.jphacks.tkb2635.StarSpot
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "6.0"
+        TARGETED_DEVICE_FAMILY: "1"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: 星見スポット
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        CODE_SIGN_STYLE: Automatic
+schemes:
+  StarSpot:
+    build:
+      targets:
+        StarSpot: all
+    test:
+      targets: []

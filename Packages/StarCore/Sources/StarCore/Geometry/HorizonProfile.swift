@@ -1,0 +1,74 @@
+import Foundation
+
+/// 観測地点から見た、方位ごとの建物・地形の最大仰角 h(A)（仕様書 4.2）
+public struct HorizonProfile: Sendable {
+    /// samples[i] は方位 i°（0〜359）の最大仰角 [度]
+    public let samples: [Double]
+    /// 建物データではなく暫定値から作ったプロファイルか
+    public let isApproximate: Bool
+
+    public init(samples: [Double], isApproximate: Bool) {
+        precondition(samples.count == 360)
+        self.samples = samples
+        self.isApproximate = isApproximate
+    }
+
+    public static func uniform(_ elevation: Double, isApproximate: Bool) -> HorizonProfile {
+        HorizonProfile(samples: Array(repeating: elevation, count: 360), isApproximate: isApproximate)
+    }
+
+    public func elevation(at azimuth: Double) -> Double {
+        samples[Int(Angle.normalize(azimuth).rounded()) % 360]
+    }
+
+    /// 空の開放度 O ≈ (1/N) Σ (1 − sin h(A_i))（仕様書 4.4）
+    public var openness: Double {
+        samples.reduce(0) { $0 + (1 - sin(max(0, $1) * .pi / 180)) } / Double(samples.count)
+    }
+
+    /// 建物を直方体として、方位 1° ごとに観測者の目から最も手前で当たる面までの仰角を求める。
+    /// 観測者が立っている建物（hostBuildingId）は除外する。地形はシーン内で平坦と見なす。
+    public static func compute(spot: Spot, scene: CityScene) -> HorizonProfile {
+        let p = scene.localPosition(latitude: spot.latitude, longitude: spot.longitude)
+        return compute(observerEast: p.east, observerNorth: p.north, eyeElevation: spot.observerElevation,
+                       groundElevation: scene.groundElevation,
+                       buildings: scene.buildings.filter { $0.id != spot.hostBuildingId })
+    }
+
+    public static func compute(observerEast ox: Double, observerNorth oy: Double, eyeElevation: Double,
+                               groundElevation: Double, buildings: [Building]) -> HorizonProfile {
+        var samples = Array(repeating: 0.0, count: 360)
+        for i in 0..<360 {
+            let a = Double(i) * .pi / 180
+            let dx = sin(a), dy = cos(a)
+            for b in buildings {
+                let top = groundElevation + b.height
+                guard top > eyeElevation,
+                      let distance = rayHit(ox: ox, oy: oy, dx: dx, dy: dy,
+                                            minX: b.x - b.width / 2, maxX: b.x + b.width / 2,
+                                            minY: b.y - b.depth / 2, maxY: b.y + b.depth / 2)
+                else { continue }
+                let elevation = atan2(top - eyeElevation, distance) * 180 / .pi
+                samples[i] = max(samples[i], elevation)
+            }
+        }
+        return HorizonProfile(samples: samples, isApproximate: false)
+    }
+
+    /// 2D の半直線と長方形の交差（スラブ法）。観測者の外側で当たったときの距離を返す。
+    static func rayHit(ox: Double, oy: Double, dx: Double, dy: Double,
+                       minX: Double, maxX: Double, minY: Double, maxY: Double) -> Double? {
+        var tMin = -Double.infinity, tMax = Double.infinity
+        for (o, d, lo, hi) in [(ox, dx, minX, maxX), (oy, dy, minY, maxY)] {
+            if abs(d) < 1e-12 {
+                if o < lo || o > hi { return nil }
+            } else {
+                let t1 = (lo - o) / d, t2 = (hi - o) / d
+                tMin = max(tMin, min(t1, t2))
+                tMax = min(tMax, max(t1, t2))
+            }
+        }
+        guard tMax >= tMin, tMin > 0.5 else { return nil }
+        return tMin
+    }
+}
