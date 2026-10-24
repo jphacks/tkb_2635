@@ -40,6 +40,14 @@ def spot(spot_id, row, col, **extra):
 
 
 class LightIndexTest(unittest.TestCase):
+    def test_null_light_index_is_shown_as_unknown_in_preview(self):
+        spots = [{"id": "new_park", "regionalLightIndex": None}]
+        results = [{"id": "new_park", "radiance": 5.0, "index": 0.29, "validPixels": 9}]
+        self.assertIn("未確認", viirs.format_table(spots, results))
+        updated = viirs.apply(spots, results, 2025)[0]
+        self.assertEqual(updated["regionalLightIndex"], 0.29)
+        self.assertEqual(updated["regionalLightMeasuredAt"], "2025")
+
     def test_boundaries(self):
         self.assertEqual(viirs.light_index(viirs.R_DARK), 0.0)
         self.assertEqual(viirs.light_index(viirs.R_BRIGHT), 1.0)

@@ -127,9 +127,10 @@ def parse_sky(app_script, ticket_script):
                          "note": "通常営業時間。特別営業・臨時休館・当日の屋上開放状況は公式案内を確認。"},
         "admissionFee": fee,
         "reservationRequired": True,
-        "accessConditions": "日時指定券の事前購入を推奨。大人券はWEB完売時、窓口も完売。屋上の開放は天候次第。"
-                            + closure + " 屋上への持込不可: " + "、".join(prohibited)
-                            + "。持込可能: " + "、".join(allowed) + "。",
+        "accessConditions": "日時指定券の事前購入を推奨。大人券はWEB完売時、窓口も完売。屋上の開放は天候次第。",
+        "weatherClosureConditions": closure,
+        "photographyRestrictions": "屋上への持込不可: " + "、".join(prohibited)
+                                   + "。持込可能: " + "、".join(allowed) + "。",
         "officialWebsite": SKY + "ticket/",
     }
 
@@ -141,7 +142,9 @@ def parse_tocho(html):
     values = [clock(f"{int(hours[i]):02}:{int(hours[i+1]):02}") for i in (1, 3)]
     last = clock(f"{int(admission[3]):02}:{int(admission[4]):02}")
     for required in ["入室料金 無料", "事前予約、団体予約は受け付けしておりません", "第1及び第3火曜日",
-                     "祝日", "翌", "12月29日", "1月2日", "三脚", "照明の一部消灯"]:
+                     "祝日", "翌", "12月29日", "1月2日", "三脚等を使っての写真撮影はご遠慮いただいております", "照明の一部消灯",
+                     "悪天候などの理由により急遽、閉室する場合があります",
+                     "北東方面", "南東方面", "南西方面", "西方面"]:
         if required not in page:
             raise SourceError(f"都庁の条件が変わりました: {required}")
     return {
@@ -149,9 +152,13 @@ def parse_tocho(html):
                          "note": "第1・第3火曜休室（祝日の場合は翌平日）。12/29〜31・1/2〜3、庁舎点検日休室。"
                                  "元日の特別開室・東京マラソン日・臨時閉室は公式の開室スケジュールで確認。"},
         "admissionFee": "無料", "reservationRequired": False,
-        "accessConditions": "45階の屋内展望室。事前予約・団体予約の受付なし。三脚等を使う撮影は不可。"
-                            "悪天候等による急な閉室あり。一部照明の消灯案内あり（照明の段階評価は未確認）。"
-                            "公式案内に北東・南東・南西・西の眺望紹介があるが、窓ごとの可視方位・高度は未確認。",
+        "accessConditions": "45階の屋内展望室。事前予約・団体予約の受付なし。"
+                            "一部照明の消灯案内あり（照明の段階評価は未確認）。",
+        "weatherClosureConditions": "悪天候などにより急に閉室する場合があります。当日の閉室情報は公式案内を確認してください。",
+        "photographyRestrictions": "三脚等を使っての写真撮影はできません。",
+        "viewingDirectionNotes": "公式案内の眺望紹介は北東・南東・南西・西方面です。"
+                                 "窓から見える正確な角度の範囲と、高度の上限は未確認です。"
+                                 "方角の紹介から角度の境界を推測せず、確認できるまで要確認とします。",
         "officialWebsite": TOCHO,
     }
 
@@ -172,7 +179,9 @@ def parse_kitte(html):
                                  + "。天候による閉鎖あり。臨時休館は公式案内を確認。"},
         "admissionFee": "無料",
         "reservationRequired": None,
-        "accessConditions": "6階の屋上庭園。天候により閉鎖する場合あり。JR東京駅丸の内駅舎を望める。"
+        "accessConditions": "6階の屋上庭園。JR東京駅丸の内駅舎を望める。"
                             "観測可能な正確な方位範囲・周辺照明の強さは公式情報では未確認。",
+        "weatherClosureConditions": "天候により閉鎖する場合があります。具体的な風速・降雨量の基準は未確認です。",
+        "photographyRestrictions": None,
         "officialWebsite": KITTE,
     }

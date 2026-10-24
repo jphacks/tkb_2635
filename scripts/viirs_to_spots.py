@@ -160,8 +160,9 @@ def format_table(spots, results):
     for result in results:
         radiance = "欠損" if result["radiance"] is None else f"{result['radiance']:.2f}"
         index = "-" if result["index"] is None else f"{result['index']:.2f}"
+        previous = "未確認" if current[result["id"]] is None else str(current[result["id"]])
         lines.append(f"{result['id']:<24} {radiance:>14} {result['validPixels']:>4} {index:>8} "
-                     f"{current[result['id']]:>6}")
+                     f"{previous:>6}")
     return "\n".join(lines)
 
 
