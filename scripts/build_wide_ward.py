@@ -5,6 +5,7 @@ PLATEAU の「建築物モデル LOD1」の 3D Tiles を区ごとに取り、建
 
   python3 scripts/build_wide_ward.py 13104            # 新宿区
   python3 scripts/build_wide_ward.py 13104 --steps build   # 取得済みのデータから作り直すだけ
+  python3 scripts/build_wide_ward.py 13113 --lod 2         # 屋根の形つき（App/Resources/WideLOD2/Wide2_13113.usdz）
 
 手順は `download → build → install`。作業フォルダは `../outputs/wide-<区コード>`（リポジトリの外）。
 区コードは 13101（千代田区）〜 13123（江戸川区）。出典: 国土交通省 Project PLATEAU（CC BY 4.0）。
@@ -35,12 +36,14 @@ def fetch(url, retries=3):
                 raise
 
 
-def tileset_url(code):
+def tileset_url(code, lod=1):
     datasets = json.loads(fetch(CATALOG))['datasets']
+    # LOD2 はテクスチャなし版（屋根の形だけ。実写の貼り付けは使わない）
+    dataset_id = f'{code}_bldg_lod1' if lod == 1 else f'{code}_bldg_lod2_no_texture'
     for item in datasets:
-        if item.get('id') == f'{code}_bldg_lod1' and item.get('format') == '3D Tiles':
+        if item.get('id') == dataset_id and item.get('format') == '3D Tiles':
             return item['url'], item['city']
-    raise SystemExit(f'区コード {code} の LOD1 3D Tiles が見つからない')
+    raise SystemExit(f'区コード {code} の LOD{lod} 3D Tiles が見つからない')
 
 
 def tile_names(node, out):
@@ -92,8 +95,8 @@ def b3dm_to_glb(data):
     return out, center
 
 
-def download(code, work):
-    url, city = tileset_url(code)
+def download(code, work, lod=1):
+    url, city = tileset_url(code, lod)
     base = url.rsplit('/', 1)[0] + '/'
     tileset = json.loads(fetch(url))
     names = sorted(set(tile_names(tileset['root'], [])))
@@ -118,9 +121,10 @@ def download(code, work):
     print(f'{city}: タイル {len(names)} 枚を取得')
 
 
-def build(work):
+def build(work, lod=1):
     output = work / 'wide.usdz'
-    subprocess.run([BLENDER, '-b', '--python', str(ROOT / 'scripts/wide_ward_blender.py'),
+    script = 'wide_ward_blender.py' if lod == 1 else 'wide_ward_lod2_blender.py'
+    subprocess.run([BLENDER, '-b', '--python', str(ROOT / 'scripts' / script),
                     '--', str(work), str(output)], check=True)
     return output
 
@@ -128,19 +132,22 @@ def build(work):
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('code', help='区コード（例: 13104）')
+    parser.add_argument('--lod', type=int, choices=(1, 2), default=1,
+                        help='1: 建物を箱にした低詳細（既定）、2: 屋根の形つき（近くで見る用）')
     parser.add_argument('--steps', default=','.join(STEPS), help='動かす手順をコンマで（既定: すべて）')
     args = parser.parse_args()
     steps = args.steps.split(',')
     unknown = [step for step in steps if step not in STEPS]
     if unknown:
         raise SystemExit(f'知らない手順: {unknown}（使えるのは {STEPS}）')
-    work = ROOT.parent / 'outputs' / f'wide-{args.code}'
+    work = ROOT.parent / 'outputs' / (f'wide-{args.code}' if args.lod == 1 else f'wide2-{args.code}')
     if 'download' in steps:
-        download(args.code, work)
+        download(args.code, work, args.lod)
     if 'build' in steps:
-        build(work)
+        build(work, args.lod)
     if 'install' in steps:
-        target = ROOT / 'App/Resources/Wide' / f'Wide_{args.code}.usdz'
+        folder, prefix = ('Wide', 'Wide') if args.lod == 1 else ('WideLOD2', 'Wide2')
+        target = ROOT / 'App/Resources' / folder / f'{prefix}_{args.code}.usdz'
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(work / 'wide.usdz', target)
         print(f'{target.relative_to(ROOT)}: {target.stat().st_size / 1e6:.1f} MB')
