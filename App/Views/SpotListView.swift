@@ -67,9 +67,6 @@ struct SpotListView: View {
                             .font(.title.bold()).multilineTextAlignment(.center)
                         Text(targets.first { $0.id == centered }?.kind ?? "")
                             .font(.caption.monospaced()).tracking(3).foregroundStyle(.cyan)
-                        if let credit = targets.first(where: { $0.id == centered })?.imageCredit {
-                            Text(credit).font(.caption2).foregroundStyle(.secondary)
-                        }
                     }.accessibilityAddTraits(.updatesFrequently)
                     HStack(spacing: 30) {
                         moveButton(-1, symbol: "chevron.left", label: "前の天体")
@@ -108,9 +105,6 @@ struct SpotListView: View {
                     CabinPortrait(target: target).frame(width: diameter, height: diameter)
                     VStack(spacing: 16) {
                         Text(target.name).font(.title.bold())
-                        if let credit = target.imageCredit {
-                            Text(credit).font(.caption2).foregroundStyle(.secondary)
-                        }
                         Text("この天体を選択しますか？").font(.headline)
                         if let note = target.note {
                             Text(note).font(.footnote).foregroundStyle(.secondary)

@@ -18,8 +18,6 @@ final class SkyRenderer {
     /// 満ち欠けの絵の大きさ [画素]
     private static let moonPixels = 256
 
-    /// 3D に出す出典。PLATEAU・地理院タイル・NASA SVS（月の写真）・EOG（遠くの地面の夜間光 VIIRS VNL）・Gaia は出典の表示が利用の条件
-    static let credit = "出典: PLATEAU（CC BY 4.0）・国土地理院・NASA SVS・EOG/Colorado School of Mines（VIIRS 夜間光、CC BY 4.0）・ESA/Gaia/DPAC・星座線: d3-celestial（BSD-3-Clause）"
 
     static let domeName = "starDome"
     static let moonName = "moonDisk"

@@ -37,9 +37,6 @@ struct SpotInfoList: View {
                           detail: spot.localGlareLevel == nil || spot.regionalLightIndex == nil ? "精度不足" : "")
                 LabeledContent("月明かりの影響 M", value: model.target == .moon ? "月モードでは減点しない" : String(format: "%.2f", prediction.moonEffect))
                 LabeledContent("太陽高度", value: "\(String(format: "%.0f", prediction.sunAltitude))°（\(prediction.skyState.label)）")
-                Link("天気データ：Open-Meteo（CC BY 4.0）",
-                     destination: URL(string: "https://open-meteo.com/")!)
-                    .font(.caption)
             }
 
             Section {
@@ -113,7 +110,6 @@ struct SpotInfoList: View {
             if let scene = context.scene {
                 Section("建物データ") {
                     LabeledContent("収録建物数", value: "\(scene.buildings.count)棟")
-                    Text(scene.source).font(.caption).foregroundStyle(.secondary)
                 }
                 SurroundingsSection(context: context)
             }

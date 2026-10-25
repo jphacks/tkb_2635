@@ -13,9 +13,9 @@ struct Sky3DView: View {
     let date: Date
     /// 渡すと視点を外で持つ（地点を切り替えても向きが変わらない）。nil ならこの 3D だけで持つ。
     var sharedCamera: Binding<SkyCamera>? = nil
-    /// 比較画面では、左上の説明を判定と出典だけにする
+    /// 比較画面では、左上の説明を判定だけにする
     var compact = false
-    /// false にすると左上の説明を出さない（判定と出典を別の場所に出す画面向け）
+    /// false にすると左上の説明を出さない（判定を別の場所に出す画面向け）
     var showsLegend = true
 
     @State private var ownCamera = SkyCamera()
