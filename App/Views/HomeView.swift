@@ -12,6 +12,7 @@ struct HomeView: View {
     /// 一覧の行とピンの両方から、同じ詳細画面へ遷移するための経路
     @State private var path = NavigationPath()
     @State private var mode = HomeMapMode.city3D
+    @State private var overlayBottom: CGFloat = 0
     /// 3D の向き。3D を外している間も覚えておき、戻したとき同じ向きで出す
     @State private var camera = WideCityCamera()
     /// 詳細へ進んで隠れている間は 3D を外す（詳細の 3D と同時に描くと、描画用のメモリが足りなくなる）
@@ -28,8 +29,9 @@ struct HomeView: View {
                 // シートを全開にしている間は 3D がほぼ隠れるので外し、シートのスクロールと描画を取り合わないようにする
                 HomeBackground(mode: mode, camera: $camera,
                                isActive: isOnScreen && sheetDetent != HomeSheet.largeDetent,
-                               bottomInset: HomeSheet.coveredHeight) { leave(to: .spot($0)) }
+                               bottomInset: HomeSheet.coveredHeight, topInset: overlayBottom) { leave(to: .spot($0)) }
                 HomeOverlay(mode: $mode)
+                    .onGeometryChange(for: CGFloat.self) { $0.frame(in: .global).maxY } action: { overlayBottom = $0 }
             }
             .navigationTitle("Astera")
             .navigationBarTitleDisplayMode(.inline)
