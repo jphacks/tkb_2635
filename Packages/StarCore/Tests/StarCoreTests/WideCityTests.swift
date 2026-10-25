@@ -38,6 +38,16 @@ import Testing
         #expect(WideCity.nearestWards(wards, east: 350, north: 50, limit: 2, maxDistance: 10_000) == ["c", "b"])
     }
 
+    @Test func nearestSpotToShibuyaOrigin() throws {
+        let spots = try SeedData.loadSpots()
+        let id = try #require(WideCity.nearestSpot(spots, east: 0, north: 0))
+        let spot = try #require(spots.first { $0.id == id })
+        // 渋谷の原点から 1km 以内に地点がある（SHIBUYA SKY など）
+        let p = WideCity.localPosition(latitude: spot.latitude, longitude: spot.longitude)
+        #expect((p.east * p.east + p.north * p.north).squareRoot() < 1_000)
+        #expect(WideCity.nearestSpot([], east: 0, north: 0) == nil)
+    }
+
     @Test func farWardsAreLeftOut() {
         #expect(WideCity.nearestWards(wards, east: 50, north: 50, limit: 3, maxDistance: 150) == ["a", "b"])
         #expect(WideCity.nearestWards(wards, east: 50, north: 50, limit: 0, maxDistance: 150).isEmpty)

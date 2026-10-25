@@ -47,6 +47,18 @@ public enum WideCity {
         }
     }
 
+    /// 見ている中心（東・北 [m]）に最も近い地点の ID。地点が無ければ nil
+    public static func nearestSpot(_ spots: [Spot], east: Double, north: Double) -> String? {
+        spots.min { a, b in
+            squaredDistance(a, east: east, north: north) < squaredDistance(b, east: east, north: north)
+        }?.id
+    }
+
+    private static func squaredDistance(_ spot: Spot, east: Double, north: Double) -> Double {
+        let p = localPosition(latitude: spot.latitude, longitude: spot.longitude)
+        return (p.east - east) * (p.east - east) + (p.north - north) * (p.north - north)
+    }
+
     /// 見ている中心に近い順に、最大 limit 区の区コードを返す。maxDistance [m] より遠い区は入れない
     public static func nearestWards(_ wards: [WardBounds], east: Double, north: Double,
                                     limit: Int, maxDistance: Double) -> [String] {

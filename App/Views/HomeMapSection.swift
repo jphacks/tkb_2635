@@ -16,7 +16,7 @@ struct HomeMapSection: View {
 
     @State private var width: CGFloat = 0
     @State private var isExpanded = false
-    @State private var mode = HomeMapMode.map
+    @State private var mode = HomeMapMode.city3D
 
     private var height: CGFloat {
         min(max(width * Self.heightRatio, Self.minHeight), Self.maxHeight)
@@ -64,7 +64,11 @@ struct HomeMapSection: View {
                         isExpanded = false
                         onSelect(id)
                     }
-                case .city3D: FullScreenWideCity()
+                case .city3D:
+                    FullScreenWideCity(contexts: contexts, predictions: predictions) { id in
+                        isExpanded = false
+                        onSelect(id)
+                    }
                 }
             }
     }
