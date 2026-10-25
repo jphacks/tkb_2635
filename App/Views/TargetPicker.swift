@@ -81,6 +81,9 @@ struct CabinPortrait: View {
 
 /// 選択用の描画。天体の位相・実際の表面地図とは区別した、解像度に依存しない模式表現。
 enum CabinArt {
+    /// 月の画像はアセットカタログではなく Sky フォルダのファイルなので、バンドルから読む
+    static let moonDisk: UIImage = Bundle.main.url(forResource: "moon_disk", withExtension: "png")
+        .flatMap { UIImage(contentsOfFile: $0.path) } ?? UIImage()
     static func random(_ i: Int) -> CGFloat {
         let v = sin(Double(i) * 127.1 + 311.7) * 43758.5453
         return CGFloat(v - floor(v))
@@ -134,10 +137,10 @@ enum CabinArt {
         surface.fill(oval(-radius, -radius, radius * 2, radius * 2), with: .color(colors[0]))
         if id == "moon" {
             // 既存のNASA SVS月面画像を再利用。透明な外周を持たない円盤の範囲で表示する。
-            surface.draw(Image("moon_disk").interpolation(.high),
+            surface.draw(Image(uiImage: moonDisk).interpolation(.high),
                          in: CGRect(x:-radius,y:-radius,width:radius*2,height:radius*2))
             surface.fill(oval(-radius,-radius,radius*2,radius*2), with:.radialGradient(
-                Gradient(colors:[.white.opacity(0.12),.clear,.black.opacity(0.55)]),
+                Gradient(colors:[.white.opacity(0.06),.clear,.black.opacity(0.3)]),
                 center:CGPoint(x:-radius*0.4,y:-radius*0.4),startRadius:0,endRadius:radius*1.65))
             return
         }

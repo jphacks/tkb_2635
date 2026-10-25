@@ -272,6 +272,7 @@
 		61AEFFB0F2969B0948F4386F /* far_shibuya.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_shibuya.json; sourceTree = "<group>"; };
 		645DE5BF57C489F0569F244A /* ObserverEntryRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverEntryRenderer.swift; sourceTree = "<group>"; };
 		6771A8362CC87A5316EE4812 /* far_roppongi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_roppongi.jpg; sourceTree = "<group>"; };
+		67C73D6A447929A722FBA3DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		67FB796428C460DA3C82667C /* City_ueno_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_ueno_park.usdz; sourceTree = "<group>"; };
 		684A3A10D75E468B4002A0DB /* 06_location_found.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 06_location_found.wav; sourceTree = "<group>"; };
 		68A97D0FD9AAA999A2BA046E /* far_hibiya_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_hibiya_park.jpg; sourceTree = "<group>"; };
@@ -423,6 +424,7 @@
 			children = (
 				7E2AE00460F10C5D00FB4FC0 /* AppModel.swift */,
 				B0998F6616654F6C8506DC67 /* Assets.xcassets */,
+				67C73D6A447929A722FBA3DE /* Info.plist */,
 				54A0DF8B6DF51B16FAA603A3 /* LocationModel.swift */,
 				1DA8483FB629B08A3E5A4BE0 /* StarSpotApp.swift */,
 				13FC1E33BEE8D439278BD88C /* Resources */,
@@ -1033,10 +1035,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NMJFRR7D86;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Astera;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "現在地から観測地点までの距離と経路を表示するために使います";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1059,10 +1061,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NMJFRR7D86;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Astera;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "現在地から観測地点までの距離と経路を表示するために使います";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
