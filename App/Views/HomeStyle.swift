@@ -158,6 +158,8 @@ struct SpotResultsList: View {
     @State private var order: SpotListOrder = .nearest
     @State private var category: SpotCategory?
     let predictions: [Prediction]
+    /// 行を押したときに、その地点の ID を渡す（シートの中からは画面を進められないので、進むのは呼び出し側に任せる）
+    let onSelect: (String) -> Void
 
     var body: some View {
         let entries = SpotListPresentation.entries(contexts: model.contexts, predictions: predictions,
@@ -201,7 +203,7 @@ struct SpotResultsList: View {
             }
             LazyVStack(spacing: 0) {
                 ForEach(rows) { entry in
-                    NavigationLink(value: entry.id) {
+                    Button { onSelect(entry.id) } label: {
                         SpotRow(spot: entry.spot, prediction: entry.prediction, distanceKm: entry.distanceKm)
                     }.buttonStyle(.plain)
                     Rectangle().fill(HomeStyle.listDivider).frame(height: 1).accessibilityHidden(true)

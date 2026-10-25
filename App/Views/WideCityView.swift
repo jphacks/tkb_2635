@@ -7,6 +7,8 @@ struct WideCityCamera: Equatable {
     var target: SIMD2<Float> = [2_000, 4_000]
     var yaw: Float = 0
     var distance: Float = 300
+    /// 街の広さに合わせて最初の向きを決めたか。画面を作り直しても、決めた後の向きを保つ
+    var hasFitted = false
 
     static let minDistance: Float = 3
     static let maxDistance: Float = 450
@@ -48,6 +50,12 @@ struct WideCityView: View {
     var predictions: [Prediction] = []
     /// ピン（または画面下の地点名）を押したときに、その地点の ID を渡す
     var onSelect: (String) -> Void = { _ in }
+    /// 見る向き。呼び出し側が持つので、3D を外して作り直しても同じ向きで出る
+    @Binding var camera: WideCityCamera
+    /// 画面の下に重なるもの（シートなど）の高さ。地点名と出典をその上に出す
+    var bottomInset: CGFloat = 0
+    /// 街を読み込み、最初の絵を出せるようになったとき
+    var onReady: () -> Void = {}
 
     static let scale: Float = 1 / 100
     private static let rootName = "wideRoot"
@@ -58,7 +66,6 @@ struct WideCityView: View {
     static let source = "出典: 3D都市モデル（Project PLATEAU）東京都23区 LOD1・LOD2（CC BY 4.0）・国土地理院・EOG/Colorado School of Mines（VIIRS 夜間光、CC BY 4.0）を加工"
 
     @State private var lod = WideCityLOD()
-    @State private var camera = WideCityCamera()
     @State private var dragStart: WideCityCamera?
     @State private var zoomStart: WideCityCamera?
     @State private var rotateStart: WideCityCamera?
@@ -124,7 +131,8 @@ struct WideCityView: View {
             await lod.loadBoxes()
             // 読み込んだ区は近景の材質なので、次の描き直しで今の距離の明るさにする
             brightness.step = nil
-            if let e = lod.extent {
+            if !camera.hasFitted, let e = lod.extent {
+                camera.hasFitted = true
                 camera.target = [Float(e.minEast + e.maxEast) / 2, Float(e.minNorth + e.maxNorth) / 2]
                 camera.distance = min(Float(max(e.maxEast - e.minEast, e.maxNorth - e.minNorth)) * Self.scale * 0.95,
                                       WideCityCamera.maxDistance)
@@ -154,6 +162,13 @@ struct WideCityView: View {
                 camera.yaw = start.yaw - Float(value.rotation.radians)
             }
             .onEnded { _ in rotateStart = nil })
+        .onChange(of: isLoaded && isMade) { _, ready in
+            if ready { onReady() }
+        }
+        .overlay {
+            WideCityLabels(contexts: contexts, predictions: predictions, camera: camera,
+                           size: size, selectedId: centered?.id)
+        }
         .overlay {
             if !isLoaded || !isMade {
                 ProgressView("街を読み込み中")
@@ -169,6 +184,7 @@ struct WideCityView: View {
                     .foregroundStyle(.white.opacity(0.6))
             }
             .padding(8)
+            .padding(.bottom, bottomInset)
         }
         .accessibilityElement(children: .contain)
         .accessibilityLabel("東京23区の建物の3D")
@@ -266,7 +282,8 @@ struct WideCityView: View {
 }
 
 #Preview("23 区の広域 3D") {
-    WideCityView()
+    @Previewable @State var camera = WideCityCamera()
+    WideCityView(camera: $camera)
         .frame(height: 500)
         .preferredColorScheme(.dark)
 }

@@ -22,6 +22,8 @@ enum WideCityPins {
     private static let rimRadius: Float = 1.3
     /// 棒の先から頭の丸の中心までの高さ（頭の大きさ 1 あたり）
     static let headCenterHeight: Float = coneHeight + 0.6
+    /// 棒の先から頭の白い縁のいちばん上までの高さ（頭の大きさ 1 あたり）。地点名をこの上に出す
+    static let headTopHeight: Float = headCenterHeight + rimRadius
 
     /// 頭の大きさの下限・上限（1 単位 = 100m）。極端に近い・遠いときに、ピンが点や巨大な球にならないようにする
     private static let minHeadSize: Float = 0.01

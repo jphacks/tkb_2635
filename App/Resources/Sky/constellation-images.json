@@ -64,5 +64,404 @@
     {"star": [-14.5197, 42.326], "pixel": [64, -17]},
     {"star": [24.4982, 48.6282], "pixel": [211, 725]},
     {"star": [14.3017, 23.4176], "pixel": [809, 347]}
+   ]},
+  {"id": "Ant", "image": "constellation-antlia", "size": [1024, 1024],
+   "anchors": [
+    {"star": [156.7879, -31.0678], "pixel": [687, 357], "marked": true},
+    {"star": [142.3113, -35.9513], "pixel": [364, 551], "marked": true}
+   ]},
+  {"id": "Aps", "image": "constellation-apus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-138.0345, -79.0448], "pixel": [426, 408], "marked": true},
+    {"star": [-109.2306, -77.5174], "pixel": [609, 627], "marked": true}
+   ]},
+  {"id": "Aqr", "image": "constellation-aquarius", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-28.554, -0.3199], "pixel": [426, 356], "marked": true},
+    {"star": [-37.1103, -5.5712], "pixel": [780, 284], "marked": true}
+   ]},
+  {"id": "Ara", "image": "constellation-ara", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-97.0396, -49.8761], "pixel": [513, 362], "marked": true},
+    {"star": [-98.675, -55.5299], "pixel": [484, 743], "marked": true}
+   ]},
+  {"id": "Ari", "image": "constellation-aries", "size": [1024, 1024],
+   "anchors": [
+    {"star": [31.7934, 23.4624], "pixel": [292, 234], "marked": true},
+    {"star": [28.66, 20.808], "pixel": [514, 180], "marked": true}
+   ]},
+  {"id": "Aur", "image": "constellation-auriga", "size": [1024, 1024],
+   "anchors": [
+    {"star": [79.1723, 45.998], "pixel": [414, 320], "marked": true},
+    {"star": [89.8822, 44.9474], "pixel": [609, 247], "marked": true}
+   ]},
+  {"id": "Boo", "image": "constellation-bootes", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-146.0847, 19.1824], "pixel": [419, 659], "marked": true},
+    {"star": [-134.5135, 40.3906], "pixel": [513, 101], "marked": true}
+   ]},
+  {"id": "CMa", "image": "constellation-canis_major", "size": [1024, 1024],
+   "anchors": [
+    {"star": [101.2872, -16.7161], "pixel": [310, 443], "marked": true},
+    {"star": [104.6565, -28.9721], "pixel": [251, 847], "marked": true}
+   ]},
+  {"id": "CMi", "image": "constellation-canis_minor", "size": [1024, 1024],
+   "anchors": [
+    {"star": [114.8255, 5.225], "pixel": [405, 459], "marked": true},
+    {"star": [111.7877, 8.2893], "pixel": [667, 430], "marked": true}
+   ]},
+  {"id": "CVn", "image": "constellation-canes_venatici", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-165.9931, 38.3184], "pixel": [347, 682], "marked": true},
+    {"star": [-171.5644, 41.3575], "pixel": [474, 343], "marked": true}
+   ]},
+  {"id": "Cae", "image": "constellation-caelum", "size": [1024, 1024],
+   "anchors": [
+    {"star": [70.1405, -41.8638], "pixel": [487, 688], "marked": true},
+    {"star": [70.5145, -37.1443], "pixel": [379, 304], "marked": true}
+   ]},
+  {"id": "Cam", "image": "constellation-camelopardalis", "size": [1024, 1024],
+   "anchors": [
+    {"star": [73.5125, 66.3427], "pixel": [336, 188], "marked": true},
+    {"star": [75.8545, 60.4422], "pixel": [481, 472], "marked": true}
+   ]},
+  {"id": "Cap", "image": "constellation-capricornus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-55.588, -12.5082], "pixel": [360, 260], "marked": true},
+    {"star": [-33.2398, -16.1273], "pixel": [749, 730], "marked": true}
+   ]},
+  {"id": "Car", "image": "constellation-carina", "size": [1024, 1024],
+   "anchors": [
+    {"star": [95.988, -52.6957], "pixel": [271, 671], "marked": true},
+    {"star": [138.2999, -69.7172], "pixel": [891, 393], "marked": true}
+   ]},
+  {"id": "Cen", "image": "constellation-centaurus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-140.0979, -60.834], "pixel": [351, 853], "marked": true},
+    {"star": [-148.3294, -36.37], "pixel": [460, 292], "marked": true}
+   ]},
+  {"id": "Cep", "image": "constellation-cepheus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-40.3551, 62.5856], "pixel": [512, 358], "marked": true},
+    {"star": [-5.1631, 77.6323], "pixel": [776, 143], "marked": true}
+   ]},
+  {"id": "Cet", "image": "constellation-cetus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [45.5699, 4.0897], "pixel": [332, 319], "marked": true},
+    {"star": [10.8974, -17.9866], "pixel": [781, 662], "marked": true}
+   ]},
+  {"id": "Cha", "image": "constellation-chamaeleon", "size": [1024, 1024],
+   "anchors": [
+    {"star": [124.6315, -76.9197], "pixel": [392, 456], "marked": true},
+    {"star": [-175.4132, -79.3122], "pixel": [673, 542], "marked": true}
+   ]},
+  {"id": "Cir", "image": "constellation-circinus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-139.3733, -64.9751], "pixel": [513, 205], "marked": true},
+    {"star": [-130.6215, -58.8012], "pixel": [677, 648], "marked": true}
+   ]},
+  {"id": "Cnc", "image": "constellation-cancer", "size": [1024, 1024],
+   "anchors": [
+    {"star": [134.6218, 11.8577], "pixel": [264, 363], "marked": true},
+    {"star": [124.1288, 9.1855], "pixel": [783, 388], "marked": true}
+   ]},
+  {"id": "Col", "image": "constellation-columba", "size": [1024, 1024],
+   "anchors": [
+    {"star": [84.9122, -34.0741], "pixel": [436, 527], "marked": true},
+    {"star": [87.74, -35.7683], "pixel": [620, 690], "marked": true}
+   ]},
+  {"id": "Com", "image": "constellation-coma_berenices", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-162.0317, 27.8782], "pixel": [631, 273], "marked": true},
+    {"star": [-162.503, 17.5294], "pixel": [640, 767], "marked": true}
+   ]},
+  {"id": "CrA", "image": "constellation-corona_australis", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-72.6319, -37.9045], "pixel": [674, 378], "marked": true},
+    {"star": [-72.4927, -39.3408], "pixel": [692, 741], "marked": true}
+   ]},
+  {"id": "CrB", "image": "constellation-corona_borealis", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-126.328, 26.7147], "pixel": [532, 727], "marked": true},
+    {"star": [-128.0428, 29.1057], "pixel": [261, 412], "marked": true}
+   ]},
+  {"id": "Crt", "image": "constellation-crater", "size": [1024, 1024],
+   "anchors": [
+    {"star": [164.9436, -18.2988], "pixel": [422, 591], "marked": true},
+    {"star": [169.8352, -14.7785], "pixel": [689, 335], "marked": true}
+   ]},
+  {"id": "Cru", "image": "constellation-crux", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-173.3504, -63.0991], "pixel": [533, 824], "marked": true},
+    {"star": [-172.2085, -57.1132], "pixel": [505, 173], "marked": true},
+    {"star": [-168.0697, -59.6888], "pixel": [717, 468], "marked": true},
+    {"star": [-176.2137, -58.7489], "pixel": [323, 387], "marked": true}
+   ]},
+  {"id": "Crv", "image": "constellation-corvus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-176.0485, -17.5419], "pixel": [389, 440], "marked": true},
+    {"star": [-172.5339, -16.5154], "pixel": [640, 439], "marked": true}
+   ]},
+  {"id": "Del", "image": "constellation-delphinus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-50.0905, 15.9121], "pixel": [357, 248], "marked": true},
+    {"star": [-51.6968, 11.3033], "pixel": [700, 671], "marked": true}
+   ]},
+  {"id": "Dor", "image": "constellation-dorado", "size": [1024, 1024],
+   "anchors": [
+    {"star": [68.4991, -55.045], "pixel": [466, 455], "marked": true},
+    {"star": [83.4063, -62.4898], "pixel": [734, 647], "marked": true}
+   ]},
+  {"id": "Dra", "image": "constellation-draco", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-90.8485, 51.4889], "pixel": [440, 286], "marked": true},
+    {"star": [-148.9027, 64.3759], "pixel": [774, 784], "marked": true}
+   ]},
+  {"id": "Equ", "image": "constellation-equuleus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-41.044, 5.2478], "pixel": [529, 686], "marked": true},
+    {"star": [-42.4146, 10.1316], "pixel": [384, 315], "marked": true}
+   ]},
+  {"id": "Eri", "image": "constellation-eridanus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [76.9624, -5.0864], "pixel": [698, 202], "marked": true},
+    {"star": [24.4285, -57.2368], "pixel": [327, 808], "marked": true}
+   ]},
+  {"id": "For", "image": "constellation-fornax", "size": [1024, 1024],
+   "anchors": [
+    {"star": [48.0189, -28.9876], "pixel": [536, 259], "marked": true},
+    {"star": [42.2726, -32.4059], "pixel": [318, 665], "marked": true}
+   ]},
+  {"id": "Gru", "image": "constellation-grus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-27.9417, -46.961], "pixel": [440, 418], "marked": true},
+    {"star": [-19.3331, -46.8846], "pixel": [677, 477], "marked": true}
+   ]},
+  {"id": "Her", "image": "constellation-hercules", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-101.3381, 14.3903], "pixel": [508, 156], "marked": true},
+    {"star": [-112.445, 21.4896], "pixel": [353, 573], "marked": true}
+   ]},
+  {"id": "Hor", "image": "constellation-horologium", "size": [1024, 1024],
+   "anchors": [
+    {"star": [63.5005, -42.2944], "pixel": [516, 299], "marked": true},
+    {"star": [44.6992, -64.0713], "pixel": [511, 711], "marked": true}
+   ]},
+  {"id": "Hya", "image": "constellation-hydra", "size": [1024, 1024],
+   "anchors": [
+    {"star": [141.8968, -8.6586], "pixel": [355, 302], "marked": true},
+    {"star": [-160.2696, -23.1715], "pixel": [705, 698], "marked": true}
+   ]},
+  {"id": "Hyi", "image": "constellation-hydrus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [29.6925, -61.5699], "pixel": [361, 314], "marked": true},
+    {"star": [6.4378, -77.2542], "pixel": [651, 723], "marked": true}
+   ]},
+  {"id": "Ind", "image": "constellation-indus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-50.6082, -47.2915], "pixel": [550, 256], "marked": true},
+    {"star": [-46.2975, -58.4542], "pixel": [424, 660], "marked": true}
+   ]},
+  {"id": "LMi", "image": "constellation-leo_minor", "size": [1024, 1024],
+   "anchors": [
+    {"star": [163.3279, 34.2149], "pixel": [705, 545], "marked": true},
+    {"star": [156.9708, 36.7072], "pixel": [439, 463], "marked": true}
+   ]},
+  {"id": "Lac", "image": "constellation-lacerta", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-22.1771, 50.2825], "pixel": [279, 157], "marked": true},
+    {"star": [-24.1099, 52.229], "pixel": [418, 295], "marked": true}
+   ]},
+  {"id": "Leo", "image": "constellation-leo", "size": [1024, 1024],
+   "anchors": [
+    {"star": [152.093, 11.9672], "pixel": [428, 475], "marked": true},
+    {"star": [177.2649, 14.5721], "pixel": [874, 292], "marked": true}
+   ]},
+  {"id": "Lep", "image": "constellation-lepus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [83.1826, -17.8223], "pixel": [415, 521], "marked": true},
+    {"star": [82.0613, -20.7594], "pixel": [434, 768], "marked": true}
+   ]},
+  {"id": "Lib", "image": "constellation-libra", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-137.2804, -16.0418], "pixel": [269, 430], "marked": true},
+    {"star": [-130.7483, -9.3829], "pixel": [756, 429], "marked": true}
+   ]},
+  {"id": "Lup", "image": "constellation-lupus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-139.5177, -47.3882], "pixel": [404, 674], "marked": true},
+    {"star": [-135.367, -43.134], "pixel": [451, 407], "marked": true}
+   ]},
+  {"id": "Lyn", "image": "constellation-lynx", "size": [1024, 1024],
+   "anchors": [
+    {"star": [140.2638, 34.3926], "pixel": [392, 445], "marked": true},
+    {"star": [125.7088, 43.1881], "pixel": [753, 459], "marked": true}
+   ]},
+  {"id": "Lyr", "image": "constellation-lyra", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-80.7653, 38.7837], "pixel": [372, 205], "marked": true},
+    {"star": [-77.48, 33.3627], "pixel": [672, 745], "marked": true}
+   ]},
+  {"id": "Men", "image": "constellation-mensa", "size": [1024, 1024],
+   "anchors": [
+    {"star": [92.5603, -74.753], "pixel": [737, 341], "marked": true},
+    {"star": [75.6792, -71.3143], "pixel": [314, 622], "marked": true}
+   ]},
+  {"id": "Mic", "image": "constellation-microscopium", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-47.508, -33.7797], "pixel": [402, 703], "marked": true},
+    {"star": [-44.6772, -32.2578], "pixel": [445, 218], "marked": true}
+   ]},
+  {"id": "Mon", "image": "constellation-monoceros", "size": [1024, 1024],
+   "anchors": [
+    {"star": [97.2045, -7.0331], "pixel": [386, 578], "marked": true},
+    {"star": [107.9661, -0.4928], "pixel": [390, 364], "marked": true}
+   ]},
+  {"id": "Mus", "image": "constellation-musca", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-170.7041, -69.1356], "pixel": [511, 625], "marked": true},
+    {"star": [-168.43, -68.1081], "pixel": [523, 377], "marked": true}
+   ]},
+  {"id": "Nor", "image": "constellation-norma", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-115.0399, -50.1555], "pixel": [370, 746], "marked": true},
+    {"star": [-118.3773, -45.1732], "pixel": [391, 303], "marked": true}
+   ]},
+  {"id": "Oct", "image": "constellation-octans", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-34.6306, -77.39], "pixel": [554, 283], "marked": true},
+    {"star": [-18.4854, -81.3816], "pixel": [204, 658], "marked": true}
+   ]},
+  {"id": "Oph", "image": "constellation-ophiuchus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-96.2664, 12.56], "pixel": [514, 139], "marked": true},
+    {"star": [-102.4055, -15.7249], "pixel": [636, 828], "marked": true}
+   ]},
+  {"id": "Pav", "image": "constellation-pavo", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-53.5881, -56.7351], "pixel": [517, 532], "marked": true},
+    {"star": [-48.7604, -66.2032], "pixel": [519, 711], "marked": true}
+   ]},
+  {"id": "Per", "image": "constellation-perseus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [51.0807, 49.8612], "pixel": [521, 366], "marked": true},
+    {"star": [47.0422, 40.9556], "pixel": [343, 615], "marked": true}
+   ]},
+  {"id": "Phe", "image": "constellation-phoenix", "size": [1024, 1024],
+   "anchors": [
+    {"star": [6.571, -42.306], "pixel": [424, 419], "marked": true},
+    {"star": [16.521, -46.7184], "pixel": [574, 639], "marked": true}
+   ]},
+  {"id": "Pic", "image": "constellation-pictor", "size": [1024, 1024],
+   "anchors": [
+    {"star": [102.0477, -61.9414], "pixel": [365, 714], "marked": true},
+    {"star": [86.8212, -51.0665], "pixel": [530, 217], "marked": true}
+   ]},
+  {"id": "PsA", "image": "constellation-piscis_austrinus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-15.5873, -29.6222], "pixel": [164, 411], "marked": true},
+    {"star": [-22.1236, -32.3461], "pixel": [701, 583], "marked": true}
+   ]},
+  {"id": "Psc", "image": "constellation-pisces", "size": [1024, 1024],
+   "anchors": [
+    {"star": [22.8709, 15.3458], "pixel": [465, 197], "marked": true},
+    {"star": [30.5118, 2.7638], "pixel": [550, 780], "marked": true}
+   ]},
+  {"id": "Pup", "image": "constellation-puppis", "size": [1024, 1024],
+   "anchors": [
+    {"star": [120.896, -40.0031], "pixel": [662, 216], "marked": true},
+    {"star": [109.2857, -37.0975], "pixel": [325, 709], "marked": true}
+   ]},
+  {"id": "Pyx", "image": "constellation-pyxis", "size": [1024, 1024],
+   "anchors": [
+    {"star": [130.8981, -33.1864], "pixel": [723, 359], "marked": true},
+    {"star": [130.0256, -35.3084], "pixel": [336, 683], "marked": true}
+   ]},
+  {"id": "Ret", "image": "constellation-reticulum", "size": [1024, 1024],
+   "anchors": [
+    {"star": [63.6062, -62.4739], "pixel": [710, 311], "marked": true},
+    {"star": [56.0499, -64.8069], "pixel": [275, 704], "marked": true}
+   ]},
+  {"id": "Scl", "image": "constellation-sculptor", "size": [1024, 1024],
+   "anchors": [
+    {"star": [14.6515, -29.3574], "pixel": [498, 255], "marked": true},
+    {"star": [-6.7573, -37.8183], "pixel": [468, 767], "marked": true}
+   ]},
+  {"id": "Sct", "image": "constellation-scutum", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-81.1982, -8.2441], "pixel": [509, 719], "marked": true},
+    {"star": [-78.2064, -4.7479], "pixel": [514, 203], "marked": true}
+   ]},
+  {"id": "Ser", "image": "constellation-serpens", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-123.933, 6.4256], "pixel": [408, 218], "marked": true},
+    {"star": [-75.9451, 4.2036], "pixel": [774, 851], "marked": true}
+   ]},
+  {"id": "Sex", "image": "constellation-sextans", "size": [1024, 1024],
+   "anchors": [
+    {"star": [151.9845, -0.3716], "pixel": [508, 278], "marked": true},
+    {"star": [157.5728, -0.637], "pixel": [794, 746], "marked": true}
+   ]},
+  {"id": "Sge", "image": "constellation-sagitta", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-64.9759, 18.0139], "pixel": [375, 666], "marked": true},
+    {"star": [-60.3107, 19.4921], "pixel": [821, 246], "marked": true}
+   ]},
+  {"id": "Sgr", "image": "constellation-sagittarius", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-83.957, -34.3846], "pixel": [250, 410], "marked": true},
+    {"star": [-76.1836, -26.2967], "pixel": [535, 371], "marked": true}
+   ]},
+  {"id": "Tau", "image": "constellation-taurus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [68.9802, 16.5093], "pixel": [362, 270], "marked": true},
+    {"star": [81.573, 28.6075], "pixel": [534, 83], "marked": true}
+   ]},
+  {"id": "Tel", "image": "constellation-telescopium", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-83.2566, -45.9685], "pixel": [800, 266], "marked": true},
+    {"star": [-87.1927, -45.9544], "pixel": [498, 599], "marked": true}
+   ]},
+  {"id": "TrA", "image": "constellation-triangulum_australe", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-107.8338, -69.0277], "pixel": [836, 785], "marked": true},
+    {"star": [-121.2143, -63.4307], "pixel": [511, 273], "marked": true},
+    {"star": [-130.2726, -68.6795], "pixel": [259, 759], "marked": true}
+   ]},
+  {"id": "Tri", "image": "constellation-triangulum", "size": [1024, 1024],
+   "anchors": [
+    {"star": [28.2704, 29.5788], "pixel": [512, 214], "marked": true},
+    {"star": [32.3859, 34.9873], "pixel": [297, 805], "marked": true},
+    {"star": [34.3286, 33.8472], "pixel": [788, 729], "marked": true}
+   ]},
+  {"id": "Tuc", "image": "constellation-tucana", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-25.3746, -60.2596], "pixel": [466, 455], "marked": true},
+    {"star": [7.8861, -62.9582], "pixel": [710, 631], "marked": true}
+   ]},
+  {"id": "UMi", "image": "constellation-ursa_minor", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-137.3236, 74.1555], "pixel": [422, 450], "marked": true},
+    {"star": [37.9545, 89.2641], "pixel": [864, 204], "marked": true}
+   ]},
+  {"id": "Vel", "image": "constellation-vela", "size": [1024, 1024],
+   "anchors": [
+    {"star": [122.3831, -47.3366], "pixel": [291, 788], "marked": true},
+    {"star": [136.999, -43.4326], "pixel": [766, 351], "marked": true}
+   ]},
+  {"id": "Vir", "image": "constellation-virgo", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-158.7018, -11.1613], "pixel": [391, 459], "marked": true},
+    {"star": [-169.5848, -1.4494], "pixel": [582, 262], "marked": true}
+   ]},
+  {"id": "Vol", "image": "constellation-volans", "size": [1024, 1024],
+   "anchors": [
+    {"star": [135.6116, -66.3961], "pixel": [392, 411], "marked": true},
+    {"star": [126.4341, -66.1369], "pixel": [615, 598], "marked": true}
+   ]},
+  {"id": "Vul", "image": "constellation-vulpecula", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-67.8236, 24.6649], "pixel": [245, 460], "marked": true},
+    {"star": [-56.0578, 27.8142], "pixel": [753, 541], "marked": true}
    ]}
 ]
