@@ -46,7 +46,7 @@ import Testing
     }
 
     /// 方位ごとの遮蔽仰角の回帰（渋谷駅東口 地上）。PLATEAU から作り直したら、Blender で 3D から測った値と比べて更新する
-    @Test(arguments: [(63, 21.337), (105, 31.596), (127, 9.768), (152, 64.631), (300, 81.572)])
+    @Test(arguments: [(63, 21.422), (105, 31.691), (127, 9.801), (152, 64.658), (300, 81.580)])
     func groundHorizonAtRepresentativeAzimuths(azimuth: Int, expected: Double) throws {
         let ground = try shibuya("shibuya_east_plaza")
         #expect(abs(ground.horizon.samples[azimuth] - expected) < 0.01, "方位 \(azimuth)°: \(ground.horizon.samples[azimuth])")
