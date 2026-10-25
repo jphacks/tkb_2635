@@ -14983,6 +14983,7 @@
   {
     "id": "shinjuku",
     "name": "西新宿",
+    "observerViewEnabled": true,
     "originLatitude": 35.6896,
     "originLongitude": 139.6917,
     "groundElevation": 36.0,
@@ -22903,6 +22904,7 @@
   {
     "id": "marunouchi",
     "name": "丸の内（東京駅前）",
+    "observerViewEnabled": true,
     "originLatitude": 35.6796,
     "originLongitude": 139.7647,
     "groundElevation": 3.0,
@@ -26413,6 +26415,7 @@
   {
     "id": "yoyogi_park",
     "name": "代々木公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.6717,
     "originLongitude": 139.6949,
     "groundElevation": 34.0,
@@ -28613,6 +28616,7 @@
   {
     "id": "shinjuku_gyoen",
     "name": "新宿御苑",
+    "observerViewEnabled": true,
     "originLatitude": 35.6852,
     "originLongitude": 139.71,
     "groundElevation": 34.0,
@@ -36543,6 +36547,7 @@
   {
     "id": "arakawa_riverside",
     "name": "荒川河川敷（船堀付近）",
+    "observerViewEnabled": true,
     "originLatitude": 35.688,
     "originLongitude": 139.855,
     "groundElevation": -1.0,
@@ -38713,6 +38718,7 @@
   {
     "id": "kasai_rinkai_park",
     "name": "葛西臨海公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.643,
     "originLongitude": 139.861,
     "groundElevation": 3,
@@ -40683,6 +40689,7 @@
   {
     "id": "toneri_park",
     "name": "舎人公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.8006972,
     "originLongitude": 139.771777,
     "groundElevation": 4.0,
@@ -53013,6 +53020,7 @@
   {
     "id": "mizumoto_park",
     "name": "水元公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.7884,
     "originLongitude": 139.8689,
     "groundElevation": 2.0,
@@ -64683,6 +64691,7 @@
   {
     "id": "komazawa_olympic_park",
     "name": "駒沢オリンピック公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.6244,
     "originLongitude": 139.6618,
     "groundElevation": 39.0,
@@ -76413,6 +76422,7 @@
   {
     "id": "hikarigaoka_park",
     "name": "光が丘公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.7628,
     "originLongitude": 139.6277,
     "groundElevation": 37.0,
@@ -87723,6 +87733,7 @@
   {
     "id": "ukima_park",
     "name": "浮間公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.7928,
     "originLongitude": 139.6937,
     "groundElevation": 1,
@@ -101803,6 +101814,7 @@
   {
     "id": "kiba_park",
     "name": "木場公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.6738,
     "originLongitude": 139.8083,
     "groundElevation": 2.0,
@@ -116783,6 +116795,7 @@
   {
     "id": "kinuta_park",
     "name": "砧公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.6304,
     "originLongitude": 139.6202,
     "groundElevation": 39.0,
@@ -123673,6 +123686,7 @@
   {
     "id": "odaiba_kaihin_park",
     "name": "お台場海浜公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.6297,
     "originLongitude": 139.7745,
     "groundElevation": 1.9,
@@ -125633,6 +125647,7 @@
   {
     "id": "harumi_futo_park",
     "name": "晴海ふ頭公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.648,
     "originLongitude": 139.771,
     "groundElevation": 3.6,
@@ -127243,6 +127258,7 @@
   {
     "id": "jonanjima_kaihin_park",
     "name": "城南島海浜公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.5792,
     "originLongitude": 139.7859,
     "groundElevation": 0.9,
@@ -129103,6 +129119,7 @@
   {
     "id": "oshiage",
     "name": "押上（東京スカイツリー）",
+    "observerViewEnabled": true,
     "originLatitude": 35.710063,
     "originLongitude": 139.8107,
     "groundElevation": 0.0,
@@ -159843,6 +159860,7 @@
   {
     "id": "shibakoen",
     "name": "芝公園（東京タワー）",
+    "observerViewEnabled": true,
     "originLatitude": 35.658581,
     "originLongitude": 139.745433,
     "groundElevation": 15.0,
@@ -169133,6 +169151,7 @@
   {
     "id": "higashi_ikebukuro",
     "name": "東池袋（サンシャイン60）",
+    "observerViewEnabled": true,
     "originLatitude": 35.729503,
     "originLongitude": 139.71834,
     "groundElevation": 30.0,
@@ -186203,6 +186222,7 @@
   {
     "id": "roppongi",
     "name": "六本木（六本木ヒルズ）",
+    "observerViewEnabled": true,
     "originLatitude": 35.660464,
     "originLongitude": 139.729249,
     "groundElevation": 30.0,
@@ -200763,6 +200783,7 @@
   {
     "id": "asakusa",
     "name": "浅草（浅草文化観光センター）",
+    "observerViewEnabled": true,
     "originLatitude": 35.7108,
     "originLongitude": 139.7963,
     "groundElevation": 4.0,
@@ -228883,6 +228904,7 @@
   {
     "id": "shiodome",
     "name": "汐留（カレッタ汐留）",
+    "observerViewEnabled": true,
     "originLatitude": 35.6646,
     "originLongitude": 139.7629,
     "groundElevation": 3.0,
@@ -236423,6 +236445,7 @@
   {
     "id": "funabori",
     "name": "船堀（タワーホール船堀）",
+    "observerViewEnabled": true,
     "originLatitude": 35.6843,
     "originLongitude": 139.8641,
     "groundElevation": -1.0,
@@ -255843,6 +255866,7 @@
   {
     "id": "ueno_park",
     "name": "上野恩賜公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.7156,
     "originLongitude": 139.7745,
     "groundElevation": 18.0,
@@ -260843,6 +260867,7 @@
   {
     "id": "hibiya_park",
     "name": "日比谷公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.6732,
     "originLongitude": 139.7562,
     "groundElevation": 4.0,
@@ -265123,6 +265148,7 @@
   {
     "id": "sumida_park",
     "name": "隅田公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.7125,
     "originLongitude": 139.802,
     "groundElevation": 3.0,
@@ -287253,6 +287279,7 @@
   {
     "id": "wakasu_kaihin_park",
     "name": "若洲海浜公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.6175,
     "originLongitude": 139.8366,
     "groundElevation": 6.0,
@@ -287993,6 +288020,7 @@
   {
     "id": "yumenoshima_park",
     "name": "夢の島公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.653,
     "originLongitude": 139.827,
     "groundElevation": 5.0,
@@ -289223,6 +289251,7 @@
   {
     "id": "shakujii_park",
     "name": "石神井公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.7357,
     "originLongitude": 139.598,
     "groundElevation": 44.0,
@@ -312203,6 +312232,7 @@
   {
     "id": "rinshi_no_mori_park",
     "name": "林試の森公園",
+    "observerViewEnabled": true,
     "originLatitude": 35.6255,
     "originLongitude": 139.7055,
     "groundElevation": 26.0,
@@ -344173,6 +344203,7 @@
   {
     "id": "todai_hongo",
     "name": "東京大学 本郷キャンパス",
+    "observerViewEnabled": true,
     "originLatitude": 35.7129,
     "originLongitude": 139.762,
     "groundElevation": 20.0,
