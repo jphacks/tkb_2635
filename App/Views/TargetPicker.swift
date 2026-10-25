@@ -64,6 +64,8 @@ struct CabinTarget: Identifiable {
 
 struct CabinPortrait: View {
     let target: CabinTarget
+    /// 起動直後は RealityView が空のまま出ることがあるので、画面が落ち着いてから作る
+    @State private var ready = false
     var body: some View {
         if target.isConstellation {
             Canvas { context, size in
@@ -83,7 +85,7 @@ struct CabinPortrait: View {
                                  with: .color(.white))
                 }
             }
-        } else {
+        } else if ready {
             RealityView { content in
                 let sphere = ModelEntity(
                     mesh: .generateSphere(radius: target.kind == "STAR" ? 0.28 : 0.65),
@@ -97,6 +99,11 @@ struct CabinPortrait: View {
                 content.add(light)
             }
             .allowsHitTesting(false)
+        } else {
+            Color.clear.task {
+                try? await Task.sleep(for: .milliseconds(300))
+                ready = true
+            }
         }
     }
 }
