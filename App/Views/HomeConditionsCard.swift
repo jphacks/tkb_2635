@@ -1,76 +1,151 @@
 import StarCore
 import SwiftUI
 
-/// ホームの条件カード。「今夜 21:00 の 月」の見出しと、日時・天体・月の情報をまとめる
+/// 選択済みの天体を、日時と名前の右上に浮かべる。天体の選び直しは既存の画面を使う。
 struct HomeConditionsCard: View {
     @Environment(AppModel.self) private var model
+    @Environment(\.dynamicTypeSize) private var typeSize
+    @State private var editingDate = false
+    @State private var draftDate = Date()
+    @State private var width: CGFloat = 358
+
+    private var selectedTarget: CabinTarget? {
+        let targets = CabinTarget.catalog
+        if let id = model.selectedCabinTargetID,
+           let selected = targets.first(where: { $0.id == id && $0.observation == model.target }) {
+            return selected
+        }
+        // 他画面で観測対象が変わった場合は、古い表示用IDを使わず現在の対象を表示する。
+        return targets.first { !$0.isConstellation && $0.observation == model.target }
+    }
 
     var body: some View {
-        @Bindable var model = model
-
-        VStack(alignment: .leading, spacing: 14) {
-            headline
-
-            VStack(spacing: 10) {
-                DatePicker("観測日時", selection: $model.date)
-                    .environment(\.timeZone, TimeZone(identifier: "Asia/Tokyo")!)
-                Divider().overlay(HomeStyle.cardStroke)
-                LabeledContent("見たい天体") {
-                    TargetPicker(target: $model.target)
-                        .labelsHidden()
+        VStack(alignment: .leading, spacing: 22) {
+            Text("ASTERA")
+                .font(.system(size: 42, weight: .regular, design: .serif)).tracking(3)
+                .foregroundStyle(.white)
+                .accessibilityAddTraits(.isHeader)
+            Group {
+                if typeSize.isAccessibilitySize || width < 280 {
+                    VStack(alignment: .leading, spacing: 16) {
+                        portrait.frame(maxWidth: .infinity, alignment: .trailing)
+                        observationDetails
+                    }
+                } else {
+                    HStack(alignment: .top, spacing: 8) {
+                        observationDetails.frame(maxWidth: .infinity, alignment: .leading)
+                        portrait
+                    }
                 }
-                Divider().overlay(HomeStyle.cardStroke)
-                MoonSummary(moon: model.moon)
             }
-            .font(.subheadline)
-
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 6) {
+                if let target = selectedTarget, let credit = target.imageCredit {
+                    Text(credit).foregroundStyle(.secondary)
+                }
+                if let note = selectedTarget?.note {
+                    Text(note).foregroundStyle(.secondary)
+                }
                 if let message = model.forecastOutOfRangeMessage {
                     ForecastOutOfRangeNote(message: message)
                 }
                 Text("スコアは観測条件の目安で、観測できる確率ではありません。")
                     .foregroundStyle(.secondary)
+            }.font(.caption)
+        }
+        .padding(.vertical, 12)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { width = $0 }
+        .sheet(isPresented: $editingDate) { dateEditor }
+    }
+
+    private var observationDetails: some View {
+        VStack(alignment: .leading, spacing: 22) {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("観測する日時").font(.subheadline).foregroundStyle(.secondary)
+                Button {
+                    draftDate = model.date
+                    editingDate = true
+                } label: {
+                    HStack(spacing: 8) {
+                        Text(model.date.formatted(Self.dateFormat))
+                            .font(.system(.title3, design: .serif)).monospacedDigit()
+                            .lineLimit(1).minimumScaleFactor(0.7)
+                        Image(systemName: "chevron.down").font(.caption)
+                    }
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 12).padding(.vertical, 14)
+                    .frame(maxWidth: .infinity, minHeight: 48)
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+                    .overlay(RoundedRectangle(cornerRadius: 16).strokeBorder(.white.opacity(0.3), lineWidth: 1))
+                    .contentShape(RoundedRectangle(cornerRadius: 16))
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel("観測する日時を変更")
+                .accessibilityValue(model.date.formatted(Self.accessibleDateFormat) + "、日本時間")
+                .accessibilityHint("日付と時刻の編集画面を開きます")
+                Text(model.date.formatted(Self.yearFormat) + "・日本時間")
+                    .font(.caption2).foregroundStyle(.secondary)
             }
-            .font(.caption)
+            VStack(alignment: .leading, spacing: 8) {
+                Text("観測する天体").font(.subheadline).foregroundStyle(.secondary)
+                Text(selectedTarget?.name ?? model.target.name)
+                    .font(.system(.title, design: .serif)).foregroundStyle(.white)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .accessibilityAddTraits(.isHeader)
+            }
         }
-        .homeCard()
     }
 
-    /// 例:「今夜 21:00 の 月」
-    private var headline: some View {
-        let time = model.date.formatted(Self.timeFormat)
-        return HStack(alignment: .firstTextBaseline, spacing: 6) {
-            Text(Self.dayLabel(for: model.date))
-            Text(time).monospacedDigit()
-            Text("の").foregroundStyle(.secondary)
-            Text(model.target.name).foregroundStyle(HomeStyle.moonlight)
+    private var portrait: some View {
+        let side = min(220, max(124, width * 0.48))
+        return Group {
+            if let target = selectedTarget {
+                // 選択画面と同じ画像・模式図を再利用。背景・枠・クリップは付けない。
+                CabinPortrait(target: target)
+                    .shadow(color: .white.opacity(0.12), radius: 16)
+            }
         }
-        .font(.title2.weight(.semibold))
-        .lineLimit(1)
-        .minimumScaleFactor(0.7)
-        .accessibilityElement(children: .combine)
-        .accessibilityLabel("\(Self.dayLabel(for: model.date)) \(time) の \(model.target.name)")
-        .accessibilityAddTraits(.isHeader)
+        .frame(width: side, height: side)
+        .allowsHitTesting(false)
+        .accessibilityHidden(true)
     }
 
-    private static let timeFormat = Date.FormatStyle(timeZone: TimeZone(identifier: "Asia/Tokyo")!)
-        .hour(.defaultDigits(amPM: .omitted)).minute(.twoDigits)
-
-    /// この時刻より前の翌日の時刻は、夜の続きとして「今夜」と呼ぶ
-    private static let nightEndHour = 5
-
-    /// 今日（と翌朝 5 時まで）なら「今夜」、明日なら「明日」、それ以外は「10/26(月)」
-    private static func dayLabel(for date: Date, now: Date = Date()) -> String {
-        let calendar = Calendar.tokyo
-        if calendar.isDate(date, inSameDayAs: now) { return "今夜" }
-        if let tomorrow = calendar.date(byAdding: .day, value: 1, to: now),
-           calendar.isDate(date, inSameDayAs: tomorrow) {
-            return calendar.component(.hour, from: date) < nightEndHour ? "今夜" : "明日"
+    private var dateEditor: some View {
+        NavigationStack {
+            ScrollView {
+                DatePicker("観測する日時", selection: $draftDate, displayedComponents: [.date, .hourAndMinute])
+                    .datePickerStyle(.graphical)
+                    .padding()
+                Text("日本時間で選択します。変更は「適用」を押すと反映されます。")
+                    .font(.footnote).foregroundStyle(.secondary).padding(.horizontal)
+            }
+            .navigationTitle("観測する日時")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("キャンセル") { editingDate = false }
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("適用") {
+                        model.date = draftDate
+                        editingDate = false
+                    }.bold()
+                }
+            }
+            .background { NightSkyBackground() }
         }
-        var style = Date.FormatStyle(timeZone: calendar.timeZone).month(.defaultDigits).day().weekday(.abbreviated)
-        style.locale = Locale(identifier: "ja_JP")
-        return date.formatted(style)
+        .environment(\.timeZone, TimeZone(identifier: "Asia/Tokyo")!)
+        .environment(\.locale, Locale(identifier: "ja_JP"))
+        .preferredColorScheme(.dark)
+        .presentationDetents([.large])
     }
+
+    private static let tokyo = TimeZone(identifier: "Asia/Tokyo")!
+    private static let dateFormat = Date.FormatStyle(locale: Locale(identifier: "ja_JP"), timeZone: tokyo)
+        .month(.defaultDigits).day(.twoDigits).hour(.twoDigits(amPM: .omitted)).minute(.twoDigits)
+    private static let yearFormat = Date.FormatStyle(locale: Locale(identifier: "ja_JP"), timeZone: tokyo).year()
+    private static let accessibleDateFormat = Date.FormatStyle(locale: Locale(identifier: "ja_JP"), timeZone: tokyo)
+        .year().month().day().hour(.twoDigits(amPM: .omitted)).minute(.twoDigits)
 }
 
 /// 選んだ日時が天気予報の範囲外のときの注意書き
@@ -100,3 +175,4 @@ struct MoonSummary: View {
         .font(.subheadline)
     }
 }
+

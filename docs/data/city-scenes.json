@@ -400,6 +400,10 @@
     "atlasBudget": 1,
     "manifest": "docs/data/plateau-todai-hongo-2025.json",
     "work": "../outputs/plateau-todai_hongo",
-    "groundPhoto": "../outputs/gsi-todai_hongo"
+    "groundPhoto": "../outputs/gsi-todai_hongo",
+    "facadeStyles": {
+      "文教厚生施設": 4,
+      "bldg_8092c82f-9fc7-4ff7-b191-8915fb626da2": 5
+    }
   }
 ]
