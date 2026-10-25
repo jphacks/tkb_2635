@@ -8,6 +8,7 @@ struct StarSpotApp: App {
     @Environment(\.scenePhase) private var scenePhase
     @AppStorage(AppearanceMode.storageKey) private var appearance = AppearanceMode.default
     @State private var selectedTab = AppTab.home
+    @AppStorage(OnboardingView.storageKey) private var hasSeenOnboarding = false
 
     private enum AppTab { case home, settings }
 
@@ -19,6 +20,9 @@ struct StarSpotApp: App {
             }
                 // ホームは夜空・3D が主役なので常に夜の見た目。設定タブだけ、選んだ明るさに従う
                 .preferredColorScheme(selectedTab == .home ? .dark : appearance.colorScheme)
+                .sheet(isPresented: Binding(get: { !hasSeenOnboarding }, set: { if !$0 { hasSeenOnboarding = true } })) {
+                    OnboardingView()
+                }
                 .environment(model)
                 .environment(location)
                 .task { await model.refreshWeather() }
