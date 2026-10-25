@@ -52,7 +52,7 @@ struct WideCityView: View {
     var onSelect: (String) -> Void = { _ in }
     /// 見る向き。呼び出し側が持つので、3D を外して作り直しても同じ向きで出る
     @Binding var camera: WideCityCamera
-    /// 画面の下に重なるもの（シートなど）の高さ。地点名と出典をその上に出す
+    /// 画面の下に重なるもの（シートなど）の高さ。地点名をその上に出す
     var bottomInset: CGFloat = 0
     /// 街を読み込み、最初の絵を出せるようになったとき
     var onReady: () -> Void = {}
@@ -63,7 +63,6 @@ struct WideCityView: View {
     /// 航空写真の地面の高さ [m]（標高）
     private static let photoDepth: Float = -3
     private static let background = Color(red: 0.02, green: 0.03, blue: 0.10)
-    static let source = "出典: 3D都市モデル（Project PLATEAU）東京都23区 LOD1・LOD2（CC BY 4.0）・国土地理院・EOG/Colorado School of Mines（VIIRS 夜間光、CC BY 4.0）を加工"
 
     @State private var lod = WideCityLOD()
     @State private var dragStart: WideCityCamera?
@@ -179,9 +178,6 @@ struct WideCityView: View {
         .overlay(alignment: .bottomLeading) {
             VStack(alignment: .leading, spacing: 6) {
                 if let centered { centeredLabel(centered) }
-                Text(Self.source)
-                    .font(.system(size: 9))
-                    .foregroundStyle(.white.opacity(0.6))
             }
             .padding(8)
             .padding(.bottom, bottomInset)

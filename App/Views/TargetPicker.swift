@@ -33,12 +33,6 @@ struct CabinTarget: Identifiable {
     var edges: [[Int]] = []
     var note: String?
     var isConstellation: Bool { kind == "CONSTELLATION" }
-    /// 実際の画像を使っている天体の出典。星・星座は模式図なので無し
-    var imageCredit: String? {
-        if id == "moon" { return "月面画像: NASA SVS" }
-        if kind == "PLANET" { return "惑星画像: NASA の探査機（パブリックドメイン）" }
-        return nil
-    }
 
     static var catalog: [CabinTarget] {
         var items = [CabinTarget(id: "moon", name: "月", kind: "MOON", observation: .moon)]

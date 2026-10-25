@@ -7,7 +7,7 @@ struct HomeSheet: View {
     /// たたんだときの高さ（見出しだけ）
     static let collapsedHeight: CGFloat = 64
     static let collapsedDetent = PresentationDetent.height(collapsedHeight)
-    /// たたんだシートが画面の下で隠す高さ（シートの高さ＋画面の下の余白）。3D の地点名・出典をこの上に出す
+    /// たたんだシートが画面の下で隠す高さ（シートの高さ＋画面の下の余白）。3D の地点名をこの上に出す
     static let coveredHeight: CGFloat = collapsedHeight + 30
     /// 半分まで引き上げたときの、画面の高さに対する割合
     static let mediumDetent = PresentationDetent.fraction(0.48)
