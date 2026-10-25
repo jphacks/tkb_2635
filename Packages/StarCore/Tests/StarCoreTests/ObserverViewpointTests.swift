@@ -53,6 +53,19 @@ import Testing
         #expect(abs(groundPrediction.azimuth - skyPrediction.azimuth) < 0.01)
     }
 
+    @Test func everySpotCanEnterObserverView() throws {
+        let contexts = try SeedData.loadContexts()
+        #expect(contexts.count == 43)
+        for context in contexts {
+            let scene = try #require(context.scene, "\(context.id) にシーンがない")
+            #expect(scene.observerViewEnabled == true, "\(context.id) は目線へ入れない")
+            // 展望台・屋上は光る建物が入口になるので、その建物がシーンにあること
+            if let host = context.spot.hostBuildingId {
+                #expect(scene.buildings.contains { $0.id == host }, "\(context.id) の建物 \(host) がシーンにない")
+            }
+        }
+    }
+
     @Test func existingSceneJSONStillDecodesWithoutObserverFlag() throws {
         let json = #"{"id":"old","name":"既存地点","originLatitude":35,"originLongitude":139,"groundElevation":0,"source":"test","buildings":[]}"#
         let scene = try JSONDecoder().decode(CityScene.self, from: Data(json.utf8))
