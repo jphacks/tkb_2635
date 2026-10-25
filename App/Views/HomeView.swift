@@ -64,7 +64,6 @@ struct HomeView: View {
     private var toolbar: some ToolbarContent {
         ToolbarItemGroup(placement: .topBarLeading) {
             Button("天体を選び直す", systemImage: "chevron.left") { leave(to: .back) }
-            SoundToggleButton()
         }
         ToolbarItem(placement: .topBarTrailing) {
             if model.isLoadingWeather {

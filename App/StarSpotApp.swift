@@ -1,3 +1,4 @@
+import StarCore
 import SwiftUI
 
 @main
@@ -5,13 +6,21 @@ struct StarSpotApp: App {
     @State private var model = AppModel()
     @State private var location = LocationModel()
     @Environment(\.scenePhase) private var scenePhase
+    @AppStorage(AppearanceMode.storageKey) private var appearance = AppearanceMode.default
+    @State private var selectedTab = AppTab.home
+
+    private enum AppTab { case home, settings }
 
     var body: some Scene {
         WindowGroup {
-            SpotListView()
+            TabView(selection: $selectedTab) {
+                Tab("ホーム", systemImage: "moon.stars", value: AppTab.home) { SpotListView() }
+                Tab("設定", systemImage: "gearshape", value: AppTab.settings) { SettingsView() }
+            }
+                // ホームは夜空・3D が主役なので常に夜の見た目。設定タブだけ、選んだ明るさに従う
+                .preferredColorScheme(selectedTab == .home ? .dark : appearance.colorScheme)
                 .environment(model)
                 .environment(location)
-                .preferredColorScheme(.dark)
                 .task { await model.refreshWeather() }
                 .task { location.start() }
                 .task { await SoundPlayer.shared.startUp() }
@@ -22,6 +31,17 @@ struct StarSpotApp: App {
                         SoundPlayer.shared.updateMusic()
                     }
                 }
+        }
+    }
+}
+
+private extension AppearanceMode {
+    /// nil のときは iPhone の設定に従う
+    var colorScheme: ColorScheme? {
+        switch self {
+        case .system: nil
+        case .light: .light
+        case .dark: .dark
         }
     }
 }
