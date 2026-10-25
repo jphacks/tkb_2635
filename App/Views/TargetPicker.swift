@@ -32,7 +32,7 @@ struct CabinTarget: Identifiable {
     var points: [CGPoint] = []
     var edges: [[Int]] = []
     var note: String?
-    var isConstellation: Bool { !points.isEmpty }
+    var isConstellation: Bool { kind == "CONSTELLATION" }
     /// 実際の画像を使っている天体の出典。星・星座は模式図なので無し
     var imageCredit: String? {
         if id == "moon" { return "月面画像: NASA SVS" }
@@ -45,14 +45,18 @@ struct CabinTarget: Identifiable {
         items += PlanetCatalog.planets.map {
             CabinTarget(id: "planet-" + $0.id, name: $0.name, kind: "PLANET", observation: .planet($0))
         }
-        if let star = StarCatalog.star(id: "betelgeuse") {
+        // 星座のイラストがある星座。判定は代表星で行う（星座全体の可視性ではない）
+        let illustrated: [(id: String, name: String, starID: String)] = [
+            ("orion", "オリオン座", "betelgeuse"), ("taurus", "おうし座", "aldebaran"),
+            ("gemini", "ふたご座", "pollux"), ("ursa_major", "おおぐま座", "dubhe"),
+            ("scorpius", "さそり座", "antares"), ("cygnus", "はくちょう座", "deneb"),
+            ("aquila", "わし座", "altair")
+        ]
+        for item in illustrated {
+            guard let star = StarCatalog.star(id: item.starID) else { continue }
             items.append(CabinTarget(
-                id: "orion", name: "オリオン座", kind: "CONSTELLATION", observation: .star(star),
-                points: [CGPoint(x: 0.23, y: 0.12), CGPoint(x: 0.73, y: 0.19),
-                         CGPoint(x: 0.42, y: 0.46), CGPoint(x: 0.50, y: 0.49),
-                         CGPoint(x: 0.58, y: 0.52), CGPoint(x: 0.27, y: 0.88), CGPoint(x: 0.78, y: 0.85)],
-                edges: [[0,1,4,6,5,2,0],[2,3,4]],
-                note: "星座の形は選択用の模式図です。観測場所は代表星「ベテルギウス」で判定します。星座全体が見えることを保証する判定ではありません。"))
+                id: item.id, name: item.name, kind: "CONSTELLATION", observation: .star(star),
+                note: "星座の絵は選択用のイメージです。観測場所は代表星「\(star.name)」で判定します。星座全体が見えることを保証する判定ではありません。"))
         }
         if let star = StarCatalog.star(id: "schedar") {
             items.append(CabinTarget(
@@ -116,6 +120,18 @@ enum CabinArt {
             }
         }
         return photos
+    }()
+
+    /// 星座のイラスト（背景は透明）。Constellations フォルダのファイルを、星座の id で引く。
+    static let constellationImages: [String: UIImage] = {
+        var images: [String: UIImage] = [:]
+        for name in ["orion", "taurus", "gemini", "ursa_major", "scorpius", "cygnus", "aquila"] {
+            if let url = Bundle.main.url(forResource: "constellation_" + name, withExtension: "png"),
+               let image = UIImage(contentsOfFile: url.path) {
+                images[name] = image
+            }
+        }
+        return images
     }()
 
     /// 写真を、縦横比を保ったまま直径 870 の円に収まる大きさで中央に描く
@@ -264,6 +280,10 @@ enum CabinArt {
         return paths.map { $0.map { CGPoint(x:$0.0,y:id == "orion" ? $0.1 : 0.12+$0.1*0.65) } }
     }
     static func constellation(_ target: CabinTarget, in context: GraphicsContext) {
+        if let image = constellationImages[target.id] {
+            photo(image, in: context)
+            return
+        }
         let art = illustration(target.id), all = target.points + art.flatMap { $0 }
         let minX = all.map(\.x).min() ?? 0, maxX = all.map(\.x).max() ?? 1
         let minY = all.map(\.y).min() ?? 0, maxY = all.map(\.y).max() ?? 1
