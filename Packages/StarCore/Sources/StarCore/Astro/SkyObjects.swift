@@ -24,9 +24,14 @@ public struct SkyObject: Identifiable, Sendable {
 public struct SkySnapshot: Sendable {
     public let objects: [SkyObject]
     public let constellations: [PlacedConstellation]
+    /// 星座の姿の線画（`ConstellationArt`）
+    public let art: [PlacedConstellationArt]
 
-    /// - Parameter constellations: `ConstellationLines.decode` で読んだ星座線。無ければ線は出ない
-    public static func make(context: SpotContext, date: Date, constellations: [ConstellationLines] = []) -> SkySnapshot {
+    /// - Parameters:
+    ///   - constellations: `ConstellationLines.decode` で読んだ星座線。無ければ線は出ない
+    ///   - art: `ConstellationArt.decode` で読んだ星座の線画。無ければ絵は出ない
+    public static func make(context: SpotContext, date: Date, constellations: [ConstellationLines] = [],
+                            art: [ConstellationArt] = []) -> SkySnapshot {
         let lat = context.spot.latitude, lon = context.spot.longitude
         func object(id: String, name: String, kind: SkyObjectKind, position: HorizontalCoord, magnitude: Double? = nil) -> SkyObject {
             SkyObject(id: id, name: name, kind: kind, position: position, magnitude: magnitude,
@@ -43,6 +48,7 @@ public struct SkySnapshot: Sendable {
         }
         let orientation = SkyOrientation(date: date, latitude: lat, longitude: lon)
         return SkySnapshot(objects: objects,
-                           constellations: constellations.map { $0.placed(orientation: orientation, context: context) })
+                           constellations: constellations.map { $0.placed(orientation: orientation, context: context) },
+                           art: art.map { $0.placed(orientation: orientation, context: context) })
     }
 }

@@ -25,6 +25,8 @@ public struct PlacedConstellation: Identifiable, Sendable {
     public let polylines: [[SkyPoint]]
     /// 名前を出す位置（線の中心あたり）。向きが定まらないときは nil
     public let label: SkyPoint?
+    /// 線の星のうち、明るい星の一覧に載っている星の最も明るい等級。名前の間引きに使う
+    public let brightestMagnitude: Double?
 }
 
 extension ConstellationLines {
@@ -49,6 +51,7 @@ extension ConstellationLines {
         let center = sum.normalized
         let hasCenter = count > 0 && sum.dot(sum) > 1e-6
         return PlacedConstellation(id: id, name: name, polylines: lines.filter { $0.count > 1 },
-                                   label: hasCenter ? point(center) : nil)
+                                   label: hasCenter ? point(center) : nil,
+                                   brightestMagnitude: brightestCatalogMagnitude)
     }
 }
