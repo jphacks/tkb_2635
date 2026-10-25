@@ -50,6 +50,7 @@
 		3BBE397F2B26C9F2F030991B /* Wide2_13119.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 10546DF149FE1F1E2691CCA0 /* Wide2_13119.usdz */; };
 		3C6AD2357641F109DDF0D79D /* WideGround_1_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F11E4F90FC1B321BC27A0F4 /* WideGround_1_1.jpg */; };
 		3C73AD0C3FEC73B81C7500A8 /* far_shinjuku.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6C8337002F61ABFD880FC61 /* far_shinjuku.jpg */; };
+		3CDE4B6A07F891AF5DE54C55 /* CampusFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D166E997632BF21F73F49E4 /* CampusFacade.swift */; };
 		3EBBA378030106EBE59BE741 /* far_mizumoto_park.json in Resources */ = {isa = PBXBuildFile; fileRef = CA62D2330ABFF172A8B70FA7 /* far_mizumoto_park.json */; };
 		40D99A8097D7EC5B8AE212F2 /* City_kasai_rinkai_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E4AE9175DBD437186F066813 /* City_kasai_rinkai_park.usdz */; };
 		411A70FAB6BF96C3637A776C /* CompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE617C900ABD7B0CA50F0AE /* CompareView.swift */; };
@@ -250,6 +251,7 @@
 		1B002945FB41E35146BD2071 /* far_kinuta_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_kinuta_park.jpg; sourceTree = "<group>"; };
 		1CA52D2CB71D15A837A60755 /* HomeMapSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMapSection.swift; sourceTree = "<group>"; };
 		1CC425F4E2748059D2E821B4 /* Wide2_13113.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13113.usdz; sourceTree = "<group>"; };
+		1D166E997632BF21F73F49E4 /* CampusFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusFacade.swift; sourceTree = "<group>"; };
 		1DA8483FB629B08A3E5A4BE0 /* StarSpotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSpotApp.swift; sourceTree = "<group>"; };
 		1E5C80DD1908DA0FDECD6520 /* WideGround_0_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WideGround_0_1.jpg; sourceTree = "<group>"; };
 		1F0C35EA45E482105BE4203F /* far_jonanjima_kaihin_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_jonanjima_kaihin_park.jpg; sourceTree = "<group>"; };
@@ -562,6 +564,7 @@
 				861A3D3E8ABDCDCD34315D5E /* BottomSheet.swift */,
 				9F92338553BC2D572913CBE8 /* BuildingFacade.swift */,
 				5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */,
+				1D166E997632BF21F73F49E4 /* CampusFacade.swift */,
 				D9203D1807BE1815AEE18E0B /* CityModelRenderer.swift */,
 				5BE617C900ABD7B0CA50F0AE /* CompareView.swift */,
 				17051900EB51CF49FBF946F6 /* ConstellationRenderer.swift */,
@@ -1060,6 +1063,7 @@
 				F09D164C5551911F331E5F2D /* BottomSheet.swift in Sources */,
 				A195391722902F86D763B56F /* BuildingFacade.swift in Sources */,
 				A1577EEB4934E2A2E6BFEDA0 /* BuildingNightRenderer.swift in Sources */,
+				3CDE4B6A07F891AF5DE54C55 /* CampusFacade.swift in Sources */,
 				D9F4571299DC479495189966 /* CityModelRenderer.swift in Sources */,
 				411A70FAB6BF96C3637A776C /* CompareView.swift in Sources */,
 				336C0A0103902D4DF939A7AA /* ConstellationRenderer.swift in Sources */,

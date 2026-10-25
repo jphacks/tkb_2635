@@ -18,10 +18,14 @@ WALL_KINDS = {'WallSurface', 'ClosureSurface'}
 ROOF_KINDS = {'RoofSurface', 'OuterCeilingSurface', 'OuterFloorSurface'}
 
 
-def facade_key(usage, identifier):
-    """App/Views/BuildingFacade.swift と同じ規則で外観の種類と模様番号を決める。"""
+def facade_key(usage, identifier, styles=None):
+    """App/Views/BuildingFacade.swift と同じ規則で外観の種類と模様番号を決める。
+    styles（city-scenes.json の facadeStyles）に建物の ID か用途があれば、その種類にする（4 以降はシーン専用の外観）。"""
     usage = usage or ''
-    if '住宅' in usage or '住居' in usage:
+    styles = styles or {}
+    if identifier in styles or usage in styles:
+        style = styles.get(identifier, styles.get(usage))
+    elif '住宅' in usage or '住居' in usage:
         style = 2
     elif '業務' in usage or 'オフィス' in usage:
         style = 0
@@ -134,7 +138,7 @@ def surfaces(building):
             yield 'lod1', ring_id, ring
 
 
-def convert(paths, scene, hosts=()):
+def convert(paths, scene, hosts=(), styles=None):
     """hosts の建物（観測者が中にいる建物）は、部品名に host_tag を付けて別の部品にする（アプリで半透明にするため）。"""
     origin = (scene['originLatitude'], scene['originLongitude'])
     ground = scene['groundElevation']
@@ -165,7 +169,7 @@ def convert(paths, scene, hosts=()):
 
             clamped = False
             suffix = host_tag(identifier) if identifier in hosts else ''
-            key = facade_key(box.get('usage'), identifier) + suffix
+            key = facade_key(box.get('usage'), identifier, styles) + suffix
             is_lod1 = any(role == 'lod1' for role, _, _ in raw)
             roof_points = []
             for role, ring_id, ring in raw:
@@ -235,9 +239,12 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--host', action='append', default=[],
                         help='観測者が中にいる建物の gml:id（別の部品にする。複数指定可）')
+    parser.add_argument('--style', action='append', default=[],
+                        help='<用途 または gml:id>=<外観の種類の番号>（複数指定可）')
     args = parser.parse_args()
     scene = next(s for s in json.loads(args.buildings.read_text()) if s['id'] == args.scene_id)
-    shapes, stats = convert(args.gml, scene, set(args.host))
+    shapes, stats = convert(args.gml, scene, set(args.host),
+                            dict((k, int(v)) for k, v in (a.rsplit('=', 1) for a in args.style)))
     if stats['buildings'] != len(scene['buildings']):
         missing = len(scene['buildings']) - stats['buildings']
         print(f'注意: buildings.json の {missing} 棟は形状が見つからず、3D ファイルに入りません')
