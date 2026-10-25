@@ -49,6 +49,7 @@ struct SpotDetailView: View {
 
             VStack {
                 TimeSlider(date: $model.date, compact: true)
+                    .disabled(camera.mode == .entering)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 8)
                     .background(.regularMaterial, in: .rect(cornerRadius: 16))
@@ -69,7 +70,8 @@ struct SpotDetailView: View {
                 if context.scene?.observerViewEnabled == true {
                     SkyViewControls(camera: $camera,
                                     target: HorizontalCoord(altitude: prediction.altitude, azimuth: prediction.azimuth),
-                                    showsObstructionGuide: !prediction.geometricVisibility && !prediction.blockedByDirectionMask && prediction.altitude > 0)
+                                    showsObstructionGuide: !prediction.geometricVisibility && !prediction.blockedByDirectionMask && prediction.altitude > 0,
+                                    entryIsBuilding: context.spot.hostBuildingId != nil)
                         .padding(10)
                         .background(.regularMaterial, in: .rect(cornerRadius: 12))
                         .padding(.horizontal, 12)
