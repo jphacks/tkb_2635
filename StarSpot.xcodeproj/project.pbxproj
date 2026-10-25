@@ -75,6 +75,7 @@
 		8382F3A5C8288A8B48B321FC /* far_hikarigaoka_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 584699D639676157D79D594E /* far_hikarigaoka_park.jpg */; };
 		84AFD976B4CBC5D93D7F9404 /* Concrete034_Roughness.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 308179C5CCF1CE14B9BF6493 /* Concrete034_Roughness.jpg */; };
 		883CCA595AA0B31955697D89 /* City_shibuya.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B9DA1DEE77A332FC2A04DEF6 /* City_shibuya.usdz */; };
+		88E8ECAE87BB911052ED808E /* Wide_13104.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C36A19ECB464D45C09A0DA13 /* Wide_13104.usdz */; };
 		8AC5DB74BF7C218CD88BD89D /* far_ukima_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3616BD91E617BD852FF864C6 /* far_ukima_park.jpg */; };
 		8B61512B1617A26FEF1E89BC /* FarGroundRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615FCC36B1BC2C41CE6D502 /* FarGroundRenderer.swift */; };
 		8BB076589A7D83F29AE44A54 /* City_sumida_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C6AA621A63EDF2CD26BF9309 /* City_sumida_park.usdz */; };
@@ -244,6 +245,7 @@
 		BF613A41F26AEF7256F012F6 /* far_shibakoen.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_shibakoen.json; sourceTree = "<group>"; };
 		C0543356BEEC3F154E757526 /* far_rinshi_no_mori_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_rinshi_no_mori_park.jpg; sourceTree = "<group>"; };
 		C0658849C23DAC8B10EF85EF /* SpotInfoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotInfoList.swift; sourceTree = "<group>"; };
+		C36A19ECB464D45C09A0DA13 /* Wide_13104.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13104.usdz; sourceTree = "<group>"; };
 		C6AA621A63EDF2CD26BF9309 /* City_sumida_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_sumida_park.usdz; sourceTree = "<group>"; };
 		C6C06FBC11F8F225EA804FBB /* far_ukima_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_ukima_park.json; sourceTree = "<group>"; };
 		C71530461BDD4885F1D32949 /* City_yumenoshima_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_yumenoshima_park.usdz; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				CE80059D42265AC5123D9315 /* City */,
 				B0CC0D4C831313475630EE3C /* Far */,
 				DD40FB723829B4258263CC9B /* Sky */,
+				4F9CE203AFEBCAB653F9E7AC /* Wide */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -320,6 +323,14 @@
 				CE6E07D95BA4F5CEAEF24248 /* StarSpot.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		4F9CE203AFEBCAB653F9E7AC /* Wide */ = {
+			isa = PBXGroup;
+			children = (
+				C36A19ECB464D45C09A0DA13 /* Wide_13104.usdz */,
+			);
+			path = Wide;
 			sourceTree = "<group>";
 		};
 		53A82B4FAE89D1657F4BA5C8 /* Views */ = {
@@ -598,6 +609,7 @@
 				F18EC5FB9912E1C9058F7313 /* Concrete034_Color.jpg in Resources */,
 				B2341704FEB2BD45412EEB6E /* Concrete034_NormalGL.jpg in Resources */,
 				84AFD976B4CBC5D93D7F9404 /* Concrete034_Roughness.jpg in Resources */,
+				88E8ECAE87BB911052ED808E /* Wide_13104.usdz in Resources */,
 				D011EA7F2DA04C77F1BDDC04 /* far_arakawa_riverside.jpg in Resources */,
 				A98A7DBACA604E67A00613A8 /* far_arakawa_riverside.json in Resources */,
 				067DE2265635C64C0EE5BB74 /* far_asakusa.jpg in Resources */,
