@@ -33,19 +33,7 @@
   .lede { margin-top: 20px; font-size: 32px; line-height: 1.7; color: var(--ink); position: relative; }
   .lede b { color: var(--moonlight); font-weight: 600; }
 
-  /* 1枚目: 2つの画面と、間の仰角の物差し */
-  .compare { position: absolute; left: 120px; right: 120px; top: 330px; display: grid; grid-template-columns: 520px 1fr 520px; align-items: start; gap: 40px; }
-  figure { position: relative; }
-  figure img { display: block; width: 520px; height: 520px; object-fit: cover; object-position: 50% 20%; border-radius: 28px; }
-  figcaption { margin-top: 22px; font-size: 30px; line-height: 1.45; }
-  figcaption small { display: block; font-size: 24px; color: var(--ink); }
-  .verdict { font-weight: 600; }
-  .hidden { color: var(--sodium); }
-  .seen { color: var(--sky); }
-  .gauge { width: 100%; height: auto; overflow: visible; margin-top: 60px; }
-  .gauge text { font-family: var(--sans); fill: var(--moonlight); }
-
-  /* 2枚目: 4つの入力が1つの計算にまとまる */
+  /* 4つの入力が1つの計算にまとまる */
   .flow { position: absolute; left: 120px; top: 305px; width: 1180px; height: 560px; }
   .inputs { position: absolute; left: 0; top: 0; width: 540px; height: 560px; display: flex; flex-direction: column; justify-content: space-between; }
   .inputs p { font-size: 34px; font-weight: 600; line-height: 1.3; height: 110px; display: flex; flex-direction: column; justify-content: center; }
@@ -59,8 +47,6 @@
   .reach { position: absolute; left: 120px; bottom: 88px; width: 1160px; font-size: 30px; line-height: 1.6; }
   .reach span { color: var(--ink); }
 
-  .page { position: absolute; right: 56px; bottom: 40px; font-size: 22px; color: var(--ink); }
-  .logo { position: absolute; left: 120px; bottom: 36px; font-family: "Snell Roundhand", cursive; font-size: 44px; color: var(--moonlight); opacity: 0.9; }
 
   /* 台本（N キー） */
   .notes { position: fixed; left: 0; right: 0; bottom: 0; max-height: 40vh; overflow: auto; padding: 20px 28px; background: rgba(5, 10, 28, 0.94); border-top: 1px solid #2a3766; font-size: 18px; line-height: 1.8; display: none; z-index: 10; }
@@ -79,40 +65,8 @@
 <body>
 <div class="stage" id="stage">
 
-  <!-- 1枚目: 課題 -->
-  <section class="slide active" aria-label="1枚目 課題">
-    <svg class="stars" viewBox="0 0 1920 1080" aria-hidden="true" id="stars1"></svg>
-    <h1>天気が良くても、ビルで月が見えない。</h1>
-    <p class="lede">2026年10月24日 21:00、月は南南東の空の <b>高さ58°</b>。同じ時刻・同じ渋谷で、見え方が分かれる。</p>
-    <div class="compare">
-      <figure>
-        <img src="images/ground.png" alt="渋谷駅東口の地上から見た3D。月への線が赤く、建物に遮られている">
-        <figcaption><span class="verdict hidden">隠れる</span>　渋谷駅東口（地上）<small>南南東のビルが 74° まで空をふさぐ</small></figcaption>
-      </figure>
-      <svg class="gauge" viewBox="0 0 520 420" role="img" aria-label="仰角の物差し。地上ではビルが74度まで空をふさぎ、58度の月は隠れる。SHIBUYA SKY ではふさぐものが0度で、月が見える">
-        <!-- 中心(60,360)・半径300 の四分円。角度は水平から上へ -->
-        <path d="M60 360 L360 360 A300 300 0 0 0 60 60 Z" fill="none" stroke="#2c3a6b" stroke-width="2"/>
-        <path d="M60 360 L360 360 A300 300 0 0 0 143.2 71.8 Z" fill="#f0a848" fill-opacity="0.22" stroke="#f0a848" stroke-width="2"/>
-        <line x1="60" y1="360" x2="220.8" y2="106.7" stroke="#86d4f0" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="220.8" cy="106.7" r="30" fill="#86d4f0" fill-opacity="0.18"/>
-        <circle cx="220.8" cy="106.7" r="16" fill="#eaf0fa"/>
-        <text x="250" y="96" font-size="30" font-weight="600">月 58°</text>
-        <text x="110" y="50" font-size="28" style="fill:#f0a848">ビル 74°</text>
-        <line x1="60" y1="360" x2="400" y2="360" stroke="#86d4f0" stroke-width="3" stroke-dasharray="10 10"/>
-        <text x="60" y="404" font-size="24" style="fill:#f0a848">地上: 月がビルの角度より下</text>
-        <text x="60" y="442" font-size="24" style="fill:#86d4f0">展望台: ふさぐもの 0°</text>
-      </svg>
-      <figure>
-        <img src="images/skydeck.png" alt="SHIBUYA SKY から見た3D。月への線が緑で、遮るものがない">
-        <figcaption><span class="verdict seen">見える</span>　SHIBUYA SKY<small>229 m 高く、さえぎるものがない</small></figcaption>
-      </figure>
-    </div>
-    <div class="logo">Astera</div>
-    <div class="page">1 / 2</div>
-  </section>
-
-  <!-- 2枚目: 解き方 -->
-  <section class="slide" aria-label="2枚目 解き方">
+  <!-- 解き方（1枚） -->
+  <section class="slide active" aria-label="解き方">
     <svg class="stars" viewBox="0 0 1920 1080" aria-hidden="true" id="stars2"></svg>
     <h1>目の高さ・建物・天体を、まとめて計算する。</h1>
     <p class="lede">Astera は、今夜どこへ行けば見えるかを、理由つきで教える iPhone アプリ。</p>
@@ -136,7 +90,6 @@
     </div>
     <img class="phone" src="images/list.png" alt="Astera の推薦一覧の画面">
     <p class="reach">公開データだけで動く。いまは 23区の 43地点。<span>地点はデータを足すだけで増やせ、ほかの都市にも広げられる。</span></p>
-    <div class="page">2 / 2</div>
   </section>
 </div>
 
@@ -145,8 +98,7 @@
 <script>
   // 台本（script.md と同じ文。N キーで表示）
   const notes = [
-    '東京では、天気が良くても、月や星が見えないことがあります。原因はビルです。10月24日の夜9時、月は南南東の空、高さ58度にあります。ところが渋谷駅の東口では、その方角のビルが74度の高さまで空をふさぎ、月は隠れてしまいます。同じ時刻、229メートル高いSHIBUYA SKYでは、さえぎるものがなく、月が見えます。見えるかどうかは、天気だけでなく、どの高さから見るかで決まります。',
-    'Asteraは、この判定を23区の43地点でまとめて行います。観測する人の目の高さ、PLATEAUの3D都市モデル、月・惑星・恒星の位置、そして雲や街明かりを組み合わせ、方位1度ごとに、空がどこまで開けているかを計算します。その結果を、理由の文と3Dで示し、今夜行く場所を推薦します。使うのは公開データだけなので、ほかの地点や都市にも広げられます。'
+    '東京では、天気が良くても、ビルに隠れて月や星が見えないことがあります。たとえば10月24日の夜9時、渋谷駅の東口では月がビルに隠れますが、229メートル高いSHIBUYA SKYからは見えます。見えるかどうかは、どの高さから見るかで決まります。Asteraは、この判定を23区の43地点でまとめて行うiPhoneアプリです。観測する人の目の高さ、PLATEAUの3D都市モデル、月・惑星・恒星の位置、そして雲や街明かりを組み合わせ、方位1度ごとに、空がどこまで開けているかを計算します。その結果を、理由の文と3Dで示し、今夜行く場所を推薦します。使うのは公開データだけなので、ほかの地点や都市にも広げられます。'
   ];
   const slides = [...document.querySelectorAll('.slide')];
   const notesBox = document.getElementById('notes');
@@ -185,7 +137,6 @@
   });
   document.getElementById('stage').addEventListener('click', () => show(index + 1));
   addEventListener('resize', fit);
-  drawStars('stars1', 7);
   drawStars('stars2', 11);
   fit();
   show(0);
