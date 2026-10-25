@@ -5,6 +5,7 @@ import ImageIO
 /// 写真・折り返せる本文・固定幅のスコア。狭い幅では上下に組み直す。
 struct SpotRow: View {
     @Environment(\.dynamicTypeSize) private var typeSize
+    @ScaledMetric(relativeTo: .caption2) private var captionSize: CGFloat = 9
     @State private var availableWidth: CGFloat = 390
     let spot: Spot
     let prediction: Prediction
@@ -66,7 +67,7 @@ struct SpotRow: View {
                     .overlay(Circle().strokeBorder(
                         LinearGradient(colors: [HomeStyle.listSilver.opacity(0.75), prediction.tier.color.opacity(0.4)],
                                        startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: 1))
-                Text("観測スコア").font(.system(size: 9)).foregroundStyle(.secondary)
+                Text("観測スコア").font(.system(size: captionSize)).foregroundStyle(.secondary)
             }.frame(width: 58)
             Image(systemName: "chevron.right").font(.body.weight(.light))
                 .foregroundStyle(HomeStyle.listSilver.opacity(0.7)).accessibilityHidden(true)
@@ -79,6 +80,7 @@ struct SpotRow: View {
 
 
 struct ScoreBadge: View {
+    @ScaledMetric(relativeTo: .caption2) private var captionSize: CGFloat = 9
     let score: Double
     let tier: RecommendationTier
 
@@ -87,9 +89,9 @@ struct ScoreBadge: View {
             Text("\(Int(score.rounded()))")
                 .font(.title3.monospacedDigit().bold())
             Text(tier.label)
-                .font(.system(size: 9))
+                .font(.system(size: captionSize))
         }
-        .frame(width: 54, height: 46)
+        .frame(minWidth: 54, minHeight: 46)
         .background(tier.color.opacity(0.22), in: .rect(cornerRadius: 10))
         .foregroundStyle(tier.color)
         .accessibilityElement(children: .combine)
@@ -121,6 +123,7 @@ extension RecommendationTier {
 
 /// 地点を中心に切り出した同梱写真を読む。3D用の広域画像は一覧で展開しない。
 private struct SpotListThumbnail: View {
+    @ScaledMetric(relativeTo: .caption2) private var captionSize: CGFloat = 9
     let spotId: String
     let width: CGFloat
     @State private var image: CGImage?
@@ -135,7 +138,7 @@ private struct SpotListThumbnail: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             Text(image == nil ? "写真なし" : "周辺800mの航空写真")
-                .font(.system(size: 9)).foregroundStyle(.white.opacity(0.95))
+                .font(.system(size: captionSize)).foregroundStyle(.white.opacity(0.95))
                 .padding(5).background(.black.opacity(0.6))
         }
         .frame(width: width, height: width * 0.96)
