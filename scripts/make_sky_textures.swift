@@ -4,11 +4,11 @@
 //   swift scripts/make_sky_textures.swift <原本のフォルダ> App/Resources/Sky
 //
 // 原本（リポジトリの外に置く）:
-//   lroc_color_2k.jpg    NASA SVS「CGI Moon Kit」 https://svs.gsfc.nasa.gov/4720
+//   lroc_color_poles_4k.tif  NASA SVS「CGI Moon Kit」 https://svs.gsfc.nasa.gov/4720（4096×2048、約 13 MB）
 //   starmap_2020_4k.exr  NASA SVS「Deep Star Maps 2020」 https://svs.gsfc.nasa.gov/4851
 //
 // 出力:
-//   moon_disk.png  月の表側を正射図法で円に切り出したもの（512×512、円の外は透明）
+//   moon_disk.png  月の表側を正射図法で円に切り出したもの（1024×1024、円の外は透明。大きく見せても細部が出るように 4k の地図から作る）
 //   stars_city.png / stars_suburban.png / stars_dark.png
 //                  星図を、見える一番暗い星の等級ごとに黒を持ち上げたもの（4096×2048）
 //
@@ -39,7 +39,7 @@ let referenceStars: [(name: String, ra: Double, dec: Double, magnitude: Double)]
 /// 星を丸く広げる半径 [画素]。1 画素の星を拡大すると四角く見えるので、周りへ明るさを落としながら広げる
 let starRadius = 2
 let starSigma: Float = 0.75
-let moonSize = 512
+let moonSize = 1024
 
 func fail(_ message: String) -> Never {
     FileHandle.standardError.write(Data((message + "\n").utf8))
@@ -261,5 +261,5 @@ let arguments = CommandLine.arguments
 guard arguments.count == 3 else { fail("使い方: swift scripts/make_sky_textures.swift <原本のフォルダ> <出力フォルダ>") }
 let input = URL(filePath: arguments[1]), output = URL(filePath: arguments[2])
 try? FileManager.default.createDirectory(at: output, withIntermediateDirectories: true)
-makeMoon(input.appending(path: "lroc_color_2k.jpg"), output)
+makeMoon(input.appending(path: "lroc_color_poles_4k.tif"), output)
 makeStars(input.appending(path: "starmap_2020_4k.exr"), output)
