@@ -8,7 +8,7 @@ enum ObserverEntryRenderer {
     static let name = "observerEntry"
     private static let highlightMinimum: Float = 0.06
     private static let highlightMaximum: Float = 0.28
-    private static let pulseDuration = 1.1
+    private static let pulseDuration = 0.5
     private static let highlightExpansion: Float = 0.003
     private static let groundRadius: Float = 0.11
 
