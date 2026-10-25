@@ -169,4 +169,5 @@ def main():
                           export_normals=True)
 
 
-main()
+if __name__ == '__main__':
+    main()
