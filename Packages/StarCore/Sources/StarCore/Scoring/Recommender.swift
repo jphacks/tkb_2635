@@ -113,6 +113,8 @@ public enum Recommender {
     /// 遮蔽判定の誤差余裕 δ [度]
     public static let visibilityMargin = 1.0
     private static let unknownRegionalLightIndex = 0.5
+    /// 天気指標 W がこれ未満（雲量が約 70% を超える、または降水あり）なら「推薦」にせず「要確認」にする
+    public static let minRecommendedWeather = 0.3
 
     /// 暗さ指標 D = clamp(1 − (0.45 B_sky + 0.25 B_local + 0.30 M))（仕様書 3.6）
     /// 近傍照明が未確認のときは 0 とせず中間値 0.5 で仮計算し、assumed = true を返す。
@@ -200,7 +202,7 @@ public enum Recommender {
             tier = .unavailable
         } else if !visible || skyTooBright {
             tier = .notVisible
-        } else if moonInBrightSky || accessStatus == .unverified || hasAreaRestriction || !spot.accessVerified || w == nil || !spot.hasVerifiedViewingDirections || context.horizon.isApproximate || spot.regionalLightIndex == nil {
+        } else if moonInBrightSky || (w ?? 1) < minRecommendedWeather || accessStatus == .unverified || hasAreaRestriction || !spot.accessVerified || w == nil || !spot.hasVerifiedViewingDirections || context.horizon.isApproximate || spot.regionalLightIndex == nil {
             tier = .needsCheck
         } else {
             tier = .recommended
@@ -256,7 +258,10 @@ public enum Recommender {
             lines.append("指定時刻の\(target.name)は\(dir)・高度\(alt)°にあり、周辺の建物など（遮蔽仰角 \(obs)°）に隠れる見込みです。")
         }
 
-        if let cloud = p.cloudCover {
+        if let w = p.weatherScore, w < minRecommendedWeather {
+            let cloud = p.cloudCover.map { "雲量の予報は \(Int($0))%" } ?? "天気の予報が悪く"
+            lines.append("\(cloud)で、雲や雨に隠れて\(target.name)が見えない可能性が高いです。")
+        } else if let cloud = p.cloudCover {
             lines.append("雲量の予報は \(Int(cloud))% です。")
         } else if p.dataQualityFlags.contains(.weatherOutOfRange) {
             lines.append("指定時刻は天気予報の範囲外のため、天気は仮の値で計算しています。")
