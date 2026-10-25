@@ -139,6 +139,8 @@ struct SpotListView: View {
                                         .frame(width: diameter, height: diameter)
                                         .scaleEffect(centered == target.id ? 1 : 0.62)
                                         .opacity(centered == target.id ? 1 : 0.45)
+                                        // 絵そのものはタップを受けないので、ボタンの範囲を円で指定する
+                                        .contentShape(Circle())
                                 }
                                 .buttonStyle(.plain).id(target.id)
                                 .accessibilityLabel(target.name + "、" + target.kind)

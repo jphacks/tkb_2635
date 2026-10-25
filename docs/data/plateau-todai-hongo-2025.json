@@ -1,0 +1,137 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.7531,35.7057,139.7709,35.7201",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/0d/92f892-53b4-4534-82ea-c1c012827a93/13105_bunkyo-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53394650_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/bldg/53394650_bldg_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 3651,
+      "lod2": 0,
+      "bytes": 46532302,
+      "sha256": "cd0a4bba6f8a847c8f7cac65195ecfc5c1d3fc7fd78743125e2df009a86362dd"
+    },
+    {
+      "name": "53394651_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/bldg/53394651_bldg_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1576,
+      "lod2": 1030,
+      "bytes": 40685563,
+      "sha256": "0c2985bea2d72f359dad1267cdd7aadbc6005e1ced291ff776b475a86c52356c"
+    },
+    {
+      "name": "53394660_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/bldg/53394660_bldg_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 4294,
+      "lod2": 0,
+      "bytes": 54030625,
+      "sha256": "43e67f4ad1d4b0dabd747322d5ea21bb2d63f328bcf3dce90a9581ed31a0df50"
+    },
+    {
+      "name": "53394661_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/bldg/53394661_bldg_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 3957,
+      "lod2": 2557,
+      "bytes": 102705561,
+      "sha256": "b40f735bae9f99581e25d09d460ecc702e1a2cf1ec3744a26aabfcbc0bece6d3"
+    },
+    {
+      "name": "53394640_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/tran/53394640_tran_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 691,
+      "lod2": 210,
+      "bytes": 2467673,
+      "sha256": "0d22e391e9bdd132d595d40327e66540c661a4eba90e1680918b587c28c7d62f"
+    },
+    {
+      "name": "53394641_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/tran/53394641_tran_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 1271,
+      "lod2": 809,
+      "bytes": 11352672,
+      "sha256": "70aad04f88ba51671cfa3f69866ffa18b1fb8a872316b90823252c15cd39ff1b"
+    },
+    {
+      "name": "53394650_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/tran/53394650_tran_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1080,
+      "lod2": 0,
+      "bytes": 2885856,
+      "sha256": "356b5cd0f1933c3458a43b90f9bd9962cafc412188f8c4b88820df68e1de87e1"
+    },
+    {
+      "name": "53394651_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/tran/53394651_tran_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 377,
+      "lod2": 302,
+      "bytes": 2295701,
+      "sha256": "f9314d3a9457a0712b83b35cbaefb0e0afa7c7248b5bff51e5c4201893efec75"
+    },
+    {
+      "name": "53394660_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/tran/53394660_tran_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1123,
+      "lod2": 0,
+      "bytes": 3010117,
+      "sha256": "31b6e10c8b2f2bf421406589bb0d430bcf7aec9c925d8e9377736b2a14304840"
+    },
+    {
+      "name": "53394661_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/ac4a9f-1bdf-4978-bbfa-8ba8a80d12a0/13105_bunkyo-ku_pref_2025_citygml_1_op/udx/tran/53394661_tran_6697_op.gml",
+      "cityCode": "13105",
+      "cityName": "文京区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1037,
+      "lod2": 804,
+      "bytes": 4307689,
+      "sha256": "4c3566995b897f290b019d6827286c944c2d146adde076de4d73b1776fcab81f"
+    }
+  ]
+}

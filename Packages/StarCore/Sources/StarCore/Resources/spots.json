@@ -1880,5 +1880,37 @@
     "lastVerifiedAt": null,
     "comparisonSpotId": "roppongi_ground",
     "hostBuildingId": "bldg_6006c155-ea28-4848-81b0-c37444f2bd96"
+  },
+  {
+    "id": "todai_hongo",
+    "name": "東京大学 本郷キャンパス",
+    "ward": "文京区",
+    "category": "plaza",
+    "latitude": 35.7129,
+    "longitude": 139.762,
+    "floorElevation": 20.0,
+    "eyeHeight": 1.5,
+    "indoorOutdoor": "outdoor",
+    "directionMaskVerified": false,
+    "openingHours": {
+      "alwaysOpen": false,
+      "note": "指定地点の夜間入場可否は未確認です。利用できることを確認してからお出かけください。"
+    },
+    "admissionFee": null,
+    "reservationRequired": null,
+    "accessConditions": "この地点で、夜間に観測のため滞在できるかは未確認です。現地の案内を確認してください。",
+    "officialWebsite": "https://www.u-tokyo.ac.jp/ja/campus/hongo.html",
+    "sceneId": "todai_hongo",
+    "regionalLightIndex": null,
+    "regionalLightSource": null,
+    "regionalLightMeasuredAt": null,
+    "localGlareLevel": null,
+    "modelVersion": "plateau-todai_hongo-2025-1",
+    "memo": "安田講堂まわりの広場の代表点。観測に適した立ち位置・夜間に構内へ入れるか・樹木による遮りは未確認です。床面標高は 3D 作成時に PLATEAU から決めた値に直す（暫定）。",
+    "accessRules": {
+      "unverified": true
+    },
+    "lastVerifiedAt": null,
+    "viewingDirectionNotes": "屋外の代表地点です。樹木・建物を含めた実際の見える方角は現地未確認です。"
   }
 ]
