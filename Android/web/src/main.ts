@@ -20,4 +20,3 @@ window.Astera={back(){const dialogs=[...document.querySelectorAll<HTMLDialogElem
 document.addEventListener('visibilitychange',()=>{if(document.hidden)window.Astera?.suspend();});
 onRender(render);
 loadData(message=>{root.innerHTML=`<p class="loading" role="status">${esc(message)}</p>`;}).then(render).catch(error=>{root.innerHTML=`<section class="error-panel"><h1>起動できませんでした</h1><p>${esc(error instanceof Error?error.message:error)}</p><button id="reload" class="glass">再試行</button></section>`;root.querySelector('#reload')!.addEventListener('click',()=>location.reload());});
-
