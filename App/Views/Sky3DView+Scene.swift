@@ -115,6 +115,8 @@ extension Sky3DView {
         let north = sphere(radius: 0.08, color: .systemRed)
         north.position = SkyRenderer.direction(altitude: 0, azimuth: 0) * (Self.skyRadius + 0.3)
         guides.addChild(north)
+        Sky3DCompass.add(to: root)
+        IndoorEnclosureRenderer.add(to: root, spot: spot, scale: Self.scale)
 
         // 星空（4-12）。観測者を中心に、地点・時刻の空に合わせて回す
         if let dome = SkyRenderer.shared.makeDome() {

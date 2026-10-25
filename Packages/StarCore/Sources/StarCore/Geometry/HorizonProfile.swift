@@ -26,7 +26,7 @@ public struct HorizonProfile: Sendable {
         samples.reduce(0) { $0 + (1 - sin(max(0, $1) * .pi / 180)) } / Double(samples.count)
     }
 
-    /// 建物を直方体として、方位 1° ごとに観測者の目から最も手前で当たる面までの仰角を求める。
+    /// 建物を直方体（部分の箱があればその集まり）として、方位 1° ごとに観測者の目から最も手前で当たる面までの仰角を求める。
     /// 観測者が立っている建物（hostBuildingId）は除外する。地形はシーン内で平坦と見なす。
     public static func compute(spot: Spot, scene: CityScene) -> HorizonProfile {
         let p = scene.localPosition(latitude: spot.latitude, longitude: spot.longitude)
@@ -44,18 +44,20 @@ public struct HorizonProfile: Sendable {
         }
         // 目より低い建物は空をふさがないので除く。残りも、建物の角が見える方位の範囲だけを調べる
         // （範囲の外の方位の半直線はその建物に当たらないので、結果は全方位を調べたときと同じ）。
-        for b in buildings where groundElevation + b.height > eyeElevation {
-            let top = groundElevation + b.height
-            let minX = b.x - b.width / 2, maxX = b.x + b.width / 2
-            let minY = b.y - b.depth / 2, maxY = b.y + b.depth / 2
-            for i in azimuthRange(ox: ox, oy: oy, minX: minX, maxX: maxX, minY: minY, maxY: maxY) {
-                let index = (i % 360 + 360) % 360
-                let (dx, dy) = directions[index]
-                guard let distance = rayHit(ox: ox, oy: oy, dx: dx, dy: dy,
-                                            minX: minX, maxX: maxX, minY: minY, maxY: maxY)
-                else { continue }
-                let elevation = atan2(top - eyeElevation, distance) * 180 / .pi
-                samples[index] = max(samples[index], elevation)
+        for b in buildings {
+            for part in b.judgmentParts where groundElevation + part.height > eyeElevation {
+                let top = groundElevation + part.height
+                let minX = part.x - part.width / 2, maxX = part.x + part.width / 2
+                let minY = part.y - part.depth / 2, maxY = part.y + part.depth / 2
+                for i in azimuthRange(ox: ox, oy: oy, minX: minX, maxX: maxX, minY: minY, maxY: maxY) {
+                    let index = (i % 360 + 360) % 360
+                    let (dx, dy) = directions[index]
+                    guard let distance = rayHit(ox: ox, oy: oy, dx: dx, dy: dy,
+                                                minX: minX, maxX: maxX, minY: minY, maxY: maxY)
+                    else { continue }
+                    let elevation = atan2(top - eyeElevation, distance) * 180 / .pi
+                    samples[index] = max(samples[index], elevation)
+                }
             }
         }
         return HorizonProfile(samples: samples, isApproximate: false)

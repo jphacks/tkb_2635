@@ -58,6 +58,7 @@
 		2A0727F8D6C7CB99FA2590B6 /* constellation-ophiuchus.png in Resources */ = {isa = PBXBuildFile; fileRef = FE08566817E6E0ADBF8E5B38 /* constellation-ophiuchus.png */; };
 		2AFDBC08CDF3F13B58D8BA7A /* constellation-indus.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD349D9BFF89F032A59299B /* constellation-indus.png */; };
 		2B4B3935E915D44430AB391A /* Wide_13113.usdz in Resources */ = {isa = PBXBuildFile; fileRef = BBA0196FF25D09D000DA35CF /* Wide_13113.usdz */; };
+		2DCBD8B24453F10E2B6AB4EA /* IndoorEnclosureRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C97BEDFC4A8534AFA0A146 /* IndoorEnclosureRenderer.swift */; };
 		2DE61136134842FB54A01B37 /* WideWindowTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533ECBC7747F47E835C9A79F /* WideWindowTexture.swift */; };
 		2F1E0D1AF95E9B5FCB1AF0C7 /* City_mizumoto_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 961DF66140C164B4DE9FF421 /* City_mizumoto_park.usdz */; };
 		2F5483B960A7F1E8A3522F67 /* constellation-orion.png in Resources */ = {isa = PBXBuildFile; fileRef = E79736D2F7C6B4CAF7BC60F9 /* constellation-orion.png */; };
@@ -91,6 +92,7 @@
 		434790A7893B1DA92D9A462D /* constellation-piscis_austrinus.png in Resources */ = {isa = PBXBuildFile; fileRef = 529EE03764926D21F69286CF /* constellation-piscis_austrinus.png */; };
 		43663BEF5395A81935C9D0D9 /* constellation-hydra.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DFECB057475716DD711968 /* constellation-hydra.png */; };
 		43786E98EB264F618C7BD1F6 /* Wide2_13117.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6E537DE77A24C7BA15409372 /* Wide2_13117.usdz */; };
+		4423EF6BADD5E42D08733A13 /* BestTimeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75D5BDAD927C5DA0F32FF55 /* BestTimeRow.swift */; };
 		4470B69D801DDA7AA113D623 /* spot_shibakoen_ground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0127DDD1351E5F6CD2DF74ED /* spot_shibakoen_ground.jpg */; };
 		447565D1DABEDFB0233590E4 /* far_ukima_park.json in Resources */ = {isa = PBXBuildFile; fileRef = C6C06FBC11F8F225EA804FBB /* far_ukima_park.json */; };
 		45CA5191B8BACD406CF0E190 /* far_shakujii_park.json in Resources */ = {isa = PBXBuildFile; fileRef = CCE869D169B207819090F4F3 /* far_shakujii_park.json */; };
@@ -164,6 +166,7 @@
 		73097A16555168D498E0E3AF /* constellation-capricornus.png in Resources */ = {isa = PBXBuildFile; fileRef = B93FA5140DDE8CF244B593A9 /* constellation-capricornus.png */; };
 		739F4CB38D22C5385FEC13C8 /* Wide_13117.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3EB90224E3FA247FE564546A /* Wide_13117.usdz */; };
 		73F95F6EFB0900F00D819770 /* far_yoyogi_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 307CE3D774C6E064C8D65927 /* far_yoyogi_park.jpg */; };
+		74065652746616E061D661A0 /* Sky3DCompass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60FDD5D4189711D6401D635 /* Sky3DCompass.swift */; };
 		7557C82D9D9B675D5F44EC7A /* Wide_13109.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6D8BC0490128A739CE1B0F6A /* Wide_13109.usdz */; };
 		759AA58FF53913C0DFB4C815 /* HomeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F962D800EB0D2C398C58E /* HomeBackground.swift */; };
 		768077D49F154053BBAA737A /* constellation-andromeda.png in Resources */ = {isa = PBXBuildFile; fileRef = 85E8BA193534576780C8D436 /* constellation-andromeda.png */; };
@@ -237,6 +240,7 @@
 		A1577EEB4934E2A2E6BFEDA0 /* BuildingNightRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */; };
 		A195391722902F86D763B56F /* BuildingFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F92338553BC2D572913CBE8 /* BuildingFacade.swift */; };
 		A24EC89A7002F26DB8819CF3 /* Wide_13114.usdz in Resources */ = {isa = PBXBuildFile; fileRef = A6AA2BFEFC69CEDDDFBF01A1 /* Wide_13114.usdz */; };
+		A28052573564975AA6EFF7B3 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC0BBB90859E4C3CEBB07D0 /* OnboardingView.swift */; };
 		A375802D1AB8ED09A20F7994 /* far_kinuta_park.json in Resources */ = {isa = PBXBuildFile; fileRef = F53D74BE7C4C77D8738E23D8 /* far_kinuta_park.json */; };
 		A40D846D062800C8BDDC5D90 /* far_mizumoto_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 010D8F8D8429293B37FB38CE /* far_mizumoto_park.jpg */; };
 		A533F5A6E648AA0A963F9CBC /* WideCityBrightness.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21D882541F7FB1CA1A413E /* WideCityBrightness.swift */; };
@@ -646,6 +650,7 @@
 		B5C78EF8CDE9B4A8366AFF4F /* far_kasai_rinkai_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_kasai_rinkai_park.json; sourceTree = "<group>"; };
 		B5EB27B817446F31C5B92B0D /* spot_shibuya_sky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spot_shibuya_sky.jpg; sourceTree = "<group>"; };
 		B5FA2C8027C4A303810509C6 /* constellation-images.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "constellation-images.json"; sourceTree = "<group>"; };
+		B60FDD5D4189711D6401D635 /* Sky3DCompass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sky3DCompass.swift; sourceTree = "<group>"; };
 		B70ECD89B067F2C1965800E3 /* Wide2_13103.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13103.usdz; sourceTree = "<group>"; };
 		B712CF49277001CA28CC01E7 /* City_higashi_ikebukuro.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_higashi_ikebukuro.usdz; sourceTree = "<group>"; };
 		B82D8B85F3CD93BE86F712AF /* far_ueno_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_ueno_park.json; sourceTree = "<group>"; };
@@ -699,6 +704,7 @@
 		D4B285889905102C5C378412 /* Wide_13111.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13111.usdz; sourceTree = "<group>"; };
 		D5398BEDBB9BFF8FA8C8A81A /* constellation-corona_australis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-corona_australis.png"; sourceTree = "<group>"; };
 		D75CCD73165A635F8859D158 /* WideCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideCityView.swift; sourceTree = "<group>"; };
+		D75D5BDAD927C5DA0F32FF55 /* BestTimeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestTimeRow.swift; sourceTree = "<group>"; };
 		D7CEC029EAFFE8FE0AE4E614 /* Wide2_13115.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13115.usdz; sourceTree = "<group>"; };
 		D8228DC490AAD228A99A66C1 /* constellation-hydrus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-hydrus.png"; sourceTree = "<group>"; };
 		D84F6B33DE7D5116E7E29045 /* City_todai_hongo.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_todai_hongo.usdz; sourceTree = "<group>"; };
@@ -725,6 +731,7 @@
 		E8F87FB08939E7B4B4D31788 /* constellation-sculptor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-sculptor.png"; sourceTree = "<group>"; };
 		E977348ECDA6D2A5DE9E28DA /* Asphalt031_NormalGL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Asphalt031_NormalGL.jpg; sourceTree = "<group>"; };
 		EA9C9BA45B6181499BD7CDD8 /* constellation-norma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-norma.png"; sourceTree = "<group>"; };
+		EAC0BBB90859E4C3CEBB07D0 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		EB3ABAC033ABF32304BC5DF1 /* SkyCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCamera.swift; sourceTree = "<group>"; };
 		EBB8EE9CC8429B765260BC08 /* spot_hikarigaoka_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spot_hikarigaoka_park.jpg; sourceTree = "<group>"; };
 		ED8808FD2BEA219813EE6D0D /* spot_hibiya_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spot_hibiya_park.jpg; sourceTree = "<group>"; };
@@ -734,6 +741,7 @@
 		EF5F135375B594D0B9B89E19 /* constellation-draco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-draco.png"; sourceTree = "<group>"; };
 		EF7D859A59FE8AB845A9C28F /* Wide_13110.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13110.usdz; sourceTree = "<group>"; };
 		F051F7519273E82ACE371A7F /* far_shiodome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_shiodome.jpg; sourceTree = "<group>"; };
+		F0C97BEDFC4A8534AFA0A146 /* IndoorEnclosureRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndoorEnclosureRenderer.swift; sourceTree = "<group>"; };
 		F15A6BD96245C9D0EB9D555F /* Asphalt031_Roughness.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Asphalt031_Roughness.jpg; sourceTree = "<group>"; };
 		F18BA2D8E9E179CD82A9F061 /* far_funabori.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_funabori.jpg; sourceTree = "<group>"; };
 		F315BAD283AD419BF50D66CF /* se_body_select.caf */ = {isa = PBXFileReference; path = se_body_select.caf; sourceTree = "<group>"; };
@@ -865,6 +873,7 @@
 		53A82B4FAE89D1657F4BA5C8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D75D5BDAD927C5DA0F32FF55 /* BestTimeRow.swift */,
 				861A3D3E8ABDCDCD34315D5E /* BottomSheet.swift */,
 				9F92338553BC2D572913CBE8 /* BuildingFacade.swift */,
 				5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */,
@@ -884,11 +893,14 @@
 				0B3DFE0D4CBB315099D083D6 /* HomeSheet.swift */,
 				47050A9D6512E05E3FB7237C /* HomeStyle.swift */,
 				16D36E138FBA05281F00740D /* HomeView.swift */,
+				F0C97BEDFC4A8534AFA0A146 /* IndoorEnclosureRenderer.swift */,
 				A65105B2C28E022B629DD010 /* MotionSetting.swift */,
 				645DE5BF57C489F0569F244A /* ObserverEntryRenderer.swift */,
+				EAC0BBB90859E4C3CEBB07D0 /* OnboardingView.swift */,
 				81E2226A2988AF1E32C4EBEE /* RiseSetSection.swift */,
 				F77E2A1A6FDB19B5B2E3C66D /* RouteSection.swift */,
 				0FB2FA900BC40F2A751E51B6 /* SettingsView.swift */,
+				B60FDD5D4189711D6401D635 /* Sky3DCompass.swift */,
 				40396066617C3F4F1E1FBFC5 /* Sky3DLegend.swift */,
 				292EF5205CC96A242DC2B369 /* Sky3DMarkers.swift */,
 				3BA12F120047673D19190040 /* Sky3DView.swift */,
@@ -1663,6 +1675,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				941EB8CCC608EC6AEF1A799B /* AppModel.swift in Sources */,
+				4423EF6BADD5E42D08733A13 /* BestTimeRow.swift in Sources */,
 				F09D164C5551911F331E5F2D /* BottomSheet.swift in Sources */,
 				A195391722902F86D763B56F /* BuildingFacade.swift in Sources */,
 				A1577EEB4934E2A2E6BFEDA0 /* BuildingNightRenderer.swift in Sources */,
@@ -1684,12 +1697,15 @@
 				3F18AE14F757C23CEA818EA4 /* HomeSheet.swift in Sources */,
 				5CC95CA726F89DDF9C3A0C44 /* HomeStyle.swift in Sources */,
 				E056BF54A6F17F99C91DDA9C /* HomeView.swift in Sources */,
+				2DCBD8B24453F10E2B6AB4EA /* IndoorEnclosureRenderer.swift in Sources */,
 				D7BC4BAB25821C763DAA0D21 /* LocationModel.swift in Sources */,
 				AA2D4243692A006F50414E99 /* MotionSetting.swift in Sources */,
 				67041D906545CF78F846913D /* ObserverEntryRenderer.swift in Sources */,
+				A28052573564975AA6EFF7B3 /* OnboardingView.swift in Sources */,
 				5DD92D36C8295567AACB5B0F /* RiseSetSection.swift in Sources */,
 				E115DAD16791EBC4DBB1F8AE /* RouteSection.swift in Sources */,
 				30C0DDC8D9DB0A8D934FAEEE /* SettingsView.swift in Sources */,
+				74065652746616E061D661A0 /* Sky3DCompass.swift in Sources */,
 				DBC5F6D2888529D0501928A9 /* Sky3DLegend.swift in Sources */,
 				21DA8A0B28A2AD383FB85084 /* Sky3DMarkers.swift in Sources */,
 				CEBA8237EBBC42FF97F25851 /* Sky3DView+Scene.swift in Sources */,
