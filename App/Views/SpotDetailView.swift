@@ -108,6 +108,7 @@ struct SpotDetailView: View {
             isOnScreen = false
             isSheetShown = false
         }
+        .skyARAutoSwitch(context: context, isSheetShown: $isSheetShown)
     }
 
     private func sheet(prediction: Prediction) -> some View {
