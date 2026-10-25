@@ -20,6 +20,7 @@ struct TargetPicker: View {
                 }
             }
         }
+        .onChange(of: target) { SoundPlayer.shared.play(.bodySelect) }
     }
 }
 

@@ -42,7 +42,12 @@ struct TimeSlider: View {
     private func slider(_ night: ObservingNight) -> some View {
         Slider(value: Binding(
             get: { Double(night.step(for: date)) },
-            set: { date = night.date(atStep: Int($0.rounded())) }
+            set: {
+                let newDate = night.date(atStep: Int($0.rounded()))
+                guard newDate != date else { return }
+                date = newDate
+                SoundPlayer.shared.play(.timeTick)
+            }
         ), in: 0...Double(night.stepCount), step: 1) {
             Text("観測時刻")
         } minimumValueLabel: {
