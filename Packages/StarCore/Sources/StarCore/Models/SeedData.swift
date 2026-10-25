@@ -40,6 +40,13 @@ public struct SpotContext: Identifiable, Sendable {
 
     public var id: String { spot.id }
 
+    /// 現在地のように、登録地点 ID に依存せず計算済みの地平線を渡す。
+    public init(spot: Spot, scene: CityScene?, horizon: HorizonProfile) {
+        self.spot = spot
+        self.scene = scene
+        self.horizon = horizon
+    }
+
     /// terrain を渡すと、建物と地形の仰角の大きいほうを地平線にする
     public init(spot: Spot, scene: CityScene?, terrain: TerrainHorizon? = nil) {
         self.spot = spot
