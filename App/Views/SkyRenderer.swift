@@ -68,7 +68,7 @@ final class SkyRenderer {
         if let cached = starTextures[level] { return cached }
         // 一度に持つのは1枚だけにして、描画用のメモリを節約する
         starTextures.removeAll()
-        guard let url = Bundle.main.url(forResource: level.textureName, withExtension: "jpg"),
+        guard let url = Bundle.main.url(forResource: level.textureName, withExtension: "png"),
               let texture = try? TextureResource.load(contentsOf: url, options: .init(semantic: .color)) else { return nil }
         starTextures[level] = texture
         return texture
