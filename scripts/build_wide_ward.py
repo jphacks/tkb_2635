@@ -53,25 +53,38 @@ def tile_names(node, out):
 
 
 def b3dm_to_glb(data):
-    """b3dm から glTF を取り出し、Blender が読める形にする。
+    """b3dm（または 3D Tiles 1.1 の glb）から glTF を取り出し、Blender が読める形にする。
 
-    CESIUM_RTC の中心（地球中心座標）を別に返し、_BATCHID（取り込みで落ちる）を外す。
+    中心の地球中心座標（CESIUM_RTC、または 1.1 の glb ではノードの移動量）を別に返す。
+    Blender が読めない拡張（EXT_*）と、取り込みで落ちる _BATCHID・_FEATURE_ID は外す。
     """
-    _, _, _, ft_json, ft_bin, bt_json, bt_bin = struct.unpack('<4sIIIIII', data[:28])
-    glb = data[28 + ft_json + ft_bin + bt_json + bt_bin:]
+    if data[:4] == b'glTF':
+        glb = data
+    else:
+        _, _, _, ft_json, ft_bin, bt_json, bt_bin = struct.unpack('<4sIIIIII', data[:28])
+        glb = data[28 + ft_json + ft_bin + bt_json + bt_bin:]
+    if len(glb) < 20:
+        return None, None    # 建物が入っていない空のタイル
     json_length = struct.unpack('<I', glb[12:16])[0]
     gltf = json.loads(glb[20:20 + json_length])
     rest = glb[20 + json_length:]
     center = gltf.get('extensions', {}).get('CESIUM_RTC', {}).get('center', [0, 0, 0])
+    for node in gltf.get('nodes', []):
+        if 'translation' in node:
+            # glTF は Y 上。地球中心座標（Z 上）に直す。ノードの移動は取り除き、頂点は中心からの差にする。
+            x, y, z = node.pop('translation')
+            center = [x, -z, y]
     gltf.pop('extensions', None)
     for key in ('extensionsRequired', 'extensionsUsed'):
-        gltf[key] = [name for name in gltf.get(key, []) if name != 'CESIUM_RTC']
+        gltf[key] = [name for name in gltf.get(key, [])
+                     if name != 'CESIUM_RTC' and not name.startswith('EXT_')]
     for mesh in gltf['meshes']:
         for primitive in mesh['primitives']:
-            primitive['attributes'].pop('_BATCHID', None)
+            primitive.get('extensions', {}).pop('EXT_mesh_features', None)
             draco = primitive.get('extensions', {}).get('KHR_draco_mesh_compression')
-            if draco:
-                draco['attributes'].pop('_BATCHID', None)
+            for attributes in (primitive['attributes'], draco['attributes'] if draco else {}):
+                for name in [n for n in attributes if n == '_BATCHID' or n.startswith('_FEATURE_ID')]:
+                    attributes.pop(name)
     body = json.dumps(gltf, separators=(',', ':')).encode()
     body += b' ' * (-len(body) % 4)
     out = (struct.pack('<4sII', b'glTF', 2, 20 + len(body) + len(rest)) +
@@ -88,15 +101,19 @@ def download(code, work):
     centers = {}
 
     def one(name):
-        out_name = Path(name).stem + '.glb'
+        # フォルダが違っても同じ名前のタイルがあるので、フォルダ名も名前に含める
+        out_name = str(Path(name).with_suffix('')).replace('/', '_') + '.glb'
         target = work / 'glb' / out_name
         glb, center = b3dm_to_glb(fetch(base + name))
+        if glb is None:
+            return out_name, None
         target.write_bytes(glb)
         return out_name, center
 
     with ThreadPoolExecutor(8) as pool:
         for out_name, center in pool.map(one, names):
-            centers[out_name] = center
+            if center is not None:
+                centers[out_name] = center
     (work / 'rtc.json').write_text(json.dumps(centers))
     print(f'{city}: タイル {len(names)} 枚を取得')
 
