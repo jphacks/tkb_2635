@@ -17,6 +17,7 @@ FPS = 30
 FRAMES = 600                      # 20 秒
 ORBIT_END = 270                   # 0〜9 秒: 回りながら東大へ寄る
 TILT_END = 390                    # 9〜13 秒: 上を向く。残りは星空のまま
+DUSK_END = 300                    # 最初は夕方。10 秒までに夜になる
 TODAI = (5463.0, 6059.0, 0.0)     # 東大本郷（安田講堂付近）
 WARDS = '/Users/yuya/Developer/outputs/wide2-*/wide.usdz'
 
@@ -31,7 +32,7 @@ def camera_pose(frame):
     t = smooth(frame / ORBIT_END)
     angle = math.radians(-150 + 135 * t)
     radius = 16000 * (1 - t) + 700 * t
-    height = 11000 * (1 - t) ** 1.6 + 160 * (1 - (1 - t) ** 1.6)
+    height = 5200 * (1 - t) ** 1.6 + 160 * (1 - (1 - t) ** 1.6)
     x = TODAI[0] + radius * math.cos(angle)
     y = TODAI[1] + radius * math.sin(angle)
     # 寄るあいだは東大を見る
@@ -46,6 +47,13 @@ def camera_pose(frame):
         yaw += math.radians(1.2) * drift
         height += 6 * drift
     return (x, y, height), (pitch, 0.0, yaw)
+
+
+def dusk_to_night(target, path, dusk, night, start=1):
+    """start のコマまで夕方の値、DUSK_END で夜の値になるように、キーフレームを打つ。"""
+    for frame, value in ((1, dusk), (start, dusk), (DUSK_END, night)):
+        setattr(target, path, value)
+        target.keyframe_insert(path, frame=frame)
 
 
 def node(tree, kind, location, **inputs):
@@ -112,7 +120,8 @@ def city_material():
     link(combine.outputs[0], noise.inputs['Vector'])
     lit = node(tree, 'ShaderNodeMath', (650, 300), operation='GREATER_THAN')
     link(noise.outputs['Value'], lit.inputs[0])
-    lit.inputs[1].default_value = 0.7
+    # 暗くなるにつれて、点いている窓が増える
+    dusk_to_night(lit.inputs[1], 'default_value', 0.93, 0.7)
     window = node(tree, 'ShaderNodeMath', (650, 0), operation='MULTIPLY')
     link(in_u, window.inputs[0])
     link(in_v, window.inputs[1])
@@ -139,14 +148,15 @@ def city_material():
     link(camera.outputs['View Distance'], fade.inputs['Value'])
     fade.inputs['From Min'].default_value = 400
     fade.inputs['From Max'].default_value = 8000
-    fade.inputs['To Min'].default_value = 2.0
-    fade.inputs['To Max'].default_value = 1.6
+    dusk_to_night(fade.inputs['To Min'], 'default_value', 0.8, 2.0)
+    dusk_to_night(fade.inputs['To Max'], 'default_value', 0.3, 1.6)
     strength = node(tree, 'ShaderNodeMath', (1150, 150), operation='MULTIPLY')
     link(mask2.outputs[0], strength.inputs[0])
     link(fade.outputs[0], strength.inputs[1])
 
     bsdf = node(tree, 'ShaderNodeBsdfPrincipled', (1150, -200))
-    bsdf.inputs['Base Color'].default_value = (0.035, 0.04, 0.06, 1)
+    # 夕方は夕日と空の明かりで壁が見え、夜は暗く沈む
+    dusk_to_night(bsdf.inputs['Base Color'], 'default_value', (0.11, 0.1, 0.11, 1), (0.035, 0.04, 0.06, 1))
     bsdf.inputs['Roughness'].default_value = 0.8
     link(tint.outputs['Color'], bsdf.inputs['Emission Color'])
     link(strength.outputs[0], bsdf.inputs['Emission Strength'])
@@ -161,7 +171,7 @@ def ground_material():
     tree = material.node_tree
     link = tree.links.new
     bsdf = tree.nodes['Principled BSDF']
-    bsdf.inputs['Base Color'].default_value = (0.01, 0.012, 0.02, 1)
+    dusk_to_night(bsdf.inputs['Base Color'], 'default_value', (0.035, 0.035, 0.06, 1), (0.01, 0.012, 0.02, 1))
     bsdf.inputs['Roughness'].default_value = 1.0
     coords = node(tree, 'ShaderNodeTexCoord', (-900, 0))
     noise = node(tree, 'ShaderNodeTexNoise', (-700, 0))
@@ -174,7 +184,7 @@ def ground_material():
     ramp.color_ramp.elements[1].color = (0.03, 0.016, 0.006, 1)
     link(noise.outputs['Fac'], ramp.inputs['Fac'])
     link(ramp.outputs['Color'], bsdf.inputs['Emission Color'])
-    bsdf.inputs['Emission Strength'].default_value = 1.0
+    dusk_to_night(bsdf.inputs['Emission Strength'], 'default_value', 0.2, 1.0)
     return material
 
 
@@ -261,17 +271,63 @@ def world():
     glow.color_ramp.elements[0].color = (0.002, 0.003, 0.009, 1)
     glow.color_ramp.elements[1].color = (0.06, 0.04, 0.045, 1)
     link(horizon.outputs[0], glow.inputs['Fac'])
+    # 星は暗くなってから出てくる
+    star_fade = node(tree, 'ShaderNodeMath', (-250, 100), operation='MULTIPLY')
+    link(total, star_fade.inputs[0])
+    dusk_to_night(star_fade.inputs[1], 'default_value', 0.0, 1.0, start=170)
+    dusk_to_night(milky_gain.inputs['Scale'], 'default_value', 0.0, 0.9, start=200)
     star_color = node(tree, 'ShaderNodeCombineColor', (-100, 0))
-    link(total, star_color.inputs['Red'])
-    link(total, star_color.inputs['Green'])
-    link(total, star_color.inputs['Blue'])
+    for channel in ('Red', 'Green', 'Blue'):
+        link(star_fade.outputs[0], star_color.inputs[channel])
     add1 = node(tree, 'ShaderNodeVectorMath', (100, 300), operation='ADD')
     link(star_color.outputs[0], add1.inputs[0])
     link(milky_gain.outputs[0], add1.inputs[1])
     add2 = node(tree, 'ShaderNodeVectorMath', (300, 300), operation='ADD')
     link(add1.outputs[0], add2.inputs[0])
     link(glow.outputs['Color'], add2.inputs[1])
-    link(add2.outputs[0], background.inputs['Color'])
+    # 夕焼け（地平線は橙、上へ行くほど紫から紺）。日が沈む西が明るい
+    dusk_height = node(tree, 'ShaderNodeMapRange', (-900, 1000))
+    link(split_dir.outputs['Z'], dusk_height.inputs['Value'])
+    dusk_height.inputs['From Min'].default_value = -0.02
+    dusk_height.inputs['From Max'].default_value = 1.0
+    dusk_sky = node(tree, 'ShaderNodeValToRGB', (-700, 1000))
+    ramp = dusk_sky.color_ramp
+    ramp.elements[0].color = (1.0, 0.36, 0.1, 1)
+    ramp.elements[1].position = 1.0
+    ramp.elements[1].color = (0.03, 0.06, 0.2, 1)
+    for position, color in ((0.06, (0.95, 0.42, 0.3, 1)), (0.2, (0.42, 0.24, 0.42, 1)), (0.45, (0.12, 0.14, 0.36, 1))):
+        element = ramp.elements.new(position)
+        element.color = color
+    link(dusk_height.outputs[0], dusk_sky.inputs['Fac'])
+    west = node(tree, 'ShaderNodeMapRange', (-700, 1250))
+    link(split_dir.outputs['X'], west.inputs['Value'])
+    west.inputs['From Min'].default_value = -1.0
+    west.inputs['From Max'].default_value = 0.8
+    west.inputs['To Min'].default_value = 1.7
+    west.inputs['To Max'].default_value = 0.35
+    west_sky = node(tree, 'ShaderNodeVectorMath', (-450, 1100), operation='SCALE')
+    link(dusk_sky.outputs['Color'], west_sky.inputs[0])
+    link(west.outputs[0], west_sky.inputs['Scale'])
+    dusk_strength = node(tree, 'ShaderNodeVectorMath', (-250, 1100), operation='SCALE')
+    link(west_sky.outputs[0], dusk_strength.inputs[0])
+    dusk_to_night(dusk_strength.inputs['Scale'], 'default_value', 1.6, 0.0)
+    add3 = node(tree, 'ShaderNodeVectorMath', (500, 300), operation='ADD')
+    link(add2.outputs[0], add3.inputs[0])
+    link(dusk_strength.outputs[0], add3.inputs[1])
+    # なめらかな夕焼けに縞（色の段差）が出ないよう、ごく細かいざらつきを足す
+    grain_scale = node(tree, 'ShaderNodeVectorMath', (300, 900), operation='SCALE')
+    link(coords.outputs['Generated'], grain_scale.inputs[0])
+    grain_scale.inputs['Scale'].default_value = 4000
+    grain = node(tree, 'ShaderNodeTexWhiteNoise', (500, 900))
+    grain.noise_dimensions = '3D'
+    link(grain_scale.outputs[0], grain.inputs['Vector'])
+    grain_amount = node(tree, 'ShaderNodeVectorMath', (700, 900), operation='SCALE')
+    link(grain.outputs['Color'], grain_amount.inputs[0])
+    dusk_to_night(grain_amount.inputs['Scale'], 'default_value', 0.025, 0.004)
+    add4 = node(tree, 'ShaderNodeVectorMath', (700, 300), operation='ADD')
+    link(add3.outputs[0], add4.inputs[0])
+    link(grain_amount.outputs[0], add4.inputs[1])
+    link(add4.outputs[0], background.inputs['Color'])
     background.inputs['Strength'].default_value = 1.0
 
 
@@ -294,8 +350,14 @@ def build_scene():
 
     bpy.ops.object.light_add(type='SUN', rotation=(math.radians(55), 0, math.radians(-30)))
     moon = bpy.context.object.data
-    moon.energy = 0.25
     moon.color = (0.6, 0.7, 1.0)
+    dusk_to_night(moon, 'energy', 0.0, 0.25)
+    # 沈みかけの夕日（西の低いところから、東へ向かう光）
+    bpy.ops.object.light_add(type='SUN', rotation=(math.radians(86), 0, math.radians(-90)))
+    sun = bpy.context.object.data
+    sun.color = (1.0, 0.55, 0.3)
+    sun.angle = math.radians(2)
+    dusk_to_night(sun, 'energy', 4.0, 0.0)
 
     world()
 
@@ -324,6 +386,8 @@ def build_scene():
     scene.render.resolution_y = 1080
     scene.render.fps = FPS
     scene.render.image_settings.file_format = 'PNG'
+    # 夕焼けのなめらかな空に縞が出ないよう、16 bit で書き出す
+    scene.render.image_settings.color_depth = '16'
     scene.frame_start = 1
     scene.frame_end = FRAMES
 
