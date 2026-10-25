@@ -26,6 +26,7 @@ final class SkyRenderer {
 
     private var starTextures: [StarVisibility.Level: TextureResource] = [:]
     private lazy var domeMesh: MeshResource? = try? Self.makeDomeMesh()
+    private lazy var moonMesh: MeshResource = Self.makeMoonMesh()
     private lazy var moonDisk: CGImage? = {
         guard let url = Bundle.main.url(forResource: "moon_disk", withExtension: "png"),
               let source = CGImageSourceCreateWithURL(url as CFURL, nil) else { return nil }
@@ -108,7 +109,7 @@ final class SkyRenderer {
 
     /// 満ち欠けを描いた月の円。明るい側が画像の上（+y）になるように描く。向きは orientMoon で合わせる
     func makeMoon(fraction: Double) -> ModelEntity {
-        let moon = ModelEntity(mesh: .generatePlane(width: Self.moonDiameter, height: Self.moonDiameter))
+        let moon = ModelEntity(mesh: moonMesh)
         moon.name = Self.moonName
         if let image = phaseImage(fraction: fraction),
            let texture = try? TextureResource(image: image, options: .init(semantic: .color)) {
@@ -120,6 +121,29 @@ final class SkyRenderer {
             moon.model?.materials = [UnlitMaterial(color: .systemYellow)]
         }
         return moon
+    }
+
+    /// 四角い写真の角が空を隠さないよう、月そのものを円形の面にする。
+    private static func makeMoonMesh() -> MeshResource {
+        let segments = 96
+        let radius = moonDiameter / 2
+        var positions: [SIMD3<Float>] = [.zero]
+        var uvs: [SIMD2<Float>] = [[0.5, 0.5]]
+        var indices: [UInt32] = []
+        for index in 0...segments {
+            let angle = Float(index) * 2 * .pi / Float(segments)
+            let x = cos(angle), y = sin(angle)
+            positions.append([x * radius, y * radius, 0])
+            uvs.append([(x + 1) / 2, (y + 1) / 2])
+            if index > 0 { indices += [0, UInt32(index), UInt32(index + 1)] }
+        }
+        var descriptor = MeshDescriptor(name: "moonDisk")
+        descriptor.positions = MeshBuffer(positions)
+        descriptor.normals = MeshBuffer(Array(repeating: SIMD3<Float>(0, 0, 1), count: positions.count))
+        descriptor.textureCoordinates = MeshBuffer(uvs)
+        descriptor.primitives = .triangles(indices)
+        return (try? MeshResource.generate(from: [descriptor]))
+            ?? .generatePlane(width: moonDiameter, height: moonDiameter)
     }
 
     /// 月の円をカメラに向け、明るい側を太陽の方へ回す
@@ -151,8 +175,13 @@ final class SkyRenderer {
                     let x = (Double(px) + 0.5) / Double(size) * 2 - 1
                     // メモリの 1 行目が画像の上
                     let y = 1 - (Double(py) + 0.5) / Double(size) * 2
-                    guard !MoonPhase.isLit(x: x, y: y, fraction: fraction) else { continue }
                     let i = (py * size + px) * 4
+                    // 目線表示では空の中央に月が来るため、写真の四角い背景を透過する。
+                    if x * x + y * y > 1 {
+                        for c in 0..<4 { bytes[i + c] = 0 }
+                        continue
+                    }
+                    guard !MoonPhase.isLit(x: x, y: y, fraction: fraction) else { continue }
                     for c in 0..<3 { bytes[i + c] = UInt8(Float(bytes[i + c]) * Self.earthshine) }
                 }
             }
