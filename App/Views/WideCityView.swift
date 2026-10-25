@@ -112,9 +112,10 @@ struct WideCityView: View {
                 WideCityPins.update(in: root, contexts: contexts, predictions: predictions, scale: Self.scale)
                 pinSizer.selectedId = centered?.id
             }
-            // 遠いほど街を明るく。段階が変わったときだけ材質を書き換える
+            // 遠いほど街を明るく。段階が変わったときだけ材質を書き換える。
+            // 23 区の大きな形の材質を替えると実機で止まることがあるので、指で動かしている間は替えず、離したときに 1 回だけ替える
             let step = WideCityBrightness.step(cameraDistance: camera.distance)
-            if step != brightness.step, let root = content.entities.first(where: { $0.name == Self.rootName }) {
+            if !isGesturing, step != brightness.step, let root = content.entities.first(where: { $0.name == Self.rootName }) {
                 brightness.step = step
                 WideCityBrightness.apply(step: step, buildings: lod.root,
                                          ground: root.findEntity(named: WideCityBrightness.groundName))
@@ -185,6 +186,11 @@ struct WideCityView: View {
         }
         .accessibilityElement(children: .contain)
         .accessibilityLabel("東京23区の建物の3D")
+    }
+
+    /// 移動・拡大縮小・回転のどれかを指で操作している間
+    private var isGesturing: Bool {
+        dragStart != nil || zoomStart != nil || rotateStart != nil
     }
 
     /// 見ている中心に最も近い地点
