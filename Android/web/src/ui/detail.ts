@@ -18,7 +18,7 @@ export function detail(root:HTMLElement,id:string) {
   ${state.target!.note?notice(state.target!.note):''}<section class="detail-section"><h2>この判定の理由</h2><ul>${p.reasons.map(r=>`<li>${esc(r)}</li>`).join('')}</ul></section>
   <section class="detail-section"><h2>昇る・沈む時刻</h2>${events.map(e=>`<p>${esc(e.label)}　${timeLabel(e.date)}</p>`).join('')}<p class="caption">地平線を基準にした概算です。建物は次の時間帯へ反映しています。</p></section>
   <section class="detail-section"><h2>今から6時間の見える方向</h2>${windows.map(w=>`<p>${timeLabel(w.from)}〜${timeLabel(w.to)}</p>`).join('')||'<p>建物と空の明るさの条件を満たす時間はありません。</p>'}<p class="caption">5分刻みの概算。天気と入場条件は別途確認してください。</p></section>
-  <section class="detail-section"><h2>施設情報</h2><p>利用時間：${esc(hoursLabel(s,state.date))}</p>${[['料金',s.admissionFee],['予約',s.reservationRequired===undefined?undefined:s.reservationRequired?'必要':'不要'],['入場条件',s.accessConditions],['天候による休止',s.weatherClosureConditions],['撮影制限',s.photographyRestrictions],['観測方向',s.viewingDirectionNotes],['確認日',s.lastVerifiedAt]].map(([k,v])=>`<p>${k}：${esc(v||'未確認')}</p>`).join('')}${s.officialWebsite?.startsWith('https://')?`<p><a href="${esc(s.officialWebsite)}" target="_blank" rel="noopener">施設の公式情報 ↗</a></p>`:''}<p><a href="https://www.google.com/maps/dir/?api=1&destination=${s.latitude},${s.longitude}" target="_blank" rel="noopener">ここまでの経路を調べる ↗</a></p></section>
+  <section class="detail-section"><h2>施設情報</h2><p>床面標高：${s.floorElevation.toFixed(1)} m ／ 出典：${esc(s.floorElevationSource||"暫定値・未確認")}</p><p>利用時間：${esc(hoursLabel(s,state.date))}</p>${[['料金',s.admissionFee],['予約',s.reservationRequired===undefined?undefined:s.reservationRequired?'必要':'不要'],['入場条件',s.accessConditions],['天候による休止',s.weatherClosureConditions],['撮影制限',s.photographyRestrictions],['観測方向',s.viewingDirectionNotes],['確認日',s.lastVerifiedAt]].map(([k,v])=>`<p>${k}：${esc(v||'未確認')}</p>`).join('')}${s.officialWebsite?.startsWith('https://')?`<p><a href="${esc(s.officialWebsite)}" target="_blank" rel="noopener">施設の公式情報 ↗</a></p>`:''}<p><a href="https://www.google.com/maps/dir/?api=1&destination=${s.latitude},${s.longitude}" target="_blank" rel="noopener">ここまでの経路を調べる ↗</a></p></section>
   <section class="detail-section"><h2>ほかの地点と比較</h2><select id="other" class="glass" aria-label="比較する地点">${state.contexts.filter(x=>x.spot.id!==id).map(x=>`<option value="${esc(x.spot.id)}" ${x.spot.id===s.comparisonSpotId?'selected':''}>${esc(x.spot.name)}</option>`).join('')}</select><button id="compare" class="glass">比較する</button></section>`;
   bind('back',()=>navigate({page:'home'}));bind('date',editDate);
   let close=()=>{};bind('city',()=>{close();close=openScene(c);});bind('ar',()=>{close();close=openScene(c,false,true);});
@@ -32,5 +32,6 @@ export function comparison(root:HTMLElement,id:string,other:string) {
   bind('back',()=>navigate({page:'detail',id}));bind('date',editDate);let close=()=>{};
   root.querySelectorAll<HTMLButtonElement>('[data-scene]').forEach(b=>b.onclick=()=>{close();close=openScene(state.contexts.find(c=>c.spot.id===b.dataset.scene)!);});return ()=>close();
 }
+
 
 
