@@ -1,4 +1,4 @@
-import {describe,it,expect} from 'vitest';
+import {describe,it,expect,vi} from 'vitest';
 import {readFileSync} from 'node:fs';
 import {moon,separation,sun} from './astro';
 import {planetPosition} from './planets';
@@ -25,6 +25,7 @@ describe('遮蔽・データ・未確認条件',()=>{
   it('日本時間の夜間営業と最終入場',()=>{const s={...spot,accessRules:undefined,openingHours:{alwaysOpen:false,open:'18:00',close:'02:00',lastAdmission:'01:30'}};expect(accessStatus(s,new Date('2026-10-24T16:00:00Z'))).toBe('open');expect(accessStatus(s,new Date('2026-10-24T16:45:00Z'))).toBe('closed');});
 });
 describe('天気は未取得を晴れとみなさない',()=>{
+  it('標準fetchをクライアントのメソッドとして呼ばない',async()=>{vi.stubGlobal('fetch',function(this:unknown){if(this instanceof WeatherClient)throw TypeError('Illegal invocation');return Promise.resolve(new Response(JSON.stringify({hourly:{time:[+date/1000],cloud_cover:[10],precipitation:[0]}})));});try{const client=new WeatherClient();expect(await client.refresh([data.spots[0]])).toBe(0);expect(client.at(data.spots[0],date)?.cloudCover).toBe(10);}finally{vi.unstubAllGlobals();}});
   it('90分を超える予報は使わない',()=>{const samples:Weather[]=[{time:date.getTime(),cloudCover:0,precipitation:0,wind:null,visibility:null}];expect(nearestWeather(samples,new Date(+date+91*60000))).toBeUndefined();});
   it('通信失敗を未取得として返す',async()=>{const client=new WeatherClient(async()=>{throw Error('offline');});expect(await client.refresh([data.spots[0]])).toBe(1);expect(client.at(data.spots[0],date)).toBeUndefined();});
 });

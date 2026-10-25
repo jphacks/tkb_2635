@@ -11,7 +11,7 @@ export const nearestWeather=(samples:Weather[],date:Date)=>samples.filter(s=>Mat
   .sort((a,b)=>Math.abs(a.time-date.getTime())-Math.abs(b.time-date.getTime()))[0];
 export class WeatherClient {
   private cache=new Map<string,{at:number;samples:Weather[]}>();
-  constructor(private request:typeof fetch=fetch){}
+  constructor(private request:typeof fetch=(...args)=>fetch(...args)){}
   samples(spot:Spot){return this.cache.get(gridId(spot.latitude,spot.longitude))?.samples??[];}
   at(spot:Spot,date:Date){return nearestWeather(this.samples(spot),date);}
   outOfRange(spot:Spot,date:Date) {const s=this.samples(spot);return s.length>0&&(date.getTime()<s[0].time-90*60000||date.getTime()>s.at(-1)!.time+90*60000);}
