@@ -26,9 +26,12 @@ struct CompareView: View {
         List {
             Section {
                 DatePicker("観測日時", selection: $model.date)
+                    .disabled(camera.mode == .entering)
                     .environment(\.timeZone, TimeZone(identifier: "Asia/Tokyo")!)
                 TimeSlider(date: $model.date)
+                    .disabled(camera.mode == .entering)
                 TargetPicker(target: $model.target)
+                    .disabled(camera.mode == .entering)
             } footer: {
                 if let message = model.forecastOutOfRangeMessage {
                     ForecastOutOfRangeNote(message: message)
@@ -45,18 +48,20 @@ struct CompareView: View {
                     SideButton(side: comparison.first, isSelected: !showsSecond) { showsSecond = false }
                     SideButton(side: comparison.second, isSelected: showsSecond) { showsSecond = true }
                 }
+                .disabled(camera.mode == .entering)
                 let shown = showsSecond ? comparison.second : comparison.first
                 if (showsSecond ? second : first).scene?.observerViewEnabled == true {
                     SkyViewControls(camera: $camera,
                                     target: HorizontalCoord(altitude: shown.prediction.altitude, azimuth: shown.prediction.azimuth),
-                                    showsObstructionGuide: !shown.prediction.geometricVisibility && !shown.prediction.blockedByDirectionMask && shown.prediction.altitude > 0)
+                                    showsObstructionGuide: !shown.prediction.geometricVisibility && !shown.prediction.blockedByDirectionMask && shown.prediction.altitude > 0,
+                                    entryIsBuilding: shown.spot.hostBuildingId != nil)
                 }
                 Sky3DView(context: showsSecond ? second : first, prediction: shown.prediction, date: model.date,
                           sharedCamera: $camera, compact: true)
                     .frame(height: 300)
                     .listRowInsets(EdgeInsets())
             } footer: {
-                Text("地点を切り替えても、同じ向き・同じ時刻で比べられます。全体表示では緑の線なら見え、赤なら建物に遮られます。観測者の目線では、その場所に立った高さで見回せます。")
+                Text("建物や青い観測位置をタップすると、近づいて空を見上げます。目線に入った後は、地点を切り替えても同じ向き・同じ時刻で比べられます。全体表示では緑の線なら見え、赤なら建物に遮られます。")
             }
 
             Section("くらべる") {
