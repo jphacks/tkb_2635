@@ -92,6 +92,7 @@
 		434790A7893B1DA92D9A462D /* constellation-piscis_austrinus.png in Resources */ = {isa = PBXBuildFile; fileRef = 529EE03764926D21F69286CF /* constellation-piscis_austrinus.png */; };
 		43663BEF5395A81935C9D0D9 /* constellation-hydra.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DFECB057475716DD711968 /* constellation-hydra.png */; };
 		43786E98EB264F618C7BD1F6 /* Wide2_13117.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6E537DE77A24C7BA15409372 /* Wide2_13117.usdz */; };
+		4423EF6BADD5E42D08733A13 /* BestTimeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75D5BDAD927C5DA0F32FF55 /* BestTimeRow.swift */; };
 		4470B69D801DDA7AA113D623 /* spot_shibakoen_ground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0127DDD1351E5F6CD2DF74ED /* spot_shibakoen_ground.jpg */; };
 		447565D1DABEDFB0233590E4 /* far_ukima_park.json in Resources */ = {isa = PBXBuildFile; fileRef = C6C06FBC11F8F225EA804FBB /* far_ukima_park.json */; };
 		45CA5191B8BACD406CF0E190 /* far_shakujii_park.json in Resources */ = {isa = PBXBuildFile; fileRef = CCE869D169B207819090F4F3 /* far_shakujii_park.json */; };
@@ -703,6 +704,7 @@
 		D4B285889905102C5C378412 /* Wide_13111.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13111.usdz; sourceTree = "<group>"; };
 		D5398BEDBB9BFF8FA8C8A81A /* constellation-corona_australis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-corona_australis.png"; sourceTree = "<group>"; };
 		D75CCD73165A635F8859D158 /* WideCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideCityView.swift; sourceTree = "<group>"; };
+		D75D5BDAD927C5DA0F32FF55 /* BestTimeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestTimeRow.swift; sourceTree = "<group>"; };
 		D7CEC029EAFFE8FE0AE4E614 /* Wide2_13115.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13115.usdz; sourceTree = "<group>"; };
 		D8228DC490AAD228A99A66C1 /* constellation-hydrus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-hydrus.png"; sourceTree = "<group>"; };
 		D84F6B33DE7D5116E7E29045 /* City_todai_hongo.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_todai_hongo.usdz; sourceTree = "<group>"; };
@@ -871,6 +873,7 @@
 		53A82B4FAE89D1657F4BA5C8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D75D5BDAD927C5DA0F32FF55 /* BestTimeRow.swift */,
 				861A3D3E8ABDCDCD34315D5E /* BottomSheet.swift */,
 				9F92338553BC2D572913CBE8 /* BuildingFacade.swift */,
 				5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */,
@@ -1672,6 +1675,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				941EB8CCC608EC6AEF1A799B /* AppModel.swift in Sources */,
+				4423EF6BADD5E42D08733A13 /* BestTimeRow.swift in Sources */,
 				F09D164C5551911F331E5F2D /* BottomSheet.swift in Sources */,
 				A195391722902F86D763B56F /* BuildingFacade.swift in Sources */,
 				A1577EEB4934E2A2E6BFEDA0 /* BuildingNightRenderer.swift in Sources */,
