@@ -31,6 +31,8 @@ struct WideCityView: View {
     @State private var zoomStart: WideCityCamera?
     @State private var rotateStart: WideCityCamera?
     @State private var isLoaded = false
+    /// RealityView を作り終えたか。作り終えた後に画面を描き直させる（区が読み込み済みだと、全画面で真っ暗なままのことがあった）
+    @State private var isMade = false
 
     var body: some View {
         RealityView { content in
@@ -49,6 +51,7 @@ struct WideCityView: View {
             perspective.camera.far = Self.groundSize * 2
             content.add(perspective)
             place(perspective)
+            isMade = true
         } update: { content in
             if let perspective = content.entities.first(where: { $0.name == "camera" }) {
                 place(perspective)
@@ -90,7 +93,7 @@ struct WideCityView: View {
             }
             .onEnded { _ in rotateStart = nil })
         .overlay {
-            if !isLoaded {
+            if !isLoaded || !isMade {
                 ProgressView("街を読み込み中")
                     .tint(.white)
                     .foregroundStyle(.white)

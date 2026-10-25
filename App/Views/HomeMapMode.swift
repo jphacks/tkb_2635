@@ -12,9 +12,23 @@ enum HomeMapMode: String, CaseIterable, Identifiable {
 struct FullScreenWideCity: View {
     @Environment(\.dismiss) private var dismiss
 
+    /// ホーム側の 3D が消えてから作る（2 つ同時にあると、シミュレータで全画面の方が真っ暗なままのことがあった）
+    @State private var isReady = false
+    private static let delay = Duration.milliseconds(400)
+
     var body: some View {
-        WideCityView()
+        Group {
+            if isReady {
+                WideCityView()
+            } else {
+                Color(red: 0.02, green: 0.03, blue: 0.10)
+            }
+        }
             .ignoresSafeArea()
+            .task {
+                try? await Task.sleep(for: Self.delay)
+                isReady = true
+            }
             .overlay(alignment: .topTrailing) {
                 Button("3D を閉じる", systemImage: "xmark") { dismiss() }
                     .labelStyle(.iconOnly)
