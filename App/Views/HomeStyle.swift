@@ -209,7 +209,7 @@ struct SpotResultsList: View {
                     Rectangle().fill(HomeStyle.listDivider).frame(height: 1).accessibilityHidden(true)
                 }
             }
-            Text("写真：地理院タイル等による周辺航空写真（夜間色に加工）。施設の外観写真ではありません。")
+            Text("写真：各地点を中心に800m四方を切り出した地理院タイルの航空写真（夜間色に加工）。施設の外観写真ではありません。")
                 .font(.caption2).foregroundStyle(.secondary)
         }
     }

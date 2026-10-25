@@ -54,6 +54,7 @@ struct WideCityView: View {
     @Binding var camera: WideCityCamera
     /// 画面の下に重なるもの（シートなど）の高さ。地点名と出典をその上に出す
     var bottomInset: CGFloat = 0
+    var topInset: CGFloat = 0
     /// 街を読み込み、最初の絵を出せるようになったとき
     var onReady: () -> Void = {}
 
@@ -166,8 +167,8 @@ struct WideCityView: View {
             if ready { onReady() }
         }
         .overlay {
-            WideCityLabels(contexts: contexts, predictions: predictions, camera: camera,
-                           size: size, selectedId: centered?.id)
+            WideCityLabels(contexts: contexts, camera: camera,
+                           size: size, selectedId: centered?.id, bottomInset: bottomInset, topInset: topInset)
         }
         .overlay {
             if !isLoaded || !isMade {

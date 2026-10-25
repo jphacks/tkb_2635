@@ -11,6 +11,8 @@ struct HomeBackground: View {
     let isActive: Bool
     /// 下に重なるシートの高さ。地点名・出典・凡例をその上に出す
     let bottomInset: CGFloat
+    /// 上の日時・表示切り替えに、地点名が隠れないようにする
+    var topInset: CGFloat = 0
     /// ピンを押したときに、その地点の ID を渡す
     let onSelect: (String) -> Void
 
@@ -39,7 +41,7 @@ struct HomeBackground: View {
                     WideCityPreview()
                     if isActive {
                         WideCityView(contexts: model.contexts, predictions: predictions, onSelect: onSelect,
-                                     camera: $camera, bottomInset: bottomInset) { isCityReady = true }
+                                     camera: $camera, bottomInset: bottomInset, topInset: topInset) { isCityReady = true }
                             .opacity(isCityReady ? 1 : 0)
                     }
                     if isActive && !isCityReady {

@@ -35,12 +35,13 @@ struct SpotMap: View {
             ForEach(contexts) { context in
                 let tier = predictions.first { $0.spotId == context.id }?.tier ?? .needsCheck
                 Annotation(context.spot.name,
-                           coordinate: CLLocationCoordinate2D(latitude: context.spot.latitude, longitude: context.spot.longitude)) {
-                    SpotPin(tier: tier) {
+                           coordinate: CLLocationCoordinate2D(latitude: context.spot.latitude, longitude: context.spot.longitude), anchor: .bottom) {
+                    SpotPin(name: context.spot.name, tier: tier) {
                         SoundPlayer.shared.play(.pinTap)
                         onSelect(context.id)
                     }
                 }
+                .annotationTitles(.hidden)
             }
         }
         .mapStyle(.standard(pointsOfInterest: .excludingAll))
@@ -53,22 +54,34 @@ private struct SpotPin: View {
     private static let hitSize: CGFloat = 44
     private static let iconSize: CGFloat = 28
 
+    let name: String
     let tier: RecommendationTier
     let action: () -> Void
 
     var body: some View {
         Button(action: action) {
-            Image(systemName: tier == .recommended ? "star.fill" : "mappin")
-                .font(.system(size: 13, weight: .bold))
-                .foregroundStyle(.white)
-                .frame(width: Self.iconSize, height: Self.iconSize)
-                .background(tier.color, in: .circle)
-                .overlay(Circle().stroke(.white, lineWidth: 1.5))
-                .shadow(radius: 2)
-                .frame(width: Self.hitSize, height: Self.hitSize)
-                .contentShape(.rect)
+            VStack(spacing: 2) {
+                Text(name)
+                    .font(.caption2.weight(.semibold))
+                    .foregroundStyle(.white)
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: 140)
+                    .padding(.horizontal, 7)
+                    .padding(.vertical, 4)
+                    .background(.black.opacity(0.8), in: .rect(cornerRadius: 8))
+                Image(systemName: tier == .recommended ? "star.fill" : "mappin")
+                    .font(.system(size: 13, weight: .bold))
+                    .foregroundStyle(.white)
+                    .frame(width: Self.iconSize, height: Self.iconSize)
+                    .background(tier.color, in: .circle)
+                    .overlay(Circle().stroke(.white, lineWidth: 1.5))
+                    .shadow(radius: 2)
+                    .frame(width: Self.hitSize, height: Self.hitSize)
+                    .contentShape(.rect)
+            }
         }
         .buttonStyle(.plain)
-        .accessibilityLabel(tier.label)
+        .accessibilityLabel("\(name)、\(tier.label)")
     }
 }

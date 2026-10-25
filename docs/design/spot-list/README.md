@@ -34,3 +34,7 @@ ImageIOで最大320pxへ縮小してから表示し、地面用4K画像の全展
 - macOSで `cd Packages/StarCore && swift test`、`xcodebuild -scheme StarSpot -destination 'platform=iOS Simulator,name=iPhone 17 Pro' build` を実行する。
 - 実機で320/375/390pt、長い場所名、大きな文字、0件、現在地拒否、写真欠損、タブ移動、絞り込み解除、詳細遷移を確認する。
 - 既存Appファイル内の変更のため、Xcodeプロジェクトへの参照追加は不要。
+
+## 8-16での更新
+
+一覧画像は、地点中心800m四方の専用画像へ変更し、通常132ptへ拡大した。現在の仕様と確認画像は[Homeの地点名と一覧画像](../home-spot-labels-images/README.md)を参照。
