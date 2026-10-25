@@ -64,6 +64,7 @@ struct WideCityView: View {
     @State private var size = CGSize.zero
     /// RealityView を作り終えたか。作り終えた後に画面を描き直させる（区が読み込み済みだと、全画面で真っ暗なままのことがあった）
     @State private var isMade = false
+    @State private var pinSizer = WideCityPinSizer()
 
     var body: some View {
         RealityView { content in
@@ -84,6 +85,7 @@ struct WideCityView: View {
             perspective.camera.far = Self.groundSize * 2
             content.add(perspective)
             place(perspective)
+            pinSizer.start(in: content, root: root, camera: perspective)
             isMade = true
         } update: { content in
             if let perspective = content.entities.first(where: { $0.name == "camera" }) {
@@ -91,7 +93,7 @@ struct WideCityView: View {
             }
             if let root = content.entities.first(where: { $0.name == Self.rootName }) {
                 WideCityPins.update(in: root, contexts: contexts, predictions: predictions, scale: Self.scale)
-                WideCityPins.resize(in: root, cameraDistance: camera.distance, selectedId: centered?.id)
+                pinSizer.selectedId = centered?.id
             }
             lod.update(east: Double(camera.target.x), north: Double(camera.target.y),
                        cameraDistance: camera.distance / Self.scale)
@@ -190,7 +192,9 @@ struct WideCityView: View {
             let spot = context.spot
             let p = WideCity.localPosition(latitude: spot.latitude, longitude: spot.longitude)
             let top = SIMD3<Float>(Float(p.east), Float(spot.observerElevation), -Float(p.north)) * Self.scale
-            let size = WideCityPins.headSize(cameraDistance: camera.distance, selected: context.id == selectedId)
+            // 描画（WideCityPinSizer）と同じく、カメラからそのピンまでの距離で頭の大きさを決める
+            let eye = camera.eye(scale: Self.scale).eye
+            let size = WideCityPins.headSize(distance: simd_length(eye - top), selected: context.id == selectedId)
             let head = top + [0, size * WideCityPins.headCenterHeight, 0]
             guard let a = camera.project(top, scale: Self.scale, in: self.size),
                   let b = camera.project(head, scale: Self.scale, in: self.size) else { return nil }

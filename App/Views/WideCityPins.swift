@@ -23,9 +23,13 @@ enum WideCityPins {
     /// 棒の先から頭の丸の中心までの高さ（頭の大きさ 1 あたり）
     static let headCenterHeight: Float = coneHeight + 0.6
 
-    /// 頭の大きさ（1 単位 = 100m）。当たり判定でも使う
-    static func headSize(cameraDistance: Float, selected: Bool) -> Float {
-        cameraDistance * headRatio * (selected ? selectedScale : 1)
+    /// 頭の大きさの下限・上限（1 単位 = 100m）。極端に近い・遠いときに、ピンが点や巨大な球にならないようにする
+    private static let minHeadSize: Float = 0.01
+    private static let maxHeadSize: Float = 8
+
+    /// 頭の大きさ（1 単位 = 100m）。distance はカメラからそのピンまでの距離。当たり判定でも使う
+    static func headSize(distance: Float, selected: Bool) -> Float {
+        min(max(distance * headRatio, minHeadSize), maxHeadSize) * (selected ? selectedScale : 1)
     }
 
     /// 段階の色が変わったら作り直す
@@ -46,14 +50,17 @@ enum WideCityPins {
         }
     }
 
-    /// カメラの距離（1 単位 = 100m）に合わせて、頭と棒の太さを変える。選んでいるピンは少し大きくする
-    static func resize(in root: Entity, cameraDistance: Float, selectedId: String?) {
+    /// 毎フレーム、実際のカメラの位置からピンごとの距離を測って、頭と棒の太さを決め直す。
+    /// SwiftUI の状態（ピンチ中のカメラの距離）を使うと、描画とずれてピンだけが大きくなることがあった
+    static func resize(in root: Entity, cameraPosition: SIMD3<Float>, selectedId: String?) {
         guard let pins = root.findEntity(named: rootName) else { return }
-        let stalk = cameraDistance * stalkRatio
         for pin in pins.children {
+            guard let head = pin.findEntity(named: headName) else { continue }
+            let distance = simd_length(cameraPosition - head.position(relativeTo: nil))
             let selected = pin.name == pinPrefix + (selectedId ?? "")
-            pin.findEntity(named: headName)?.scale = .init(repeating: headSize(cameraDistance: cameraDistance, selected: selected))
+            head.scale = .init(repeating: headSize(distance: distance, selected: selected))
             if let bar = pin.findEntity(named: stalkName) {
+                let stalk = min(max(distance * stalkRatio, minHeadSize * stalkRatio / headRatio), maxHeadSize * stalkRatio / headRatio)
                 bar.scale = [stalk, bar.scale.y, stalk]
             }
         }
@@ -101,6 +108,19 @@ enum WideCityPins {
         disc.orientation = simd_quatf(angle: .pi / 2, axis: [1, 0, 0])
         disc.position.z = depth
         return disc
+    }
+}
+
+/// 毎フレームのピンの大きさ合わせ（resize）の購読と、選んでいる地点。画面ごとに 1 つ持つ
+@MainActor
+final class WideCityPinSizer {
+    var selectedId: String?
+    private var subscription: EventSubscription?
+
+    func start(in content: RealityViewCameraContent, root: Entity, camera: Entity) {
+        subscription = content.subscribe(to: SceneEvents.Update.self) { [weak self] _ in
+            WideCityPins.resize(in: root, cameraPosition: camera.position(relativeTo: nil), selectedId: self?.selectedId)
+        }
     }
 }
 
