@@ -9,22 +9,19 @@ struct HomeConditionsCard: View {
     @State private var draftDate = Date()
     @State private var width: CGFloat = 358
 
-    private var selectedTarget: CabinTarget? {
-        let targets = CabinTarget.catalog
-        if let id = model.selectedCabinTargetID,
-           let selected = targets.first(where: { $0.id == id && $0.observation == model.target }) {
-            return selected
-        }
-        // 他画面で観測対象が変わった場合は、古い表示用IDを使わず現在の対象を表示する。
-        return targets.first { !$0.isConstellation && $0.observation == model.target }
-    }
+    /// 題字「ASTERA」を出すか。ホームのシートの中では出さない
+    var showsTitle = true
+
+    private var selectedTarget: CabinTarget? { model.selectedCabinTarget }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 22) {
-            Text("ASTERA")
-                .font(.system(size: 42, weight: .regular, design: .serif)).tracking(3)
-                .foregroundStyle(.white)
-                .accessibilityAddTraits(.isHeader)
+            if showsTitle {
+                Text("ASTERA")
+                    .font(.system(size: 42, weight: .regular, design: .serif)).tracking(3)
+                    .foregroundStyle(.white)
+                    .accessibilityAddTraits(.isHeader)
+            }
             Group {
                 if typeSize.isAccessibilitySize || width < 280 {
                     VStack(alignment: .leading, spacing: 16) {
@@ -176,3 +173,15 @@ struct MoonSummary: View {
     }
 }
 
+extension AppModel {
+    /// 画面に出す天体。星座を選んだときは星座（判定は代表星で行う）
+    var selectedCabinTarget: CabinTarget? {
+        let targets = CabinTarget.catalog
+        if let id = selectedCabinTargetID,
+           let selected = targets.first(where: { $0.id == id && $0.observation == target }) {
+            return selected
+        }
+        // 他画面で観測対象が変わった場合は、古い表示用IDを使わず現在の対象を表示する。
+        return targets.first { !$0.isConstellation && $0.observation == target }
+    }
+}
