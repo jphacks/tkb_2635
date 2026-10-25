@@ -19,7 +19,7 @@ final class SkyRenderer {
     private static let moonPixels = 256
 
     /// 3D に出す出典。PLATEAU・地理院タイル・NASA SVS（月の写真）・EOG（遠くの地面の夜間光 VIIRS VNL）・Gaia は出典の表示が利用の条件
-    static let credit = "出典: PLATEAU（CC BY 4.0）・国土地理院・NASA SVS・EOG/Colorado School of Mines（VIIRS 夜間光、CC BY 4.0）・ESA/Gaia/DPAC"
+    static let credit = "出典: PLATEAU（CC BY 4.0）・国土地理院・NASA SVS・EOG/Colorado School of Mines（VIIRS 夜間光、CC BY 4.0）・ESA/Gaia/DPAC・星座線: d3-celestial（BSD-3-Clause）"
 
     static let domeName = "starDome"
     static let moonName = "moonDisk"
@@ -40,6 +40,9 @@ final class SkyRenderer {
         guard let domeMesh else { return nil }
         let dome = ModelEntity(mesh: domeMesh, materials: [UnlitMaterial(color: .black)])
         dome.name = Self.domeName
+        for layer in ConstellationRenderer.makeOverlay() {
+            dome.addChild(layer)
+        }
         return dome
     }
 
@@ -68,7 +71,7 @@ final class SkyRenderer {
         if let cached = starTextures[level] { return cached }
         // 一度に持つのは1枚だけにして、描画用のメモリを節約する
         starTextures.removeAll()
-        guard let url = Bundle.main.url(forResource: level.textureName, withExtension: "jpg"),
+        guard let url = Bundle.main.url(forResource: level.textureName, withExtension: "png"),
               let texture = try? TextureResource.load(contentsOf: url, options: .init(semantic: .color)) else { return nil }
         starTextures[level] = texture
         return texture
@@ -76,7 +79,9 @@ final class SkyRenderer {
 
     /// 半径 1 の球。頂点は赤道座標（x = 春分点、z = 天の北極）、UV は星図の画像の位置
     private static func makeDomeMesh() throws -> MeshResource {
-        let columns = 96, rows = 48
+        // 低解像度の面では正距円筒図法の星図が平面三角形上で補間され、星が横に伸びて見える。
+        // 球面を細かく分け、星図のUVを球面に沿って近似する誤差を小さくする。
+        let columns = 192, rows = 96
         var positions: [SIMD3<Float>] = [], uvs: [SIMD2<Float>] = [], indices: [UInt32] = []
         for row in 0...rows {
             let dec = 90 - 180 * Double(row) / Double(rows)
