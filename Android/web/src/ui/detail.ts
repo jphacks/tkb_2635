@@ -32,6 +32,3 @@ export function comparison(root:HTMLElement,id:string,other:string) {
   bind('back',()=>navigate({page:'detail',id}));bind('date',editDate);let close=()=>{};
   root.querySelectorAll<HTMLButtonElement>('[data-scene]').forEach(b=>b.onclick=()=>{close();close=openScene(state.contexts.find(c=>c.spot.id===b.dataset.scene)!);});return ()=>close();
 }
-
-
-

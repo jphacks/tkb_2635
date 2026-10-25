@@ -35,6 +35,3 @@ export function home(root:HTMLElement):()=>void {
   let closeScene=()=>{};bind('wide',()=>{closeScene();closeScene=openScene(state.contexts[0],true);});
   return ()=>{clearTimeout(tabTimer);closeScene();map.remove();};
 }
-
-
-
