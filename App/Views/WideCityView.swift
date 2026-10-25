@@ -100,7 +100,7 @@ struct WideCityView: View {
             }
             if let root = content.entities.first(where: { $0.name == Self.rootName }) {
                 WideCityPins.update(in: root, contexts: contexts, predictions: predictions, scale: Self.scale)
-                WideCityPins.resize(in: root, cameraDistance: camera.distance)
+                WideCityPins.resize(in: root, cameraDistance: camera.distance, selectedId: centered?.id)
             }
             lod.update(east: Double(camera.target.x), north: Double(camera.target.y),
                        cameraDistance: camera.distance / Self.scale)
@@ -192,16 +192,28 @@ struct WideCityView: View {
         perspective.look(at: target, from: eye, relativeTo: nil)
     }
 
-    /// 押した所に最も近いピン（指で押しやすい 44pt の範囲内）
+    /// 押した所に最も近いピン。棒の先から頭までの線から、指で押しやすい 44pt の範囲内
     private func pinId(at location: CGPoint) -> String? {
+        let selectedId = centered?.id
         let hits = contexts.compactMap { context -> (id: String, distance: CGFloat)? in
             let spot = context.spot
             let p = WideCity.localPosition(latitude: spot.latitude, longitude: spot.longitude)
-            let head = SIMD3<Float>(Float(p.east), Float(spot.observerElevation), -Float(p.north)) * Self.scale
-            guard let point = camera.project(head, scale: Self.scale, in: size) else { return nil }
-            return (context.id, hypot(point.x - location.x, point.y - location.y))
+            let top = SIMD3<Float>(Float(p.east), Float(spot.observerElevation), -Float(p.north)) * Self.scale
+            let size = WideCityPins.headSize(cameraDistance: camera.distance, selected: context.id == selectedId)
+            let head = top + [0, size * WideCityPins.headCenterHeight, 0]
+            guard let a = camera.project(top, scale: Self.scale, in: self.size),
+                  let b = camera.project(head, scale: Self.scale, in: self.size) else { return nil }
+            return (context.id, Self.distance(from: location, toSegment: a, b))
         }
         return hits.filter { $0.distance <= Self.hitRadius }.min { $0.distance < $1.distance }?.id
+    }
+
+    /// 点から線分までの画面上の距離 [pt]
+    private static func distance(from p: CGPoint, toSegment a: CGPoint, _ b: CGPoint) -> CGFloat {
+        let dx = b.x - a.x, dy = b.y - a.y
+        let length = dx * dx + dy * dy
+        let t = length == 0 ? 0 : min(max(((p.x - a.x) * dx + (p.y - a.y) * dy) / length, 0), 1)
+        return hypot(p.x - (a.x + t * dx), p.y - (a.y + t * dy))
     }
 
     private static let hitRadius: CGFloat = 22
