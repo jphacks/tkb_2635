@@ -57,6 +57,8 @@ public struct Spot: Codable, Identifiable, Sendable {
     public var longitude: Double
     /// 観測地点の床面標高 [m]（建物データと同じ基準）
     public var floorElevation: Double
+    /// floorElevation の出典（例: 「国土地理院 DEM1A 2026-10-25」）。nil は暫定値。
+    public var floorElevationSource: String?
     /// 床面からの目線高さ [m]
     public var eyeHeight: Double
     public var indoorOutdoor: IndoorOutdoor
@@ -105,6 +107,8 @@ public struct Spot: Codable, Identifiable, Sendable {
     /// 観測者の目の標高 = z_floor + h_eye（仕様書 4.1）
     public var observerElevation: Double { floorElevation + eyeHeight }
     public var accessVerified: Bool { lastVerifiedAt != nil }
+    /// 画面に出す床の標高の出典。出典の無い値は暫定値と出す。
+    public var floorElevationSourceLabel: String { floorElevationSource ?? "暫定値" }
     public var regionalLightProvisional: Bool { regionalLightIndex != nil && regionalLightSource == nil }
     /// 画面に出す地域の光害の出典の短い名前。数値の未取得と暫定値を区別する。
     public var regionalLightShortSource: String {

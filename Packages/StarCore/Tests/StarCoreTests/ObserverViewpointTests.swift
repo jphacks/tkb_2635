@@ -43,7 +43,8 @@ import Testing
                                                             azimuth: groundPrediction.azimuth))
         #expect(ground.scene?.observerViewEnabled == true)
         #expect(sky.scene?.observerViewEnabled == true)
-        #expect(ground.spot.observerElevation == 16.5)
+        // 床は国土地理院 DEM の 14.8m（2-06）
+        #expect(abs(ground.spot.observerElevation - 16.3) < 1e-9)
         #expect(sky.spot.observerElevation == 245.5)
         #expect(!groundPrediction.geometricVisibility)
         #expect(skyPrediction.geometricVisibility)

@@ -1,0 +1,18 @@
+{
+  "task": "1-07",
+  "note": "展望台・屋上の床の高さ（公式サイトで確かめたものだけ）。aboveGround は地上 [m]、aboveSeaLevel は海抜 [m]。scripts/gsi_elevation.py が読む。表は observatory-heights.md",
+  "spots": {
+    "shibuya_sky": {"aboveGround": null, "official": "渋谷上空229m屋上展望空間（地上か海抜か、床か建物の高さかが書かれていない）", "url": "https://www.shibuya-scramble-square.com/sky/observation/", "verifiedAt": "2026-10-25"},
+    "tocho_observatory": {"aboveGround": 202, "official": "地上202メートルの高さ", "url": "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou", "verifiedAt": "2026-10-25"},
+    "kitte_garden": {"aboveGround": null, "official": "6階の屋上庭園（高さの記載なし）", "url": "https://marunouchi.jp-kitte.jp/guide/facilities.jsp", "verifiedAt": "2026-10-25"},
+    "skytree_tembo_deck": {"aboveGround": 350, "official": "地上350mに位置する天望デッキ", "url": "https://www.tokyo-skytree.jp/floor/tembodeck_350/", "verifiedAt": "2026-10-25"},
+    "tokyo_tower_main_deck": {"aboveGround": 150, "official": "150ｍ真下が見下ろせるガラスの床（地上の明記なし。地上として扱う）", "url": "https://www.tokyotower.co.jp/maindeck/", "verifiedAt": "2026-10-25"},
+    "tokyo_tower_top_deck": {"aboveGround": 250, "official": "高さ250ｍのトップデッキ（地上の明記なし。地上として扱う）", "url": "https://tdt.tokyotower.co.jp/topdecktour/", "verifiedAt": "2026-10-25"},
+    "sunshine60_observatory": {"aboveSeaLevel": 251, "official": "海抜251mから見渡す360°の東京パノラマ", "url": "https://sunshinecity.jp/observatory/", "verifiedAt": "2026-10-25"},
+    "tokyo_city_view": {"aboveSeaLevel": 250, "official": "海抜250メートルの高さ", "url": "https://tcv.roppongihills.com/jp/enjoy/friends/index.html", "verifiedAt": "2026-10-25"},
+    "roppongi_sky_deck": {"aboveSeaLevel": 270, "official": "スカイデッキは海抜270メートルに位置する屋外展望台（2024-04 に一般営業を終了）", "url": "https://art-view.roppongihills.com/jp/info/faq/", "verifiedAt": "2026-10-25"},
+    "asakusa_terrace": {"aboveGround": null, "official": "8階 展望テラス（高さの記載なし）", "url": "https://www.city.taito.lg.jp/bunka_kanko/kankoinfo/info/oyakudachi/kankocenter/a-tic-gaiyo.html", "verifiedAt": "2026-10-25"},
+    "caretta_sky_view": {"aboveGround": null, "official": "公式サイトがメンテナンス中で本文を確認できない", "url": "https://www.caretta.jp/", "verifiedAt": "2026-10-25"},
+    "tower_hall_funabori": {"aboveGround": 103, "official": "103mの展望室（塔の高さは115m。地上の明記なし。地上として扱う）", "url": "https://www.towerhall.jp/facility/", "verifiedAt": "2026-10-25"}
+  }
+}
