@@ -9,6 +9,7 @@
 | <img src="docs/design/home-3d-sheet/2-labels-near.jpg" width="240"> | <img src="docs/design/home-3d-sheet/5-detail.jpg" width="240"> | <img src="docs/design/screenshots/h-after-list.png" width="240"> |
 
 - 審査員の方へ: **[動かし方（シミュレータ／自分の iPhone）](#動かし方審査員向け)** に手順をまとめた
+- **デモ動画（1分58秒・無音・字幕付き）: [docs/demo/astera_demo.mp4](docs/demo/astera_demo.mp4)** — 天体を選ぶ → 23区の 3D → おすすめ判定 → 展望台の目線 → 地上では隠れる → 高さで比べる、の流れを実機の画面で見せる
 - 発表の冒頭に流す紹介動画の作り方は [video/README.md](video/README.md)（動画ファイルは容量のためリポジトリに含めていない）
 
 ## 製品概要
