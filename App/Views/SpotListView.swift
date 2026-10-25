@@ -150,8 +150,8 @@ struct SpotListView: View {
                             .font(.title.bold()).multilineTextAlignment(.center)
                         Text(targets.first { $0.id == centered }?.kind ?? "")
                             .font(.caption.monospaced()).tracking(3).foregroundStyle(.cyan)
-                        if centered == "moon" {
-                            Text("月面画像: NASA SVS").font(.caption2).foregroundStyle(.secondary)
+                        if let credit = targets.first(where: { $0.id == centered })?.imageCredit {
+                            Text(credit).font(.caption2).foregroundStyle(.secondary)
                         }
                     }.accessibilityAddTraits(.updatesFrequently)
                     HStack(spacing: 30) {
@@ -191,8 +191,8 @@ struct SpotListView: View {
                     CabinPortrait(target: target).frame(width: diameter, height: diameter)
                     VStack(spacing: 16) {
                         Text(target.name).font(.title.bold())
-                        if target.id == "moon" {
-                            Text("月面画像: NASA SVS").font(.caption2).foregroundStyle(.secondary)
+                        if let credit = target.imageCredit {
+                            Text(credit).font(.caption2).foregroundStyle(.secondary)
                         }
                         Text("この天体を選択しますか？").font(.headline)
                         if let note = target.note {

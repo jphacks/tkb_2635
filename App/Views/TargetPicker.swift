@@ -32,6 +32,12 @@ struct CabinTarget: Identifiable {
     var edges: [[Int]] = []
     var note: String?
     var isConstellation: Bool { !points.isEmpty }
+    /// 実際の画像を使っている天体の出典。星・星座は模式図なので無し
+    var imageCredit: String? {
+        if id == "moon" { return "月面画像: NASA SVS" }
+        if kind == "PLANET" { return "惑星画像: NASA の探査機（パブリックドメイン）" }
+        return nil
+    }
 
     static var catalog: [CabinTarget] {
         var items = [CabinTarget(id: "moon", name: "月", kind: "MOON", observation: .moon)]
@@ -99,8 +105,32 @@ enum CabinArt {
         if close { p.closeSubpath() }
         return p
     }
+    /// 惑星の実際の写真（NASA の探査機。背景は透明）。月以外の惑星は Planets フォルダのファイルを使う。
+    static let planetPhotos: [String: UIImage] = {
+        var photos: [String: UIImage] = [:]
+        for name in ["mercury", "venus", "mars", "jupiter", "saturn"] {
+            if let url = Bundle.main.url(forResource: "planet_" + name, withExtension: "png"),
+               let image = UIImage(contentsOfFile: url.path) {
+                photos["planet-" + name] = image
+            }
+        }
+        return photos
+    }()
+
+    /// 写真を、縦横比を保ったまま直径 870 の円に収まる大きさで中央に描く
+    static func photo(_ image: UIImage, in context: GraphicsContext) {
+        let scale = 870 / max(image.size.width, image.size.height)
+        let size = CGSize(width: image.size.width * scale, height: image.size.height * scale)
+        context.draw(Image(uiImage: image).interpolation(.high),
+                     in: CGRect(x: -size.width / 2, y: -size.height / 2, width: size.width, height: size.height))
+    }
+
     static func planet(_ target: CabinTarget, in context: GraphicsContext) {
         let id = target.id
+        if let photo = planetPhotos[id] {
+            Self.photo(photo, in: context)
+            return
+        }
         let saturn = id == "planet-saturn"
         let star = target.kind == "STAR"
         let radius: CGFloat = saturn ? 225 : 435
