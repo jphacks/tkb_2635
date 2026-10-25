@@ -61,14 +61,6 @@ struct SpotDetailView: View {
                     ForecastOutOfRangeNote(message: message)
                         .padding(.horizontal, 16)
                 }
-                // 判定は下のシートに出す。出典は利用の条件なので、3D の説明を消しても残す
-                if context.scene.map(CityModelRenderer.hasModel) == true {
-                    Text(SkyRenderer.credit)
-                        .font(.caption2)
-                        .foregroundStyle(.white.opacity(0.7))
-                        .frame(maxWidth: .infinity, alignment: .trailing)
-                        .padding(.horizontal, 16)
-                }
                 if context.scene?.observerViewEnabled == true {
                     SkyViewControls(camera: $camera,
                                     target: HorizontalCoord(altitude: prediction.altitude, azimuth: prediction.azimuth),

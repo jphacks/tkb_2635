@@ -43,7 +43,8 @@ import Testing
                                                             azimuth: groundPrediction.azimuth))
         #expect(ground.scene?.observerViewEnabled == true)
         #expect(sky.scene?.observerViewEnabled == true)
-        #expect(ground.spot.observerElevation == 16.5)
+        // 床は国土地理院 DEM の 14.8m（2-06）
+        #expect(abs(ground.spot.observerElevation - 16.3) < 1e-9)
         #expect(sky.spot.observerElevation == 245.5)
         #expect(!groundPrediction.geometricVisibility)
         #expect(skyPrediction.geometricVisibility)
@@ -51,6 +52,19 @@ import Testing
         // 高さを切り替えても同じ方位・仰角で見比べられる（地点間の月の方向差はごく小さい）。
         #expect(abs(groundPrediction.altitude - skyPrediction.altitude) < 0.01)
         #expect(abs(groundPrediction.azimuth - skyPrediction.azimuth) < 0.01)
+    }
+
+    @Test func everySpotCanEnterObserverView() throws {
+        let contexts = try SeedData.loadContexts()
+        #expect(contexts.count == 43)
+        for context in contexts {
+            let scene = try #require(context.scene, "\(context.id) にシーンがない")
+            #expect(scene.observerViewEnabled == true, "\(context.id) は目線へ入れない")
+            // 展望台・屋上は光る建物が入口になるので、その建物がシーンにあること
+            if let host = context.spot.hostBuildingId {
+                #expect(scene.buildings.contains { $0.id == host }, "\(context.id) の建物 \(host) がシーンにない")
+            }
+        }
     }
 
     @Test func existingSceneJSONStillDecodesWithoutObserverFlag() throws {

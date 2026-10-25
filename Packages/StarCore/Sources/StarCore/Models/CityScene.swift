@@ -27,7 +27,7 @@ public struct CityScene: Codable, Identifiable, Sendable {
     public var groundElevation: Double
     public var source: String
     public var buildings: [Building]
-    /// 観測者の目線を確認済みのシーンだけ有効にする。省略した既存データは全体表示のみ。
+    /// 観測者の目線へ入れるシーンで true にする（今は全シーン）。合わないシーンは省くか false にし、全体表示だけにする。
     public var observerViewEnabled: Bool?
 
     /// 緯度経度をシーン原点からの東・北方向の距離 [m] に変換する

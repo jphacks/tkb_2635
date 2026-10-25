@@ -36,9 +36,6 @@ struct HomeConditionsCard: View {
                 }
             }
             VStack(alignment: .leading, spacing: 6) {
-                if let target = selectedTarget, let credit = target.imageCredit {
-                    Text(credit).foregroundStyle(.secondary)
-                }
                 if let note = selectedTarget?.note {
                     Text(note).foregroundStyle(.secondary)
                 }

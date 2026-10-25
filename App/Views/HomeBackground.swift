@@ -9,7 +9,7 @@ struct HomeBackground: View {
     @Binding var camera: WideCityCamera
     /// false の間は 3D を外す（詳細へ進んでいる間・シートを全開にしている間）
     let isActive: Bool
-    /// 下に重なるシートの高さ。地点名・出典・凡例をその上に出す
+    /// 下に重なるシートの高さ。地点名・凡例をその上に出す
     let bottomInset: CGFloat
     /// ピンを押したときに、その地点の ID を渡す
     let onSelect: (String) -> Void

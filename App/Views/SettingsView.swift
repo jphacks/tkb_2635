@@ -46,13 +46,13 @@ struct SettingsView: View {
                 } footer: {
                     Text("現在地は、近い地点を並べるためだけに使い、外には送りません。このアプリは通知を送りません。")
                 }
-                Section("データの出典") {
-                    Text("天気: Open-Meteo（CC BY 4.0）")
-                    Text(SkyRenderer.credit.replacingOccurrences(of: "出典: ", with: ""))
-                    Text(WideCityView.source.replacingOccurrences(of: "出典: ", with: ""))
-                    Link("Open-Meteo を開く", destination: URL(string: "https://open-meteo.com/")!)
+                Section {
+                    NavigationLink("出典とライセンス") { CreditsView() }
+                } header: {
+                    Text("データの出典")
+                } footer: {
+                    Text("建物（PLATEAU）・天気（Open-Meteo）・星図（NASA・ESA/Gaia）など、使っているデータの提供元と利用条件です。")
                 }
-                .font(.footnote)
             }
             .navigationTitle("設定")
         }
@@ -64,5 +64,39 @@ struct SettingsView: View {
         case .denied, .restricted: "許可されていない"
         default: "まだ選んでいない"
         }
+    }
+}
+
+/// 設定の「出典とライセンス」。データ・素材の出典はここにまとめ、ふだんの画面には出さない
+struct CreditsView: View {
+    var body: some View {
+        List {
+            ForEach(DataCredit.all) { credit in
+                Section(credit.purpose) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(credit.name).font(.subheadline.bold())
+                        Text(credit.provider)
+                        Text(credit.licenseText)
+                            .foregroundStyle(credit.license == nil ? .orange : .secondary)
+                        if let note = credit.note {
+                            Text(note).foregroundStyle(.secondary)
+                        }
+                    }
+                    .font(.footnote)
+                    if let url = credit.url {
+                        Link("提供元のページを開く", destination: url).font(.footnote)
+                    }
+                }
+            }
+            Section {
+                Text("星座の絵は Astera チームが画像生成 AI で作った簡略な絵で、実際の星座絵や星図ではありません。効果音もチームで合成したものです。施設の営業時間などは、各地点の「公式情報を開く」から確かめられます。")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            } header: {
+                Text("そのほか")
+            }
+        }
+        .navigationTitle("出典とライセンス")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
