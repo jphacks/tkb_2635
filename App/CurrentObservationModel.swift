@@ -17,10 +17,12 @@ final class CurrentObservationModel {
     private(set) var regions: [ObservationRegion] = []
     @ObservationIgnored private var calculation: Task<Void, Never>?
     @ObservationIgnored private var revision = UUID()
+    @ObservationIgnored private var supplementalScenes: [CityScene] = []
 
     func configure() {
         do {
             regions = try ObservationRegion.loadBundled()
+            supplementalScenes = try ObservationRegion.loadSupplementalScenes()
             if regions.isEmpty { fail("現在地の観測に対応した地域データがありません。") }
         } catch {
             fail("観測地域のデータを読み込めませんでした。")
@@ -43,7 +45,8 @@ final class CurrentObservationModel {
             guard let region = regions.first(where: { $0.contains(latitude: fix.latitude, longitude: fix.longitude) }) else {
                 throw ObservationLocationError.outsideRegion
             }
-            guard let scene = scenes.first(where: { $0.id == region.sceneId }) else {
+            guard let scene = scenes.first(where: { $0.id == region.sceneId })
+                    ?? supplementalScenes.first(where: { $0.id == region.sceneId }) else {
                 throw ObservationLocationError.missingScene
             }
             calculation?.cancel()

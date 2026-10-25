@@ -1,0 +1,49 @@
+{
+  "sceneId": "akasaka_demo",
+  "radiusMeters": 500.0,
+  "scanned": 4024,
+  "selected": 1253,
+  "duplicatesRemoved": 0,
+  "belowSceneGround": [
+    "bldg_0b630ff1-c58b-4175-a5e7-20d19aca40a6",
+    "bldg_33b16587-242a-4a74-b2f4-61e2e0eb83db",
+    "bldg_58fd68d2-b439-4242-a25d-d583abb059fc",
+    "bldg_72c49bd6-2833-4ae5-b610-0969deed3b63",
+    "bldg_730de946-39af-4a63-b577-d2e17f33b378",
+    "bldg_75e5bab8-bc39-4f9b-bd38-1e79a4d51fdf",
+    "bldg_80493f25-80dc-4e39-b97a-b07ac5137190",
+    "bldg_929f87a7-e1d5-41f0-bd23-b0bcec2ae595",
+    "bldg_95832e25-9e8b-439b-8cbe-6589d14ad5a5",
+    "bldg_99298a00-a77d-4bda-9a49-f64ea44f9ebb",
+    "bldg_9966238c-0651-4467-b9fb-fdf569cf8484",
+    "bldg_9c08f7cb-1fe2-4c9b-9438-be1a92517bae",
+    "bldg_a61d487d-5896-42ac-a002-fc5b5af3bfea",
+    "bldg_ad67df57-cbfb-474f-b4e2-d96b3f900d22",
+    "bldg_c86733f6-1d06-4d47-81ac-2838ef60dc32"
+  ],
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53394508_bldg_6697_op.gml",
+      "sha256": "cd32f28d88e7dd53a26a216f349806af6efb616f3c168aa975e18d4be43c0d0c",
+      "buildingsScanned": 1994
+    },
+    {
+      "name": "53394509_bldg_6697_op.gml",
+      "sha256": "a5694b9ed97fa19fc61d6f55a92eaec16300ec1450304ca8bd65a1fdc4fc5d09",
+      "buildingsScanned": 897
+    },
+    {
+      "name": "53394518_bldg_6697_op.gml",
+      "sha256": "6656395e7d59460ca59eff7af569e9c91ad563a190b16c767103e5eb08aedeb6",
+      "buildingsScanned": 656
+    },
+    {
+      "name": "53394519_bldg_6697_op.gml",
+      "sha256": "69d22f506861b245e48d4afa214f148c2ee01eea323e3ba874cc9da30a4e964a",
+      "buildingsScanned": 477
+    }
+  ]
+}

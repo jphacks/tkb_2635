@@ -1,0 +1,18 @@
+{
+  "address": "東京都港区赤坂3丁目14-9",
+  "name": "赤坂3丁目14-9 建物前",
+  "sourceURL": "https://store.family.co.jp/points/59196",
+  "verifiedAt": "2026-10-25",
+  "addressLatitude": 35.673976394273936,
+  "addressLongitude": 139.73699005621017,
+  "observationLatitude": 35.673976394273936,
+  "observationLongitude": 139.73689053241327,
+  "offsetMeters": {
+    "east": -9,
+    "north": 0
+  },
+  "positionNote": "公式店舗地図の建物位置から西へ9m。国土地理院航空写真とPLATEAUの建物外形を照合した建物前の地上デモ位置。現地の歩道・立入可否は未確認。",
+  "sceneGroundElevation": 12.24,
+  "groundSource": "国土地理院DEM1A、ズーム17",
+  "groundSourceURL": "https://maps.gsi.go.jp/development/demtile.html"
+}

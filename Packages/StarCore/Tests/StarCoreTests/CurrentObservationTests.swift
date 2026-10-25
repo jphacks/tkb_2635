@@ -96,6 +96,33 @@ import Testing
         #expect(context.horizon.samples == second.horizon.samples)
     }
 
+    @Test func namedDemosUseTheirOwnBuildingsAndRemainSeparateFromRecommendedSpots() throws {
+        let demos = try ObservationRegion.loadBundled().filter { $0.sampleName != nil }
+        #expect(!demos.isEmpty)
+        let supplemental = try ObservationRegion.loadSupplementalScenes()
+        let scenes = try SeedData.loadScenes() + supplemental
+        let spots = try SeedData.loadSpots()
+        for region in demos {
+            let scene = try #require(scenes.first { $0.id == region.sceneId })
+            let location = ObservationLocationFix(latitude: region.sampleLatitude, longitude: region.sampleLongitude,
+                                                  horizontalAccuracy: 0, timestamp: now)
+            let context = try region.context(at: location, scene: scene, now: now)
+            #expect(scene.buildings.count > 100)
+            #expect(scene.buildings.contains { !($0.parts ?? []).isEmpty })
+            #expect(context.spot.latitude == region.sampleLatitude)
+            #expect(context.spot.longitude == region.sampleLongitude)
+            #expect(context.spot.floorElevationSource != nil)
+            #expect(context.spot.lastVerifiedAt == nil)
+            #expect(context.spot.hostBuildingId == nil)
+            #expect(!context.horizon.isApproximate)
+            #expect(!spots.contains { $0.sceneId == scene.id })
+        }
+        let akasaka = try #require(demos.first { $0.id == "akasaka-demo" })
+        #expect(akasaka.sampleLabel == "赤坂3丁目14-9 建物前")
+        #expect(akasaka.sampleLongitude < akasaka.longitude)
+        #expect(abs(akasaka.sampleLatitude - 35.673976394273936) < 0.0000001)
+    }
+
     private func fix(east: Double = 0, accuracy: Double = 5, age: Double = 0, latitude: Double = 35.658) -> ObservationLocationFix {
         ObservationLocationFix(latitude: latitude,
                                longitude: 139.7016 + east / (111_320 * cos(35.658 * .pi / 180)),

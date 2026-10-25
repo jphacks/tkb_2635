@@ -90,6 +90,7 @@
 		3F18AE14F757C23CEA818EA4 /* HomeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3DFE0D4CBB315099D083D6 /* HomeSheet.swift */; };
 		40D99A8097D7EC5B8AE212F2 /* City_kasai_rinkai_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E4AE9175DBD437186F066813 /* City_kasai_rinkai_park.usdz */; };
 		411A70FAB6BF96C3637A776C /* CompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE617C900ABD7B0CA50F0AE /* CompareView.swift */; };
+		41B9552F21696DB9CA4B4DEA /* City_akasaka_demo.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B25817B9A01014595B9E103B /* City_akasaka_demo.usdz */; };
 		434790A7893B1DA92D9A462D /* constellation-piscis_austrinus.png in Resources */ = {isa = PBXBuildFile; fileRef = 529EE03764926D21F69286CF /* constellation-piscis_austrinus.png */; };
 		43663BEF5395A81935C9D0D9 /* constellation-hydra.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DFECB057475716DD711968 /* constellation-hydra.png */; };
 		43786E98EB264F618C7BD1F6 /* Wide2_13117.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6E537DE77A24C7BA15409372 /* Wide2_13117.usdz */; };
@@ -647,6 +648,7 @@
 		B0FAF54F9C7426BFDDE87FB3 /* constellation_cygnus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = constellation_cygnus.png; sourceTree = "<group>"; };
 		B10B17A0BE54FB8574F07917 /* planet_jupiter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet_jupiter.png; sourceTree = "<group>"; };
 		B1CB6A1BA9E15890651E3B30 /* Wide_13116.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13116.usdz; sourceTree = "<group>"; };
+		B25817B9A01014595B9E103B /* City_akasaka_demo.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_akasaka_demo.usdz; sourceTree = "<group>"; };
 		B33C7A0EE83BB0415D73168E /* constellations-LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "constellations-LICENSE.txt"; sourceTree = "<group>"; };
 		B3EB22D39AFCC8CF98EAAE61 /* constellation-pegasus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-pegasus.png"; sourceTree = "<group>"; };
 		B5158B771592E8D01775AF27 /* SkyARConstellationImageLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyARConstellationImageLayer.swift; sourceTree = "<group>"; };
@@ -1140,6 +1142,7 @@
 				B0C07C8453CFA255AD73FC45 /* Asphalt031_Color.jpg */,
 				E977348ECDA6D2A5DE9E28DA /* Asphalt031_NormalGL.jpg */,
 				F15A6BD96245C9D0EB9D555F /* Asphalt031_Roughness.jpg */,
+				B25817B9A01014595B9E103B /* City_akasaka_demo.usdz */,
 				DA4B584AEE029D23936C1C11 /* City_arakawa_riverside.usdz */,
 				6B52DB05B310A30BCF3247E1 /* City_asakusa.usdz */,
 				88A2C6A5727F667AE79CE96C /* City_funabori.usdz */,
@@ -1360,6 +1363,7 @@
 				F5A23B40904147AA81FD4D03 /* Asphalt031_NormalGL.jpg in Resources */,
 				C40105CC67476B1524DA1791 /* Asphalt031_Roughness.jpg in Resources */,
 				1EFFE3428A12B9632AD2AEB8 /* Assets.xcassets in Resources */,
+				41B9552F21696DB9CA4B4DEA /* City_akasaka_demo.usdz in Resources */,
 				471A7AC30A3C34EDAA0FA6DF /* City_arakawa_riverside.usdz in Resources */,
 				22FF55BA94078ABF96FEDA4E /* City_asakusa.usdz in Resources */,
 				1D3730EB42E7ECEBC7F15DA5 /* City_funabori.usdz in Resources */,

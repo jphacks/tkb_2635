@@ -365,8 +365,11 @@ def main():
             counts['lamps'] = octahedra('lamps', [(x, y, LAMP_HEIGHT) for x, y in lamps], LAMP_SIZE, collection)
             counts['far_lights'] = octahedra('far_lights', far_lights(bounds), FAR_SIZE, collection)
 
-    bpy.ops.wm.usd_export(filepath=output, export_materials=True, generate_preview_surface=True,
-                          export_uvmaps=True, export_normals=True, export_textures=True)
+    # Blender 5 では一部の設定名が廃止されたため、その版で使える設定だけを渡す。
+    export_settings = dict(filepath=output, export_materials=True, generate_preview_surface=True,
+                           export_uvmaps=True, export_normals=True, export_textures=True)
+    supported = {p.identifier for p in bpy.ops.wm.usd_export.get_rna_type().properties}
+    bpy.ops.wm.usd_export(**{key: value for key, value in export_settings.items() if key in supported})
     print('triangles', sum(counts.values()), counts)
 
 

@@ -16,6 +16,16 @@ public struct ObservationRegion: Codable, Identifiable, Sendable {
     public let terrain: ObservationElevationGrid
     public let sampleLatitude: Double
     public let sampleLongitude: Double
+    /// デモ地点の表示名。省略時は地域名を使う。
+    public var sampleName: String?
+
+    public var sampleLabel: String { sampleName ?? "\(name)のサンプル" }
+
+    /// 登録された推薦地点とは別に、デモ専用の建物シーンを読み込む。
+    public static func loadSupplementalScenes() throws -> [CityScene] {
+        guard let url = Bundle.module.url(forResource: "observation-scenes", withExtension: "json") else { return [] }
+        return try JSONDecoder().decode([CityScene].self, from: Data(contentsOf: url))
+    }
 
     public static func loadBundled() throws -> [ObservationRegion] {
         guard let url = Bundle.module.url(forResource: "observation-regions", withExtension: "json") else {

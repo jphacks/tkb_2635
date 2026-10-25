@@ -78,6 +78,9 @@ def make_grid(scene, half_width, step, cache):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--scene", required=True)
+    parser.add_argument("--buildings", type=Path, default=BUILDINGS)
+    parser.add_argument("--region-id")
+    parser.add_argument("--sample-name")
     parser.add_argument("--name", required=True)
     parser.add_argument("--sample-latitude", required=True, type=float)
     parser.add_argument("--sample-longitude", required=True, type=float)
@@ -86,11 +89,11 @@ def main():
     parser.add_argument("--cache", required=True)
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()
-    scene = next(s for s in json.loads(BUILDINGS.read_text()) if s["id"] == args.scene)
+    scene = next(s for s in json.loads(args.buildings.read_text()) if s["id"] == args.scene)
     surface = ElevationTiles(args.cache, "dem1a_png", 17)
     terrain = ElevationTiles(args.cache, "dem_png", 14)
     region = dict(
-        id=args.scene + "-station", name=args.name, sceneId=args.scene,
+        id=args.region_id or args.scene + "-station", name=args.name, sceneId=args.scene,
         latitude=scene["originLatitude"], longitude=scene["originLongitude"],
         selectionRadius=args.radius, buildingRadius=args.building_radius,
         elevationSource="国土地理院 標高タイル（地面 DEM1A・20m格子、地形 DEM10B・50m格子）",
@@ -100,6 +103,8 @@ def main():
         terrain=make_grid(scene, args.radius + 3_100, 50, terrain),
         sampleLatitude=args.sample_latitude, sampleLongitude=args.sample_longitude,
     )
+    if args.sample_name:
+        region["sampleName"] = args.sample_name
     region["sourceTiles"] = surface.sources + terrain.sources
     regions = json.loads(args.output.read_text()) if args.output.exists() else []
     regions = [r for r in regions if r["id"] != region["id"]] + [region]

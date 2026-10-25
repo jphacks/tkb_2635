@@ -1,10 +1,21 @@
 import StarCore
 import SwiftUI
 
-enum CurrentObservationRoute: Hashable { case currentLocation }
+enum CurrentObservationRoute: Hashable, Identifiable {
+    case currentLocation
+    case demo(String)
+
+    var demoRegionID: String? {
+        if case .demo(let id) = self { return id }
+        return nil
+    }
+
+    var id: String { demoRegionID.map { "demo-\($0)" } ?? "current-location" }
+}
 
 /// 現在地を確定し、既存の都市モデルをその位置の目線から見る。
 struct CurrentObservationView: View {
+    var demoRegionID: String? = nil
     @Environment(AppModel.self) private var model
     @Environment(LocationModel.self) private var location
     @Environment(\.scenePhase) private var scenePhase
@@ -12,6 +23,8 @@ struct CurrentObservationView: View {
     @State private var camera = SkyCamera()
     @State private var isActive = false
     @State private var leftAppWhileObserving = false
+    @State private var showsAR = false
+    @State private var motionMonitor = DeviceMotionMonitor()
 
     var body: some View {
         Group {
@@ -22,13 +35,32 @@ struct CurrentObservationView: View {
             }
         }
         .background(Color(red: 0.02, green: 0.03, blue: 0.10))
-        .navigationTitle(observation.isSample ? "渋谷駅のサンプル" : "現在地から見る")
+        .navigationTitle(observation.isSample ? (observation.region?.sampleLabel ?? "デモ現在地") : "現在地から見る")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
+        .fullScreenCover(isPresented: $showsAR, onDismiss: { motionMonitor.stop() }) {
+            if let context = observation.context {
+                SkyARView(context: context, monitor: motionMonitor, observationDate: model.date,
+                          locationLabel: observation.isSample
+                            ? "デモ現在地：\(observation.region?.sampleLabel ?? "")" : "取得した現在地",
+                          isDemo: observation.isSample) { showsAR = false }
+                    .onAppear { motionMonitor.start() }
+                    .onDisappear { motionMonitor.stop() }
+            } else {
+                Button("3D表示へ戻る") { showsAR = false }
+            }
+        }
         .task {
             isActive = true
+            guard observation.regions.isEmpty else { return }
             observation.configure()
-            if !observation.regions.isEmpty { requestLocation() }
+            if let demoRegionID, let region = observation.regions.first(where: { $0.id == demoRegionID }) {
+                showSample(region)
+            } else if demoRegionID != nil {
+                observation.fail("指定されたデモ地点のデータがありません。")
+            } else if !observation.regions.isEmpty {
+                requestLocation()
+            }
         }
         .onChange(of: location.observationFix) { _, fix in
             guard isActive, case .locating = observation.phase, let fix else { return }
@@ -83,16 +115,17 @@ struct CurrentObservationView: View {
                 Button("現在地を再取得", systemImage: "location.fill", action: requestLocation)
                     .buttonStyle(.borderedProminent)
                     .accessibilityIdentifier("current-observation-retry")
-                if !observation.regions.isEmpty {
-                    Button("渋谷駅のサンプルで試す", action: showSample)
+                ForEach(observation.regions) { region in
+                    Button("\(region.sampleLabel)で試す") { showSample(region) }
                         .buttonStyle(.bordered)
-                        .accessibilityIdentifier("current-observation-sample")
+                        .accessibilityIdentifier("current-observation-sample-\(region.id)")
                 }
             case .ready:
                 EmptyView()
             }
-            if let region = observation.regions.first {
-                Text("試作範囲：\(region.name)・中心から約\(Int(region.selectionRadius))m\n地上の屋外で、現在地の目線から空を見回せます。")
+            if !observation.regions.isEmpty {
+                Text("試作範囲：" + observation.regions.map { "\($0.name)・約\(Int($0.selectionRadius))m" }.joined(separator: "／")
+                     + "\n地上の屋外で、現在地の目線から空を見回せます。")
                     .font(.footnote).foregroundStyle(.secondary).multilineTextAlignment(.center)
             }
         }
@@ -107,7 +140,7 @@ struct CurrentObservationView: View {
                                               weather: model.weather(for: context.spot),
                                               forecastCoverage: model.forecastCoverage(for: context.spot))
         return ZStack(alignment: .top) {
-            if isActive {
+            if isActive && !showsAR {
                 Sky3DView(context: context, prediction: prediction, date: model.date,
                           sharedCamera: $camera, showsLegend: false)
                     .ignoresSafeArea(edges: .bottom)
@@ -130,6 +163,14 @@ struct CurrentObservationView: View {
                 }
                 Text("ドラッグで見回す・ピンチで拡大")
                     .font(.caption).foregroundStyle(.secondary)
+                Button {
+                    showsAR = true
+                } label: {
+                    Label("ARで空を見る", systemImage: "camera.viewfinder")
+                        .font(.subheadline.bold()).frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .accessibilityIdentifier("current-observation-open-ar")
             }
             .padding(12)
             .background(.regularMaterial, in: .rect(cornerRadius: 16))
@@ -138,7 +179,7 @@ struct CurrentObservationView: View {
         .safeAreaInset(edge: .bottom) {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
-                    Text(observation.isSample ? "サンプル：渋谷駅東側" : "取得した現在地・地上")
+                    Text(observation.isSample ? "デモ現在地：\(observation.region?.sampleLabel ?? "")" : "取得した現在地・地上")
                         .font(.caption.bold())
                     Spacer()
                     Button("現在地を再取得", systemImage: "location.fill", action: requestLocation)
@@ -176,8 +217,7 @@ struct CurrentObservationView: View {
         location.start(precise: true)
     }
 
-    private func showSample() {
-        guard let region = observation.regions.first else { return }
+    private func showSample(_ region: ObservationRegion) {
         location.finishObservationRequest()
         observation.prepare(fix: ObservationLocationFix(
             latitude: region.sampleLatitude, longitude: region.sampleLongitude,

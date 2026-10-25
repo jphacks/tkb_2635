@@ -7,7 +7,8 @@ struct SpotListView: View {
     @State private var centered: String? = "moon"
     @State private var pending: CabinTarget?
     @State private var findingPlaces = false
-    @State private var showsCurrentObservation = false
+    @State private var observationRoute: CurrentObservationRoute?
+    @State private var demoRegions: [ObservationRegion] = []
     private let targets = CabinTarget.catalog
 
     var body: some View {
@@ -23,16 +24,17 @@ struct SpotListView: View {
             }
         }
         .preferredColorScheme(.dark)
-        .fullScreenCover(isPresented: $showsCurrentObservation) {
+        .fullScreenCover(item: $observationRoute) { route in
             NavigationStack {
-                CurrentObservationView()
+                CurrentObservationView(demoRegionID: route.demoRegionID)
                     .toolbar {
                         ToolbarItem(placement: .topBarLeading) {
-                            Button("戻る") { showsCurrentObservation = false }
+                            Button("戻る") { observationRoute = nil }
                         }
                     }
             }
         }
+        .task { demoRegions = (try? ObservationRegion.loadBundled()) ?? [] }
     }
 
     private var selection: some View {
@@ -136,14 +138,26 @@ struct SpotListView: View {
                         Button {
                             model.target = target.observation
                             model.selectedCabinTargetID = target.id
-                            showsCurrentObservation = true
+                            observationRoute = .currentLocation
                         } label: {
                             Label("現在地から見る", systemImage: "location.viewfinder")
                                 .bold().frame(maxWidth: .infinity).padding(12)
                         }
                         .buttonStyle(.bordered).tint(.cyan)
                         .accessibilityIdentifier("cabin-observe-current-location")
-                        Text("現在地の試作は渋谷駅周辺に対応")
+                        ForEach(demoRegions.filter { $0.sampleName != nil }) { region in
+                            Button {
+                                model.target = target.observation
+                                model.selectedCabinTargetID = target.id
+                                observationRoute = .demo(region.id)
+                            } label: {
+                                Label("\(region.sampleLabel)でデモ", systemImage: "mappin.and.ellipse")
+                                    .frame(maxWidth: .infinity).padding(8)
+                            }
+                            .buttonStyle(.bordered)
+                            .accessibilityIdentifier("observe-demo-\(region.id)")
+                        }
+                        Text("現在地の試作は対応地域の地上で利用できます")
                             .font(.caption).foregroundStyle(.secondary)
                         Button("戻る") { pending = nil }
                             .buttonStyle(.bordered).controlSize(.large)

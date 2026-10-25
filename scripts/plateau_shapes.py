@@ -138,7 +138,7 @@ def surfaces(building):
             yield 'lod1', ring_id, ring
 
 
-def convert(paths, scene, hosts=(), styles=None):
+def convert(paths, scene, hosts=(), styles=None, use_textures=True):
     """hosts の建物（観測者が中にいる建物）は、部品名に host_tag を付けて別の部品にする（アプリで半透明にするため）。"""
     origin = (scene['originLatitude'], scene['originLongitude'])
     ground = scene['groundElevation']
@@ -147,7 +147,7 @@ def convert(paths, scene, hosts=(), styles=None):
     stats = {'buildings': 0, 'lod2': 0, 'lod1': 0, 'clampedBuildings': 0, 'polygons': 0, 'texturedPolygons': 0,
              'windowQuads': 0, 'aviationLights': 0}
     for path in paths:
-        textures = load_textures(path)
+        textures = load_textures(path) if use_textures else {}
         for element, _, _ in iter_buildings(path):
             identifier = element.get(G + 'id')
             box = boxes.get(identifier)
@@ -237,6 +237,7 @@ def main():
     parser.add_argument('--buildings', type=Path, required=True, help='アプリの buildings.json')
     parser.add_argument('--scene-id', required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--no-textures', action='store_true', help='実写画像を取得せず実形状だけを使う')
     parser.add_argument('--host', action='append', default=[],
                         help='観測者が中にいる建物の gml:id（別の部品にする。複数指定可）')
     parser.add_argument('--style', action='append', default=[],
@@ -244,7 +245,8 @@ def main():
     args = parser.parse_args()
     scene = next(s for s in json.loads(args.buildings.read_text()) if s['id'] == args.scene_id)
     shapes, stats = convert(args.gml, scene, set(args.host),
-                            dict((k, int(v)) for k, v in (a.rsplit('=', 1) for a in args.style)))
+                            dict((k, int(v)) for k, v in (a.rsplit('=', 1) for a in args.style)),
+                            use_textures=not args.no_textures)
     if stats['buildings'] != len(scene['buildings']):
         missing = len(scene['buildings']) - stats['buildings']
         print(f'注意: buildings.json の {missing} 棟は形状が見つからず、3D ファイルに入りません')
