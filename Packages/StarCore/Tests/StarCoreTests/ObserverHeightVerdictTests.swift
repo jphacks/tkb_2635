@@ -10,9 +10,10 @@ import Testing
     }
 
     @Test func groundIsBlockedButObservatorySeesMoon() throws {
-        // 2026-10-25 19:00 JST: 月は高度約35°、地上の建物（約34°）に隠れる
-        let ground = try verdict("shibuya_east_plaza", "2026-10-25T10:00:00Z")
-        let sky = try verdict("shibuya_sky", "2026-10-25T10:00:00Z")
+        // 2026-10-29 20:30 JST（4-13 で確かめたデモ日時）: 地上は渋谷ストリームの塔に隠れ、SHIBUYA SKY は見える
+        // 10-25 21:00 は 4-13（PR #92）で判定を実形状に合わせた結果、地上でも見える判定になった
+        let ground = try verdict("shibuya_east_plaza", "2026-10-29T11:30:00Z")
+        let sky = try verdict("shibuya_sky", "2026-10-29T11:30:00Z")
         #expect(!ground.geometricVisibility)
         #expect(sky.geometricVisibility)
         #expect(abs(ground.altitude - sky.altitude) < 0.1)
@@ -20,8 +21,8 @@ import Testing
     }
 
     @Test func groundIsBlockedAtHighAltitudeToo() throws {
-        // 21:00 JST: 月は高度約57°でも、地上は約68°の遮蔽に隠れる
-        #expect(try !verdict("shibuya_east_plaza", "2026-10-25T12:00:00Z").geometricVisibility)
-        #expect(try verdict("shibuya_sky", "2026-10-25T12:00:00Z").geometricVisibility)
+        // 2026-10-24 21:00 JST: 月は高度約58°でも、地上は渋谷ストリームの塔（遮蔽仰角約65°）に隠れる
+        #expect(try !verdict("shibuya_east_plaza", "2026-10-24T12:00:00Z").geometricVisibility)
+        #expect(try verdict("shibuya_sky", "2026-10-24T12:00:00Z").geometricVisibility)
     }
 }
