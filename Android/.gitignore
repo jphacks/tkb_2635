@@ -1,0 +1,9 @@
+.gradle/
+local.properties
+**/build/
+web/node_modules/
+web/dist/
+web/public/generated/
+app/src/main/assets/web/
+*.jks
+*.keystore
