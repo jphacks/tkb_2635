@@ -112,6 +112,7 @@
 		739F4CB38D22C5385FEC13C8 /* Wide_13117.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3EB90224E3FA247FE564546A /* Wide_13117.usdz */; };
 		73F95F6EFB0900F00D819770 /* far_yoyogi_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 307CE3D774C6E064C8D65927 /* far_yoyogi_park.jpg */; };
 		7557C82D9D9B675D5F44EC7A /* Wide_13109.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6D8BC0490128A739CE1B0F6A /* Wide_13109.usdz */; };
+		768077D49F154053BBAA737A /* constellation-andromeda.png in Resources */ = {isa = PBXBuildFile; fileRef = 85E8BA193534576780C8D436 /* constellation-andromeda.png */; };
 		771EF5B5D5FC8C5C2CCA7DF0 /* planet_saturn.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CF11348DC48F0CCA7E637A6 /* planet_saturn.png */; };
 		7729FDEB52F318826A8731E2 /* City_yoyogi_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 34C768A06756B98014064792 /* City_yoyogi_park.usdz */; };
 		7744F94481E2D7311632B36A /* planet_mercury.png in Resources */ = {isa = PBXBuildFile; fileRef = 2915738486DDB4FAEAF41090 /* planet_mercury.png */; };
@@ -122,6 +123,7 @@
 		7B83E7AA901592BE80715F18 /* City_komazawa_olympic_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B970D511980DC4CF9D400D09 /* City_komazawa_olympic_park.usdz */; };
 		7C3CA1C9A110742BEDEEBD7D /* far_yoyogi_park.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A6F232224A3ED626683C447 /* far_yoyogi_park.json */; };
 		7ED6F8C16329CAA5FA76E85E /* far_toneri_park.json in Resources */ = {isa = PBXBuildFile; fileRef = F97FB3F3B2B08696B9D9F42C /* far_toneri_park.json */; };
+		7EE57CE7CA52686CD7808D0B /* constellation-pegasus.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EB22D39AFCC8CF98EAAE61 /* constellation-pegasus.png */; };
 		80DB4FD0DCC8FD328FE11F6D /* Wide_13108.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 0C76B8A6C9C7CEC94E6D7AFE /* Wide_13108.usdz */; };
 		812733E42B302E1F95A3AD90 /* Wide2_13113.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 1CC425F4E2748059D2E821B4 /* Wide2_13113.usdz */; };
 		8374D92035F96E6CFE08BEDA /* Wide2_13118.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CC47DA5331FADA19931220CA /* Wide2_13118.usdz */; };
@@ -134,6 +136,7 @@
 		88E8ECAE87BB911052ED808E /* Wide_13104.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C36A19ECB464D45C09A0DA13 /* Wide_13104.usdz */; };
 		8AC5DB74BF7C218CD88BD89D /* far_ukima_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3616BD91E617BD852FF864C6 /* far_ukima_park.jpg */; };
 		8B61512B1617A26FEF1E89BC /* FarGroundRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615FCC36B1BC2C41CE6D502 /* FarGroundRenderer.swift */; };
+		8BA39B924D408EA32D4C8408 /* constellation-cassiopeia.png in Resources */ = {isa = PBXBuildFile; fileRef = D293C6B84CCBE81356C10952 /* constellation-cassiopeia.png */; };
 		8BB076589A7D83F29AE44A54 /* City_sumida_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C6AA621A63EDF2CD26BF9309 /* City_sumida_park.usdz */; };
 		8C4FBA125C16E5CBAC5EB587 /* far_rinshi_no_mori_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C0543356BEEC3F154E757526 /* far_rinshi_no_mori_park.jpg */; };
 		8CF46BDA8B1163F8D3FE6A02 /* ConstellationImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD1B5A301DF62029A038784 /* ConstellationImageRenderer.swift */; };
@@ -373,6 +376,7 @@
 		83592F6A0ED211E902A2AFE2 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		84615A3E0B6599A5B15BAAC2 /* Wide2_13123.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13123.usdz; sourceTree = "<group>"; };
 		852CDE814189DE4CC7C81866 /* constellation-art.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "constellation-art.json"; sourceTree = "<group>"; };
+		85E8BA193534576780C8D436 /* constellation-andromeda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-andromeda.png"; sourceTree = "<group>"; };
 		861A3D3E8ABDCDCD34315D5E /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		86768797E507B99EE45B6A16 /* Wide_13101.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13101.usdz; sourceTree = "<group>"; };
 		87689282C4EF95242CE86CD7 /* WideGround.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WideGround.json; sourceTree = "<group>"; };
@@ -418,6 +422,7 @@
 		B10B17A0BE54FB8574F07917 /* planet_jupiter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet_jupiter.png; sourceTree = "<group>"; };
 		B1CB6A1BA9E15890651E3B30 /* Wide_13116.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13116.usdz; sourceTree = "<group>"; };
 		B33C7A0EE83BB0415D73168E /* constellations-LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "constellations-LICENSE.txt"; sourceTree = "<group>"; };
+		B3EB22D39AFCC8CF98EAAE61 /* constellation-pegasus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-pegasus.png"; sourceTree = "<group>"; };
 		B5158B771592E8D01775AF27 /* SkyARConstellationImageLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyARConstellationImageLayer.swift; sourceTree = "<group>"; };
 		B5C78EF8CDE9B4A8366AFF4F /* far_kasai_rinkai_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_kasai_rinkai_park.json; sourceTree = "<group>"; };
 		B5FA2C8027C4A303810509C6 /* constellation-images.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "constellation-images.json"; sourceTree = "<group>"; };
@@ -454,6 +459,7 @@
 		CE6E07D95BA4F5CEAEF24248 /* StarSpot.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = StarSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE731D01A61784B36ED40A34 /* SkyViewControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyViewControls.swift; sourceTree = "<group>"; };
 		D01D5ED4C33B3C1762E81E22 /* far_rinshi_no_mori_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_rinshi_no_mori_park.json; sourceTree = "<group>"; };
+		D293C6B84CCBE81356C10952 /* constellation-cassiopeia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-cassiopeia.png"; sourceTree = "<group>"; };
 		D4B285889905102C5C378412 /* Wide_13111.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13111.usdz; sourceTree = "<group>"; };
 		D75CCD73165A635F8859D158 /* WideCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideCityView.swift; sourceTree = "<group>"; };
 		D7CEC029EAFFE8FE0AE4E614 /* Wide2_13115.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13115.usdz; sourceTree = "<group>"; };
@@ -842,12 +848,15 @@
 		DD40FB723829B4258263CC9B /* Sky */ = {
 			isa = PBXGroup;
 			children = (
+				85E8BA193534576780C8D436 /* constellation-andromeda.png */,
 				CB5DCEC55112884EE63E5FC2 /* constellation-aquila.png */,
 				852CDE814189DE4CC7C81866 /* constellation-art.json */,
+				D293C6B84CCBE81356C10952 /* constellation-cassiopeia.png */,
 				13DB5F8373AC3968369D00E2 /* constellation-cygnus.png */,
 				A2AE1FABD8B11939840E31F4 /* constellation-gemini.png */,
 				B5FA2C8027C4A303810509C6 /* constellation-images.json */,
 				E79736D2F7C6B4CAF7BC60F9 /* constellation-orion.png */,
+				B3EB22D39AFCC8CF98EAAE61 /* constellation-pegasus.png */,
 				22DBA73636D98FBA99D27AE8 /* constellation-scorpius.png */,
 				95BBD78DF1F2AA6F4860B3C0 /* constellation-ursa_major.png */,
 				B33C7A0EE83BB0415D73168E /* constellations-LICENSE.txt */,
@@ -1025,12 +1034,15 @@
 				883973BB60D626CB721406D7 /* Wide_13121.usdz in Resources */,
 				67B15985B35291C4C805049B /* Wide_13122.usdz in Resources */,
 				CB3F989312FB95C3A591EAD7 /* Wide_13123.usdz in Resources */,
+				768077D49F154053BBAA737A /* constellation-andromeda.png in Resources */,
 				077C94B68D2691771C32D35F /* constellation-aquila.png in Resources */,
 				913CC9AE035EA2264446E51A /* constellation-art.json in Resources */,
+				8BA39B924D408EA32D4C8408 /* constellation-cassiopeia.png in Resources */,
 				25C316B1CFBD7EF996211F80 /* constellation-cygnus.png in Resources */,
 				E73417BA7CE56710B0EAB9A4 /* constellation-gemini.png in Resources */,
 				D61945AEFE260889A1E6A1D3 /* constellation-images.json in Resources */,
 				2F5483B960A7F1E8A3522F67 /* constellation-orion.png in Resources */,
+				7EE57CE7CA52686CD7808D0B /* constellation-pegasus.png in Resources */,
 				F6B53B743DE337ED8ADD6809 /* constellation-scorpius.png in Resources */,
 				EA7D3FB0134B6255B6B3FCF6 /* constellation-ursa_major.png in Resources */,
 				FA861536075DCC972418C1EA /* constellation_aquila.png in Resources */,

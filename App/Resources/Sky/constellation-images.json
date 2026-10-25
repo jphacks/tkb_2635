@@ -45,5 +45,24 @@
     {"star": [116.329, 28.0262], "pixel": [602, 140], "marked": true},
     {"star": [95.7401, 22.5136], "pixel": [395, 905]},
     {"star": [99.4279, 16.3993], "pixel": [650, 905]}
+   ]},
+  {"id": "Cas", "image": "constellation-cassiopeia", "size": [1024, 1024],
+   "anchors": [
+    {"star": [10.1268, 56.5373], "pixel": [521, 327], "marked": true},
+    {"star": [2.2945, 59.1498], "pixel": [331, 471], "marked": true}
+   ]},
+  {"id": "Peg", "image": "constellation-pegasus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-13.8098, 15.2053], "pixel": [595, 454], "marked": true},
+    {"star": [3.309, 15.1836], "pixel": [402, 626], "marked": true}
+   ]},
+  {"id": "And", "image": "constellation-andromeda", "size": [1024, 1024],
+   "anchors": [
+    {"star": [2.0969, 29.0904], "pixel": [561, 128], "marked": true},
+    {"star": [17.433, 35.6206], "pixel": [530, 419], "marked": true},
+    {"star": [30.9748, 42.3297], "pixel": [397, 822], "marked": true},
+    {"star": [-14.5197, 42.326], "pixel": [64, -17]},
+    {"star": [24.4982, 48.6282], "pixel": [211, 725]},
+    {"star": [14.3017, 23.4176], "pixel": [809, 347]}
    ]}
 ]
