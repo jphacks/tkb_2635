@@ -2,6 +2,7 @@
   {
     "id": "shibuya",
     "name": "渋谷駅周辺",
+    "observerViewEnabled": true,
     "originLatitude": 35.658,
     "originLongitude": 139.7016,
     "groundElevation": 15.0,
