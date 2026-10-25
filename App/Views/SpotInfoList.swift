@@ -4,6 +4,7 @@ import SwiftUI
 /// 詳細画面の下のシートに入れる情報（判定の理由・比較・観測条件・施設など）。
 /// 上から順に、シートを半分まで引き上げたときに見える内容 → 全部引き上げたときの内容。比較画面へのボタンは見出し（SpotSheetHeader）にある。
 struct SpotInfoList: View {
+    @AppStorage(DirectionNotation.storageKey) private var directionNotation = DirectionNotation.default
     @Environment(AppModel.self) private var model
     let context: SpotContext
     let prediction: Prediction
@@ -15,7 +16,7 @@ struct SpotInfoList: View {
             // スコアと見える/隠れるはシートの見出しに出すので、ここは位置と理由だけ
             Section("判定") {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("\(model.target.name)：\(Angle.directionName(prediction.azimuth)) 高度\(String(format: "%.1f", prediction.altitude))°")
+                    Text("\(model.target.name)：\(directionNotation.text(prediction.azimuth)) 高度\(String(format: "%.1f", prediction.altitude))°")
                     Text("その方位の遮蔽仰角 \(String(format: "%.1f", prediction.obstructionElevation))°")
                         .foregroundStyle(.secondary)
                 }
