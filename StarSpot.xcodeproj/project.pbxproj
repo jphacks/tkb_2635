@@ -78,6 +78,7 @@
 		6346118067D1174AEBD6233B /* far_asakusa.json in Resources */ = {isa = PBXBuildFile; fileRef = E08004F2D304ADAD69E3CB41 /* far_asakusa.json */; };
 		638676EE7214BB721F8A5CF3 /* far_harumi_futo_park.json in Resources */ = {isa = PBXBuildFile; fileRef = EDBB3DEE842227AAAA727169 /* far_harumi_futo_park.json */; };
 		64AB7E47CD4066B37C82F054 /* far_kiba_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A707BBD63276923A6C04B44A /* far_kiba_park.jpg */; };
+		67041D906545CF78F846913D /* ObserverEntryRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645DE5BF57C489F0569F244A /* ObserverEntryRenderer.swift */; };
 		67B15985B35291C4C805049B /* Wide_13122.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3CF11D7ADEFAF365FD3EC002 /* Wide_13122.usdz */; };
 		67C15D754C2044BF2418C0A2 /* HomeMapSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA52D2CB71D15A837A60755 /* HomeMapSection.swift */; };
 		67D7303769F0D5CD07B452C8 /* far_yumenoshima_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCFC819E71B1217878467AE0 /* far_yumenoshima_park.jpg */; };
@@ -260,6 +261,7 @@
 		5FA4E86E9348639728DC3734 /* Wide2_13106.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13106.usdz; sourceTree = "<group>"; };
 		60580688FC08049D0A8C2706 /* far_shakujii_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_shakujii_park.jpg; sourceTree = "<group>"; };
 		61AEFFB0F2969B0948F4386F /* far_shibuya.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_shibuya.json; sourceTree = "<group>"; };
+		645DE5BF57C489F0569F244A /* ObserverEntryRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverEntryRenderer.swift; sourceTree = "<group>"; };
 		6771A8362CC87A5316EE4812 /* far_roppongi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_roppongi.jpg; sourceTree = "<group>"; };
 		67FB796428C460DA3C82667C /* City_ueno_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_ueno_park.usdz; sourceTree = "<group>"; };
 		68A97D0FD9AAA999A2BA046E /* far_hibiya_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_hibiya_park.jpg; sourceTree = "<group>"; };
@@ -465,6 +467,7 @@
 				F5F1C0036CA84BF2DF578446 /* HomeConditionsCard.swift */,
 				1CA52D2CB71D15A837A60755 /* HomeMapSection.swift */,
 				47050A9D6512E05E3FB7237C /* HomeStyle.swift */,
+				645DE5BF57C489F0569F244A /* ObserverEntryRenderer.swift */,
 				81E2226A2988AF1E32C4EBEE /* RiseSetSection.swift */,
 				F77E2A1A6FDB19B5B2E3C66D /* RouteSection.swift */,
 				40396066617C3F4F1E1FBFC5 /* Sky3DLegend.swift */,
@@ -897,6 +900,7 @@
 				67C15D754C2044BF2418C0A2 /* HomeMapSection.swift in Sources */,
 				5CC95CA726F89DDF9C3A0C44 /* HomeStyle.swift in Sources */,
 				D7BC4BAB25821C763DAA0D21 /* LocationModel.swift in Sources */,
+				67041D906545CF78F846913D /* ObserverEntryRenderer.swift in Sources */,
 				5DD92D36C8295567AACB5B0F /* RiseSetSection.swift in Sources */,
 				E115DAD16791EBC4DBB1F8AE /* RouteSection.swift in Sources */,
 				DBC5F6D2888529D0501928A9 /* Sky3DLegend.swift in Sources */,

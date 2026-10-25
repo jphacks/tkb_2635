@@ -23,8 +23,10 @@ extension Sky3DView {
                 SkyRenderer.shared.updateDome(dome, spot: context.spot, date: date)
             }
         }
-        active.findEntity(named: "overviewGuides")?.isEnabled = !isObserverView
-        active.findEntity(named: "schematicDeck")?.isEnabled = !isObserverView
+        active.findEntity(named: "overviewGuides")?.isEnabled = self.camera.mode == .overview
+        active.findEntity(named: "schematicDeck")?.isEnabled = self.camera.mode == .overview
+        active.findEntity(named: ObserverEntryRenderer.name)?.isEnabled = self.camera.mode == .overview
+        active.findEntity(named: "overviewRay")?.isEnabled = self.camera.mode == .overview
         if let moon = active.findEntity(named: SkyRenderer.moonName), let camera {
             SkyRenderer.orientMoon(moon, cameraPosition: camera.position(relativeTo: nil), brightLimb: moonBrightLimb)
         }
@@ -83,7 +85,7 @@ extension Sky3DView {
                                                            floor: floor, observer: [0, 0]) {
                     // 全体表示用の想像の柵で、目線からの本当の眺めをふさがない。
                     deck.name = "schematicDeck"
-                    deck.isEnabled = !isObserverView
+                    deck.isEnabled = self.camera.mode == .overview
                     world.addChild(deck)
                 }
             }
@@ -93,9 +95,12 @@ extension Sky3DView {
         // 観測者の顔に重なる目印は、全体表示のときだけ出す。
         let guides = Entity()
         guides.name = "overviewGuides"
-        guides.isEnabled = !isObserverView
+        guides.isEnabled = self.camera.mode == .overview
         root.addChild(guides)
         guides.addChild(sphere(radius: 0.06, color: .systemBlue))
+
+        ObserverEntryRenderer.add(to: root, city: city, context: context, scale: Self.scale, animated: !reduceMotion)
+        root.findEntity(named: ObserverEntryRenderer.name)?.isEnabled = self.camera.mode == .overview
 
         // 地平線プロファイル（5°ごとの遮蔽仰角を天球上の点で表示）
         for az in stride(from: 0, to: 360, by: 5) {
@@ -177,6 +182,9 @@ extension Sky3DView {
         let length = Self.skyRadius - 0.25
         let ray = ModelEntity(mesh: .generateCylinder(height: length, radius: 0.015),
                               materials: [UnlitMaterial(color: color)])
+        // 近づくと線の太さが画面を覆うため、移動が始まったら隠す。
+        ray.name = "overviewRay"
+        ray.isEnabled = self.camera.mode == .overview
         ray.orientation = simd_quatf(from: [0, 1, 0], to: dir)
         ray.position = dir * (length / 2)
         dynamic.addChild(ray)
