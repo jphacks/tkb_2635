@@ -22,8 +22,10 @@ WINDOW_X = (0.18, 0.82)
 WINDOW_Y = (0.25, 0.75)
 # 点いている窓の割合（BuildingFacade の夜の点灯率に近い値）
 LIT_RATIO = 0.35
-WALL = (6, 8, 13)
-DARK_GLASS = (12, 16, 26)
+# 外壁は、UV の無い区の材質（WideCityRenderer.plainMaterial の自己発光 0.32, 0.38, 0.52 × 0.2）と
+# 同じ明るさに見える値（画像は sRGB、アプリの windowGlow 1.2 で割り戻した）。窓の無い面の色をそろえる
+WALL = (31, 39, 54)
+DARK_GLASS = (22, 28, 42)
 # CityModelRenderer.lightColor の窓の 3 色（暖色・白っぽい暖色・青白い）と、その出やすさ
 TONES = [((255, 189, 102), 5), ((255, 224, 168), 3), ((219, 232, 250), 2)]
 SEED = 2635
