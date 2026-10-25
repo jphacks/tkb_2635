@@ -6,6 +6,9 @@ import SwiftUI
 /// root の子に区ごとの入れ物を置き、入れ物の中に箱（box）と屋根の形つき（detail）を持つ。
 @MainActor
 final class WideCityLOD {
+    /// 近い区を屋根の形つき（LOD2）に切り替えるか。LOD2 には壁の UV が無く、箱の窓明かり（o-9）が近づくと消えて
+    /// 形も変わって見えるので、今は切り替えない（LOD2 は読み込まない）。LOD2 に窓を出せるようになったら true にする
+    static let usesDetail = false
     /// 同時に屋根の形つきで出す区の数（1 区 約 130 万三角形。23 区ぶんは約 1,400 万で重い）
     static let maxDetailWards = 3
     /// 見ている中心から、この距離 [m] より遠い区は箱のまま
@@ -42,7 +45,7 @@ final class WideCityLOD {
 
     /// 見ている中心（東・北 [m]）とカメラの距離 [m] から、屋根の形つきにする区を決めて差し替える
     func update(east: Double, north: Double, cameraDistance: Float) {
-        let next = cameraDistance > Self.detailMaxCameraDistance ? [] :
+        let next = !Self.usesDetail || cameraDistance > Self.detailMaxCameraDistance ? [] :
             WideCity.nearestWards(bounds, east: east, north: north,
                                   limit: Self.maxDetailWards, maxDistance: Self.detailMaxDistance)
         guard next != wanted else { return }
