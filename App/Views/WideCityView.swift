@@ -67,6 +67,7 @@ struct WideCityView: View {
     /// RealityView を作り終えたか。作り終えた後に画面を描き直させる（区が読み込み済みだと、全画面で真っ暗なままのことがあった）
     @State private var isMade = false
     @State private var pinSizer = WideCityPinSizer()
+    @State private var brightness = WideCityBrightnessState()
 
     var body: some View {
         RealityView { content in
@@ -104,6 +105,13 @@ struct WideCityView: View {
                 WideCityPins.update(in: root, contexts: contexts, predictions: predictions, scale: Self.scale)
                 pinSizer.selectedId = centered?.id
             }
+            // 遠いほど街を明るく。段階が変わったときだけ材質を書き換える
+            let step = WideCityBrightness.step(cameraDistance: camera.distance)
+            if step != brightness.step, let root = content.entities.first(where: { $0.name == Self.rootName }) {
+                brightness.step = step
+                WideCityBrightness.apply(step: step, buildings: lod.root,
+                                         ground: root.findEntity(named: WideCityBrightness.groundName))
+            }
             lod.update(east: Double(camera.target.x), north: Double(camera.target.y),
                        cameraDistance: camera.distance / Self.scale)
         }
@@ -114,6 +122,8 @@ struct WideCityView: View {
         .task {
             guard !isLoaded else { return }
             await lod.loadBoxes()
+            // 読み込んだ区は近景の材質なので、次の描き直しで今の距離の明るさにする
+            brightness.step = nil
             if let e = lod.extent {
                 camera.target = [Float(e.minEast + e.maxEast) / 2, Float(e.minNorth + e.maxNorth) / 2]
                 camera.distance = min(Float(max(e.maxEast - e.minEast, e.maxNorth - e.minNorth)) * Self.scale * 0.95,

@@ -30,10 +30,17 @@ enum WideGroundRenderer {
             // 斜めから見ても街明かりの点がつぶれにくくする
             descriptor.maxAnisotropy = 16
         }
-        var material = UnlitMaterial()
-        // 夜の暗さと街明かりは画像に焼き込んであるので、照明に関係なくそのまま出す
-        material.color = .init(tint: .white, texture: .init(texture, sampler: sampler))
+        // 夜の暗さと街明かりは画像に焼き込んであるので、照明に関係なく画像のまま出す（自分で光る色として貼る）。
+        // 強さ 1 で詳細画面の遠くの地面（FarGroundRenderer）と同じ明るさ。遠くから見るときは WideCityBrightness が強める
+        var material = PhysicallyBasedMaterial()
+        material.baseColor = .init(tint: .black)
+        material.roughness = .init(floatLiteral: 1)
+        material.metallic = .init(floatLiteral: 0)
+        material.specular = .init(floatLiteral: 0)
+        material.emissiveColor = .init(texture: .init(texture, sampler: sampler))
+        material.emissiveIntensity = 1
         let ground = ModelEntity(mesh: mesh, materials: [material])
+        ground.name = WideCityBrightness.groundName
         let center = WideCity.localPosition(latitude: info.centerLatitude, longitude: info.centerLongitude)
         ground.position = [Float(center.east), 0, -Float(center.north)]
         return ground
