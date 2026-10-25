@@ -5,7 +5,9 @@ import SwiftUI
 /// 観測地点まわりの建物と、天体の方向を 3D で表示する。
 /// 1 単位 = 100 m。x が東、y が上、-z が北。観測者の目を原点に置く。
 struct Sky3DView: View {
-    @Environment(\.accessibilityReduceMotion) var reduceMotion
+    @AppStorage(DirectionNotation.storageKey) private var directionNotation = DirectionNotation.default
+    var motion = MotionSetting()
+    var reduceMotion: Bool { motion.isReduced }
     let context: SpotContext
     let prediction: Prediction
     let date: Date
@@ -171,7 +173,7 @@ struct Sky3DView: View {
         }
         .accessibilityElement()
         .accessibilityLabel(prediction.accessStatus.label + "。" + (prediction.geometricVisibility
-                            ? "\(Angle.directionName(prediction.azimuth))の空に見える見込み"
+                            ? "\(directionNotation.text(prediction.azimuth))の空に見える見込み"
                             : "建物などに遮られる見込み"))
         .accessibilityAction(named: Text("観測者の目線へ入る")) { beginObservation() }
     }

@@ -41,12 +41,13 @@ struct HomeOverlay: View {
 
 /// ホームの上に重ねる見出し。例:「今夜 21:00 の 月▾」。天体の名前のところで天体を選び直せる
 struct HomeHeadline: View {
+    @AppStorage(TimeNotation.storageKey) private var timeNotation = TimeNotation.default
     @Environment(AppModel.self) private var model
 
     var body: some View {
         @Bindable var model = model
         let day = Self.dayLabel(for: model.date)
-        let time = model.date.formatted(Self.timeFormat)
+        let time = timeNotation.text(model.date)
         let name = model.selectedCabinTarget?.name ?? model.target.name
 
         HStack(alignment: .firstTextBaseline, spacing: 6) {
@@ -75,9 +76,6 @@ struct HomeHeadline: View {
         .lineLimit(1)
         .minimumScaleFactor(0.7)
     }
-
-    private static let timeFormat = Date.FormatStyle(timeZone: TimeZone(identifier: "Asia/Tokyo")!)
-        .hour(.defaultDigits(amPM: .omitted)).minute(.twoDigits)
 
     /// この時刻より前の翌日の時刻は、夜の続きとして「今夜」と呼ぶ
     private static let nightEndHour = 5
