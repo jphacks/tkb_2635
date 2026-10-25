@@ -1,6 +1,7 @@
 import Foundation
 import StarCore
 import SwiftUI
+import UIKit
 
 /// 星座の見た目（ガラス調の線・にじむ星・ガラスの名札・淡い線画）の数字を 1 か所にまとめる。
 /// 3D の空（RealityKit）と AR（Canvas）で同じ色・濃さにそろえる。
@@ -68,15 +69,48 @@ enum ConstellationStyle {
     static let arStarGlowRadius: CGFloat = 6
     static let labelFontSize: CGFloat = 12
     static let labelPadding = CGSize(width: 9, height: 4)
+
+    // MARK: 星座の姿の画像（PNG）
+
+    /// 画像全体にかける濃さ。画像そのものにも半透明と光が入っているので、線画（artOpacity）より濃くする
+    static let imageOpacity = 0.5
+    /// 3D の空に置く画像の半径（線画と同じ。星空の球の内側）
+    static let imageRadius: Float = 0.992
+    /// 3D で画像を球面に沿わせる網目の細かさ（縦横それぞれのます数）
+    static let imageDivisions = 24
 }
 
-/// 星座線・線画のデータ（App/Resources/Sky の JSON）。一度だけ読む
+/// 星座線・線画・画像のデータ（App/Resources/Sky の JSON と PNG）。一度だけ読む
 @MainActor
 enum ConstellationData {
     static let lines: [ConstellationLines] = load("constellations").flatMap { try? ConstellationLines.decode($0) } ?? []
-    static let art: [ConstellationArt] = load("constellation-art").flatMap { try? ConstellationArt.decode($0) } ?? []
+    /// 星座の姿の画像。天球に置けて、PNG も読めたものだけ
+    static let images: [ConstellationImage] = (load("constellation-images").flatMap { try? ConstellationImage.decode($0) } ?? [])
+        .filter { $0.placement != nil && ConstellationImageAssets.image(named: $0.image) != nil }
+    /// 自作の簡略な線画。画像を出す星座には重ねない（画像が読めないときは線画に戻る）
+    static let art: [ConstellationArt] = {
+        let imageIDs = Set(images.map(\.id))
+        return (load("constellation-art").flatMap { try? ConstellationArt.decode($0) } ?? []).filter { !imageIDs.contains($0.id) }
+    }()
 
     private static func load(_ name: String) -> Data? {
         Bundle.main.url(forResource: name, withExtension: "json").flatMap { try? Data(contentsOf: $0) }
     }
+}
+
+/// 星座の画像（PNG）の読み込み。AR の描画（メインスレッドの外から呼ばれることがある）からも使うので、ここは画面の状態を持たない
+enum ConstellationImageAssets {
+    private static let cache: [String: UIImage] = {
+        guard let data = Bundle.main.url(forResource: "constellation-images", withExtension: "json")
+            .flatMap({ try? Data(contentsOf: $0) }),
+              let images = try? ConstellationImage.decode(data) else { return [:] }
+        var result: [String: UIImage] = [:]
+        for image in images {
+            if let url = Bundle.main.url(forResource: image.image, withExtension: "png"),
+               let ui = UIImage(contentsOfFile: url.path) { result[image.image] = ui }
+        }
+        return result
+    }()
+
+    static func image(named name: String) -> UIImage? { cache[name] }
 }

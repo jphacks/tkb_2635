@@ -79,9 +79,9 @@ struct SkyARView: View {
     }
 
     private func refreshSky() async {
-        let lines = ConstellationData.lines, art = ConstellationData.art
+        let lines = ConstellationData.lines, art = ConstellationData.art, images = ConstellationData.images
         while !Task.isCancelled {
-            snapshot = SkySnapshot.make(context: context, date: .now, constellations: lines, art: art)
+            snapshot = SkySnapshot.make(context: context, date: .now, constellations: lines, art: art, images: images)
             try? await Task.sleep(for: Self.refreshInterval)
         }
     }

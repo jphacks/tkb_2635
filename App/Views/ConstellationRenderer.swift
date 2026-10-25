@@ -31,6 +31,10 @@ enum ConstellationRenderer {
             container.addChild(glowEntity("constellationArt", mesh: art, texture: ConstellationTextures.art,
                                           rgb: style.artRGB, opacity: style.artOpacity, group: group, order: 1))
         }
+        for image in ConstellationImageRenderer.makeEntities() {
+            image.components.set(ModelSortGroupComponent(group: group, order: 1))
+            container.addChild(image)
+        }
         container.addChild(glowEntity("constellationLines", mesh: meshes.lines, texture: ConstellationTextures.line,
                                       rgb: style.lineRGB, opacity: style.skyLineOpacity, group: group, order: 2))
         container.addChild(glowEntity("constellationStars", mesh: meshes.stars, texture: ConstellationTextures.star,
@@ -71,7 +75,11 @@ enum ConstellationRenderer {
         let artSegments = ConstellationData.art.flatMap(\.equatorialStrokes).flatMap { segments($0) }
         let brightStars = StarCatalog.stars.filter { $0.magnitude <= ConstellationLabelPicker.brightMagnitude }
             .map { EquatorialVector(rightAscension: $0.rightAscension * 15, declination: $0.declination) }
-        let stars = lines.flatMap(\.stars).map { star in
+        // 画像に光る印が描き込まれている星は、アプリの光を重ねない（光が二重にならないように）
+        let markedStars = ConstellationData.images.flatMap(\.markedStars)
+        let stars = lines.flatMap(\.stars).filter { star in
+            !markedStars.contains { $0.angle(to: star) < 0.05 }
+        }.map { star in
             (star, brightStars.contains { $0.angle(to: star) < 0.3 } ? style.brightStarScale : 1)
         }
         guard let lineMesh = ribbon(lineSegments, radius: style.lineRadius, halfWidth: style.lineHalfWidth, name: "constellationLines"),

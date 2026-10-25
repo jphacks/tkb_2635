@@ -9,6 +9,7 @@ enum SkyARConstellationLayer {
     static func draw(_ snapshot: SkySnapshot, projector: CameraProjector, in context: inout GraphicsContext, size: CGSize) {
         let lines = snapshot.constellations.flatMap { $0.polylines.flatMap { segments($0, projector: projector) } }
         let art = snapshot.art.flatMap { $0.strokes.flatMap { segments($0, projector: projector) } }
+        SkyARConstellationImageLayer.draw(snapshot, projector: projector, in: &context, size: size)
 
         // にじみ: ぼかした太い線を 1 枚の層にまとめて描く（線ごとにぼかすより軽い）
         context.drawLayer { layer in
@@ -53,7 +54,8 @@ enum SkyARConstellationLayer {
     private static func drawStars(_ snapshot: SkySnapshot, projector: CameraProjector,
                                   in context: inout GraphicsContext, size: CGSize) {
         let bounds = CGRect(origin: .zero, size: size).insetBy(dx: -Style.arStarGlowRadius, dy: -Style.arStarGlowRadius)
-        var drawn: [CGPoint] = []
+        // 画像に光る印がある星は、その印をそのまま使う（光を二重にしない）
+        var drawn = SkyARConstellationImageLayer.markedPoints(snapshot, projector: projector)
         for point in snapshot.constellations.flatMap({ $0.polylines.joined() }) where point.direction.up > 0 {
             guard let p = projector.project(point.direction) else { continue }
             let center = CGPoint(x: p.x, y: p.y)
