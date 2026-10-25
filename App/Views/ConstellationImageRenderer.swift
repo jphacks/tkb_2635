@@ -25,6 +25,9 @@ enum ConstellationImageRenderer {
             material.blending = .transparent(opacity: .init(scale: Float(ConstellationStyle.imageOpacity),
                                                             texture: .init(item.opacity)))
             material.faceCulling = .none
+            // 88 星座の画像は同じ半径で重なり合う。奥行きを書くと、先に描いた画像の透明な所が後の画像や星空を隠し、
+            // 三角形の穴が空く。建物には隠れるよう、奥行きを読むだけにする
+            material.writesDepth = false
             let entity = ModelEntity(mesh: item.mesh, materials: [material])
             entity.name = "constellationImage-" + item.id
             return entity
