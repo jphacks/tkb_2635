@@ -40,9 +40,7 @@ final class SkyRenderer {
         guard let domeMesh else { return nil }
         let dome = ModelEntity(mesh: domeMesh, materials: [UnlitMaterial(color: .black)])
         dome.name = Self.domeName
-        for layer in ConstellationRenderer.makeOverlay() {
-            dome.addChild(layer)
-        }
+        ConstellationRenderer.attach(to: dome)
         return dome
     }
 
@@ -59,6 +57,7 @@ final class SkyRenderer {
         let level = StarVisibility.level(darkness: StarVisibility.skyDarkness(spot: spot, moon: moon))
         let opacity = Float(StarVisibility.opacity(sunAltitude: sun.altitude))
         dome.isEnabled = opacity > 0
+        ConstellationRenderer.fade(dome, opacity: opacity)
         guard opacity > 0, let texture = starTexture(level) else { return }
         var material = UnlitMaterial()
         material.color = .init(tint: .white, texture: .init(texture))
