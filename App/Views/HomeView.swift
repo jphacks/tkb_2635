@@ -46,6 +46,9 @@ struct HomeView: View {
                     SpotDetailView(context: context)
                 }
             }
+            .navigationDestination(for: CurrentObservationRoute.self) { _ in
+                CurrentObservationView()
+            }
             .navigationDestination(for: ComparisonRoute.self) { route in
                 if let first = model.context(id: route.firstId), let second = model.context(id: route.secondId) {
                     CompareView(first: first, second: second)
@@ -67,7 +70,9 @@ struct HomeView: View {
         ToolbarItemGroup(placement: .topBarLeading) {
             Button("天体を選び直す", systemImage: "chevron.left") { leave(to: .back) }
         }
-        ToolbarItem(placement: .topBarTrailing) {
+        ToolbarItemGroup(placement: .topBarTrailing) {
+            Button("現在地から見る", systemImage: "location.viewfinder") { leave(to: .currentLocation) }
+                .accessibilityIdentifier("observe-current-location")
             if model.isLoadingWeather {
                 ProgressView()
             } else {
@@ -93,6 +98,7 @@ struct HomeView: View {
         pendingExit = nil
         switch exit {
         case .spot(let id): path.append(id)
+        case .currentLocation: path.append(CurrentObservationRoute.currentLocation)
         case .back: onBack()
         }
     }
@@ -102,6 +108,7 @@ struct HomeView: View {
 private enum HomeExit {
     /// 地点の詳細
     case spot(String)
+    case currentLocation
     /// 天体を選ぶ画面
     case back
 }

@@ -7,6 +7,7 @@ struct SpotListView: View {
     @State private var centered: String? = "moon"
     @State private var pending: CabinTarget?
     @State private var findingPlaces = false
+    @State private var showsCurrentObservation = false
     private let targets = CabinTarget.catalog
 
     var body: some View {
@@ -22,6 +23,16 @@ struct SpotListView: View {
             }
         }
         .preferredColorScheme(.dark)
+        .fullScreenCover(isPresented: $showsCurrentObservation) {
+            NavigationStack {
+                CurrentObservationView()
+                    .toolbar {
+                        ToolbarItem(placement: .topBarLeading) {
+                            Button("戻る") { showsCurrentObservation = false }
+                        }
+                    }
+            }
+        }
     }
 
     private var selection: some View {
@@ -122,6 +133,18 @@ struct SpotListView: View {
                             Text("確定").bold().frame(maxWidth: .infinity).padding(12)
                         }
                         .buttonStyle(.borderedProminent).tint(.cyan)
+                        Button {
+                            model.target = target.observation
+                            model.selectedCabinTargetID = target.id
+                            showsCurrentObservation = true
+                        } label: {
+                            Label("現在地から見る", systemImage: "location.viewfinder")
+                                .bold().frame(maxWidth: .infinity).padding(12)
+                        }
+                        .buttonStyle(.bordered).tint(.cyan)
+                        .accessibilityIdentifier("cabin-observe-current-location")
+                        Text("現在地の試作は渋谷駅周辺に対応")
+                            .font(.caption).foregroundStyle(.secondary)
                         Button("戻る") { pending = nil }
                             .buttonStyle(.bordered).controlSize(.large)
                     }

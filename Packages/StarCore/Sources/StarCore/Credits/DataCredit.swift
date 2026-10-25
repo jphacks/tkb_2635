@@ -46,10 +46,11 @@ public extension DataCredit {
             url: URL(string: "https://maps.gsi.go.jp/development/ichiran.html"),
             note: "夜の見た目になるよう暗く加工"),
         DataCredit(
-            id: "gsi-elevation", purpose: "地点の標高",
-            name: "標高 API", provider: "国土地理院",
+            id: "gsi-elevation", purpose: "地点の標高・現在地周辺の地形",
+            name: "標高 API・標高タイル（DEM1A・DEM10B）", provider: "国土地理院",
             license: "国土地理院コンテンツ利用規約",
-            url: URL(string: "https://maps.gsi.go.jp/development/elevation_s.html")),
+            url: URL(string: "https://maps.gsi.go.jp/development/demtile.html"),
+            note: "現在地観測用に標高を20m・50m格子へ加工し、端末内で補間"),
         DataCredit(
             id: "viirs", purpose: "地域の光害・遠くの街明かり",
             name: "VIIRS Nighttime Lights 年次合成 v2.2",

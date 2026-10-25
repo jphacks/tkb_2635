@@ -8,6 +8,8 @@ import StarCore
 final class LocationModel: NSObject {
     private(set) var authorization: CLAuthorizationStatus
     private(set) var coordinate: CLLocationCoordinate2D?
+    private(set) var observationFix: ObservationLocationFix?
+    private(set) var isLocating = false
     private(set) var errorMessage: String?
     @ObservationIgnored private let manager = CLLocationManager()
 
@@ -20,12 +22,22 @@ final class LocationModel: NSObject {
     }
 
     /// 使ってよいかを聞く（まだ聞いていないとき）。許可済みならすぐ現在地を取りにいく。
-    func start() {
+    func start(precise: Bool = false) {
+        manager.desiredAccuracy = precise ? kCLLocationAccuracyBest : kCLLocationAccuracyHundredMeters
+        observationFix = nil
+        errorMessage = nil
+        isLocating = !isDenied
         switch manager.authorizationStatus {
         case .notDetermined: manager.requestWhenInUseAuthorization()
         case .authorizedWhenInUse, .authorizedAlways: manager.requestLocation()
-        default: break
+        default: isLocating = false
         }
+    }
+
+    func finishObservationRequest() {
+        manager.stopUpdatingLocation()
+        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        isLocating = false
     }
 
     var isDenied: Bool { authorization == .denied || authorization == .restricted }
@@ -49,20 +61,29 @@ extension LocationModel: CLLocationManagerDelegate {
                 self.manager.requestLocation()
             } else if status == .denied || status == .restricted {
                 coordinate = nil
+                observationFix = nil
+                isLocating = false
             }
         }
     }
 
     nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let latest = locations.last?.coordinate else { return }
+        guard let latest = locations.last else { return }
         MainActor.assumeIsolated {
-            coordinate = latest
+            coordinate = latest.coordinate
+            observationFix = ObservationLocationFix(
+                latitude: latest.coordinate.latitude, longitude: latest.coordinate.longitude,
+                horizontalAccuracy: latest.horizontalAccuracy, timestamp: latest.timestamp)
+            isLocating = false
             errorMessage = nil
         }
     }
 
     nonisolated func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         let message = error.localizedDescription
-        MainActor.assumeIsolated { errorMessage = message }
+        MainActor.assumeIsolated {
+            errorMessage = message
+            isLocating = false
+        }
     }
 }
