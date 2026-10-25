@@ -26,12 +26,17 @@ public struct SkySnapshot: Sendable {
     public let constellations: [PlacedConstellation]
     /// 星座の姿の線画（`ConstellationArt`）
     public let art: [PlacedConstellationArt]
+    /// 星座の姿の画像（`ConstellationImage`）の網目
+    public let images: [PlacedConstellationImage]
+    /// AR で画像を貼る網目の細かさ（縦横それぞれのます数）
+    public static let imageDivisions = 8
 
     /// - Parameters:
     ///   - constellations: `ConstellationLines.decode` で読んだ星座線。無ければ線は出ない
     ///   - art: `ConstellationArt.decode` で読んだ星座の線画。無ければ絵は出ない
+    ///   - images: `ConstellationImage.decode` で読んだ星座の画像の置き方。置けないものは除く
     public static func make(context: SpotContext, date: Date, constellations: [ConstellationLines] = [],
-                            art: [ConstellationArt] = []) -> SkySnapshot {
+                            art: [ConstellationArt] = [], images: [ConstellationImage] = []) -> SkySnapshot {
         let lat = context.spot.latitude, lon = context.spot.longitude
         func object(id: String, name: String, kind: SkyObjectKind, position: HorizontalCoord, magnitude: Double? = nil) -> SkyObject {
             SkyObject(id: id, name: name, kind: kind, position: position, magnitude: magnitude,
@@ -49,6 +54,7 @@ public struct SkySnapshot: Sendable {
         let orientation = SkyOrientation(date: date, latitude: lat, longitude: lon)
         return SkySnapshot(objects: objects,
                            constellations: constellations.map { $0.placed(orientation: orientation, context: context) },
-                           art: art.map { $0.placed(orientation: orientation, context: context) })
+                           art: art.map { $0.placed(orientation: orientation, context: context) },
+                           images: images.compactMap { $0.placed(orientation: orientation, context: context, divisions: imageDivisions) })
     }
 }
