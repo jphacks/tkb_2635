@@ -72,11 +72,11 @@ final class WideCityRenderer {
     /// BuildingNightRenderer の夜の建物に寄せた色。テクスチャを使わず、照明の向きに関係なく形が読めるよう少し光らせる
     private static func nightMaterial() -> PhysicallyBasedMaterial {
         var material = PhysicallyBasedMaterial()
-        material.baseColor = .init(tint: .init(red: 0.40, green: 0.47, blue: 0.58, alpha: 1))
+        material.baseColor = .init(tint: .init(red: 0.24, green: 0.28, blue: 0.37, alpha: 1))
         material.roughness = .init(floatLiteral: 0.85)
         material.metallic = .init(floatLiteral: 0)
         material.emissiveColor = .init(color: .init(red: 0.30, green: 0.36, blue: 0.50, alpha: 1))
-        material.emissiveIntensity = 0.12
+        material.emissiveIntensity = 0.06
         material.faceCulling = .none
         return material
     }

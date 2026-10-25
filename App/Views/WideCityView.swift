@@ -52,8 +52,10 @@ struct WideCityView: View {
     static let scale: Float = 1 / 100
     private static let rootName = "wideRoot"
     private static let groundSize: Float = 800
+    /// 航空写真の地面の高さ [m]（標高）
+    private static let photoDepth: Float = -3
     private static let background = Color(red: 0.02, green: 0.03, blue: 0.10)
-    static let source = "出典: 3D都市モデル（Project PLATEAU）東京都23区 LOD1・LOD2（CC BY 4.0）を加工"
+    static let source = "出典: 3D都市モデル（Project PLATEAU）東京都23区 LOD1・LOD2（CC BY 4.0）・国土地理院・EOG/Colorado School of Mines（VIIRS 夜間光、CC BY 4.0）を加工"
 
     @State private var lod = WideCityLOD()
     @State private var camera = WideCityCamera()
@@ -73,6 +75,13 @@ struct WideCityView: View {
             lod.root.scale = .init(repeating: Self.scale)
             root.addChild(lod.root)
             root.addChild(Self.ground())
+            if let photo = await WideGroundRenderer.ground() {
+                // 航空写真は、海抜 0m 付近の建物の足元より少し下に敷く（暗い板はさらに下）
+                photo.position.y = Self.photoDepth
+                photo.scale = .init(repeating: Self.scale)
+                photo.position *= Self.scale
+                root.addChild(photo)
+            }
             Self.addLights(to: root)
             root.name = Self.rootName
             WideCityPins.update(in: root, contexts: contexts, predictions: predictions, scale: Self.scale)
@@ -211,8 +220,8 @@ struct WideCityView: View {
     private static func ground() -> ModelEntity {
         let plane = ModelEntity(mesh: .generatePlane(width: groundSize, depth: groundSize),
                                 materials: [UnlitMaterial(color: .init(red: 0.03, green: 0.05, blue: 0.10, alpha: 1))])
-        // 海抜 0m 付近の区（江東・江戸川など）の建物の足元より少し下に敷く
-        plane.position.y = -5 * scale
+        // 航空写真の外側だけを埋める。写真と重なってちらつかないよう、十分に下げる
+        plane.position.y = -30 * scale
         return plane
     }
 
