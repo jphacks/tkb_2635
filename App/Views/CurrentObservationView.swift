@@ -11,6 +11,7 @@ struct CurrentObservationView: View {
     @State private var observation = CurrentObservationModel()
     @State private var camera = SkyCamera()
     @State private var isActive = false
+    @State private var leftAppWhileObserving = false
 
     var body: some View {
         Group {
@@ -42,9 +43,13 @@ struct CurrentObservationView: View {
             if let error, case .locating = observation.phase { observation.fail(error) }
         }
         .onChange(of: scenePhase) { _, phase in
-            if phase == .active, isActive, !observation.isSample,
+            if phase == .background, isActive, !observation.isSample,
                case .ready = observation.phase {
+                leftAppWhileObserving = true
+            } else if phase == .active, leftAppWhileObserving {
+                leftAppWhileObserving = false
                 // バックグラウンドで移動した位置を「現在地」として表示し続けない。
+                // 位置情報の許可ダイアログによる一時的な inactive は移動と見なさない。
                 observation.fail("移動している可能性があります。現在地を再取得してください。")
             }
         }
