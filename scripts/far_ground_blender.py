@@ -17,10 +17,12 @@ FAR_NIGHT = np.array([0.20, 0.23, 0.33], dtype=np.float32) * 0.55
 # 街明かりの色（blender_city_usdz.py の far_lights と同じ暖色）
 LIGHT_COLOR = np.array([0.95, 0.70, 0.42], dtype=np.float32)
 # 街のぼんやりした明るさと、明かりの点の強さ
-GLOW_GAIN, POINT_GAIN = 0.10, 0.75
+GLOW_GAIN, POINT_GAIN = 0.22, 0.95
+DARK, BRIGHT = 2.0, 300.0
 # 明かりの点の数の上限（画素のうち点になる割合）
-POINT_DENSITY = 0.10
-# 夜間光（Black Marble）は東京では広く飽和するので、街の度合い（0〜1）として使う。
+POINT_DENSITY = 0.20
+# 夜間光（VNL、nW/cm²/sr）を対数で「街の度合い」（0〜1）にする。東京は湾の数から都心の数百まで幅があるので、
+# 対数にすると上限に張り付かずに明暗の差が残る。DARK 以下は明かりなし、BRIGHT 以上は最も明るい街とみなす。
 # 明かりの点の置き場所は航空写真から決める（屋根・道路は明るく、緑と水は暗い）。
 # 地平線の色（Sky3DView の背景と同じ）
 HORIZON = np.array([0.02, 0.03, 0.10], dtype=np.float32)
@@ -64,6 +66,25 @@ def sample(canvas, layer, lat, lon):
     return top * (1 - fy) + bottom * fy
 
 
+def radiance(layer, lat, lon):
+    """切り出した VNL（経緯度の格子、行 0 が北の端）から、緯度経度の配列の位置の値を双線形で取り出す。"""
+    grid = np.load(layer['array'])
+    info = json.loads(Path(layer['info']).read_text())
+    px = np.clip((lon - info['west']) / info['step'] - 0.5, 0, grid.shape[1] - 1.001)
+    py = np.clip((info['north'] - lat) / info['step'] - 0.5, 0, grid.shape[0] - 1.001)
+    x0, y0 = px.astype(np.int32), py.astype(np.int32)
+    fx, fy = px - x0, py - y0
+    top = grid[y0, x0] * (1 - fx) + grid[y0, x0 + 1] * fx
+    bottom = grid[y0 + 1, x0] * (1 - fx) + grid[y0 + 1, x0 + 1] * fx
+    return top * (1 - fy) + bottom * fy
+
+
+def city_level(value):
+    """放射輝度 [nW/cm²/sr] を、対数で 0（DARK 以下）〜1（BRIGHT 以上）にする。"""
+    level = (np.log10(1 + np.maximum(value, 0)) - math.log10(1 + DARK)) / (math.log10(1 + BRIGHT) - math.log10(1 + DARK))
+    return np.clip(level, 0, 1).astype(np.float32)
+
+
 def main():
     job = json.loads(Path(sys.argv[sys.argv.index('--') + 1]).read_text())
     bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -76,11 +97,12 @@ def main():
     lon = lon0 + east / (111_320.0 * math.cos(math.radians(lat0)))
 
     photo = sample(mosaic(job['photo']), job['photo'], lat, lon)
-    city = np.clip(sample(mosaic(job['lights']), job['lights'], lat, lon).max(axis=2) * 1.2, 0, 1)
+    city = city_level(radiance(job['lights'], lat, lon))
     luma = photo @ np.array([0.299, 0.587, 0.114], dtype=np.float32)
     green = np.clip((photo[..., 1] - (photo[..., 0] + photo[..., 2]) / 2) * 6, 0, 1)
     built = np.clip((luma - 0.22) / 0.35, 0, 1) * (1 - green)
-    density = city * built
+    # 2 乗して、都心（明るい所）は濃く、郊外は薄くする
+    density = city ** 2 * built
     # 毎回同じ模様になるよう、乱数の種はシーンの原点から決める
     seed = int(abs(lat0 * 1e4) + abs(lon0 * 1e4)) % (2 ** 32)
     points = (np.random.default_rng(seed).random(density.shape) < density * POINT_DENSITY).astype(np.float32)

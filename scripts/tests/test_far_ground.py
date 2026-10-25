@@ -74,7 +74,21 @@ class BundledFilesTests(unittest.TestCase):
             self.assertEqual(info['sceneId'], scene_id)
             self.assertEqual(info['meters'], 2 * RADIUS)
             self.assertIn('国土地理院', info['source'])
-            self.assertIn('Black Marble', info['source'])
+            self.assertIn('VIIRS Nighttime Lights V2.2', info['source'])
+
+
+class VnlCropTests(unittest.TestCase):
+    def test_window_covers_every_scene_with_margin(self):
+        from vnl_crop import EAST, NORTH, SOUTH, WEST, window
+        for scene in json.loads(BUILDINGS.read_text()):
+            north, west = local_to_latlon(-RADIUS, RADIUS, scene['originLatitude'], scene['originLongitude'])
+            south, east = local_to_latlon(RADIUS, -RADIUS, scene['originLatitude'], scene['originLongitude'])
+            self.assertTrue(WEST <= west and east <= EAST and SOUTH <= south and north <= NORTH, scene['id'])
+        # 15 秒角・左上が (-180, 75) の全世界の画像での行・列
+        rows = window((-180.0, 75.0, 1 / 240), (33601, 86401))
+        self.assertEqual(rows[1] - rows[0], int((75 - SOUTH) * 240) + 1 - int((75 - NORTH) * 240))
+        with self.assertRaises(ValueError):
+            window((0.0, 10.0, 1 / 240), (100, 100))
 
 
 if __name__ == '__main__':

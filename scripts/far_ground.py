@@ -1,6 +1,6 @@
 """3D の建物データの外側を地平線までつなぐ「遠くの地面」の画像を、シーンごとに作る（4-11）。
 
-地理院タイルの航空写真（ズーム 13）を半径 20 km ぶんつないで夜の暗さにし、衛星の夜間光（NASA Black Marble）を
+地理院タイルの航空写真（ズーム 13）を半径 20 km ぶんつないで夜の暗さにし、衛星の夜間光（EOG の VIIRS 夜間光 VNL）を
 街明かりの色で重ね、端（15〜20 km）は空の地平線の色になじませる。画像の合成は Blender の Python で行う
 （far_ground_blender.py。numpy が入っているため）。
 
@@ -10,7 +10,10 @@
 出力は App/Resources/Far/far_<シーンID>.jpg と、範囲を書いた far_<シーンID>.json。
 ファイルを置くだけで、アプリ（FarGroundRenderer）がそのシーンの遠くの地面として描く。
 
-出典: 国土地理院「地理院タイル（全国最新写真（シームレス））」、NASA Earth Observatory「Black Marble 2016」（NASA GIBS で配信）
+夜間光は、先に vnl_crop.py で東京周辺を切り出しておく（../outputs/vnl/tokyo.npy と .json。元データはリポジトリに入れない）。
+
+出典: 国土地理院「地理院タイル（全国最新写真（シームレス））」、
+Earth Observation Group, Payne Institute for Public Policy, Colorado School of Mines（VIIRS Nighttime Lights V2.2、CC BY 4.0）
 """
 import argparse
 from concurrent.futures import ThreadPoolExecutor
@@ -29,17 +32,16 @@ CACHE = ROOT.parent / 'outputs/far-ground-tiles'
 BLENDER = '/Applications/Blender.app/Contents/MacOS/Blender'
 
 PHOTO_URL = 'https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg'
-LIGHTS_URL = ('https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_Black_Marble/default/2016-01-01/'
-              'GoogleMapsCompatible_Level8/{z}/{y}/{x}.png')
+# vnl_crop.py が切り出した東京周辺の夜間光（nW/cm²/sr）
+LIGHTS = ROOT.parent / 'outputs/vnl/tokyo'
 PHOTO_ZOOM = 13
-LIGHTS_ZOOM = 8  # Black Marble の配信の最大ズーム（約 500 m/画素）
 # 画像が覆う範囲（シーンの原点から東西南北に）[m] と、なじませ始める距離 [m]
 RADIUS = 20_000.0
 FADE_START = 15_000.0
 # 画像の1辺の画素数（約 20 m/画素）。描画用のメモリは約 16 MB（設計メモ）
 PIXELS = 2048
-SOURCE = ('国土地理院「地理院タイル（全国最新写真（シームレス））」・NASA Earth Observatory「Black Marble 2016」'
-          '（NASA GIBS）を加工して作成')
+SOURCE = ('国土地理院「地理院タイル（全国最新写真（シームレス））」・Earth Observation Group, Payne Institute for Public Policy, '
+          'Colorado School of Mines（VIIRS Nighttime Lights V2.2、CC BY 4.0）を加工して作成')
 
 
 def local_to_latlon(east, north, latitude, longitude):
@@ -95,18 +97,18 @@ def plan(scene):
     """Blender に渡す作業の内容（タイルの場所と範囲）。"""
     lat, lon = scene['originLatitude'], scene['originLongitude']
     photo = tile_range(lat, lon, RADIUS, PHOTO_ZOOM)
-    lights = tile_range(lat, lon, RADIUS, LIGHTS_ZOOM)
     return {'sceneId': scene['id'], 'latitude': lat, 'longitude': lon, 'radius': RADIUS, 'fadeStart': FADE_START,
             'pixels': PIXELS, 'photo': {'zoom': PHOTO_ZOOM, 'bounds': photo, 'folder': str(CACHE / 'photo')},
-            'lights': {'zoom': LIGHTS_ZOOM, 'bounds': lights, 'folder': str(CACHE / 'lights')},
+            'lights': {'array': str(LIGHTS.with_suffix('.npy')), 'info': str(LIGHTS.with_suffix('.json'))},
             'output': str(OUTPUT / f'far_{scene["id"]}.jpg')}
 
 
 def build(scene):
     job = plan(scene)
-    for kind, url in (('photo', PHOTO_URL), ('lights', LIGHTS_URL)):
-        fetched, total = tiles(kind, url, job[kind]['zoom'], job[kind]['bounds'])
-        print(f'{scene["id"]}: {kind} {total} 枚（新しく {fetched} 枚）', flush=True)
+    if not LIGHTS.with_suffix('.npy').exists():
+        raise SystemExit(f'{LIGHTS}.npy がありません。先に scripts/vnl_crop.py で夜間光を切り出してください')
+    fetched, total = tiles('photo', PHOTO_URL, PHOTO_ZOOM, job['photo']['bounds'])
+    print(f'{scene["id"]}: photo {total} 枚（新しく {fetched} 枚）', flush=True)
     OUTPUT.mkdir(parents=True, exist_ok=True)
     work = CACHE / f'{scene["id"]}.plan.json'
     work.write_text(json.dumps(job))
