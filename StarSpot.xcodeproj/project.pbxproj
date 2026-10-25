@@ -12,21 +12,29 @@
 		032C6F8122E22B509A1D952A /* Wide2_13107.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 424056A10870F19B78358EB8 /* Wide2_13107.usdz */; };
 		064E58D27E687CC72FA9EC0C /* far_shakujii_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60580688FC08049D0A8C2706 /* far_shakujii_park.jpg */; };
 		067DE2265635C64C0EE5BB74 /* far_asakusa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 022188085E099C634D0751C4 /* far_asakusa.jpg */; };
+		07507641279D6815282FDFCC /* constellation-grus.png in Resources */ = {isa = PBXBuildFile; fileRef = 116C414BBCAEA3C4D7197474 /* constellation-grus.png */; };
 		077C94B68D2691771C32D35F /* constellation-aquila.png in Resources */ = {isa = PBXBuildFile; fileRef = CB5DCEC55112884EE63E5FC2 /* constellation-aquila.png */; };
+		0A5E4EE92A9950E7E85B22F1 /* constellation-crater.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE49D95861A91EA6516FC00 /* constellation-crater.png */; };
 		0A62DDA404186911B3A5C717 /* Wide_13101.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 86768797E507B99EE45B6A16 /* Wide_13101.usdz */; };
 		0BCBE2FFED07A397A75FC465 /* moon_disk.png in Resources */ = {isa = PBXBuildFile; fileRef = 7944EBD89043BE39136383F9 /* moon_disk.png */; };
+		0C69CF0D319EAE6FE1C2BC1B /* constellation-vela.png in Resources */ = {isa = PBXBuildFile; fileRef = 64295F496F3F15833F0C3BB9 /* constellation-vela.png */; };
+		0E5386FEBECFE60F75FA9984 /* constellation-libra.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BCE63185971AB1E537E68B5 /* constellation-libra.png */; };
+		0E71C8601D44D706D6B8D704 /* constellation-cetus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6831BCA8BE804F585F13E643 /* constellation-cetus.png */; };
 		10D08A8F5E05758FC0A04869 /* Wide_13120.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7CCC21D6CAEA934E97C2A69C /* Wide_13120.usdz */; };
 		11BD4658D5B3824DDD3F4B4C /* constellations.json in Resources */ = {isa = PBXBuildFile; fileRef = 577781084753B2B7BB15BE63 /* constellations.json */; };
+		125835D96EBF52E5465BE585 /* constellation-canes_venatici.png in Resources */ = {isa = PBXBuildFile; fileRef = 013239E77E23DBCBE7D99E71 /* constellation-canes_venatici.png */; };
 		13C37298EC85538985672537 /* far_hibiya_park.json in Resources */ = {isa = PBXBuildFile; fileRef = 363DA6920669E4DE11353D69 /* far_hibiya_park.json */; };
 		14B2463854B3EE4CCC84472A /* se_body_select.caf in Resources */ = {isa = PBXBuildFile; fileRef = F315BAD283AD419BF50D66CF /* se_body_select.caf */; };
 		14C97B0AAFD874C7AA71A390 /* far_kinuta_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B002945FB41E35146BD2071 /* far_kinuta_park.jpg */; };
 		15201C03AD46575A59F00A4E /* planet_venus.png in Resources */ = {isa = PBXBuildFile; fileRef = BCF831B6005F24264BF7481D /* planet_venus.png */; };
 		15FF13B4295C9B3C69483F30 /* Wide2_13104.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9A8E36C6F645A697583E379F /* Wide2_13104.usdz */; };
 		169AD61A31A8FF1627E92CAA /* WideCityRenderer+LOD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641EDB1E05DF657D819EFFE6 /* WideCityRenderer+LOD.swift */; };
+		17B63F576AC470B598B53CF8 /* constellation-chamaeleon.png in Resources */ = {isa = PBXBuildFile; fileRef = 59C1EC2ED5FD1F61D125299C /* constellation-chamaeleon.png */; };
 		18588BB45F706E4FC2A60C5D /* far_toneri_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80F2410988756974B2727146 /* far_toneri_park.jpg */; };
 		1ACEB27CA56ABB5E5F864E3B /* ConstellationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7402D31B30D3FFBD69ACCC81 /* ConstellationStyle.swift */; };
 		1B50E6634B21A1B04FB682B6 /* far_sumida_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75189C99D479B4F03F39C630 /* far_sumida_park.jpg */; };
 		1B5457559BA2F10AAA963FF6 /* far_todai_hongo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 290DAC89070B0DD8F0E330B8 /* far_todai_hongo.jpg */; };
+		1BE065FD2814FE4AAA3192D7 /* constellation-triangulum.png in Resources */ = {isa = PBXBuildFile; fileRef = 7194829D68DCBD8CFD86680D /* constellation-triangulum.png */; };
 		1D3730EB42E7ECEBC7F15DA5 /* City_funabori.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 88A2C6A5727F667AE79CE96C /* City_funabori.usdz */; };
 		1DD159973CAE569A960C7362 /* far_harumi_futo_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 698BD85D2EFB271A070AC634 /* far_harumi_futo_park.jpg */; };
 		1E0E2B46ED262C1D6AEE1C6E /* Wide2_13122.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 2F8F61F64CFF55ECAF2073BF /* Wide2_13122.usdz */; };
@@ -34,6 +42,7 @@
 		1EFFE3428A12B9632AD2AEB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0998F6616654F6C8506DC67 /* Assets.xcassets */; };
 		1F5A4F155BCE4926410A3007 /* far_funabori.json in Resources */ = {isa = PBXBuildFile; fileRef = C833F8734F8FA113E4FCDFBA /* far_funabori.json */; };
 		21DA8A0B28A2AD383FB85084 /* Sky3DMarkers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292EF5205CC96A242DC2B369 /* Sky3DMarkers.swift */; };
+		2246DA516D608D5E3344401A /* constellation-triangulum_australe.png in Resources */ = {isa = PBXBuildFile; fileRef = C6854614F96A4C489FB0D866 /* constellation-triangulum_australe.png */; };
 		22FF55BA94078ABF96FEDA4E /* City_asakusa.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6B52DB05B310A30BCF3247E1 /* City_asakusa.usdz */; };
 		25B2F1825A9D73D9948686E2 /* SkyAROverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0418346DABF6BEB0CBF7E5 /* SkyAROverlay.swift */; };
 		25C316B1CFBD7EF996211F80 /* constellation-cygnus.png in Resources */ = {isa = PBXBuildFile; fileRef = 13DB5F8373AC3968369D00E2 /* constellation-cygnus.png */; };
@@ -41,6 +50,8 @@
 		2728E18A4E52AF0C17714287 /* SpotListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48E1331041841284856A9DB /* SpotListView.swift */; };
 		293FCB02495A764765ED309A /* far_oshiage.json in Resources */ = {isa = PBXBuildFile; fileRef = A46DED64260FFE3496A7AE31 /* far_oshiage.json */; };
 		2958CBA61AC79F597700450E /* far_komazawa_olympic_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5073440982B666A0954A1637 /* far_komazawa_olympic_park.jpg */; };
+		2A0727F8D6C7CB99FA2590B6 /* constellation-ophiuchus.png in Resources */ = {isa = PBXBuildFile; fileRef = FE08566817E6E0ADBF8E5B38 /* constellation-ophiuchus.png */; };
+		2AFDBC08CDF3F13B58D8BA7A /* constellation-indus.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD349D9BFF89F032A59299B /* constellation-indus.png */; };
 		2B4B3935E915D44430AB391A /* Wide_13113.usdz in Resources */ = {isa = PBXBuildFile; fileRef = BBA0196FF25D09D000DA35CF /* Wide_13113.usdz */; };
 		2DE61136134842FB54A01B37 /* WideWindowTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533ECBC7747F47E835C9A79F /* WideWindowTexture.swift */; };
 		2F1E0D1AF95E9B5FCB1AF0C7 /* City_mizumoto_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 961DF66140C164B4DE9FF421 /* City_mizumoto_park.usdz */; };
@@ -50,23 +61,32 @@
 		30C0DDC8D9DB0A8D934FAEEE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB2FA900BC40F2A751E51B6 /* SettingsView.swift */; };
 		3118C211DC9083B824CCB4EF /* Wide2_13102.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 756F525629D6378EDCED2DF3 /* Wide2_13102.usdz */; };
 		336C0A0103902D4DF939A7AA /* ConstellationRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17051900EB51CF49FBF946F6 /* ConstellationRenderer.swift */; };
+		3400FB29EF86D4DC24A010AD /* constellation-lepus.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F78446D0C38ACB8CB53DECF /* constellation-lepus.png */; };
+		348FCD94922CA7A405DD2A9C /* constellation-lacerta.png in Resources */ = {isa = PBXBuildFile; fileRef = 02BF9DE55A26CFEA2CC783CC /* constellation-lacerta.png */; };
+		3577ED13CB38045B09CA40F9 /* constellation-virgo.png in Resources */ = {isa = PBXBuildFile; fileRef = DAD7A2A3D9967160BE06F0AB /* constellation-virgo.png */; };
 		36069E5F30086B69BC86C040 /* far_oshiage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AB405F683274228D5E96630 /* far_oshiage.jpg */; };
 		36E34EE68894082371E7AA31 /* Wide2_13116.usdz in Resources */ = {isa = PBXBuildFile; fileRef = DD7F0B1C54D62D83BC8E54D0 /* Wide2_13116.usdz */; };
 		3794BA729A83944A47A16349 /* SkyARConstellationImageLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5158B771592E8D01775AF27 /* SkyARConstellationImageLayer.swift */; };
+		37D3E29483CAD283F0AAD91F /* constellation-pictor.png in Resources */ = {isa = PBXBuildFile; fileRef = C7CD7517D2384E229F0F230A /* constellation-pictor.png */; };
 		38FD8E3E9BC677E8E97E1F3F /* Wide2_13110.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 081ADB7CB36DEE3236EB792F /* Wide2_13110.usdz */; };
 		3B8152C5F71B0C17BF1FA4CA /* far_shibakoen.json in Resources */ = {isa = PBXBuildFile; fileRef = BF613A41F26AEF7256F012F6 /* far_shibakoen.json */; };
 		3BBE397F2B26C9F2F030991B /* Wide2_13119.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 10546DF149FE1F1E2691CCA0 /* Wide2_13119.usdz */; };
 		3C6AD2357641F109DDF0D79D /* WideGround_1_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F11E4F90FC1B321BC27A0F4 /* WideGround_1_1.jpg */; };
 		3C73AD0C3FEC73B81C7500A8 /* far_shinjuku.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6C8337002F61ABFD880FC61 /* far_shinjuku.jpg */; };
 		3CDE4B6A07F891AF5DE54C55 /* CampusFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D166E997632BF21F73F49E4 /* CampusFacade.swift */; };
+		3E49EB7BFF7742E5A3F15902 /* constellation-auriga.png in Resources */ = {isa = PBXBuildFile; fileRef = CA786A4E4FE8F9C1E66B4CDE /* constellation-auriga.png */; };
 		3EBBA378030106EBE59BE741 /* far_mizumoto_park.json in Resources */ = {isa = PBXBuildFile; fileRef = CA62D2330ABFF172A8B70FA7 /* far_mizumoto_park.json */; };
 		3F18AE14F757C23CEA818EA4 /* HomeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3DFE0D4CBB315099D083D6 /* HomeSheet.swift */; };
 		40D99A8097D7EC5B8AE212F2 /* City_kasai_rinkai_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E4AE9175DBD437186F066813 /* City_kasai_rinkai_park.usdz */; };
 		411A70FAB6BF96C3637A776C /* CompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE617C900ABD7B0CA50F0AE /* CompareView.swift */; };
+		434790A7893B1DA92D9A462D /* constellation-piscis_austrinus.png in Resources */ = {isa = PBXBuildFile; fileRef = 529EE03764926D21F69286CF /* constellation-piscis_austrinus.png */; };
+		43663BEF5395A81935C9D0D9 /* constellation-hydra.png in Resources */ = {isa = PBXBuildFile; fileRef = 25DFECB057475716DD711968 /* constellation-hydra.png */; };
 		43786E98EB264F618C7BD1F6 /* Wide2_13117.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6E537DE77A24C7BA15409372 /* Wide2_13117.usdz */; };
 		447565D1DABEDFB0233590E4 /* far_ukima_park.json in Resources */ = {isa = PBXBuildFile; fileRef = C6C06FBC11F8F225EA804FBB /* far_ukima_park.json */; };
 		45CA5191B8BACD406CF0E190 /* far_shakujii_park.json in Resources */ = {isa = PBXBuildFile; fileRef = CCE869D169B207819090F4F3 /* far_shakujii_park.json */; };
 		45DAB32473A5D3350161D5B6 /* far_funabori.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F18BA2D8E9E179CD82A9F061 /* far_funabori.jpg */; };
+		45FF208487719F6B520D31E1 /* constellation-taurus.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E4A4F0B265367272FCCF74 /* constellation-taurus.png */; };
+		465675BB37D2B90D473532EB /* constellation-pavo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FAB1459CA27EDD38AEF7B0C /* constellation-pavo.png */; };
 		468F0FA93A2DF7E280F1B0C2 /* far_shinjuku_gyoen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E5762DE174E0B950CC7ECDF /* far_shinjuku_gyoen.jpg */; };
 		46CF114DA2DD5B76F7736F3A /* Wide_13115.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 18DC642E1BE8E0705FE71D77 /* Wide_13115.usdz */; };
 		46E30E1D9BDBF66E6198ED2D /* far_odaiba_kaihin_park.json in Resources */ = {isa = PBXBuildFile; fileRef = A0B28573A7250DD5455DC0AD /* far_odaiba_kaihin_park.json */; };
@@ -76,9 +96,13 @@
 		47E10AE0323EE96089BE8241 /* Wide_13107.usdz in Resources */ = {isa = PBXBuildFile; fileRef = A7CB6189056A8BF4DD195354 /* Wide_13107.usdz */; };
 		47E4827B20BCD5F9654EB5AD /* City_odaiba_kaihin_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 29EE985748A0534DDA7562DF /* City_odaiba_kaihin_park.usdz */; };
 		47E859229013A89284DA2835 /* far_jonanjima_kaihin_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1F0C35EA45E482105BE4203F /* far_jonanjima_kaihin_park.jpg */; };
+		47FC2DCAAF1E7C838D35EC3F /* constellation-equuleus.png in Resources */ = {isa = PBXBuildFile; fileRef = E86CC1270BF3046A3C8C1EC4 /* constellation-equuleus.png */; };
 		4887106743DC6CFC45CF3DDF /* Sky3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA12F120047673D19190040 /* Sky3DView.swift */; };
 		48D87C3B4C286CB1B19FBAFC /* bgm_main.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C22C18C42696C34412D66A89 /* bgm_main.m4a */; };
+		48F830DAD099A4562F99B381 /* constellation-volans.png in Resources */ = {isa = PBXBuildFile; fileRef = AED0056A1B08165C5F0396CF /* constellation-volans.png */; };
 		4B9D1D89BCC46D43E5FB2EA3 /* far_rinshi_no_mori_park.json in Resources */ = {isa = PBXBuildFile; fileRef = D01D5ED4C33B3C1762E81E22 /* far_rinshi_no_mori_park.json */; };
+		4BCE84D1E6E80CD3ACFE9931 /* constellation-microscopium.png in Resources */ = {isa = PBXBuildFile; fileRef = 385B0D7AD99DB35A5E1297FD /* constellation-microscopium.png */; };
+		4C8469F7CD7391128839AA9A /* constellation-telescopium.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E519F2789CC7552FD067F0 /* constellation-telescopium.png */; };
 		4D3C1657C77314559DC8DB31 /* City_shiodome.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E76A5C9EE6A156D31652C42E /* City_shiodome.usdz */; };
 		4D8E6AE90512A8D91365CD30 /* WideCityPins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9482A4AE6006C6AAC0F5BD3B /* WideCityPins.swift */; };
 		4ED97639264344F7F880D1F3 /* SkyCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3ABAC033ABF32304BC5DF1 /* SkyCamera.swift */; };
@@ -88,16 +112,21 @@
 		5257382EF399428CCD9EDD52 /* planet_jupiter.png in Resources */ = {isa = PBXBuildFile; fileRef = B10B17A0BE54FB8574F07917 /* planet_jupiter.png */; };
 		52E9CB4C397E057EEFD42671 /* constellation_scorpius.png in Resources */ = {isa = PBXBuildFile; fileRef = C8AB2C3DCF196D1303A89FDC /* constellation_scorpius.png */; };
 		537BA09B2C514EF6AAF2FF3A /* far_hibiya_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68A97D0FD9AAA999A2BA046E /* far_hibiya_park.jpg */; };
+		5C61972DBFD53B65553F32FC /* constellation-pisces.png in Resources */ = {isa = PBXBuildFile; fileRef = 327A1EA260E10D35E46A19C9 /* constellation-pisces.png */; };
 		5CC95CA726F89DDF9C3A0C44 /* HomeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47050A9D6512E05E3FB7237C /* HomeStyle.swift */; };
+		5D0CEFEB301E9CA1C03C0451 /* constellation-monoceros.png in Resources */ = {isa = PBXBuildFile; fileRef = E0AF021F32156C4E9A6D3578 /* constellation-monoceros.png */; };
 		5DD92D36C8295567AACB5B0F /* RiseSetSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2226A2988AF1E32C4EBEE /* RiseSetSection.swift */; };
 		5E280044BDE270D3EC5EF208 /* SkyViewControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE731D01A61784B36ED40A34 /* SkyViewControls.swift */; };
 		5E414D67197B168E34B48E79 /* constellations-LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = B33C7A0EE83BB0415D73168E /* constellations-LICENSE.txt */; };
+		5EB26460EBE3E9723462B158 /* constellation-lynx.png in Resources */ = {isa = PBXBuildFile; fileRef = 7624E7188EF4CEA2D3BBB2D3 /* constellation-lynx.png */; };
+		5EBC6BD76E66713BB043300B /* constellation-bootes.png in Resources */ = {isa = PBXBuildFile; fileRef = C1766FC9397875D81F1EFF1B /* constellation-bootes.png */; };
 		5F06BF12CAC79CD1620D6F6C /* far_shiodome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F051F7519273E82ACE371A7F /* far_shiodome.jpg */; };
 		61CC49EBFB67AB29113060CA /* far_shibuya.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4680C38CEFB41980780D5E61 /* far_shibuya.jpg */; };
 		61F04C31AF06F14AEEA09350 /* far_wakasu_kaihin_park.json in Resources */ = {isa = PBXBuildFile; fileRef = 93C23BE17D8DDAA58A577619 /* far_wakasu_kaihin_park.json */; };
 		6346118067D1174AEBD6233B /* far_asakusa.json in Resources */ = {isa = PBXBuildFile; fileRef = E08004F2D304ADAD69E3CB41 /* far_asakusa.json */; };
 		638676EE7214BB721F8A5CF3 /* far_harumi_futo_park.json in Resources */ = {isa = PBXBuildFile; fileRef = EDBB3DEE842227AAAA727169 /* far_harumi_futo_park.json */; };
 		639CEC1865DD3639BD885F4A /* se_map_open.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9A7E6A9A2D84F171B09BB57B /* se_map_open.caf */; };
+		63CDE8FB6C6379045B445724 /* constellation-corvus.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F44B7756286F895BAF27E0 /* constellation-corvus.png */; };
 		64293DC30DC063A7750AC443 /* SkyARAutoSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B928B4909D51E3C1A54B1B /* SkyARAutoSwitch.swift */; };
 		64AB7E47CD4066B37C82F054 /* far_kiba_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A707BBD63276923A6C04B44A /* far_kiba_park.jpg */; };
 		67041D906545CF78F846913D /* ObserverEntryRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645DE5BF57C489F0569F244A /* ObserverEntryRenderer.swift */; };
@@ -109,12 +138,17 @@
 		6ABF464EC7476D774E02900B /* constellation_orion.png in Resources */ = {isa = PBXBuildFile; fileRef = 2284B332064B10E2FF1A3C76 /* constellation_orion.png */; };
 		6AD68E5AEAD5482420C47E4B /* City_kinuta_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E8E9ECB9AA66BAF680082962 /* City_kinuta_park.usdz */; };
 		6BE0F661F4FD7AA8C33060CA /* far_shinjuku.json in Resources */ = {isa = PBXBuildFile; fileRef = 46346F394B548514273106A7 /* far_shinjuku.json */; };
+		6CFB681D38D5E264FFD70DA3 /* constellation-tucana.png in Resources */ = {isa = PBXBuildFile; fileRef = A2CCB78CA38C4C28B90800B8 /* constellation-tucana.png */; };
 		6D0B11AEBA36AC24450F19F1 /* stars_city.png in Resources */ = {isa = PBXBuildFile; fileRef = 413CB5D8DB2C8DA252F6DD18 /* stars_city.png */; };
+		6DFCFC20923AC0F581B24569 /* constellation-scutum.png in Resources */ = {isa = PBXBuildFile; fileRef = 262DD6701F9815DA1EEC5A61 /* constellation-scutum.png */; };
 		6FA632C626E3D842D80F218D /* far_kasai_rinkai_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A9E3E12216052356F36B9597 /* far_kasai_rinkai_park.jpg */; };
+		70ED8B991EAE835E14118A91 /* constellation-delphinus.png in Resources */ = {isa = PBXBuildFile; fileRef = 25EC2A578C219AA39EF35810 /* constellation-delphinus.png */; };
+		73097A16555168D498E0E3AF /* constellation-capricornus.png in Resources */ = {isa = PBXBuildFile; fileRef = B93FA5140DDE8CF244B593A9 /* constellation-capricornus.png */; };
 		739F4CB38D22C5385FEC13C8 /* Wide_13117.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3EB90224E3FA247FE564546A /* Wide_13117.usdz */; };
 		73F95F6EFB0900F00D819770 /* far_yoyogi_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 307CE3D774C6E064C8D65927 /* far_yoyogi_park.jpg */; };
 		7557C82D9D9B675D5F44EC7A /* Wide_13109.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6D8BC0490128A739CE1B0F6A /* Wide_13109.usdz */; };
 		759AA58FF53913C0DFB4C815 /* HomeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F962D800EB0D2C398C58E /* HomeBackground.swift */; };
+		768077D49F154053BBAA737A /* constellation-andromeda.png in Resources */ = {isa = PBXBuildFile; fileRef = 85E8BA193534576780C8D436 /* constellation-andromeda.png */; };
 		771EF5B5D5FC8C5C2CCA7DF0 /* planet_saturn.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CF11348DC48F0CCA7E637A6 /* planet_saturn.png */; };
 		7729FDEB52F318826A8731E2 /* City_yoyogi_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 34C768A06756B98014064792 /* City_yoyogi_park.usdz */; };
 		7744F94481E2D7311632B36A /* planet_mercury.png in Resources */ = {isa = PBXBuildFile; fileRef = 2915738486DDB4FAEAF41090 /* planet_mercury.png */; };
@@ -125,6 +159,8 @@
 		7B83E7AA901592BE80715F18 /* City_komazawa_olympic_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B970D511980DC4CF9D400D09 /* City_komazawa_olympic_park.usdz */; };
 		7C3CA1C9A110742BEDEEBD7D /* far_yoyogi_park.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A6F232224A3ED626683C447 /* far_yoyogi_park.json */; };
 		7ED6F8C16329CAA5FA76E85E /* far_toneri_park.json in Resources */ = {isa = PBXBuildFile; fileRef = F97FB3F3B2B08696B9D9F42C /* far_toneri_park.json */; };
+		7EE57CE7CA52686CD7808D0B /* constellation-pegasus.png in Resources */ = {isa = PBXBuildFile; fileRef = B3EB22D39AFCC8CF98EAAE61 /* constellation-pegasus.png */; };
+		8064A4B9BF29FF6D96DF9257 /* constellation-lyra.png in Resources */ = {isa = PBXBuildFile; fileRef = 43F3FE9DD0CD65DF664612B7 /* constellation-lyra.png */; };
 		80DB4FD0DCC8FD328FE11F6D /* Wide_13108.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 0C76B8A6C9C7CEC94E6D7AFE /* Wide_13108.usdz */; };
 		812733E42B302E1F95A3AD90 /* Wide2_13113.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 1CC425F4E2748059D2E821B4 /* Wide2_13113.usdz */; };
 		8374D92035F96E6CFE08BEDA /* Wide2_13118.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CC47DA5331FADA19931220CA /* Wide2_13118.usdz */; };
@@ -134,23 +170,36 @@
 		881577E70CBED468BAB1380F /* HomeMapMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E514E49E3B279BCF72ABF14 /* HomeMapMode.swift */; };
 		883973BB60D626CB721406D7 /* Wide_13121.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C0C8CBDEC1AF2F3501A8F914 /* Wide_13121.usdz */; };
 		883CCA595AA0B31955697D89 /* City_shibuya.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B9DA1DEE77A332FC2A04DEF6 /* City_shibuya.usdz */; };
+		88B82DB05909F6B44282AF17 /* constellation-dorado.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ED91DF667BF3D91386635FE /* constellation-dorado.png */; };
 		88E8ECAE87BB911052ED808E /* Wide_13104.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C36A19ECB464D45C09A0DA13 /* Wide_13104.usdz */; };
+		896D45C1FB1BA8FDFE642A93 /* constellation-canis_minor.png in Resources */ = {isa = PBXBuildFile; fileRef = 668051881CB6C7F6B91C680D /* constellation-canis_minor.png */; };
 		8AC5DB74BF7C218CD88BD89D /* far_ukima_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3616BD91E617BD852FF864C6 /* far_ukima_park.jpg */; };
 		8B61512B1617A26FEF1E89BC /* FarGroundRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615FCC36B1BC2C41CE6D502 /* FarGroundRenderer.swift */; };
+		8BA39B924D408EA32D4C8408 /* constellation-cassiopeia.png in Resources */ = {isa = PBXBuildFile; fileRef = D293C6B84CCBE81356C10952 /* constellation-cassiopeia.png */; };
 		8BB076589A7D83F29AE44A54 /* City_sumida_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C6AA621A63EDF2CD26BF9309 /* City_sumida_park.usdz */; };
 		8C4FBA125C16E5CBAC5EB587 /* far_rinshi_no_mori_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C0543356BEEC3F154E757526 /* far_rinshi_no_mori_park.jpg */; };
 		8CF46BDA8B1163F8D3FE6A02 /* ConstellationImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD1B5A301DF62029A038784 /* ConstellationImageRenderer.swift */; };
 		8D8C2AB784403A549DCBC3B8 /* SpotMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A44094D691EA28AE5DEA03D /* SpotMap.swift */; };
+		8F1FD4D993A8121275D4537D /* constellation-sagittarius.png in Resources */ = {isa = PBXBuildFile; fileRef = C576617FE4C06C21093DBFAF /* constellation-sagittarius.png */; };
+		8FC46C0305C26AA0E819F7A4 /* constellation-reticulum.png in Resources */ = {isa = PBXBuildFile; fileRef = 40106FD1B05DB628358B9298 /* constellation-reticulum.png */; };
+		9043905DAED75CE573992AD0 /* constellation-perseus.png in Resources */ = {isa = PBXBuildFile; fileRef = 82666E333B0994176169914B /* constellation-perseus.png */; };
+		9055E1D01A486C445D911074 /* constellation-crux.png in Resources */ = {isa = PBXBuildFile; fileRef = E3F2BDF10A2D5DF9D74F71FF /* constellation-crux.png */; };
+		9123F235E09C42D45E32599E /* constellation-leo.png in Resources */ = {isa = PBXBuildFile; fileRef = 22739180420F4CA99567BAA8 /* constellation-leo.png */; };
 		913CC9AE035EA2264446E51A /* constellation-art.json in Resources */ = {isa = PBXBuildFile; fileRef = 852CDE814189DE4CC7C81866 /* constellation-art.json */; };
 		92E5F48025E4E29F4EA67A4B /* WideGround.json in Resources */ = {isa = PBXBuildFile; fileRef = 87689282C4EF95242CE86CD7 /* WideGround.json */; };
 		932FB00DF589CA858A6CC5B1 /* City_todai_hongo.usdz in Resources */ = {isa = PBXBuildFile; fileRef = D84F6B33DE7D5116E7E29045 /* City_todai_hongo.usdz */; };
+		934E5A5925C43C70EC8BC1D7 /* constellation-vulpecula.png in Resources */ = {isa = PBXBuildFile; fileRef = C676F98AF53271893EE7618E /* constellation-vulpecula.png */; };
 		941EB8CCC608EC6AEF1A799B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2AE00460F10C5D00FB4FC0 /* AppModel.swift */; };
+		95208E8E5897686A3FABCA84 /* constellation-mensa.png in Resources */ = {isa = PBXBuildFile; fileRef = F51C895F7616EBFCB9169533 /* constellation-mensa.png */; };
 		9542EE00BE3FCC62BAB81069 /* se_map_gesture.caf in Resources */ = {isa = PBXBuildFile; fileRef = 765BB75671C9B495645B8674 /* se_map_gesture.caf */; };
 		956B557D35212C5ADC376A14 /* far_ueno_park.json in Resources */ = {isa = PBXBuildFile; fileRef = B82D8B85F3CD93BE86F712AF /* far_ueno_park.json */; };
 		95B720B4E4541B24CBC646B4 /* City_jonanjima_kaihin_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 4453D8FF856151F1F8534894 /* City_jonanjima_kaihin_park.usdz */; };
+		96BA863B85409406864E441F /* constellation-canis_major.png in Resources */ = {isa = PBXBuildFile; fileRef = 66B87E5BD8D7EB33CCDA2023 /* constellation-canis_major.png */; };
 		9791C3ED9B294A4A39264114 /* City_ukima_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 2E0BB830A1F4FA6A59005C5B /* City_ukima_park.usdz */; };
 		9A074B3251EA3030D5A36EAD /* Wide_13118.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 96F80755AE21E4DE683C6D9C /* Wide_13118.usdz */; };
 		9A5D992A39B7E5F5F0D8DCE5 /* far_marunouchi.json in Resources */ = {isa = PBXBuildFile; fileRef = 07641924E2F80C719D93F2F0 /* far_marunouchi.json */; };
+		9C09C323B585EB5C93C034A0 /* constellation-cancer.png in Resources */ = {isa = PBXBuildFile; fileRef = 47876183CF51F4A7E85C76B7 /* constellation-cancer.png */; };
+		9C3B8A69C019B4A6D110DC13 /* constellation-ursa_minor.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B80386BE9DA6F1A8B2E42E0 /* constellation-ursa_minor.png */; };
 		9CBDC8725A9E8552D7BA8E6B /* se_spot_found.caf in Resources */ = {isa = PBXBuildFile; fileRef = 9168CDD4479B2181BF356AE5 /* se_spot_found.caf */; };
 		9CD1A1E32D9D6C5FE7397549 /* City_rinshi_no_mori_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 1FB88BE99713037C0BF2AD59 /* City_rinshi_no_mori_park.usdz */; };
 		9D4F075BB097DED344E63418 /* constellation_gemini.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D2BFEDA94699EF2AA70D720 /* constellation_gemini.png */; };
@@ -158,6 +207,7 @@
 		9F79B0D779DA28B038DB4B0A /* Wide_13110.usdz in Resources */ = {isa = PBXBuildFile; fileRef = EF7D859A59FE8AB845A9C28F /* Wide_13110.usdz */; };
 		A015248F16C34BE7874456DE /* far_odaiba_kaihin_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C955223E3A999DE4800AF5E6 /* far_odaiba_kaihin_park.jpg */; };
 		A08584D1D6F62B7420B0B1DB /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83592F6A0ED211E902A2AFE2 /* SoundPlayer.swift */; };
+		A0F5BE8F92D738172281B7D2 /* constellation-corona_australis.png in Resources */ = {isa = PBXBuildFile; fileRef = D5398BEDBB9BFF8FA8C8A81A /* constellation-corona_australis.png */; };
 		A1577EEB4934E2A2E6BFEDA0 /* BuildingNightRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */; };
 		A195391722902F86D763B56F /* BuildingFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F92338553BC2D572913CBE8 /* BuildingFacade.swift */; };
 		A24EC89A7002F26DB8819CF3 /* Wide_13114.usdz in Resources */ = {isa = PBXBuildFile; fileRef = A6AA2BFEFC69CEDDDFBF01A1 /* Wide_13114.usdz */; };
@@ -172,16 +222,21 @@
 		AAE4486D6819C8907F5BBB64 /* City_wakasu_kaihin_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 5C56F742B7CB3D966014BE72 /* City_wakasu_kaihin_park.usdz */; };
 		AB59B7495B624944DA8E4526 /* SkyARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7268DFDB13FCD71D3FE9CB7E /* SkyARView.swift */; };
 		ABD45447B5B351B07643F44D /* Wide_13112.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C93553F49D9AB31F0A7A911A /* Wide_13112.usdz */; };
+		AD62025CC1E8E7A5F5653524 /* constellation-antlia.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D7E0B7F99C89D957CB881 /* constellation-antlia.png */; };
 		ADA7850D2EA329D627D9F37C /* CameraFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561202F50481DCE765EC8093 /* CameraFeed.swift */; };
 		AE24484038DB256EF86F4D59 /* SkyRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10FDF1767A8F3FBE5AB83AC /* SkyRenderer.swift */; };
 		AE618DAE442ABA188110AF8C /* WideGround_0_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E5C80DD1908DA0FDECD6520 /* WideGround_0_1.jpg */; };
 		AE6F72D5B621B5166FA9EF67 /* Wide2_13112.usdz in Resources */ = {isa = PBXBuildFile; fileRef = FD9807C560FC52A5D7F7006F /* Wide2_13112.usdz */; };
 		AFEFB192991EDE2B1ECB9B00 /* WideGroundRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AD61EE458B516484A38D19 /* WideGroundRenderer.swift */; };
+		B00878CA769A285449D63A84 /* constellation-corona_borealis.png in Resources */ = {isa = PBXBuildFile; fileRef = 95E6834FD48BED3A9C6D1C3A /* constellation-corona_borealis.png */; };
 		B0F93301F97D809FDE358072 /* ConstellationTextures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C9C1A09AD6A868C9B0039C /* ConstellationTextures.swift */; };
+		B101E3EA0ADFC50A172406C6 /* constellation-aquarius.png in Resources */ = {isa = PBXBuildFile; fileRef = D24F272BF9712BF96C87E6A9 /* constellation-aquarius.png */; };
+		B1F97D834AD531DDE2E87789 /* constellation-phoenix.png in Resources */ = {isa = PBXBuildFile; fileRef = ED9071F6F7C9740F2F1053F6 /* constellation-phoenix.png */; };
 		B2341704FEB2BD45412EEB6E /* Concrete034_NormalGL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15F0F3CF7CB762C06A5DED0F /* Concrete034_NormalGL.jpg */; };
 		B29B7B3F776984535CFA110A /* planet_mars.png in Resources */ = {isa = PBXBuildFile; fileRef = F82546150801A5FB2CADBE58 /* planet_mars.png */; };
 		B31A3D51170A43CBBA46B384 /* Wide2_13111.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7E6C52CC3BD0AB7C4A0711D4 /* Wide2_13111.usdz */; };
 		B5B7AAE05AFA4C6202AB269C /* Wide_13119.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F8E9D694FA130AAF86052DDC /* Wide_13119.usdz */; };
+		B5BEA4D6550FC037F4C089B6 /* constellation-sagitta.png in Resources */ = {isa = PBXBuildFile; fileRef = 292164107E0148E9380CE27C /* constellation-sagitta.png */; };
 		B623627BD8D6070B4DD00AE0 /* far_ueno_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6CC3BCB32460D018F3598F49 /* far_ueno_park.jpg */; };
 		B67483FE30E5321FE42EE7A7 /* WideCityRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5568B2033FD75FD53C887E7 /* WideCityRenderer.swift */; };
 		B943A7EBEEEBAEB55CB6491C /* City_shibakoen.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7B1B510B4A6F42166A9545A4 /* City_shibakoen.usdz */; };
@@ -189,29 +244,45 @@
 		BB5FFED5C09AD0FBA6440F28 /* far_shibakoen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEF44BB43022CAEE35345D37 /* far_shibakoen.jpg */; };
 		BB828C2D1719012ED9179DCB /* far_todai_hongo.json in Resources */ = {isa = PBXBuildFile; fileRef = 716134E064A9A79006888D0F /* far_todai_hongo.json */; };
 		BBBEAA701E4C2F4070472339 /* Wide2_13109.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 4F0634716FA49BB2470CD4A8 /* Wide2_13109.usdz */; };
+		BC86BC8B6CC27141CB01DBCF /* constellation-sculptor.png in Resources */ = {isa = PBXBuildFile; fileRef = E8F87FB08939E7B4B4D31788 /* constellation-sculptor.png */; };
 		BCD3F0EE1B790DFF8B0493BD /* far_higashi_ikebukuro.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 355B995548FB20B65F2B85B5 /* far_higashi_ikebukuro.jpg */; };
+		BD2E88959B72DE91B3E4136C /* constellation-puppis.png in Resources */ = {isa = PBXBuildFile; fileRef = 3133FB5FC3E53A0317C9DA70 /* constellation-puppis.png */; };
+		BDA497C8A0E382473B4DD33D /* constellation-leo_minor.png in Resources */ = {isa = PBXBuildFile; fileRef = 03A433724416726EA3F9C689 /* constellation-leo_minor.png */; };
 		BFB3E7133046FDF0C4AD8AFE /* City_higashi_ikebukuro.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B712CF49277001CA28CC01E7 /* City_higashi_ikebukuro.usdz */; };
+		C0A4CB0EC5390A284CFEE2F4 /* constellation-hydrus.png in Resources */ = {isa = PBXBuildFile; fileRef = D8228DC490AAD228A99A66C1 /* constellation-hydrus.png */; };
+		C2D5DFF7C4607C14A2C61014 /* constellation-coma_berenices.png in Resources */ = {isa = PBXBuildFile; fileRef = 0048D2D90DF42ED7ACC6D90E /* constellation-coma_berenices.png */; };
 		C40105CC67476B1524DA1791 /* Asphalt031_Roughness.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F15A6BD96245C9D0EB9D555F /* Asphalt031_Roughness.jpg */; };
+		C691F7603696B615434FF821 /* constellation-eridanus.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A72E62C63C9B62D915282E5 /* constellation-eridanus.png */; };
+		C823D38D12B6D6157D853D23 /* constellation-columba.png in Resources */ = {isa = PBXBuildFile; fileRef = E538BF18408E1EEEAF2EB237 /* constellation-columba.png */; };
 		CB3F989312FB95C3A591EAD7 /* Wide_13123.usdz in Resources */ = {isa = PBXBuildFile; fileRef = A921B8F393B2C1714B3A0EBF /* Wide_13123.usdz */; };
+		CC55624DEE17A58D85B0E529 /* constellation-musca.png in Resources */ = {isa = PBXBuildFile; fileRef = 9514AD4C5240F9A98CE23F71 /* constellation-musca.png */; };
+		CC7BCD89F939B0027849C873 /* constellation-norma.png in Resources */ = {isa = PBXBuildFile; fileRef = EA9C9BA45B6181499BD7CDD8 /* constellation-norma.png */; };
 		CCEE2FCC222DC54697BB50FE /* City_shinjuku_gyoen.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9AD307727149F9D5F74F08C0 /* City_shinjuku_gyoen.usdz */; };
 		CDA6C7F96CD2D39B9553F477 /* Wide_13105.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 575D21992905DF28D9908C69 /* Wide_13105.usdz */; };
 		CEBA8237EBBC42FF97F25851 /* Sky3DView+Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E8130089770F0891E0EBD7 /* Sky3DView+Scene.swift */; };
 		D011EA7F2DA04C77F1BDDC04 /* far_arakawa_riverside.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A7611EDDF5853B3275964A1 /* far_arakawa_riverside.jpg */; };
 		D0B8DEA951459205F5156F2A /* far_kasai_rinkai_park.json in Resources */ = {isa = PBXBuildFile; fileRef = B5C78EF8CDE9B4A8366AFF4F /* far_kasai_rinkai_park.json */; };
+		D10FDCC2652F77F5820F0525 /* constellation-carina.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C5A058FB3F08A3F2777D8A /* constellation-carina.png */; };
+		D1317DDBA0578D800C8885FC /* constellation-horologium.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CE041612D2E0232302934A3 /* constellation-horologium.png */; };
 		D3087EAF5A42977E9E9012B5 /* Wide2_13121.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F8E94A78C3090297938A0B51 /* Wide2_13121.usdz */; };
+		D3B00643E27794C75A57E311 /* constellation-lupus.png in Resources */ = {isa = PBXBuildFile; fileRef = FB73F5029920B768D28E9475 /* constellation-lupus.png */; };
 		D52495D2CBA80F25E12678AF /* far_jonanjima_kaihin_park.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BA8CADA1F881A07776C3771 /* far_jonanjima_kaihin_park.json */; };
 		D5AB916C94AACB7A9440597F /* Wide_13103.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 91B1B9B2E649EDB08E8C541C /* Wide_13103.usdz */; };
 		D61945AEFE260889A1E6A1D3 /* constellation-images.json in Resources */ = {isa = PBXBuildFile; fileRef = B5FA2C8027C4A303810509C6 /* constellation-images.json */; };
 		D73E77541F55F1AA3F017B36 /* stars_suburban.png in Resources */ = {isa = PBXBuildFile; fileRef = 42021F8DC90F284E2E1FBC80 /* stars_suburban.png */; };
+		D7732C15F81645762B47FB09 /* constellation-ara.png in Resources */ = {isa = PBXBuildFile; fileRef = D89A2CD63F27A0EF189419C6 /* constellation-ara.png */; };
 		D7BC4BAB25821C763DAA0D21 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A0DF8B6DF51B16FAA603A3 /* LocationModel.swift */; };
 		D7F14643F15D602C9A2EFE7C /* HomeOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326BDC55668587032108FE63 /* HomeOverlay.swift */; };
+		D952C572ED8E4C24DF6D83E1 /* constellation-octans.png in Resources */ = {isa = PBXBuildFile; fileRef = 88D74A24EB32DDAABB991590 /* constellation-octans.png */; };
 		D968651CC733A098B4E5F9FA /* Wide2_13101.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8C5D0AED3352C1C7ADC10D24 /* Wide2_13101.usdz */; };
 		D9C4D1E9BF26BF49902530E6 /* WideCityLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E186EAF0B136ADBDFE7D9 /* WideCityLabels.swift */; };
 		D9F4571299DC479495189966 /* CityModelRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9203D1807BE1815AEE18E0B /* CityModelRenderer.swift */; };
 		DB035849474639C5A9C6DCA1 /* TimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA06A0CCFDF479A126260A /* TimeSlider.swift */; };
 		DBC5F6D2888529D0501928A9 /* Sky3DLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40396066617C3F4F1E1FBFC5 /* Sky3DLegend.swift */; };
+		DC06BF76790A684512DF5A32 /* constellation-centaurus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC93A336352AA4E532E0B67 /* constellation-centaurus.png */; };
 		DC9EAD9756F1CDBB8341A1B5 /* Wide_13111.usdz in Resources */ = {isa = PBXBuildFile; fileRef = D4B285889905102C5C378412 /* Wide_13111.usdz */; };
 		DCCFF7F044F1DDF2AFF1201B /* TargetPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DA16CE24D5352408F1E495 /* TargetPicker.swift */; };
+		DD54B68D899C8E8BF4896935 /* constellation-aries.png in Resources */ = {isa = PBXBuildFile; fileRef = 22FED37CABCA66A31CA6B6A3 /* constellation-aries.png */; };
 		DDB8ABEEF55FC1692BA72DB7 /* DeviceMotionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD5B4DB596C81712262CA9 /* DeviceMotionMonitor.swift */; };
 		DE28BD431885671570C003FF /* far_marunouchi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9905E085D510E487A3786677 /* far_marunouchi.jpg */; };
 		DE8CA0B97848C1F48C1C2BBF /* Wide2_13108.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 882D9F06E8E9C4B7F278B655 /* Wide2_13108.usdz */; };
@@ -220,10 +291,14 @@
 		E056BF54A6F17F99C91DDA9C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D36E138FBA05281F00740D /* HomeView.swift */; };
 		E115DAD16791EBC4DBB1F8AE /* RouteSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77E2A1A6FDB19B5B2E3C66D /* RouteSection.swift */; };
 		E194EB73D4CC0EECF6E614B3 /* far_shibuya.json in Resources */ = {isa = PBXBuildFile; fileRef = 61AEFFB0F2969B0948F4386F /* far_shibuya.json */; };
+		E2EAA95068CD6E7975510E6D /* constellation-apus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2061EE8A67314596D7C08672 /* constellation-apus.png */; };
 		E4994F8C1B624F530DCF1CBF /* WideGround_0_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BC98BEDE5AD5F02ED921E54B /* WideGround_0_0.jpg */; };
 		E50F8C4885C73F058A72B18F /* City_hikarigaoka_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8111738C5D3D4DEE30F2C5D3 /* City_hikarigaoka_park.usdz */; };
+		E5114D65EB2922B5268243FF /* constellation-caelum.png in Resources */ = {isa = PBXBuildFile; fileRef = 28FEED98C5EAE6C613DD1F10 /* constellation-caelum.png */; };
 		E5CE8260DAC01F01690C2EBA /* far_kiba_park.json in Resources */ = {isa = PBXBuildFile; fileRef = 258B73077695268A4A239112 /* far_kiba_park.json */; };
+		E6C4CB734D3525EDB8B738F9 /* constellation-camelopardalis.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFECA4EBE739475088029A1 /* constellation-camelopardalis.png */; };
 		E6C69AA39E1D843BE6A7A7B9 /* far_shiodome.json in Resources */ = {isa = PBXBuildFile; fileRef = 013514DEAF72D4188158AA5A /* far_shiodome.json */; };
+		E7212FED5398A533179669DB /* constellation-circinus.png in Resources */ = {isa = PBXBuildFile; fileRef = 500D4C7CD2E1BEA47F0531D9 /* constellation-circinus.png */; };
 		E73417BA7CE56710B0EAB9A4 /* constellation-gemini.png in Resources */ = {isa = PBXBuildFile; fileRef = A2AE1FABD8B11939840E31F4 /* constellation-gemini.png */; };
 		E82154EBF3F53E3AC419586D /* City_shakujii_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C7E668BCB3EBC1CF479B14C2 /* City_shakujii_park.usdz */; };
 		E9B9E83B4BF5F79403D3BEDB /* City_kiba_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = F5311C2A4D0C037D3AC49F23 /* City_kiba_park.usdz */; };
@@ -232,6 +307,8 @@
 		EAB71661A1554E900F92CE2E /* City_oshiage.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 38BCB1FD0676E8CAC3B15FF5 /* City_oshiage.usdz */; };
 		EB43058DA5D135061D1CFEF7 /* far_komazawa_olympic_park.json in Resources */ = {isa = PBXBuildFile; fileRef = 24B82CC5F109E3E1D9AB3FDE /* far_komazawa_olympic_park.json */; };
 		EBA8033BFCE37B02AF2278A3 /* City_yumenoshima_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C71530461BDD4885F1D32949 /* City_yumenoshima_park.usdz */; };
+		EC22287B9C9839E3348E6D80 /* constellation-fornax.png in Resources */ = {isa = PBXBuildFile; fileRef = 9346CCD0122781EEA4994C0B /* constellation-fornax.png */; };
+		EC322FDE745A8AB602C11925 /* constellation-cepheus.png in Resources */ = {isa = PBXBuildFile; fileRef = BD7369895D56960604AAC63D /* constellation-cepheus.png */; };
 		EC4EA10F8A07922E568DA619 /* City_ueno_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 67FB796428C460DA3C82667C /* City_ueno_park.usdz */; };
 		EDA0704C273AC4D2798817AD /* far_yumenoshima_park.json in Resources */ = {isa = PBXBuildFile; fileRef = E56C0279EC2D041328BAEE5A /* far_yumenoshima_park.json */; };
 		EFBD92E3C8660F3CEAAA178C /* stars_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1C6600DD81BD93E479BA54 /* stars_dark.png */; };
@@ -240,7 +317,10 @@
 		F0BB15CE9D55997DA11A29E7 /* City_hibiya_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8D10E63FC26627E7C8033D11 /* City_hibiya_park.usdz */; };
 		F18EC5FB9912E1C9058F7313 /* Concrete034_Color.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A93A7469668EA324B724E02C /* Concrete034_Color.jpg */; };
 		F1BE6BD66A952679DB8CEEAE /* Wide_13116.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B1CB6A1BA9E15890651E3B30 /* Wide_13116.usdz */; };
+		F1CDE0BB3899718988DC9A85 /* constellation-draco.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5F135375B594D0B9B89E19 /* constellation-draco.png */; };
+		F1E0EECEA8F17D3362BCF5C8 /* constellation-hercules.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CFFC905217D576DB5E27D8 /* constellation-hercules.png */; };
 		F1F1DD81370AB86B0CC4CDD1 /* constellation_ursa_major.png in Resources */ = {isa = PBXBuildFile; fileRef = 0098821A40A7E0258BCF2EAF /* constellation_ursa_major.png */; };
+		F3D1BFB2E4CC50F44DB32DAC /* constellation-serpens.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B89B13808ABEF35697B1E5A /* constellation-serpens.png */; };
 		F4FFE6D5EA8AE75F4762BB53 /* WideCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75CCD73165A635F8859D158 /* WideCityView.swift */; };
 		F560798321DF2A21017C0416 /* Wide2_13114.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C2227872F1818CE19F711208 /* Wide2_13114.usdz */; };
 		F5A23B40904147AA81FD4D03 /* Asphalt031_NormalGL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E977348ECDA6D2A5DE9E28DA /* Asphalt031_NormalGL.jpg */; };
@@ -253,16 +333,22 @@
 		FA8D782D57B83850851228DA /* HomeConditionsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F1C0036CA84BF2DF578446 /* HomeConditionsCard.swift */; };
 		FAAA3072CC2B7E3DE3521986 /* far_hikarigaoka_park.json in Resources */ = {isa = PBXBuildFile; fileRef = 399E89722444277B57031CE9 /* far_hikarigaoka_park.json */; };
 		FB1A99E53861267831B15C85 /* SpotInfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0658849C23DAC8B10EF85EF /* SpotInfoList.swift */; };
+		FBC8AF1EB21756E6206FD0E7 /* constellation-sextans.png in Resources */ = {isa = PBXBuildFile; fileRef = 22352DB8ADA48FC26F1E3A38 /* constellation-sextans.png */; };
 		FCC469DCD83FB573F8866F44 /* Asphalt031_Color.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0C07C8453CFA255AD73FC45 /* Asphalt031_Color.jpg */; };
 		FE9356A68A5B0508827E7FBF /* Wide2_13115.usdz in Resources */ = {isa = PBXBuildFile; fileRef = D7CEC029EAFFE8FE0AE4E614 /* Wide2_13115.usdz */; };
+		FFAC65C43F971ABA4E53E083 /* constellation-pyxis.png in Resources */ = {isa = PBXBuildFile; fileRef = DE5EDEBC23EABB6BF5DC0C5E /* constellation-pyxis.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0048D2D90DF42ED7ACC6D90E /* constellation-coma_berenices.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-coma_berenices.png"; sourceTree = "<group>"; };
 		0098821A40A7E0258BCF2EAF /* constellation_ursa_major.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = constellation_ursa_major.png; sourceTree = "<group>"; };
 		010D8F8D8429293B37FB38CE /* far_mizumoto_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_mizumoto_park.jpg; sourceTree = "<group>"; };
+		013239E77E23DBCBE7D99E71 /* constellation-canes_venatici.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-canes_venatici.png"; sourceTree = "<group>"; };
 		013514DEAF72D4188158AA5A /* far_shiodome.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_shiodome.json; sourceTree = "<group>"; };
 		022188085E099C634D0751C4 /* far_asakusa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_asakusa.jpg; sourceTree = "<group>"; };
 		027E186EAF0B136ADBDFE7D9 /* WideCityLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideCityLabels.swift; sourceTree = "<group>"; };
+		02BF9DE55A26CFEA2CC783CC /* constellation-lacerta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-lacerta.png"; sourceTree = "<group>"; };
+		03A433724416726EA3F9C689 /* constellation-leo_minor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-leo_minor.png"; sourceTree = "<group>"; };
 		04FFF31585C898E23964FC09 /* far_wakasu_kaihin_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_wakasu_kaihin_park.jpg; sourceTree = "<group>"; };
 		062577364B1590F5C45E3B34 /* far_shinjuku_gyoen.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_shinjuku_gyoen.json; sourceTree = "<group>"; };
 		07641924E2F80C719D93F2F0 /* far_marunouchi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_marunouchi.json; sourceTree = "<group>"; };
@@ -270,68 +356,91 @@
 		0B3DFE0D4CBB315099D083D6 /* HomeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSheet.swift; sourceTree = "<group>"; };
 		0C464D265E3F5FA690CCCD5A /* far_sumida_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_sumida_park.json; sourceTree = "<group>"; };
 		0C76B8A6C9C7CEC94E6D7AFE /* Wide_13108.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13108.usdz; sourceTree = "<group>"; };
+		0CE49D95861A91EA6516FC00 /* constellation-crater.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-crater.png"; sourceTree = "<group>"; };
 		0D756A88C6BD474D11D3DF42 /* SurroundingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurroundingsSection.swift; sourceTree = "<group>"; };
 		0FB2FA900BC40F2A751E51B6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		10546DF149FE1F1E2691CCA0 /* Wide2_13119.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13119.usdz; sourceTree = "<group>"; };
+		116C414BBCAEA3C4D7197474 /* constellation-grus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-grus.png"; sourceTree = "<group>"; };
 		13DB5F8373AC3968369D00E2 /* constellation-cygnus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-cygnus.png"; sourceTree = "<group>"; };
 		158C80598C415E8A1DA68E44 /* City_toneri_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_toneri_park.usdz; sourceTree = "<group>"; };
 		15F0F3CF7CB762C06A5DED0F /* Concrete034_NormalGL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Concrete034_NormalGL.jpg; sourceTree = "<group>"; };
 		16D36E138FBA05281F00740D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		17051900EB51CF49FBF946F6 /* ConstellationRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstellationRenderer.swift; sourceTree = "<group>"; };
 		18DC642E1BE8E0705FE71D77 /* Wide_13115.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13115.usdz; sourceTree = "<group>"; };
+		18E519F2789CC7552FD067F0 /* constellation-telescopium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-telescopium.png"; sourceTree = "<group>"; };
 		1B002945FB41E35146BD2071 /* far_kinuta_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_kinuta_park.jpg; sourceTree = "<group>"; };
 		1CC425F4E2748059D2E821B4 /* Wide2_13113.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13113.usdz; sourceTree = "<group>"; };
+		1CE041612D2E0232302934A3 /* constellation-horologium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-horologium.png"; sourceTree = "<group>"; };
 		1D166E997632BF21F73F49E4 /* CampusFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusFacade.swift; sourceTree = "<group>"; };
 		1DA8483FB629B08A3E5A4BE0 /* StarSpotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSpotApp.swift; sourceTree = "<group>"; };
 		1E5C80DD1908DA0FDECD6520 /* WideGround_0_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WideGround_0_1.jpg; sourceTree = "<group>"; };
 		1F0C35EA45E482105BE4203F /* far_jonanjima_kaihin_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_jonanjima_kaihin_park.jpg; sourceTree = "<group>"; };
 		1FB88BE99713037C0BF2AD59 /* City_rinshi_no_mori_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_rinshi_no_mori_park.usdz; sourceTree = "<group>"; };
+		2061EE8A67314596D7C08672 /* constellation-apus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-apus.png"; sourceTree = "<group>"; };
+		22352DB8ADA48FC26F1E3A38 /* constellation-sextans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-sextans.png"; sourceTree = "<group>"; };
+		22739180420F4CA99567BAA8 /* constellation-leo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-leo.png"; sourceTree = "<group>"; };
 		2284B332064B10E2FF1A3C76 /* constellation_orion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = constellation_orion.png; sourceTree = "<group>"; };
 		22AD61EE458B516484A38D19 /* WideGroundRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideGroundRenderer.swift; sourceTree = "<group>"; };
 		22DBA73636D98FBA99D27AE8 /* constellation-scorpius.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-scorpius.png"; sourceTree = "<group>"; };
+		22FED37CABCA66A31CA6B6A3 /* constellation-aries.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-aries.png"; sourceTree = "<group>"; };
 		24B82CC5F109E3E1D9AB3FDE /* far_komazawa_olympic_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_komazawa_olympic_park.json; sourceTree = "<group>"; };
 		258B73077695268A4A239112 /* far_kiba_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_kiba_park.json; sourceTree = "<group>"; };
+		25DFECB057475716DD711968 /* constellation-hydra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-hydra.png"; sourceTree = "<group>"; };
+		25EC2A578C219AA39EF35810 /* constellation-delphinus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-delphinus.png"; sourceTree = "<group>"; };
 		2615FCC36B1BC2C41CE6D502 /* FarGroundRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarGroundRenderer.swift; sourceTree = "<group>"; };
+		262DD6701F9815DA1EEC5A61 /* constellation-scutum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-scutum.png"; sourceTree = "<group>"; };
 		268D69B0DD78534CCFBE7771 /* SkyARConstellationLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyARConstellationLayer.swift; sourceTree = "<group>"; };
+		28FEED98C5EAE6C613DD1F10 /* constellation-caelum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-caelum.png"; sourceTree = "<group>"; };
 		290DAC89070B0DD8F0E330B8 /* far_todai_hongo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_todai_hongo.jpg; sourceTree = "<group>"; };
 		2915738486DDB4FAEAF41090 /* planet_mercury.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet_mercury.png; sourceTree = "<group>"; };
+		292164107E0148E9380CE27C /* constellation-sagitta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-sagitta.png"; sourceTree = "<group>"; };
 		292EF5205CC96A242DC2B369 /* Sky3DMarkers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sky3DMarkers.swift; sourceTree = "<group>"; };
 		29EE985748A0534DDA7562DF /* City_odaiba_kaihin_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_odaiba_kaihin_park.usdz; sourceTree = "<group>"; };
 		2D2BFEDA94699EF2AA70D720 /* constellation_gemini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = constellation_gemini.png; sourceTree = "<group>"; };
 		2E0BB830A1F4FA6A59005C5B /* City_ukima_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_ukima_park.usdz; sourceTree = "<group>"; };
 		2F11E4F90FC1B321BC27A0F4 /* WideGround_1_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WideGround_1_1.jpg; sourceTree = "<group>"; };
 		2F8F61F64CFF55ECAF2073BF /* Wide2_13122.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13122.usdz; sourceTree = "<group>"; };
+		2FC93A336352AA4E532E0B67 /* constellation-centaurus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-centaurus.png"; sourceTree = "<group>"; };
 		307CE3D774C6E064C8D65927 /* far_yoyogi_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_yoyogi_park.jpg; sourceTree = "<group>"; };
 		308179C5CCF1CE14B9BF6493 /* Concrete034_Roughness.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Concrete034_Roughness.jpg; sourceTree = "<group>"; };
+		3133FB5FC3E53A0317C9DA70 /* constellation-puppis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-puppis.png"; sourceTree = "<group>"; };
 		326BDC55668587032108FE63 /* HomeOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOverlay.swift; sourceTree = "<group>"; };
+		327A1EA260E10D35E46A19C9 /* constellation-pisces.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-pisces.png"; sourceTree = "<group>"; };
 		34C768A06756B98014064792 /* City_yoyogi_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_yoyogi_park.usdz; sourceTree = "<group>"; };
 		355B995548FB20B65F2B85B5 /* far_higashi_ikebukuro.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_higashi_ikebukuro.jpg; sourceTree = "<group>"; };
 		3616BD91E617BD852FF864C6 /* far_ukima_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_ukima_park.jpg; sourceTree = "<group>"; };
 		363DA6920669E4DE11353D69 /* far_hibiya_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_hibiya_park.json; sourceTree = "<group>"; };
 		36DD5B4DB596C81712262CA9 /* DeviceMotionMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceMotionMonitor.swift; sourceTree = "<group>"; };
+		385B0D7AD99DB35A5E1297FD /* constellation-microscopium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-microscopium.png"; sourceTree = "<group>"; };
 		38BCB1FD0676E8CAC3B15FF5 /* City_oshiage.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_oshiage.usdz; sourceTree = "<group>"; };
 		399E89722444277B57031CE9 /* far_hikarigaoka_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_hikarigaoka_park.json; sourceTree = "<group>"; };
 		3A7611EDDF5853B3275964A1 /* far_arakawa_riverside.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_arakawa_riverside.jpg; sourceTree = "<group>"; };
 		3BA12F120047673D19190040 /* Sky3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sky3DView.swift; sourceTree = "<group>"; };
 		3CF11D7ADEFAF365FD3EC002 /* Wide_13122.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13122.usdz; sourceTree = "<group>"; };
 		3EB90224E3FA247FE564546A /* Wide_13117.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13117.usdz; sourceTree = "<group>"; };
+		3F78446D0C38ACB8CB53DECF /* constellation-lepus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-lepus.png"; sourceTree = "<group>"; };
+		40106FD1B05DB628358B9298 /* constellation-reticulum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-reticulum.png"; sourceTree = "<group>"; };
 		40396066617C3F4F1E1FBFC5 /* Sky3DLegend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sky3DLegend.swift; sourceTree = "<group>"; };
 		413CB5D8DB2C8DA252F6DD18 /* stars_city.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stars_city.png; sourceTree = "<group>"; };
 		41BA06A0CCFDF479A126260A /* TimeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlider.swift; sourceTree = "<group>"; };
 		42021F8DC90F284E2E1FBC80 /* stars_suburban.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stars_suburban.png; sourceTree = "<group>"; };
 		424056A10870F19B78358EB8 /* Wide2_13107.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13107.usdz; sourceTree = "<group>"; };
+		43F3FE9DD0CD65DF664612B7 /* constellation-lyra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-lyra.png"; sourceTree = "<group>"; };
 		4453D8FF856151F1F8534894 /* City_jonanjima_kaihin_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_jonanjima_kaihin_park.usdz; sourceTree = "<group>"; };
 		46346F394B548514273106A7 /* far_shinjuku.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_shinjuku.json; sourceTree = "<group>"; };
 		4680C38CEFB41980780D5E61 /* far_shibuya.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_shibuya.jpg; sourceTree = "<group>"; };
 		47050A9D6512E05E3FB7237C /* HomeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStyle.swift; sourceTree = "<group>"; };
+		47876183CF51F4A7E85C76B7 /* constellation-cancer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-cancer.png"; sourceTree = "<group>"; };
 		4C6D85144C01AE1847BFF650 /* WideGround_1_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WideGround_1_0.jpg; sourceTree = "<group>"; };
 		4CF11348DC48F0CCA7E637A6 /* planet_saturn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet_saturn.png; sourceTree = "<group>"; };
 		4F0634716FA49BB2470CD4A8 /* Wide2_13109.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13109.usdz; sourceTree = "<group>"; };
+		500D4C7CD2E1BEA47F0531D9 /* constellation-circinus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-circinus.png"; sourceTree = "<group>"; };
 		5073440982B666A0954A1637 /* far_komazawa_olympic_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_komazawa_olympic_park.jpg; sourceTree = "<group>"; };
 		50B928B4909D51E3C1A54B1B /* SkyARAutoSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyARAutoSwitch.swift; sourceTree = "<group>"; };
 		5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingNightRenderer.swift; sourceTree = "<group>"; };
 		5182336A6674A77263CD7825 /* far_roppongi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_roppongi.json; sourceTree = "<group>"; };
 		51F3FF00FAD2DF0FAE93771F /* Wide2_13120.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13120.usdz; sourceTree = "<group>"; };
+		529EE03764926D21F69286CF /* constellation-piscis_austrinus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-piscis_austrinus.png"; sourceTree = "<group>"; };
 		533ECBC7747F47E835C9A79F /* WideWindowTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideWindowTexture.swift; sourceTree = "<group>"; };
 		54A0DF8B6DF51B16FAA603A3 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		55DA16CE24D5352408F1E495 /* TargetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetPicker.swift; sourceTree = "<group>"; };
@@ -341,64 +450,89 @@
 		577781084753B2B7BB15BE63 /* constellations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = constellations.json; sourceTree = "<group>"; };
 		5788074CD03B4B60AA7BCD24 /* constellation_taurus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = constellation_taurus.png; sourceTree = "<group>"; };
 		584699D639676157D79D594E /* far_hikarigaoka_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_hikarigaoka_park.jpg; sourceTree = "<group>"; };
+		59C1EC2ED5FD1F61D125299C /* constellation-chamaeleon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-chamaeleon.png"; sourceTree = "<group>"; };
 		5AB405F683274228D5E96630 /* far_oshiage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_oshiage.jpg; sourceTree = "<group>"; };
+		5AD349D9BFF89F032A59299B /* constellation-indus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-indus.png"; sourceTree = "<group>"; };
 		5BE617C900ABD7B0CA50F0AE /* CompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareView.swift; sourceTree = "<group>"; };
 		5C56F742B7CB3D966014BE72 /* City_wakasu_kaihin_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_wakasu_kaihin_park.usdz; sourceTree = "<group>"; };
 		5C8AFF653702BECCFC11DC7A /* StarCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StarCore; path = Packages/StarCore; sourceTree = SOURCE_ROOT; };
 		5E0418346DABF6BEB0CBF7E5 /* SkyAROverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyAROverlay.swift; sourceTree = "<group>"; };
 		5ECA81A1611A764D7602569E /* far_higashi_ikebukuro.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_higashi_ikebukuro.json; sourceTree = "<group>"; };
+		5ED91DF667BF3D91386635FE /* constellation-dorado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-dorado.png"; sourceTree = "<group>"; };
 		5FA4E86E9348639728DC3734 /* Wide2_13106.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13106.usdz; sourceTree = "<group>"; };
 		60580688FC08049D0A8C2706 /* far_shakujii_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_shakujii_park.jpg; sourceTree = "<group>"; };
 		61AEFFB0F2969B0948F4386F /* far_shibuya.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_shibuya.json; sourceTree = "<group>"; };
 		641EDB1E05DF657D819EFFE6 /* WideCityRenderer+LOD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WideCityRenderer+LOD.swift"; sourceTree = "<group>"; };
+		64295F496F3F15833F0C3BB9 /* constellation-vela.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-vela.png"; sourceTree = "<group>"; };
 		645DE5BF57C489F0569F244A /* ObserverEntryRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverEntryRenderer.swift; sourceTree = "<group>"; };
+		668051881CB6C7F6B91C680D /* constellation-canis_minor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-canis_minor.png"; sourceTree = "<group>"; };
+		66B87E5BD8D7EB33CCDA2023 /* constellation-canis_major.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-canis_major.png"; sourceTree = "<group>"; };
 		6771A8362CC87A5316EE4812 /* far_roppongi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_roppongi.jpg; sourceTree = "<group>"; };
 		67C73D6A447929A722FBA3DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		67FB796428C460DA3C82667C /* City_ueno_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_ueno_park.usdz; sourceTree = "<group>"; };
+		6831BCA8BE804F585F13E643 /* constellation-cetus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-cetus.png"; sourceTree = "<group>"; };
 		68A97D0FD9AAA999A2BA046E /* far_hibiya_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_hibiya_park.jpg; sourceTree = "<group>"; };
 		698BD85D2EFB271A070AC634 /* far_harumi_futo_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_harumi_futo_park.jpg; sourceTree = "<group>"; };
 		6B52DB05B310A30BCF3247E1 /* City_asakusa.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_asakusa.usdz; sourceTree = "<group>"; };
+		6B80386BE9DA6F1A8B2E42E0 /* constellation-ursa_minor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-ursa_minor.png"; sourceTree = "<group>"; };
 		6CC3BCB32460D018F3598F49 /* far_ueno_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_ueno_park.jpg; sourceTree = "<group>"; };
+		6CFECA4EBE739475088029A1 /* constellation-camelopardalis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-camelopardalis.png"; sourceTree = "<group>"; };
 		6D8BC0490128A739CE1B0F6A /* Wide_13109.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13109.usdz; sourceTree = "<group>"; };
 		6E537DE77A24C7BA15409372 /* Wide2_13117.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13117.usdz; sourceTree = "<group>"; };
+		70E4A4F0B265367272FCCF74 /* constellation-taurus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-taurus.png"; sourceTree = "<group>"; };
 		716134E064A9A79006888D0F /* far_todai_hongo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_todai_hongo.json; sourceTree = "<group>"; };
+		7194829D68DCBD8CFD86680D /* constellation-triangulum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-triangulum.png"; sourceTree = "<group>"; };
 		7268DFDB13FCD71D3FE9CB7E /* SkyARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyARView.swift; sourceTree = "<group>"; };
 		7402D31B30D3FFBD69ACCC81 /* ConstellationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstellationStyle.swift; sourceTree = "<group>"; };
 		75189C99D479B4F03F39C630 /* far_sumida_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_sumida_park.jpg; sourceTree = "<group>"; };
 		756F525629D6378EDCED2DF3 /* Wide2_13102.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13102.usdz; sourceTree = "<group>"; };
 		75AF36EA5F20818BA2877935 /* se_launch.caf */ = {isa = PBXFileReference; path = se_launch.caf; sourceTree = "<group>"; };
+		7624E7188EF4CEA2D3BBB2D3 /* constellation-lynx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-lynx.png"; sourceTree = "<group>"; };
 		765BB75671C9B495645B8674 /* se_map_gesture.caf */ = {isa = PBXFileReference; path = se_map_gesture.caf; sourceTree = "<group>"; };
+		77F44B7756286F895BAF27E0 /* constellation-corvus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-corvus.png"; sourceTree = "<group>"; };
+		78C5A058FB3F08A3F2777D8A /* constellation-carina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-carina.png"; sourceTree = "<group>"; };
 		78E8130089770F0891E0EBD7 /* Sky3DView+Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sky3DView+Scene.swift"; sourceTree = "<group>"; };
 		7944EBD89043BE39136383F9 /* moon_disk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moon_disk.png; sourceTree = "<group>"; };
 		7A44094D691EA28AE5DEA03D /* SpotMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotMap.swift; sourceTree = "<group>"; };
+		7A72E62C63C9B62D915282E5 /* constellation-eridanus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-eridanus.png"; sourceTree = "<group>"; };
 		7AE16C21280EFEE2AF9322D0 /* SpotRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotRow.swift; sourceTree = "<group>"; };
 		7B1B510B4A6F42166A9545A4 /* City_shibakoen.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_shibakoen.usdz; sourceTree = "<group>"; };
+		7B89B13808ABEF35697B1E5A /* constellation-serpens.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-serpens.png"; sourceTree = "<group>"; };
+		7BCE63185971AB1E537E68B5 /* constellation-libra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-libra.png"; sourceTree = "<group>"; };
 		7CCC21D6CAEA934E97C2A69C /* Wide_13120.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13120.usdz; sourceTree = "<group>"; };
 		7E2AE00460F10C5D00FB4FC0 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		7E514E49E3B279BCF72ABF14 /* HomeMapMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMapMode.swift; sourceTree = "<group>"; };
 		7E6C52CC3BD0AB7C4A0711D4 /* Wide2_13111.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13111.usdz; sourceTree = "<group>"; };
+		7FAB1459CA27EDD38AEF7B0C /* constellation-pavo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-pavo.png"; sourceTree = "<group>"; };
 		803F76498FDECCA991231902 /* far_arakawa_riverside.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_arakawa_riverside.json; sourceTree = "<group>"; };
 		809C7FE166711E0E41B59833 /* City_roppongi.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_roppongi.usdz; sourceTree = "<group>"; };
+		80CFFC905217D576DB5E27D8 /* constellation-hercules.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-hercules.png"; sourceTree = "<group>"; };
 		80F2410988756974B2727146 /* far_toneri_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_toneri_park.jpg; sourceTree = "<group>"; };
 		8111738C5D3D4DEE30F2C5D3 /* City_hikarigaoka_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_hikarigaoka_park.usdz; sourceTree = "<group>"; };
 		81E2226A2988AF1E32C4EBEE /* RiseSetSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiseSetSection.swift; sourceTree = "<group>"; };
+		82666E333B0994176169914B /* constellation-perseus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-perseus.png"; sourceTree = "<group>"; };
 		83592F6A0ED211E902A2AFE2 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		84615A3E0B6599A5B15BAAC2 /* Wide2_13123.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13123.usdz; sourceTree = "<group>"; };
 		852CDE814189DE4CC7C81866 /* constellation-art.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "constellation-art.json"; sourceTree = "<group>"; };
+		85E8BA193534576780C8D436 /* constellation-andromeda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-andromeda.png"; sourceTree = "<group>"; };
 		861A3D3E8ABDCDCD34315D5E /* BottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		86768797E507B99EE45B6A16 /* Wide_13101.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13101.usdz; sourceTree = "<group>"; };
 		87689282C4EF95242CE86CD7 /* WideGround.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WideGround.json; sourceTree = "<group>"; };
 		882D9F06E8E9C4B7F278B655 /* Wide2_13108.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13108.usdz; sourceTree = "<group>"; };
 		88A2C6A5727F667AE79CE96C /* City_funabori.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_funabori.usdz; sourceTree = "<group>"; };
+		88D74A24EB32DDAABB991590 /* constellation-octans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-octans.png"; sourceTree = "<group>"; };
 		8A7B7DFF174E4CCD5900E1E2 /* ConstellationLabelRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstellationLabelRenderer.swift; sourceTree = "<group>"; };
 		8C5D0AED3352C1C7ADC10D24 /* Wide2_13101.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13101.usdz; sourceTree = "<group>"; };
 		8D10E63FC26627E7C8033D11 /* City_hibiya_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_hibiya_park.usdz; sourceTree = "<group>"; };
 		8DD1B5A301DF62029A038784 /* ConstellationImageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstellationImageRenderer.swift; sourceTree = "<group>"; };
 		9168CDD4479B2181BF356AE5 /* se_spot_found.caf */ = {isa = PBXFileReference; path = se_spot_found.caf; sourceTree = "<group>"; };
 		91B1B9B2E649EDB08E8C541C /* Wide_13103.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13103.usdz; sourceTree = "<group>"; };
+		9346CCD0122781EEA4994C0B /* constellation-fornax.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-fornax.png"; sourceTree = "<group>"; };
 		93C23BE17D8DDAA58A577619 /* far_wakasu_kaihin_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_wakasu_kaihin_park.json; sourceTree = "<group>"; };
 		9482A4AE6006C6AAC0F5BD3B /* WideCityPins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideCityPins.swift; sourceTree = "<group>"; };
+		9514AD4C5240F9A98CE23F71 /* constellation-musca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-musca.png"; sourceTree = "<group>"; };
 		95BBD78DF1F2AA6F4860B3C0 /* constellation-ursa_major.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-ursa_major.png"; sourceTree = "<group>"; };
+		95E6834FD48BED3A9C6D1C3A /* constellation-corona_borealis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-corona_borealis.png"; sourceTree = "<group>"; };
 		961DF66140C164B4DE9FF421 /* City_mizumoto_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_mizumoto_park.usdz; sourceTree = "<group>"; };
 		96F80755AE21E4DE683C6D9C /* Wide_13118.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13118.usdz; sourceTree = "<group>"; };
 		9803E4BB71CDADD695A2E00C /* City_harumi_futo_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_harumi_futo_park.usdz; sourceTree = "<group>"; };
@@ -409,11 +543,13 @@
 		9AD307727149F9D5F74F08C0 /* City_shinjuku_gyoen.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_shinjuku_gyoen.usdz; sourceTree = "<group>"; };
 		9BA8CADA1F881A07776C3771 /* far_jonanjima_kaihin_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_jonanjima_kaihin_park.json; sourceTree = "<group>"; };
 		9E5762DE174E0B950CC7ECDF /* far_shinjuku_gyoen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_shinjuku_gyoen.jpg; sourceTree = "<group>"; };
+		9F1D7E0B7F99C89D957CB881 /* constellation-antlia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-antlia.png"; sourceTree = "<group>"; };
 		9F92338553BC2D572913CBE8 /* BuildingFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingFacade.swift; sourceTree = "<group>"; };
 		A0B28573A7250DD5455DC0AD /* far_odaiba_kaihin_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_odaiba_kaihin_park.json; sourceTree = "<group>"; };
 		A10FDF1767A8F3FBE5AB83AC /* SkyRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyRenderer.swift; sourceTree = "<group>"; };
 		A2A9BB33DA0AE6735A18A31E /* constellation_aquila.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = constellation_aquila.png; sourceTree = "<group>"; };
 		A2AE1FABD8B11939840E31F4 /* constellation-gemini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-gemini.png"; sourceTree = "<group>"; };
+		A2CCB78CA38C4C28B90800B8 /* constellation-tucana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-tucana.png"; sourceTree = "<group>"; };
 		A46DED64260FFE3496A7AE31 /* far_oshiage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_oshiage.json; sourceTree = "<group>"; };
 		A48E1331041841284856A9DB /* SpotListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListView.swift; sourceTree = "<group>"; };
 		A65105B2C28E022B629DD010 /* MotionSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionSetting.swift; sourceTree = "<group>"; };
@@ -424,6 +560,7 @@
 		A93A7469668EA324B724E02C /* Concrete034_Color.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Concrete034_Color.jpg; sourceTree = "<group>"; };
 		A9E3E12216052356F36B9597 /* far_kasai_rinkai_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_kasai_rinkai_park.jpg; sourceTree = "<group>"; };
 		AA0D7B0714A28305B83E9FBE /* Wide_13106.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13106.usdz; sourceTree = "<group>"; };
+		AED0056A1B08165C5F0396CF /* constellation-volans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-volans.png"; sourceTree = "<group>"; };
 		AEF44BB43022CAEE35345D37 /* far_shibakoen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_shibakoen.jpg; sourceTree = "<group>"; };
 		B0998F6616654F6C8506DC67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0C07C8453CFA255AD73FC45 /* Asphalt031_Color.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Asphalt031_Color.jpg; sourceTree = "<group>"; };
@@ -431,69 +568,94 @@
 		B10B17A0BE54FB8574F07917 /* planet_jupiter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet_jupiter.png; sourceTree = "<group>"; };
 		B1CB6A1BA9E15890651E3B30 /* Wide_13116.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13116.usdz; sourceTree = "<group>"; };
 		B33C7A0EE83BB0415D73168E /* constellations-LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "constellations-LICENSE.txt"; sourceTree = "<group>"; };
+		B3EB22D39AFCC8CF98EAAE61 /* constellation-pegasus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-pegasus.png"; sourceTree = "<group>"; };
 		B5158B771592E8D01775AF27 /* SkyARConstellationImageLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyARConstellationImageLayer.swift; sourceTree = "<group>"; };
 		B5C78EF8CDE9B4A8366AFF4F /* far_kasai_rinkai_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_kasai_rinkai_park.json; sourceTree = "<group>"; };
 		B5FA2C8027C4A303810509C6 /* constellation-images.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "constellation-images.json"; sourceTree = "<group>"; };
 		B70ECD89B067F2C1965800E3 /* Wide2_13103.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13103.usdz; sourceTree = "<group>"; };
 		B712CF49277001CA28CC01E7 /* City_higashi_ikebukuro.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_higashi_ikebukuro.usdz; sourceTree = "<group>"; };
 		B82D8B85F3CD93BE86F712AF /* far_ueno_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_ueno_park.json; sourceTree = "<group>"; };
+		B93FA5140DDE8CF244B593A9 /* constellation-capricornus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-capricornus.png"; sourceTree = "<group>"; };
 		B970D511980DC4CF9D400D09 /* City_komazawa_olympic_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_komazawa_olympic_park.usdz; sourceTree = "<group>"; };
 		B9DA1DEE77A332FC2A04DEF6 /* City_shibuya.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_shibuya.usdz; sourceTree = "<group>"; };
 		BBA0196FF25D09D000DA35CF /* Wide_13113.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13113.usdz; sourceTree = "<group>"; };
 		BC98BEDE5AD5F02ED921E54B /* WideGround_0_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WideGround_0_0.jpg; sourceTree = "<group>"; };
 		BCF831B6005F24264BF7481D /* planet_venus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet_venus.png; sourceTree = "<group>"; };
+		BD7369895D56960604AAC63D /* constellation-cepheus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-cepheus.png"; sourceTree = "<group>"; };
 		BF1C6600DD81BD93E479BA54 /* stars_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stars_dark.png; sourceTree = "<group>"; };
 		BF613A41F26AEF7256F012F6 /* far_shibakoen.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_shibakoen.json; sourceTree = "<group>"; };
 		C0543356BEEC3F154E757526 /* far_rinshi_no_mori_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_rinshi_no_mori_park.jpg; sourceTree = "<group>"; };
 		C0658849C23DAC8B10EF85EF /* SpotInfoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotInfoList.swift; sourceTree = "<group>"; };
 		C0C8CBDEC1AF2F3501A8F914 /* Wide_13121.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13121.usdz; sourceTree = "<group>"; };
 		C15C134F97D83A894205136B /* Wide_13102.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13102.usdz; sourceTree = "<group>"; };
+		C1766FC9397875D81F1EFF1B /* constellation-bootes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-bootes.png"; sourceTree = "<group>"; };
 		C2227872F1818CE19F711208 /* Wide2_13114.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13114.usdz; sourceTree = "<group>"; };
 		C22C18C42696C34412D66A89 /* bgm_main.m4a */ = {isa = PBXFileReference; path = bgm_main.m4a; sourceTree = "<group>"; };
 		C36A19ECB464D45C09A0DA13 /* Wide_13104.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13104.usdz; sourceTree = "<group>"; };
 		C5568B2033FD75FD53C887E7 /* WideCityRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideCityRenderer.swift; sourceTree = "<group>"; };
 		C56F962D800EB0D2C398C58E /* HomeBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBackground.swift; sourceTree = "<group>"; };
+		C576617FE4C06C21093DBFAF /* constellation-sagittarius.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-sagittarius.png"; sourceTree = "<group>"; };
+		C676F98AF53271893EE7618E /* constellation-vulpecula.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-vulpecula.png"; sourceTree = "<group>"; };
+		C6854614F96A4C489FB0D866 /* constellation-triangulum_australe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-triangulum_australe.png"; sourceTree = "<group>"; };
 		C6AA621A63EDF2CD26BF9309 /* City_sumida_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_sumida_park.usdz; sourceTree = "<group>"; };
 		C6C06FBC11F8F225EA804FBB /* far_ukima_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_ukima_park.json; sourceTree = "<group>"; };
 		C70298FCA34FB647FC21166A /* se_pin_tap.caf */ = {isa = PBXFileReference; path = se_pin_tap.caf; sourceTree = "<group>"; };
 		C71530461BDD4885F1D32949 /* City_yumenoshima_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_yumenoshima_park.usdz; sourceTree = "<group>"; };
+		C7CD7517D2384E229F0F230A /* constellation-pictor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-pictor.png"; sourceTree = "<group>"; };
 		C7E668BCB3EBC1CF479B14C2 /* City_shakujii_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_shakujii_park.usdz; sourceTree = "<group>"; };
 		C833F8734F8FA113E4FCDFBA /* far_funabori.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_funabori.json; sourceTree = "<group>"; };
 		C8AB2C3DCF196D1303A89FDC /* constellation_scorpius.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = constellation_scorpius.png; sourceTree = "<group>"; };
 		C93553F49D9AB31F0A7A911A /* Wide_13112.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13112.usdz; sourceTree = "<group>"; };
 		C955223E3A999DE4800AF5E6 /* far_odaiba_kaihin_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_odaiba_kaihin_park.jpg; sourceTree = "<group>"; };
 		CA62D2330ABFF172A8B70FA7 /* far_mizumoto_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_mizumoto_park.json; sourceTree = "<group>"; };
+		CA786A4E4FE8F9C1E66B4CDE /* constellation-auriga.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-auriga.png"; sourceTree = "<group>"; };
 		CB5DCEC55112884EE63E5FC2 /* constellation-aquila.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-aquila.png"; sourceTree = "<group>"; };
 		CC47DA5331FADA19931220CA /* Wide2_13118.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13118.usdz; sourceTree = "<group>"; };
 		CCE869D169B207819090F4F3 /* far_shakujii_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_shakujii_park.json; sourceTree = "<group>"; };
 		CE6E07D95BA4F5CEAEF24248 /* StarSpot.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = StarSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE731D01A61784B36ED40A34 /* SkyViewControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyViewControls.swift; sourceTree = "<group>"; };
 		D01D5ED4C33B3C1762E81E22 /* far_rinshi_no_mori_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_rinshi_no_mori_park.json; sourceTree = "<group>"; };
+		D24F272BF9712BF96C87E6A9 /* constellation-aquarius.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-aquarius.png"; sourceTree = "<group>"; };
+		D293C6B84CCBE81356C10952 /* constellation-cassiopeia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-cassiopeia.png"; sourceTree = "<group>"; };
 		D4B285889905102C5C378412 /* Wide_13111.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13111.usdz; sourceTree = "<group>"; };
+		D5398BEDBB9BFF8FA8C8A81A /* constellation-corona_australis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-corona_australis.png"; sourceTree = "<group>"; };
 		D75CCD73165A635F8859D158 /* WideCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideCityView.swift; sourceTree = "<group>"; };
 		D7CEC029EAFFE8FE0AE4E614 /* Wide2_13115.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13115.usdz; sourceTree = "<group>"; };
+		D8228DC490AAD228A99A66C1 /* constellation-hydrus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-hydrus.png"; sourceTree = "<group>"; };
 		D84F6B33DE7D5116E7E29045 /* City_todai_hongo.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_todai_hongo.usdz; sourceTree = "<group>"; };
+		D89A2CD63F27A0EF189419C6 /* constellation-ara.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-ara.png"; sourceTree = "<group>"; };
 		D9203D1807BE1815AEE18E0B /* CityModelRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModelRenderer.swift; sourceTree = "<group>"; };
 		DA4B584AEE029D23936C1C11 /* City_arakawa_riverside.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_arakawa_riverside.usdz; sourceTree = "<group>"; };
+		DAD7A2A3D9967160BE06F0AB /* constellation-virgo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-virgo.png"; sourceTree = "<group>"; };
 		DB5D031CC5399C443511121C /* SpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
 		DD7F0B1C54D62D83BC8E54D0 /* Wide2_13116.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13116.usdz; sourceTree = "<group>"; };
+		DE5EDEBC23EABB6BF5DC0C5E /* constellation-pyxis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-pyxis.png"; sourceTree = "<group>"; };
 		E08004F2D304ADAD69E3CB41 /* far_asakusa.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_asakusa.json; sourceTree = "<group>"; };
+		E0AF021F32156C4E9A6D3578 /* constellation-monoceros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-monoceros.png"; sourceTree = "<group>"; };
 		E1C9C1A09AD6A868C9B0039C /* ConstellationTextures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstellationTextures.swift; sourceTree = "<group>"; };
+		E3F2BDF10A2D5DF9D74F71FF /* constellation-crux.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-crux.png"; sourceTree = "<group>"; };
 		E4AE9175DBD437186F066813 /* City_kasai_rinkai_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_kasai_rinkai_park.usdz; sourceTree = "<group>"; };
+		E538BF18408E1EEEAF2EB237 /* constellation-columba.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-columba.png"; sourceTree = "<group>"; };
 		E56C0279EC2D041328BAEE5A /* far_yumenoshima_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_yumenoshima_park.json; sourceTree = "<group>"; };
 		E76A5C9EE6A156D31652C42E /* City_shiodome.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_shiodome.usdz; sourceTree = "<group>"; };
 		E79736D2F7C6B4CAF7BC60F9 /* constellation-orion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-orion.png"; sourceTree = "<group>"; };
+		E86CC1270BF3046A3C8C1EC4 /* constellation-equuleus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-equuleus.png"; sourceTree = "<group>"; };
 		E8E9ECB9AA66BAF680082962 /* City_kinuta_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_kinuta_park.usdz; sourceTree = "<group>"; };
+		E8F87FB08939E7B4B4D31788 /* constellation-sculptor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-sculptor.png"; sourceTree = "<group>"; };
 		E977348ECDA6D2A5DE9E28DA /* Asphalt031_NormalGL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Asphalt031_NormalGL.jpg; sourceTree = "<group>"; };
+		EA9C9BA45B6181499BD7CDD8 /* constellation-norma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-norma.png"; sourceTree = "<group>"; };
 		EB3ABAC033ABF32304BC5DF1 /* SkyCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCamera.swift; sourceTree = "<group>"; };
+		ED9071F6F7C9740F2F1053F6 /* constellation-phoenix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-phoenix.png"; sourceTree = "<group>"; };
 		EDBB3DEE842227AAAA727169 /* far_harumi_futo_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_harumi_futo_park.json; sourceTree = "<group>"; };
 		EF21D882541F7FB1CA1A413E /* WideCityBrightness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideCityBrightness.swift; sourceTree = "<group>"; };
+		EF5F135375B594D0B9B89E19 /* constellation-draco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-draco.png"; sourceTree = "<group>"; };
 		EF7D859A59FE8AB845A9C28F /* Wide_13110.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13110.usdz; sourceTree = "<group>"; };
 		F051F7519273E82ACE371A7F /* far_shiodome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_shiodome.jpg; sourceTree = "<group>"; };
 		F15A6BD96245C9D0EB9D555F /* Asphalt031_Roughness.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Asphalt031_Roughness.jpg; sourceTree = "<group>"; };
 		F18BA2D8E9E179CD82A9F061 /* far_funabori.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_funabori.jpg; sourceTree = "<group>"; };
 		F315BAD283AD419BF50D66CF /* se_body_select.caf */ = {isa = PBXFileReference; path = se_body_select.caf; sourceTree = "<group>"; };
 		F388ACA9AB39DA5D05563834 /* WideCityPreview.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WideCityPreview.jpg; sourceTree = "<group>"; };
+		F51C895F7616EBFCB9169533 /* constellation-mensa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-mensa.png"; sourceTree = "<group>"; };
 		F5311C2A4D0C037D3AC49F23 /* City_kiba_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_kiba_park.usdz; sourceTree = "<group>"; };
 		F53D74BE7C4C77D8738E23D8 /* far_kinuta_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_kinuta_park.json; sourceTree = "<group>"; };
 		F5F1649304DDCDDD8B30CDF6 /* City_marunouchi.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_marunouchi.usdz; sourceTree = "<group>"; };
@@ -504,10 +666,12 @@
 		F8E94A78C3090297938A0B51 /* Wide2_13121.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13121.usdz; sourceTree = "<group>"; };
 		F8E9D694FA130AAF86052DDC /* Wide_13119.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13119.usdz; sourceTree = "<group>"; };
 		F97FB3F3B2B08696B9D9F42C /* far_toneri_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_toneri_park.json; sourceTree = "<group>"; };
+		FB73F5029920B768D28E9475 /* constellation-lupus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-lupus.png"; sourceTree = "<group>"; };
 		FCDCAD4D092C27A39E9416FF /* Wide2_13105.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13105.usdz; sourceTree = "<group>"; };
 		FCFC819E71B1217878467AE0 /* far_yumenoshima_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_yumenoshima_park.jpg; sourceTree = "<group>"; };
 		FD2279B06CC7EB6DCF9B7868 /* se_time_tick.caf */ = {isa = PBXFileReference; path = se_time_tick.caf; sourceTree = "<group>"; };
 		FD9807C560FC52A5D7F7006F /* Wide2_13112.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13112.usdz; sourceTree = "<group>"; };
+		FE08566817E6E0ADBF8E5B38 /* constellation-ophiuchus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "constellation-ophiuchus.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -863,14 +1027,96 @@
 		DD40FB723829B4258263CC9B /* Sky */ = {
 			isa = PBXGroup;
 			children = (
+				85E8BA193534576780C8D436 /* constellation-andromeda.png */,
+				9F1D7E0B7F99C89D957CB881 /* constellation-antlia.png */,
+				2061EE8A67314596D7C08672 /* constellation-apus.png */,
+				D24F272BF9712BF96C87E6A9 /* constellation-aquarius.png */,
 				CB5DCEC55112884EE63E5FC2 /* constellation-aquila.png */,
+				D89A2CD63F27A0EF189419C6 /* constellation-ara.png */,
+				22FED37CABCA66A31CA6B6A3 /* constellation-aries.png */,
 				852CDE814189DE4CC7C81866 /* constellation-art.json */,
+				CA786A4E4FE8F9C1E66B4CDE /* constellation-auriga.png */,
+				C1766FC9397875D81F1EFF1B /* constellation-bootes.png */,
+				28FEED98C5EAE6C613DD1F10 /* constellation-caelum.png */,
+				6CFECA4EBE739475088029A1 /* constellation-camelopardalis.png */,
+				47876183CF51F4A7E85C76B7 /* constellation-cancer.png */,
+				013239E77E23DBCBE7D99E71 /* constellation-canes_venatici.png */,
+				66B87E5BD8D7EB33CCDA2023 /* constellation-canis_major.png */,
+				668051881CB6C7F6B91C680D /* constellation-canis_minor.png */,
+				B93FA5140DDE8CF244B593A9 /* constellation-capricornus.png */,
+				78C5A058FB3F08A3F2777D8A /* constellation-carina.png */,
+				D293C6B84CCBE81356C10952 /* constellation-cassiopeia.png */,
+				2FC93A336352AA4E532E0B67 /* constellation-centaurus.png */,
+				BD7369895D56960604AAC63D /* constellation-cepheus.png */,
+				6831BCA8BE804F585F13E643 /* constellation-cetus.png */,
+				59C1EC2ED5FD1F61D125299C /* constellation-chamaeleon.png */,
+				500D4C7CD2E1BEA47F0531D9 /* constellation-circinus.png */,
+				E538BF18408E1EEEAF2EB237 /* constellation-columba.png */,
+				0048D2D90DF42ED7ACC6D90E /* constellation-coma_berenices.png */,
+				D5398BEDBB9BFF8FA8C8A81A /* constellation-corona_australis.png */,
+				95E6834FD48BED3A9C6D1C3A /* constellation-corona_borealis.png */,
+				77F44B7756286F895BAF27E0 /* constellation-corvus.png */,
+				0CE49D95861A91EA6516FC00 /* constellation-crater.png */,
+				E3F2BDF10A2D5DF9D74F71FF /* constellation-crux.png */,
 				13DB5F8373AC3968369D00E2 /* constellation-cygnus.png */,
+				25EC2A578C219AA39EF35810 /* constellation-delphinus.png */,
+				5ED91DF667BF3D91386635FE /* constellation-dorado.png */,
+				EF5F135375B594D0B9B89E19 /* constellation-draco.png */,
+				E86CC1270BF3046A3C8C1EC4 /* constellation-equuleus.png */,
+				7A72E62C63C9B62D915282E5 /* constellation-eridanus.png */,
+				9346CCD0122781EEA4994C0B /* constellation-fornax.png */,
 				A2AE1FABD8B11939840E31F4 /* constellation-gemini.png */,
+				116C414BBCAEA3C4D7197474 /* constellation-grus.png */,
+				80CFFC905217D576DB5E27D8 /* constellation-hercules.png */,
+				1CE041612D2E0232302934A3 /* constellation-horologium.png */,
+				25DFECB057475716DD711968 /* constellation-hydra.png */,
+				D8228DC490AAD228A99A66C1 /* constellation-hydrus.png */,
 				B5FA2C8027C4A303810509C6 /* constellation-images.json */,
+				5AD349D9BFF89F032A59299B /* constellation-indus.png */,
+				02BF9DE55A26CFEA2CC783CC /* constellation-lacerta.png */,
+				03A433724416726EA3F9C689 /* constellation-leo_minor.png */,
+				22739180420F4CA99567BAA8 /* constellation-leo.png */,
+				3F78446D0C38ACB8CB53DECF /* constellation-lepus.png */,
+				7BCE63185971AB1E537E68B5 /* constellation-libra.png */,
+				FB73F5029920B768D28E9475 /* constellation-lupus.png */,
+				7624E7188EF4CEA2D3BBB2D3 /* constellation-lynx.png */,
+				43F3FE9DD0CD65DF664612B7 /* constellation-lyra.png */,
+				F51C895F7616EBFCB9169533 /* constellation-mensa.png */,
+				385B0D7AD99DB35A5E1297FD /* constellation-microscopium.png */,
+				E0AF021F32156C4E9A6D3578 /* constellation-monoceros.png */,
+				9514AD4C5240F9A98CE23F71 /* constellation-musca.png */,
+				EA9C9BA45B6181499BD7CDD8 /* constellation-norma.png */,
+				88D74A24EB32DDAABB991590 /* constellation-octans.png */,
+				FE08566817E6E0ADBF8E5B38 /* constellation-ophiuchus.png */,
 				E79736D2F7C6B4CAF7BC60F9 /* constellation-orion.png */,
+				7FAB1459CA27EDD38AEF7B0C /* constellation-pavo.png */,
+				B3EB22D39AFCC8CF98EAAE61 /* constellation-pegasus.png */,
+				82666E333B0994176169914B /* constellation-perseus.png */,
+				ED9071F6F7C9740F2F1053F6 /* constellation-phoenix.png */,
+				C7CD7517D2384E229F0F230A /* constellation-pictor.png */,
+				327A1EA260E10D35E46A19C9 /* constellation-pisces.png */,
+				529EE03764926D21F69286CF /* constellation-piscis_austrinus.png */,
+				3133FB5FC3E53A0317C9DA70 /* constellation-puppis.png */,
+				DE5EDEBC23EABB6BF5DC0C5E /* constellation-pyxis.png */,
+				40106FD1B05DB628358B9298 /* constellation-reticulum.png */,
+				292164107E0148E9380CE27C /* constellation-sagitta.png */,
+				C576617FE4C06C21093DBFAF /* constellation-sagittarius.png */,
 				22DBA73636D98FBA99D27AE8 /* constellation-scorpius.png */,
+				E8F87FB08939E7B4B4D31788 /* constellation-sculptor.png */,
+				262DD6701F9815DA1EEC5A61 /* constellation-scutum.png */,
+				7B89B13808ABEF35697B1E5A /* constellation-serpens.png */,
+				22352DB8ADA48FC26F1E3A38 /* constellation-sextans.png */,
+				70E4A4F0B265367272FCCF74 /* constellation-taurus.png */,
+				18E519F2789CC7552FD067F0 /* constellation-telescopium.png */,
+				C6854614F96A4C489FB0D866 /* constellation-triangulum_australe.png */,
+				7194829D68DCBD8CFD86680D /* constellation-triangulum.png */,
+				A2CCB78CA38C4C28B90800B8 /* constellation-tucana.png */,
 				95BBD78DF1F2AA6F4860B3C0 /* constellation-ursa_major.png */,
+				6B80386BE9DA6F1A8B2E42E0 /* constellation-ursa_minor.png */,
+				64295F496F3F15833F0C3BB9 /* constellation-vela.png */,
+				DAD7A2A3D9967160BE06F0AB /* constellation-virgo.png */,
+				AED0056A1B08165C5F0396CF /* constellation-volans.png */,
+				C676F98AF53271893EE7618E /* constellation-vulpecula.png */,
 				B33C7A0EE83BB0415D73168E /* constellations-LICENSE.txt */,
 				577781084753B2B7BB15BE63 /* constellations.json */,
 				7944EBD89043BE39136383F9 /* moon_disk.png */,
@@ -1047,14 +1293,96 @@
 				67B15985B35291C4C805049B /* Wide_13122.usdz in Resources */,
 				CB3F989312FB95C3A591EAD7 /* Wide_13123.usdz in Resources */,
 				48D87C3B4C286CB1B19FBAFC /* bgm_main.m4a in Resources */,
+				768077D49F154053BBAA737A /* constellation-andromeda.png in Resources */,
+				AD62025CC1E8E7A5F5653524 /* constellation-antlia.png in Resources */,
+				E2EAA95068CD6E7975510E6D /* constellation-apus.png in Resources */,
+				B101E3EA0ADFC50A172406C6 /* constellation-aquarius.png in Resources */,
 				077C94B68D2691771C32D35F /* constellation-aquila.png in Resources */,
+				D7732C15F81645762B47FB09 /* constellation-ara.png in Resources */,
+				DD54B68D899C8E8BF4896935 /* constellation-aries.png in Resources */,
 				913CC9AE035EA2264446E51A /* constellation-art.json in Resources */,
+				3E49EB7BFF7742E5A3F15902 /* constellation-auriga.png in Resources */,
+				5EBC6BD76E66713BB043300B /* constellation-bootes.png in Resources */,
+				E5114D65EB2922B5268243FF /* constellation-caelum.png in Resources */,
+				E6C4CB734D3525EDB8B738F9 /* constellation-camelopardalis.png in Resources */,
+				9C09C323B585EB5C93C034A0 /* constellation-cancer.png in Resources */,
+				125835D96EBF52E5465BE585 /* constellation-canes_venatici.png in Resources */,
+				96BA863B85409406864E441F /* constellation-canis_major.png in Resources */,
+				896D45C1FB1BA8FDFE642A93 /* constellation-canis_minor.png in Resources */,
+				73097A16555168D498E0E3AF /* constellation-capricornus.png in Resources */,
+				D10FDCC2652F77F5820F0525 /* constellation-carina.png in Resources */,
+				8BA39B924D408EA32D4C8408 /* constellation-cassiopeia.png in Resources */,
+				DC06BF76790A684512DF5A32 /* constellation-centaurus.png in Resources */,
+				EC322FDE745A8AB602C11925 /* constellation-cepheus.png in Resources */,
+				0E71C8601D44D706D6B8D704 /* constellation-cetus.png in Resources */,
+				17B63F576AC470B598B53CF8 /* constellation-chamaeleon.png in Resources */,
+				E7212FED5398A533179669DB /* constellation-circinus.png in Resources */,
+				C823D38D12B6D6157D853D23 /* constellation-columba.png in Resources */,
+				C2D5DFF7C4607C14A2C61014 /* constellation-coma_berenices.png in Resources */,
+				A0F5BE8F92D738172281B7D2 /* constellation-corona_australis.png in Resources */,
+				B00878CA769A285449D63A84 /* constellation-corona_borealis.png in Resources */,
+				63CDE8FB6C6379045B445724 /* constellation-corvus.png in Resources */,
+				0A5E4EE92A9950E7E85B22F1 /* constellation-crater.png in Resources */,
+				9055E1D01A486C445D911074 /* constellation-crux.png in Resources */,
 				25C316B1CFBD7EF996211F80 /* constellation-cygnus.png in Resources */,
+				70ED8B991EAE835E14118A91 /* constellation-delphinus.png in Resources */,
+				88B82DB05909F6B44282AF17 /* constellation-dorado.png in Resources */,
+				F1CDE0BB3899718988DC9A85 /* constellation-draco.png in Resources */,
+				47FC2DCAAF1E7C838D35EC3F /* constellation-equuleus.png in Resources */,
+				C691F7603696B615434FF821 /* constellation-eridanus.png in Resources */,
+				EC22287B9C9839E3348E6D80 /* constellation-fornax.png in Resources */,
 				E73417BA7CE56710B0EAB9A4 /* constellation-gemini.png in Resources */,
+				07507641279D6815282FDFCC /* constellation-grus.png in Resources */,
+				F1E0EECEA8F17D3362BCF5C8 /* constellation-hercules.png in Resources */,
+				D1317DDBA0578D800C8885FC /* constellation-horologium.png in Resources */,
+				43663BEF5395A81935C9D0D9 /* constellation-hydra.png in Resources */,
+				C0A4CB0EC5390A284CFEE2F4 /* constellation-hydrus.png in Resources */,
 				D61945AEFE260889A1E6A1D3 /* constellation-images.json in Resources */,
+				2AFDBC08CDF3F13B58D8BA7A /* constellation-indus.png in Resources */,
+				348FCD94922CA7A405DD2A9C /* constellation-lacerta.png in Resources */,
+				9123F235E09C42D45E32599E /* constellation-leo.png in Resources */,
+				BDA497C8A0E382473B4DD33D /* constellation-leo_minor.png in Resources */,
+				3400FB29EF86D4DC24A010AD /* constellation-lepus.png in Resources */,
+				0E5386FEBECFE60F75FA9984 /* constellation-libra.png in Resources */,
+				D3B00643E27794C75A57E311 /* constellation-lupus.png in Resources */,
+				5EB26460EBE3E9723462B158 /* constellation-lynx.png in Resources */,
+				8064A4B9BF29FF6D96DF9257 /* constellation-lyra.png in Resources */,
+				95208E8E5897686A3FABCA84 /* constellation-mensa.png in Resources */,
+				4BCE84D1E6E80CD3ACFE9931 /* constellation-microscopium.png in Resources */,
+				5D0CEFEB301E9CA1C03C0451 /* constellation-monoceros.png in Resources */,
+				CC55624DEE17A58D85B0E529 /* constellation-musca.png in Resources */,
+				CC7BCD89F939B0027849C873 /* constellation-norma.png in Resources */,
+				D952C572ED8E4C24DF6D83E1 /* constellation-octans.png in Resources */,
+				2A0727F8D6C7CB99FA2590B6 /* constellation-ophiuchus.png in Resources */,
 				2F5483B960A7F1E8A3522F67 /* constellation-orion.png in Resources */,
+				465675BB37D2B90D473532EB /* constellation-pavo.png in Resources */,
+				7EE57CE7CA52686CD7808D0B /* constellation-pegasus.png in Resources */,
+				9043905DAED75CE573992AD0 /* constellation-perseus.png in Resources */,
+				B1F97D834AD531DDE2E87789 /* constellation-phoenix.png in Resources */,
+				37D3E29483CAD283F0AAD91F /* constellation-pictor.png in Resources */,
+				5C61972DBFD53B65553F32FC /* constellation-pisces.png in Resources */,
+				434790A7893B1DA92D9A462D /* constellation-piscis_austrinus.png in Resources */,
+				BD2E88959B72DE91B3E4136C /* constellation-puppis.png in Resources */,
+				FFAC65C43F971ABA4E53E083 /* constellation-pyxis.png in Resources */,
+				8FC46C0305C26AA0E819F7A4 /* constellation-reticulum.png in Resources */,
+				B5BEA4D6550FC037F4C089B6 /* constellation-sagitta.png in Resources */,
+				8F1FD4D993A8121275D4537D /* constellation-sagittarius.png in Resources */,
 				F6B53B743DE337ED8ADD6809 /* constellation-scorpius.png in Resources */,
+				BC86BC8B6CC27141CB01DBCF /* constellation-sculptor.png in Resources */,
+				6DFCFC20923AC0F581B24569 /* constellation-scutum.png in Resources */,
+				F3D1BFB2E4CC50F44DB32DAC /* constellation-serpens.png in Resources */,
+				FBC8AF1EB21756E6206FD0E7 /* constellation-sextans.png in Resources */,
+				45FF208487719F6B520D31E1 /* constellation-taurus.png in Resources */,
+				4C8469F7CD7391128839AA9A /* constellation-telescopium.png in Resources */,
+				1BE065FD2814FE4AAA3192D7 /* constellation-triangulum.png in Resources */,
+				2246DA516D608D5E3344401A /* constellation-triangulum_australe.png in Resources */,
+				6CFB681D38D5E264FFD70DA3 /* constellation-tucana.png in Resources */,
 				EA7D3FB0134B6255B6B3FCF6 /* constellation-ursa_major.png in Resources */,
+				9C3B8A69C019B4A6D110DC13 /* constellation-ursa_minor.png in Resources */,
+				0C69CF0D319EAE6FE1C2BC1B /* constellation-vela.png in Resources */,
+				3577ED13CB38045B09CA40F9 /* constellation-virgo.png in Resources */,
+				48F830DAD099A4562F99B381 /* constellation-volans.png in Resources */,
+				934E5A5925C43C70EC8BC1D7 /* constellation-vulpecula.png in Resources */,
 				FA861536075DCC972418C1EA /* constellation_aquila.png in Resources */,
 				F8688D3DA5F96DFB0DD7DF5F /* constellation_cygnus.png in Resources */,
 				9D4F075BB097DED344E63418 /* constellation_gemini.png in Resources */,

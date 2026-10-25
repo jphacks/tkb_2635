@@ -91,14 +91,16 @@ private func image(_ anchors: String, size: String = "[1000, 1000]") throws -> C
     let lines = try ConstellationLines.decode(Data(contentsOf: appResource("constellations.json")))
     #expect(!images.isEmpty)
     for figure in images {
-        let line = try #require(lines.first { $0.id == figure.id }, "線の無い星座: \(figure.id)")
+        // へび座のように、頭と尾で線が 2 行に分かれている星座もある
+        let rows = lines.filter { $0.id == figure.id }
+        #expect(!rows.isEmpty, "線の無い星座: \(figure.id)")
         #expect(FileManager.default.fileExists(atPath: appResource("\(figure.image).png").path), "画像が無い: \(figure.image)")
         let placement = try #require(figure.placement, "\(figure.id) を置けない")
-        let center = try #require(line.equatorialCenter)
+        let center = rows.flatMap(\.stars).reduce(EquatorialVector(x: 0, y: 0, z: 0)) { $0.plus($1) }.normalized
         for anchor in figure.anchors {
             let star = try #require(EquatorialVector(d3Coordinate: anchor.star))
             // 基準の星は、その星座の線の星であること
-            #expect(line.stars.contains { $0.angle(to: star) < 0.01 }, "\(figure.id) の基準の星が線に無い")
+            #expect(rows.contains { $0.stars.contains { $0.angle(to: star) < 0.01 } }, "\(figure.id) の基準の星が線に無い")
             #expect(placement.sky(x: anchor.pixel[0], y: anchor.pixel[1]).angle(to: star) < 1e-4)
         }
         // 画像の中心は星座の近くにある

@@ -1,115 +1,161 @@
 # Astera（アステラ）東京都23区 星空観測支援アプリ
 
-[![IMAGE ALT TEXT HERE](https://jphacks.com/wp-content/uploads/2026/07/IMG_5316.png)](https://www.youtube.com/watch?v=piaNsc6ilBI)
-
-## 製品概要
 **「今夜、どこへ行けば、どんな星空が見えるのか。」**
 
-### 背景(製品開発のきっかけ、課題等）
-都市部では、天気が良くても高層ビルに遮られて星や月が見えないことが多い。人工照明や雲、観測場所の高さによっても見え方は変わる。展望台や屋上には営業時間・料金・立入制限もある。これらをまとめて確かめる手段がない。
+天気が良くても、東京ではビルに隠れて月や星が見えないことがある。Astera は、観測者の**目の高さ**と **3D 都市モデル（PLATEAU）** と**天体の位置計算**を組み合わせ、「この場所・この時刻に、その天体が建物に隠れず見えるか」を計算して、23区の観測地点を推薦する iPhone アプリ。
+
+| ホーム（23区の3D・ピンを押すと詳細へ） | 詳細（全画面3D・時刻スライダー・引き上げシート） | 比較（地上と展望台） |
+|---|---|---|
+| <img src="docs/design/home-3d-sheet/2-labels-near.jpg" width="240"> | <img src="docs/design/home-3d-sheet/5-detail.jpg" width="240"> | <img src="docs/design/screenshots/h-after-list.png" width="240"> |
+
+- 審査員の方へ: **[動かし方（シミュレータ／自分の iPhone）](#動かし方審査員向け)** に手順をまとめた
+- 発表の冒頭に流す紹介動画の作り方は [video/README.md](video/README.md)（動画ファイルは容量のためリポジトリに含めていない）
+
+## 製品概要
+
+### 背景（製品開発のきっかけ、課題等）
+都市部では、天気が良くても高層ビルに遮られて星や月が見えないことが多い。人工照明や雲、観測場所の高さによっても見え方は変わる。展望台や屋上には営業時間・料金・立入制限もある。天気予報は「空が晴れているか」は教えてくれるが、「自分が立つ場所から、その天体が見えるか」は教えてくれない。これらをまとめて確かめる手段がなかった。
 
 ### 製品説明（具体的な製品の説明）
-東京都23区の公園・広場・河川敷・展望台・屋上を対象に、指定した日時と天体（月・惑星・明るい恒星）について、観測に向いた地点を推薦する iPhone アプリ。
+東京都23区の公園・広場・河川敷・展望台・屋上（43地点）を対象に、指定した日時と天体（月・惑星5つ・明るい恒星52個）について、観測に向いた地点を推薦する iPhone アプリ。
 建物の形、観測者の目の高さ、天体の位置、雲量、光害、施設の利用時間をもとに判定し、建物と天体の位置関係を 3D で表示する。
+
+1. **ホーム**: 23区全体の夜の 3D 都市モデルの上に、地点のピンが段階ごとの色で並ぶ。下から引き上げるシートに、順位つきの一覧と、日時・天体の設定がある
+2. **詳細**: 地点の周囲 500 m の建物と天体の方向を全画面の 3D で見る。見えるなら緑、遮られるなら赤の線。上の時刻スライダーで 18 時〜6 時を動かすと、月が建物の裏から出てくる様子が分かる。シートを引き上げると、判定の理由、出・南中・入りの時刻、観測条件、光害、施設情報、現在地からの経路
+3. **比較**: 「渋谷駅東口の地上」と「SHIBUYA SKY」のように、同じ時刻の見え方を並べて比べる
+4. **観測者視点**: 詳細画面で観測位置をタップすると、その場所の目の高さから空を見回せる
 
 ### 特長
 #### 1. 観測者の高さを考慮した遮蔽判定
-地点ごとに「床面の標高＋目線の高さ」を持たせ、方位 1° ごとに周囲の建物の最大仰角（地平線プロファイル）を計算する。同じ渋谷駅付近でも、地上では月がビルに隠れ、SHIBUYA SKY では見えることを示せる。
-#### 2. 3D プレビュー
-建物と観測地点、天体の方向を RealityKit で描画する。見える場合は緑、遮られる場合は赤の線で示す。
+地点ごとに「床面の標高＋目線の高さ」を持たせ、方位 1° ごとに周囲の建物の最大仰角（地平線プロファイル）を計算する。同じ渋谷駅付近でも、**地上では月がビルに隠れ、SHIBUYA SKY では見える**ことを、計算と 3D の両方で示せる。
+#### 2. 23区がつながった 3D と、地点ごとの詳細な 3D
+ホームは PLATEAU の建物を区ごとに軽量化した 23 区ぶんの 3D（窓明かりつき）。詳細は地点の周囲 500 m を建物ごとに置き、渋谷は実写テクスチャつきのモデル。夜の航空写真と衛星夜間光を地面に敷いて、遠くの街明かりが本物の位置に見える。
 #### 3. 根拠を示す推薦
-「南南東の空が開けており、指定時刻の月を建物に遮られず観測できる見込みです。ただし、周辺照明は未確認です。」のように理由を表示する。未確認のデータは 0 として扱わず、「要確認」として区別する。
+「南南東の空が開けており（遮蔽仰角 4°）、指定時刻の月（高度 58°）を建物に遮られず観測できる見込みです。ただし、周辺照明は机上評価です」のように理由を文で示す。**未確認のデータは 0 や「問題なし」として扱わず、「未確認」「要確認」と画面に出す。**
 
 ### 解決出来ること
-「せっかく出かけたのにビルで見えなかった」「展望台が閉まっていた」を事前に避けられる。
+「せっかく出かけたのにビルで見えなかった」「展望台が閉まっていた」「昼を選んでいるのに推薦された」を事前に避けられる。公開データだけで動くので、23区のほかの地点や他都市にも同じ手順で広げられる。
 
 ### 今後の展望
-- PLATEAU の対象地域拡大・国土地理院 DEM の取り込み（全42地点にPLATEAUを導入済み）
-- 現地調査による近傍照明の評価、施設情報の確認
-- 地上と展望台の比較画面、時刻スライダー、現在地からの距離
+- 現地調査による近傍照明の評価（いまは夜の写真による机上評価）と、施設情報の継続確認
+- 国土地理院の標高データ（DEM）による地形の遮蔽、PLATEAU LOD2 への窓明かり
+- World Atlas（Falchi 2016）による天頂の空の明るさ（Bortle 等級相当）の表示（配布サーバー未到達のため保留）
+- 23区以外への展開（区コードを渡すだけで広域 3D を作れる）
 
 ### 注力したこと（こだわり等）
 * 地上と展望台で月の見え方が変わることを、計算と 3D の両方で示す
+* 計算の正しさを外部の精密な計算（JPL の天体暦）と突き合わせ、誤差をテストで固定する
 * スコアは観測できる確率ではないこと、未確認のデータがあることを画面上で明示する
+* 地点・区・天体はデータ（JSON・USDZ・カタログ）を足すだけで増やせる設計
+
+## 動かし方（審査員向け）
+
+### 必要なもの
+- Mac（Apple Silicon 推奨）と **Xcode 16 以降**（確認済みは Xcode 26.6 / macOS 26）
+- [xcodegen](https://github.com/yonaskolb/XcodeGen)（`brew install xcodegen`）
+- リポジトリは 3D データを含むため **約 1 GB**。clone に数分かかる
+- 実機で動かす場合: iOS 18 以降の iPhone と、無料の Apple ID（有料の Developer Program は不要）
+
+### A. シミュレータで動かす（Apple ID 不要、5 分）
+
+```bash
+git clone https://github.com/jphacks/tkb_2635.git
+cd tkb_2635
+brew install xcodegen
+xcodegen generate
+open StarSpot.xcodeproj
+```
+
+Xcode の上部で実行先を **iPhone 17 Pro**（シミュレータ）にして ▶ Run。初回はビルドに 2〜3 分、起動後に 23 区の 3D を読み込むのに数秒かかる。
+
+- 天気（Open-Meteo）は通信して取る。通信できないときは「未取得」と出て、アプリは止まらない
+- 現在地は任意。シミュレータでは Features → Location → Custom Location で東京駅（35.6812, 139.7671）などを与えると、一覧に距離が出る
+- 計算ロジックのテストは `cd Packages/StarCore && swift test`（180 件）
+
+### B. 自分の iPhone に入れる（無料の Apple ID で可、10 分）
+
+1. **iPhone 側の準備**: 設定 → プライバシーとセキュリティ → **デベロッパモード** をオン（再起動あり）。Mac とケーブルでつなぎ、「このコンピュータを信頼」
+2. **Xcode に Apple ID を入れる**: Xcode → Settings… → Apple Accounts → ＋ で Apple ID を追加（Personal Team が作られる）
+3. **署名を自分のものに変える**: A の手順で `xcodegen generate` → `open StarSpot.xcodeproj` のあと、左のナビゲータで StarSpot プロジェクト → TARGETS の StarSpot → **Signing & Capabilities** で
+   - Team を自分の **Personal Team** に
+   - **Bundle Identifier** を一意なものに変える（例: `com.yourname.astera`）。既定の `jp.jphacks.tkb2635.StarSpot` はチームのアカウントに登録済みで、ほかの Apple ID では使えない
+4. 実行先を自分の iPhone にして ▶ Run。インストール後、初回だけ iPhone の 設定 → 一般 → **VPN とデバイス管理** で自分の Apple ID を「信頼」して、ホーム画面のアイコンから起動
+5. 位置情報の許可を聞かれたら「アプリの使用中は許可」で、一覧に距離・詳細に経路が出る（許可しなくても動く）
+
+無料の Apple ID で署名したアプリは 7 日で期限が切れる。切れたら再度 Run すればよい。手順 3 の変更はリポジトリに commit しないこと。
+
+### 確認済みの環境
+- iPhone 15（iOS 26.6.2）実機、iPhone 17 Pro シミュレータ（iOS 26.5）
+- アプリ本体は約 790 MB（Debug ビルド）。内訳は 23 区の広域 3D（LOD1 89 MB、LOD2 302 MB）と地点ごとの建物・地面画像
 
 ## 開発技術
+
 ### 活用した技術
 #### API・データ
-* [Open-Meteo](https://open-meteo.com/) Forecast API（雲量・降水量・風速・視程、CC BY 4.0）
-* 地域の光害: [VIIRS Nighttime Lights](https://eogdata.mines.edu/products/vnl/) 年次合成 v2.2（Earth Observation Group, Payne Institute for Public Policy, Colorado School of Mines、CC BY 4.0）を加工
-* Bright Star Catalogue（明るい恒星 52 個の J2000.0 座標・等級を抜粋）、惑星（水星〜土星）は Paul Schlyter「[Computing planetary positions](https://stjarnhimlen.se/comp/ppcomp.html)」の軌道要素
-* 建物データ: [東京都・PLATEAU渋谷区2025年度版](https://www.geospatial.jp/ckan/dataset/plateau-13113-shibuya-ku-2025)を加工（CC BY 4.0）。渋谷駅周囲500mの1,497棟を直方体近似。西新宿は[東京都・PLATEAU新宿区2025年度版](https://www.geospatial.jp/ckan/dataset/plateau-13104-shinjuku-ku-2025)を加工（CC BY 4.0）し、都庁周囲500mの791棟を直方体近似。丸の内は[東京都・PLATEAU千代田区2025年度版](https://www.geospatial.jp/ckan/dataset/plateau-13101-chiyoda-ku-2025)を加工（CC BY 4.0）し、KITTE周囲500mの350棟を直方体近似。ほかの14地点（公園など）も同じく各区のPLATEAU（2025年度、CC BY 4.0）を加工し、地点の周囲500mを直方体近似東京スカイツリー・東京タワー・サンシャイン60・東京シティビューの展望台と、それぞれの足元の地上の4組も足した。さらに浅草・汐留・船堀の展望室と、上野・日比谷・隅田・若洲・夢の島・石神井・林試の森の公園も足した（[作り方・区ごとの出典](docs/design/city-scenes/README.md)）。
-* 23区の広域3D（ホームの3D）: [PLATEAU VIEW のデータカタログ](https://api.plateauview.mlit.go.jp/datacatalog/plateau-datasets)にある東京都23区の3D都市モデル（Project PLATEAU）LOD1・LOD2 の 3D Tiles を区ごとに加工（CC BY 4.0）。LOD1 は建物を向き付きの箱にし、1区あたり大きい順に最大15,000棟。LOD2 は屋根の形つき（1区あたり三角形130万まで）で、カメラに近い最大3区だけ切り替えて表示する。容量は LOD1 23区の合計 116MB（各 3.7〜5.1MB）、LOD2 23区の合計 302MB（各 7.8〜16.5MB）、アプリ全体 約 790MB（シミュレータ向け Debug ビルドの .app、2026-10-25 計測）（[作り方](scripts/README.md)）。
-* 3D の遠くの地面（4-11）: 国土地理院「地理院タイル（全国最新写真（シームレス））」と Earth Observation Group, Payne Institute for Public Policy, Colorado School of Mines（VIIRS Nighttime Lights V2.2、CC BY 4.0。Elvidge et al. 2021, Remote Sensing 13(5), 922）を加工。明かりの点の位置はイメージ（[作り方](docs/design/city-scenes/README.md#4-11-遠くの地面)）。
+
+| 用途 | データ・API | 提供元・ライセンス |
+|---|---|---|
+| 建物（地点ごとの詳細 3D、43 地点） | 3D 都市モデル（Project PLATEAU）東京都 23 区 2025 年度 CityGML を周囲 500 m で直方体近似。渋谷は LOD2 の実形状・実写テクスチャ | 東京都・国土交通省、CC BY 4.0（[区ごとの出典](docs/design/city-scenes/README.md)） |
+| 建物（ホームの 23 区広域 3D） | PLATEAU の LOD1・LOD2 3D Tiles を区ごとに加工。LOD1 は向き付きの箱（1 区あたり大きい順に最大 15,000 棟）に窓明かりのテクスチャ | 同上（[作り方](scripts/README.md)） |
+| 遠くの地面・街明かり | 地理院タイル（全国最新写真）＋ VIIRS 夜間光 | 国土地理院、EOG（CC BY 4.0） |
+| 地域の光害 | VIIRS Nighttime Lights 年次合成 v2.2（2025 年）を 0〜1 に変換 | Earth Observation Group, Payne Institute, Colorado School of Mines、CC BY 4.0（[手順](docs/data/viirs-light-index.md)） |
+| 天気 | Open-Meteo Forecast API（雲量・降水量・風速・視程） | Open-Meteo、CC BY 4.0 |
+| 恒星・惑星 | Bright Star Catalogue（52 星の J2000.0 座標）、Paul Schlyter の惑星軌道要素、星図（NASA SVS Deep Star Maps、ESA/Gaia/DPAC）、星座線（d3-celestial、BSD-3-Clause） | [説明](docs/astro/planets.md)、[星図の利用条件](docs/design/sky-moon-horizon.md) |
+| 月面 | NASA SVS CGI Moon Kit | NASA、パブリックドメイン |
+| 標高 | 国土地理院 標高 API | 国土地理院 |
+| 施設情報 | 各施設・区・東京都公園協会の公式サイト（確認日と URL を `spots.json` に記録） | [確認の記録](docs/facilities/README.md)、[夜間立入](docs/night-access/README.md) |
 
 #### フレームワーク・ライブラリ・モジュール
-* SwiftUI（画面はすべて SwiftUI）
-* MapKit for SwiftUI（地点の地図表示）
-* RealityKit / RealityView（3D プレビュー）
-* Swift Testing（計算ロジックのテスト）
+* SwiftUI（画面はすべて SwiftUI）、MapKit for SwiftUI（2D 地図・経路）、Core Location（現在地）
+* RealityKit / RealityView（3D）。23 区の 3D は USDZ、地点の 3D はコードで生成
+* Swift Testing（計算ロジックのテスト 180 件）
+* 前処理は Python（PLATEAU の変換、VIIRS の読み取り）と Blender 4.0（広域 3D・紹介動画）。アプリ本体には含まない
 
 #### デバイス
 * iPhone（iOS 18 以降）
 
 ### 独自技術
 #### ハッカソンで開発した独自機能・技術
-* 月・太陽・恒星の位置計算（[Astro.swift](Packages/StarCore/Sources/StarCore/Astro/Astro.swift)）: 天文年鑑の低精度式を Swift で実装。Astronomy Engine と比べ、月の位置の誤差は 0.7° 以内（テストで確認）。惑星（[Planets.swift](Packages/StarCore/Sources/StarCore/Astro/Planets.swift)）は軌道要素から計算し、skyfield（JPL DE421）との差は 2 時刻 × 5 惑星で最大 0.013°（テストの許容差は 0.3°、[説明](docs/astro/planets.md)）
-* 地平線プロファイルと空の開放度（[HorizonProfile.swift](Packages/StarCore/Sources/StarCore/Geometry/HorizonProfile.swift)）
-* 観測地点の推薦（[Recommender.swift](Packages/StarCore/Sources/StarCore/Scoring/Recommender.swift)）: 立入条件 → 可視性 → 天気 → 暗さ → 順位付け → 推薦理由
+* **天体の位置計算をアプリ内で行う**（[Astro.swift](Packages/StarCore/Sources/StarCore/Astro/Astro.swift)、[Planets.swift](Packages/StarCore/Sources/StarCore/Astro/Planets.swift)）: 月・太陽は天文年鑑の低精度式、恒星は歳差補正つき、惑星は軌道要素から。通信も暦ファイルも不要で、時刻スライダーで毎秒再計算できる。精密な計算（skyfield + JPL DE421）との差は、月 0.4° 以内（304 件）、恒星 0.01° 未満、惑星 0.013°（[検証の記録](docs/astro/verification.md)）
+* **観測者の高さを入れた遮蔽判定**（[HorizonProfile.swift](Packages/StarCore/Sources/StarCore/Geometry/HorizonProfile.swift)）: 建物を直方体として方位 1° ごとに光線を飛ばし、目の高さからの最大仰角と空の開放度（立体角の割合）を出す
+* **薄明を入れた推薦**（[Recommender.swift](Packages/StarCore/Sources/StarCore/Scoring/Recommender.swift)、[Twilight.swift](Packages/StarCore/Sources/StarCore/Scoring/Twilight.swift)）: 立入条件 → 可視性 → 天気 → 暗さ → 順位付け → 理由の文。太陽高度が −6° より上なら恒星は「見えない」、−18° までは暗さを下げる
+* **23 区の広域 3D の生成パイプライン**（[scripts/build_wide_ward.py](scripts/build_wide_ward.py)）: 区コードを渡すだけで PLATEAU の 3D Tiles を取り、Blender で箱に間引いて USDZ にする。区を足してもアプリのコードは直さない
 
-## 開発の始め方
+### 計算の決まり
+- 暗さ D = clamp(1 − (0.45·地域の光害 + 0.25·近傍照明 + 0.30·月明かり), 0, 1)。近傍照明が未確認なら 0 ではなく 0.5 で仮計算し、画面に「精度不足」と出す
+- 総合 S = 100 (0.35·空の開放度 + 0.40·天気 + 0.25·暗さ)。利用時間外・天体が見えない地点はスコアに関係なく下位
+- 重みは経験的な値で、物理モデルではない。スコアは観測条件の目安であり、観測できる確率ではない
 
-施設情報（SHIBUYA SKY・都庁南展望室・KITTEガーデン）の公式確認と日次更新PRについては、[公式施設情報の運用](docs/facilities/README.md)を参照。
-毎朝の自動確認は、GitHub 側の許可（管理者の設定）待ちで、まだ動いていない。許可が出るまでは、手元で `python3 scripts/update_official_facilities.py --write` を実行し、変更があれば PR を `develop` に出す。
+### できないこと・精度の限界（正直に）
+- 建物は外接直方体の近似（渋谷の詳細を除く）。斜めに建つ建物は実際より太く見え、遮蔽を少し多めに見積もる。方位 1° 刻みの光線なので、500 m 先の 9 m より細い建物は見逃すことがある
+- 地形は平坦と見なす（建物ごとの地盤差は屋根の標高に反映）
+- 近傍照明は夜の写真による机上評価で、現地未確認。4 地点は写真が無く「未確認」のまま
+- 営業時間・夜間の立入は公式サイトで確認できた分だけ「確認済み」。臨時の閉鎖は反映しない
+- 恒星の章動・光行差・固有運動は未補正（0.01° 未満）
 
-```bash
-brew install xcodegen
-xcodegen generate
-open StarSpot.xcodeproj
+## 構成
+
+```
+App/                       SwiftUI アプリ（ホーム・詳細・比較・3D）。画面だけを置く
+  Resources/Wide/          23 区の広域 3D（Wide_<区コード>.usdz、窓明かりつき）
+  Resources/WideLOD2/      屋根の形つき（既定では使わない）
+Packages/StarCore/         モデル・天体計算・遮蔽判定・天気・スコア（ローカル Swift Package、テスト付き）
+  Sources/StarCore/Resources/spots.json      観測地点（43 地点、5 種類）
+  Sources/StarCore/Resources/buildings.json  地点ごとの建物（PLATEAU 由来）
+scripts/                   前処理（PLATEAU の変換、VIIRS、広域 3D、施設情報の確認）
+docs/                      出典・検証・確認の記録（下の一覧）
+video/                     紹介動画の作り方（Blender + Remotion）
 ```
 
-計算ロジックのテスト:
+チームの決まりは [AGENTS.md](AGENTS.md)、作業の一覧は [task.md](task.md)。
 
-```bash
-cd Packages/StarCore && swift test
-```
+### 詳しい資料
+- 天体計算の検証（skyfield との比較）: [docs/astro/verification.md](docs/astro/verification.md)、出・南中・入り: [docs/astro/rise-set.md](docs/astro/rise-set.md)、惑星: [docs/astro/planets.md](docs/astro/planets.md)
+- 建物データ: [PLATEAU 原本の取得](docs/data/plateau-shibuya-2025.md)、[変換スクリプト](docs/data/plateau-converter.md)、[渋谷シーンの導入](docs/data/shibuya-scene-integration.md)、[地点ごとの出典](docs/design/city-scenes/README.md)、[23 区の広域 3D の作り方](scripts/README.md)・[画面の記録](docs/design/wide-city/screenshots)
+- 光害: [VIIRS の手順](docs/data/viirs-light-index.md)、[近傍照明の机上評価](docs/lighting/README.md)、[World Atlas（保留）](docs/data/world-atlas-sky-brightness.md)
+- 施設・夜間立入: [公式情報の確認](docs/facilities/README.md)、[夜間立入](docs/night-access/README.md)、[追加した公園](docs/facilities/more-parks.md)
+- 画面: [ホームの設計](docs/design/home-ui.md)、[全画面 3D ＋シート](docs/design/home-3d-sheet/README.md)、[建物の夜景表現](docs/design/building-night/README.md)、[観測者視点](docs/design/observer-view/README.md)
+- 発表: [スライド](docs/presentation/index.html)、[台本](docs/presentation/script.md)、[審査 AI の採点記録](docs/jphackun.md)
 
-### 構成
-```
-App/                       SwiftUI アプリ（一覧・詳細・3D プレビュー）
-Packages/StarCore/         モデル・天体計算・遮蔽判定・天気・スコア（ローカル Swift Package）
-  Sources/StarCore/Resources/spots.json      観測地点（42地点、5種類）
-  Sources/StarCore/Resources/buildings.json  全42地点（PLATEAU。渋谷1,497棟・西新宿791棟・丸の内350棟ほか）
-scripts/plateau_to_json.py CityGML → アプリ用JSONへの変換
-```
-
-### スコア
-- 暗さ D = clamp(1 − (0.45·地域の光害 + 0.25·近傍照明 + 0.30·月明かり), 0, 1)
-- 総合 S = 100 (0.35·空の開放度 + 0.40·天気 + 0.25·暗さ)
-- 太陽高度が −6°（市民薄明の限界）より上なら恒星は「見えない」扱い。−18°（天文薄明の限界）までは太陽の光の残りに応じて暗さ D を直線的に下げる。月は昼間でも除外しないが「推薦」にはしない
-- 利用時間外・天体が見えない地点は、スコアに関係なく下位にする
-
-### データについての注意
-* 光が丘公園・浮間公園・木場公園・砧公園・お台場海浜公園・晴海ふ頭公園・城南島海浜公園を追加し、計19地点。お台場・晴海ふ頭・城南島は夜間の入場可否が未確認のため「要確認」（[出典と確認の記録](docs/facilities/more-parks.md)）。
-* 舎人公園・水元公園・駒沢オリンピック公園を追加し、計12地点（1-10）。追加3地点は建物・樹木・光害などが未確認のため「要確認」。詳細画面には天候による閉鎖条件・撮影機材の制限も表示する（[出典・実機での確認箇所](docs/facilities/observation-conditions.md)）。都庁南展望室は公式の方角案内を表示するが、窓の境界角度は確認待ち。
-* 公園・広場・河川敷の既存6地点に、確認済みの利用時間と未確認の区別を反映（[1-06の調査と運用](docs/night-access/README.md)）。新宿御苑の季節・休園日判定は2026〜2027年が対象。SHIBUYA SKY・都庁南展望室・KITTEガーデンは1-03〜1-05で確認した公式情報を使用。臨時の閉鎖は公式案内を確認すること
-* 地域の光害指標は VIIRS 夜間光（2025 年の年次合成、約 460 m の画素の年平均）から作った（[手順と出典](docs/data/viirs-light-index.md)）。近傍照明は未確認（画面に表示される）
-* 恒星の位置は歳差を補正済みで、精密な計算（skyfield + JPL DE421）との差は 0.01° 未満。章動・光行差・恒星の固有運動は未補正（[検証の記録](docs/astro/verification.md)）
-
-### PLATEAU原本の取得（2-02）
-
-渋谷駅周辺の2025年度版CityGML原本を取得済みです。出典、利用条件、再取得コマンドは [取得記録](docs/data/plateau-shibuya-2025.md) を参照してください。変換（2-03）と渋谷シーンへの組み込み（2-04）まで実施済みです。
-
-### PLATEAU建物の変換（2-03）
-
-取得したCityGMLから、指定地点の周囲500mの建物をアプリ形式のJSONに変換できます。[実行方法・高さの扱い・制約](docs/data/plateau-converter.md)を参照してください。渋谷シーンへの組み込みは[導入記録（2-04）](docs/data/shibuya-scene-integration.md)に記載しています。
-
-### 渋谷のPLATEAU建物（2-04）
-
-東京都「3D都市モデル（Project PLATEAU）渋谷区（2025年度）」を加工してAsteraチームが作成しました（CC BY 4.0）。出典URL・原本のSHA-256・変換規則・建物IDの対応付けは[導入記録](docs/data/shibuya-scene-integration.md)に記載しています。詳細画面の「建物データ」でも出典と収録建物数を確認できます。
-
-建物は外接直方体による近似です。建物ごとの地盤差は屋根標高に反映しますが、地形そのものは再現していません。観測地点の位置はデモ用の代表点、床面標高は暫定値です。原点から500m外の高層建物や現地の立入可否は未確認です。
-
-### 建物の夜景表現（8-06）
-
-3D建物に青灰色の外壁と控えめな暖色の窓明かりを追加しました。用途を参考にした演出で、実際の外壁色・点灯状況を再現するものではありません。[素材と確認状況](docs/design/building-night/README.md)を参照してください。
+## ライセンス
+コードは [MIT License](LICENSE)。同梱データの出典と利用条件は上の表のとおりで、PLATEAU・VIIRS・Open-Meteo は CC BY 4.0、星図の ESA/Gaia 分は利用条件を確認中（[10-08](task.md)）。
