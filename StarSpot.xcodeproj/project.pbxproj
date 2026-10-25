@@ -23,6 +23,7 @@
 		15FF13B4295C9B3C69483F30 /* Wide2_13104.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9A8E36C6F645A697583E379F /* Wide2_13104.usdz */; };
 		18588BB45F706E4FC2A60C5D /* far_toneri_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 80F2410988756974B2727146 /* far_toneri_park.jpg */; };
 		1B50E6634B21A1B04FB682B6 /* far_sumida_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75189C99D479B4F03F39C630 /* far_sumida_park.jpg */; };
+		1B5457559BA2F10AAA963FF6 /* far_todai_hongo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 290DAC89070B0DD8F0E330B8 /* far_todai_hongo.jpg */; };
 		1D3730EB42E7ECEBC7F15DA5 /* City_funabori.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 88A2C6A5727F667AE79CE96C /* City_funabori.usdz */; };
 		1DD159973CAE569A960C7362 /* far_harumi_futo_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 698BD85D2EFB271A070AC634 /* far_harumi_futo_park.jpg */; };
 		1E0E2B46ED262C1D6AEE1C6E /* Wide2_13122.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 2F8F61F64CFF55ECAF2073BF /* Wide2_13122.usdz */; };
@@ -119,6 +120,7 @@
 		8B61512B1617A26FEF1E89BC /* FarGroundRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615FCC36B1BC2C41CE6D502 /* FarGroundRenderer.swift */; };
 		8BB076589A7D83F29AE44A54 /* City_sumida_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C6AA621A63EDF2CD26BF9309 /* City_sumida_park.usdz */; };
 		8C4FBA125C16E5CBAC5EB587 /* far_rinshi_no_mori_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C0543356BEEC3F154E757526 /* far_rinshi_no_mori_park.jpg */; };
+		932FB00DF589CA858A6CC5B1 /* City_todai_hongo.usdz in Resources */ = {isa = PBXBuildFile; fileRef = D84F6B33DE7D5116E7E29045 /* City_todai_hongo.usdz */; };
 		941EB8CCC608EC6AEF1A799B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2AE00460F10C5D00FB4FC0 /* AppModel.swift */; };
 		9542EE00BE3FCC62BAB81069 /* se_map_gesture.caf in Resources */ = {isa = PBXBuildFile; fileRef = 765BB75671C9B495645B8674 /* se_map_gesture.caf */; };
 		956B557D35212C5ADC376A14 /* far_ueno_park.json in Resources */ = {isa = PBXBuildFile; fileRef = B82D8B85F3CD93BE86F712AF /* far_ueno_park.json */; };
@@ -153,6 +155,7 @@
 		B943A7EBEEEBAEB55CB6491C /* City_shibakoen.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7B1B510B4A6F42166A9545A4 /* City_shibakoen.usdz */; };
 		B9D80CF55143E8A7ADB95CC5 /* City_roppongi.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 809C7FE166711E0E41B59833 /* City_roppongi.usdz */; };
 		BB5FFED5C09AD0FBA6440F28 /* far_shibakoen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEF44BB43022CAEE35345D37 /* far_shibakoen.jpg */; };
+		BB828C2D1719012ED9179DCB /* far_todai_hongo.json in Resources */ = {isa = PBXBuildFile; fileRef = 716134E064A9A79006888D0F /* far_todai_hongo.json */; };
 		BBBEAA701E4C2F4070472339 /* Wide2_13109.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 4F0634716FA49BB2470CD4A8 /* Wide2_13109.usdz */; };
 		BCD3F0EE1B790DFF8B0493BD /* far_higashi_ikebukuro.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 355B995548FB20B65F2B85B5 /* far_higashi_ikebukuro.jpg */; };
 		BFB3E7133046FDF0C4AD8AFE /* City_higashi_ikebukuro.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B712CF49277001CA28CC01E7 /* City_higashi_ikebukuro.usdz */; };
@@ -231,6 +234,7 @@
 		24B82CC5F109E3E1D9AB3FDE /* far_komazawa_olympic_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_komazawa_olympic_park.json; sourceTree = "<group>"; };
 		258B73077695268A4A239112 /* far_kiba_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_kiba_park.json; sourceTree = "<group>"; };
 		2615FCC36B1BC2C41CE6D502 /* FarGroundRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarGroundRenderer.swift; sourceTree = "<group>"; };
+		290DAC89070B0DD8F0E330B8 /* far_todai_hongo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_todai_hongo.jpg; sourceTree = "<group>"; };
 		2915738486DDB4FAEAF41090 /* planet_mercury.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet_mercury.png; sourceTree = "<group>"; };
 		292EF5205CC96A242DC2B369 /* Sky3DMarkers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sky3DMarkers.swift; sourceTree = "<group>"; };
 		29EE985748A0534DDA7562DF /* City_odaiba_kaihin_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_odaiba_kaihin_park.usdz; sourceTree = "<group>"; };
@@ -287,6 +291,7 @@
 		6CC3BCB32460D018F3598F49 /* far_ueno_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_ueno_park.jpg; sourceTree = "<group>"; };
 		6D8BC0490128A739CE1B0F6A /* Wide_13109.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13109.usdz; sourceTree = "<group>"; };
 		6E537DE77A24C7BA15409372 /* Wide2_13117.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13117.usdz; sourceTree = "<group>"; };
+		716134E064A9A79006888D0F /* far_todai_hongo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_todai_hongo.json; sourceTree = "<group>"; };
 		75189C99D479B4F03F39C630 /* far_sumida_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_sumida_park.jpg; sourceTree = "<group>"; };
 		756F525629D6378EDCED2DF3 /* Wide2_13102.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13102.usdz; sourceTree = "<group>"; };
 		75AF36EA5F20818BA2877935 /* se_launch.caf */ = {isa = PBXFileReference; path = se_launch.caf; sourceTree = "<group>"; };
@@ -374,6 +379,7 @@
 		D01D5ED4C33B3C1762E81E22 /* far_rinshi_no_mori_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_rinshi_no_mori_park.json; sourceTree = "<group>"; };
 		D4B285889905102C5C378412 /* Wide_13111.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13111.usdz; sourceTree = "<group>"; };
 		D7CEC029EAFFE8FE0AE4E614 /* Wide2_13115.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13115.usdz; sourceTree = "<group>"; };
+		D84F6B33DE7D5116E7E29045 /* City_todai_hongo.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_todai_hongo.usdz; sourceTree = "<group>"; };
 		D9203D1807BE1815AEE18E0B /* CityModelRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModelRenderer.swift; sourceTree = "<group>"; };
 		DA4B584AEE029D23936C1C11 /* City_arakawa_riverside.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_arakawa_riverside.usdz; sourceTree = "<group>"; };
 		DB5D031CC5399C443511121C /* SpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
@@ -601,6 +607,8 @@
 				013514DEAF72D4188158AA5A /* far_shiodome.json */,
 				75189C99D479B4F03F39C630 /* far_sumida_park.jpg */,
 				0C464D265E3F5FA690CCCD5A /* far_sumida_park.json */,
+				290DAC89070B0DD8F0E330B8 /* far_todai_hongo.jpg */,
+				716134E064A9A79006888D0F /* far_todai_hongo.json */,
 				80F2410988756974B2727146 /* far_toneri_park.jpg */,
 				F97FB3F3B2B08696B9D9F42C /* far_toneri_park.json */,
 				6CC3BCB32460D018F3598F49 /* far_ueno_park.jpg */,
@@ -686,6 +694,7 @@
 				5665ABA50F91226C34884D41 /* City_shinjuku.usdz */,
 				E76A5C9EE6A156D31652C42E /* City_shiodome.usdz */,
 				C6AA621A63EDF2CD26BF9309 /* City_sumida_park.usdz */,
+				D84F6B33DE7D5116E7E29045 /* City_todai_hongo.usdz */,
 				158C80598C415E8A1DA68E44 /* City_toneri_park.usdz */,
 				67FB796428C460DA3C82667C /* City_ueno_park.usdz */,
 				2E0BB830A1F4FA6A59005C5B /* City_ukima_park.usdz */,
@@ -815,6 +824,7 @@
 				CCEE2FCC222DC54697BB50FE /* City_shinjuku_gyoen.usdz in Resources */,
 				4D3C1657C77314559DC8DB31 /* City_shiodome.usdz in Resources */,
 				8BB076589A7D83F29AE44A54 /* City_sumida_park.usdz in Resources */,
+				932FB00DF589CA858A6CC5B1 /* City_todai_hongo.usdz in Resources */,
 				50B9223A12935D5FFDA73E7C /* City_toneri_park.usdz in Resources */,
 				EC4EA10F8A07922E568DA619 /* City_ueno_park.usdz in Resources */,
 				9791C3ED9B294A4A39264114 /* City_ukima_park.usdz in Resources */,
@@ -922,6 +932,8 @@
 				E6C69AA39E1D843BE6A7A7B9 /* far_shiodome.json in Resources */,
 				1B50E6634B21A1B04FB682B6 /* far_sumida_park.jpg in Resources */,
 				2FB72CAD16EA1E0E42B68574 /* far_sumida_park.json in Resources */,
+				1B5457559BA2F10AAA963FF6 /* far_todai_hongo.jpg in Resources */,
+				BB828C2D1719012ED9179DCB /* far_todai_hongo.json in Resources */,
 				18588BB45F706E4FC2A60C5D /* far_toneri_park.jpg in Resources */,
 				7ED6F8C16329CAA5FA76E85E /* far_toneri_park.json in Resources */,
 				B623627BD8D6070B4DD00AE0 /* far_ueno_park.jpg in Resources */,

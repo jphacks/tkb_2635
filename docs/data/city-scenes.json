@@ -388,5 +388,18 @@
     "manifest": "docs/data/plateau-rinshi-no-mori-park-2025.json",
     "work": "../outputs/plateau-rinshi_no_mori_park",
     "groundPhoto": "../outputs/gsi-rinshi_no_mori_park"
+  },
+  {
+    "id": "todai_hongo",
+    "name": "東京大学 本郷キャンパス",
+    "latitude": 35.7129,
+    "longitude": 139.762,
+    "buildingRadius": 500,
+    "groundRadius": 800,
+    "groundElevation": null,
+    "atlasBudget": 1,
+    "manifest": "docs/data/plateau-todai-hongo-2025.json",
+    "work": "../outputs/plateau-todai_hongo",
+    "groundPhoto": "../outputs/gsi-todai_hongo"
   }
 ]
