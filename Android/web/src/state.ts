@@ -1,4 +1,4 @@
-import type { Assets, Catalog, CityScene, Context, Prediction, Spot, Target } from './core/types';
+import type { Assets, Catalog, CityScene, Context, Prediction, Spot, Target,Terrain } from './core/types';
 import { makeContext } from './core/geometry';
 import { evaluate,rank } from './core/recommender';
 import { WeatherClient } from './core/weather';
@@ -38,14 +38,14 @@ export function back() {
 }
 export async function loadData(progress:(text:string)=>void) {
   const response=await fetch('./generated/data.json');if(!response.ok)throw Error('地点データがありません。prepare:dataを実行してください。');
-  const data=await response.json() as {spots:Spot[];scenes:CityScene[];catalog:Catalog};
+  const data=await response.json() as {spots:Spot[];scenes:CityScene[];catalog:Catalog;terrain:Terrain};
   const scenes=new Map(data.scenes.map(s=>[s.id,s]));state.catalog=data.catalog;
   const saved=localStorage.getItem('astera.target');state.target=data.catalog.targets.find(t=>t.id===saved)??data.catalog.targets[0];
   state.selectedIndex=data.catalog.targets.findIndex(t=>t.id===state.target!.id);
   for(let i=0;i<data.spots.length;i++) {
     progress(`観測地点の空を計算しています ${i+1}/${data.spots.length}`);
     await new Promise<void>(resolve=>requestAnimationFrame(()=>resolve()));
-    const spot=data.spots[i];state.contexts.push(makeContext(spot,spot.sceneId?scenes.get(spot.sceneId):undefined));
+    const spot=data.spots[i];state.contexts.push(makeContext(spot,spot.sceneId?scenes.get(spot.sceneId):undefined,data.terrain));
   }
   try {const r=await fetch('./generated/models.json');if(r.ok)state.assets=await r.json();}catch{/* 3Dを開いた際に不足を明示する */}
 }

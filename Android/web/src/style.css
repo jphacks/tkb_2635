@@ -10,3 +10,5 @@ body:before{z-index:0;opacity:.5}#app{position:relative;z-index:1}.target-page .
 :root.light{color:#152132;background:#edf2f8;--muted:#53647a;--line:#263c5a33;--glass:#ffffff77}.light body{background:#e9eff7}.light .modal{background:#f2f6fcef;color:#152132}.light .metric{background:#e3ebf6}.light .row-name,.light .target-name{color:#152132}.light .row-description,.light .row-distance{color:#53647a}.light .tabs button[aria-selected=true]{color:#152132}.light .tabs{background:#c6d5e5}.light .modal select{background:#d7e3f1}.light .selection{color:#eef4fc;background:#06101d;border-radius:24px}.light .selection .muted{color:#adbacb}
 .modal .scene-shell{margin-left:0;margin-right:0}.modal .scene-shell canvas{max-width:100%}
 .scene-time{position:absolute;left:12px;right:12px;bottom:65px;z-index:2;display:grid;padding:8px 12px;border-radius:12px;background:#050d1cba;font-size:.75rem}.scene-time input{width:100%;accent-color:#c1dff7}
+.photo-wrap:after{content:"地点周辺イメージ"}.photo-missing:after{content:"写真なし"}
+.detail-section p{overflow-wrap:anywhere}
