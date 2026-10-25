@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Astera 発表スライド</title>
+<style>
+  :root {
+    --night: #0b1433;
+    --deep: #16224a;
+    --moonlight: #eaf0fa;
+    --sodium: #f0a848;
+    --sky: #86d4f0;
+    --ink: #8a95b5;
+    --serif: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    --sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; background: #050a1c; color: var(--moonlight); font-family: var(--sans); overflow: hidden; }
+
+  /* 1920×1080 の舞台を、画面に合わせて拡大縮小する */
+  .stage {
+    position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px;
+    transform: translate(-50%, -50%) scale(var(--fit, 1));
+    background: radial-gradient(ellipse 120% 90% at 70% -10%, var(--deep), var(--night) 60%);
+    overflow: hidden;
+  }
+  .slide { position: absolute; inset: 0; padding: 96px 120px 88px; display: none; }
+  .slide.active { display: block; }
+  .stars { position: absolute; inset: 0; pointer-events: none; }
+
+  h1 { font-family: var(--serif); font-weight: 600; font-size: 76px; line-height: 1.3; letter-spacing: 0.02em; position: relative; }
+  .lede { margin-top: 20px; font-size: 32px; line-height: 1.7; color: var(--ink); position: relative; }
+  .lede b { color: var(--moonlight); font-weight: 600; }
+
+  /* 1枚目: 2つの画面と、間の仰角の物差し */
+  .compare { position: absolute; left: 120px; right: 120px; top: 330px; display: grid; grid-template-columns: 520px 1fr 520px; align-items: start; gap: 40px; }
+  figure { position: relative; }
+  figure img { display: block; width: 520px; height: 520px; object-fit: cover; object-position: 50% 20%; border-radius: 28px; }
+  figcaption { margin-top: 22px; font-size: 30px; line-height: 1.45; }
+  figcaption small { display: block; font-size: 24px; color: var(--ink); }
+  .verdict { font-weight: 600; }
+  .hidden { color: var(--sodium); }
+  .seen { color: var(--sky); }
+  .gauge { width: 100%; height: auto; overflow: visible; margin-top: 60px; }
+  .gauge text { font-family: var(--sans); fill: var(--moonlight); }
+
+  /* 2枚目: 4つの入力が1つの計算にまとまる */
+  .flow { position: absolute; left: 120px; top: 305px; width: 1180px; height: 560px; }
+  .inputs { position: absolute; left: 0; top: 0; width: 540px; height: 560px; display: flex; flex-direction: column; justify-content: space-between; }
+  .inputs p { font-size: 34px; font-weight: 600; line-height: 1.3; height: 110px; display: flex; flex-direction: column; justify-content: center; }
+  .inputs p span { font-size: 24px; font-weight: 400; color: var(--ink); margin-top: 6px; }
+  .wires { position: absolute; left: 540px; top: 0; width: 280px; height: 560px; overflow: visible; }
+  .wires path { fill: none; stroke: var(--sky); stroke-width: 3; opacity: 0.85; stroke-dasharray: 1; stroke-dashoffset: 0; }
+  .core { position: absolute; left: 840px; top: 170px; width: 440px; }
+  .core h2 { font-family: var(--serif); font-weight: 600; font-size: 40px; line-height: 1.35; }
+  .core p { margin-top: 14px; font-size: 26px; line-height: 1.6; color: var(--ink); }
+  .phone { position: absolute; right: 150px; top: 300px; width: 330px; height: 690px; object-fit: cover; object-position: top; border-radius: 44px; border: 10px solid #1d2850; }
+  .reach { position: absolute; left: 120px; bottom: 88px; width: 1160px; font-size: 30px; line-height: 1.6; }
+  .reach span { color: var(--ink); }
+
+  .page { position: absolute; right: 56px; bottom: 40px; font-size: 22px; color: var(--ink); }
+  .logo { position: absolute; left: 120px; bottom: 36px; font-family: "Snell Roundhand", cursive; font-size: 44px; color: var(--moonlight); opacity: 0.9; }
+
+  /* 台本（N キー） */
+  .notes { position: fixed; left: 0; right: 0; bottom: 0; max-height: 40vh; overflow: auto; padding: 20px 28px; background: rgba(5, 10, 28, 0.94); border-top: 1px solid #2a3766; font-size: 18px; line-height: 1.8; display: none; z-index: 10; }
+  .notes.open { display: block; }
+  .notes p { max-width: 70em; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .slide.active .wires path { stroke-dashoffset: 1; animation: draw 1.4s ease-out 0.3s forwards; }
+    .slide.active .wires path:nth-child(2) { animation-delay: 0.45s; }
+    .slide.active .wires path:nth-child(3) { animation-delay: 0.6s; }
+    .slide.active .wires path:nth-child(4) { animation-delay: 0.75s; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+  }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+
+  <!-- 1枚目: 課題 -->
+  <section class="slide active" aria-label="1枚目 課題">
+    <svg class="stars" viewBox="0 0 1920 1080" aria-hidden="true" id="stars1"></svg>
+    <h1>天気が良くても、ビルで月が見えない。</h1>
+    <p class="lede">2026年10月24日 21:00、月は南南東の空の <b>高さ58°</b>。同じ時刻・同じ渋谷で、見え方が分かれる。</p>
+    <div class="compare">
+      <figure>
+        <img src="images/ground.png" alt="渋谷駅東口の地上から見た3D。月への線が赤く、建物に遮られている">
+        <figcaption><span class="verdict hidden">隠れる</span>　渋谷駅東口（地上）<small>南南東のビルが 74° まで空をふさぐ</small></figcaption>
+      </figure>
+      <svg class="gauge" viewBox="0 0 520 420" role="img" aria-label="仰角の物差し。地上ではビルが74度まで空をふさぎ、58度の月は隠れる。SHIBUYA SKY ではふさぐものが0度で、月が見える">
+        <!-- 中心(60,360)・半径300 の四分円。角度は水平から上へ -->
+        <path d="M60 360 L360 360 A300 300 0 0 0 60 60 Z" fill="none" stroke="#2c3a6b" stroke-width="2"/>
+        <path d="M60 360 L360 360 A300 300 0 0 0 143.2 71.8 Z" fill="#f0a848" fill-opacity="0.22" stroke="#f0a848" stroke-width="2"/>
+        <line x1="60" y1="360" x2="220.8" y2="106.7" stroke="#86d4f0" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="220.8" cy="106.7" r="30" fill="#86d4f0" fill-opacity="0.18"/>
+        <circle cx="220.8" cy="106.7" r="16" fill="#eaf0fa"/>
+        <text x="250" y="96" font-size="30" font-weight="600">月 58°</text>
+        <text x="110" y="50" font-size="28" style="fill:#f0a848">ビル 74°</text>
+        <line x1="60" y1="360" x2="400" y2="360" stroke="#86d4f0" stroke-width="3" stroke-dasharray="10 10"/>
+        <text x="60" y="404" font-size="24" style="fill:#f0a848">地上: 月がビルの角度より下</text>
+        <text x="60" y="442" font-size="24" style="fill:#86d4f0">展望台: ふさぐもの 0°</text>
+      </svg>
+      <figure>
+        <img src="images/skydeck.png" alt="SHIBUYA SKY から見た3D。月への線が緑で、遮るものがない">
+        <figcaption><span class="verdict seen">見える</span>　SHIBUYA SKY<small>229 m 高く、さえぎるものがない</small></figcaption>
+      </figure>
+    </div>
+    <div class="logo">Astera</div>
+    <div class="page">1 / 2</div>
+  </section>
+
+  <!-- 2枚目: 解き方 -->
+  <section class="slide" aria-label="2枚目 解き方">
+    <svg class="stars" viewBox="0 0 1920 1080" aria-hidden="true" id="stars2"></svg>
+    <h1>目の高さ・建物・天体を、まとめて計算する。</h1>
+    <p class="lede">Astera は、今夜どこへ行けば見えるかを、理由つきで教える iPhone アプリ。</p>
+    <div class="flow">
+      <div class="inputs">
+        <p>観測する人の目の高さ<span>地上・屋上・展望台の床の標高 + 目線</span></p>
+        <p>PLATEAU の 3D 都市モデル<span>23区の建物の形と高さ</span></p>
+        <p>月・惑星・恒星の位置<span>日時ごとに方角と高さを計算</span></p>
+        <p>雲・街明かり・営業時間<span>Open-Meteo・VIIRS 夜間光・公式情報</span></p>
+      </div>
+      <svg class="wires" viewBox="0 0 280 560" aria-hidden="true">
+        <path pathLength="1" d="M0 55 C140 55 150 280 280 280"/>
+        <path pathLength="1" d="M0 205 C140 205 150 280 280 280"/>
+        <path pathLength="1" d="M0 355 C140 355 150 280 280 280"/>
+        <path pathLength="1" d="M0 505 C140 505 150 280 280 280"/>
+      </svg>
+      <div class="core">
+        <h2>方位 1° ごとに、空がどこまで開けているか</h2>
+        <p>天体がその高さより上なら「見える」。天気と暗さを足して順位を付け、理由の文と 3D で示す。</p>
+      </div>
+    </div>
+    <img class="phone" src="images/list.png" alt="Astera の推薦一覧の画面">
+    <p class="reach">公開データだけで動く。いまは 23区の 43地点。<span>地点はデータを足すだけで増やせ、ほかの都市にも広げられる。</span></p>
+    <div class="page">2 / 2</div>
+  </section>
+</div>
+
+<aside class="notes" id="notes" aria-live="polite"></aside>
+
+<script>
+  // 台本（script.md と同じ文。N キーで表示）
+  const notes = [
+    '東京では、天気が良くても、月や星が見えないことがあります。原因はビルです。10月24日の夜9時、月は南南東の空、高さ58度にあります。ところが渋谷駅の東口では、その方角のビルが74度の高さまで空をふさぎ、月は隠れてしまいます。同じ時刻、229メートル高いSHIBUYA SKYでは、さえぎるものがなく、月が見えます。見えるかどうかは、天気だけでなく、どの高さから見るかで決まります。',
+    'Asteraは、この判定を23区の43地点でまとめて行います。観測する人の目の高さ、PLATEAUの3D都市モデル、月・惑星・恒星の位置、そして雲や街明かりを組み合わせ、方位1度ごとに、空がどこまで開けているかを計算します。その結果を、理由の文と3Dで示し、今夜行く場所を推薦します。使うのは公開データだけなので、ほかの地点や都市にも広げられます。'
+  ];
+  const slides = [...document.querySelectorAll('.slide')];
+  const notesBox = document.getElementById('notes');
+  let index = 0;
+
+  function show(next) {
+    index = Math.max(0, Math.min(slides.length - 1, next));
+    slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+    notesBox.innerHTML = '<p>' + notes[index] + '</p>';
+  }
+
+  function fit() {
+    const scale = Math.min(innerWidth / 1920, innerHeight / 1080);
+    document.getElementById('stage').style.setProperty('--fit', scale);
+  }
+
+  // 星は毎回同じ並びになるよう、種から作る
+  function drawStars(id, seed) {
+    let s = seed;
+    const random = () => (s = (s * 16807) % 2147483647) / 2147483647;
+    let out = '';
+    for (let i = 0; i < 140; i++) {
+      const r = 0.6 + Math.pow(random(), 5) * 2.2;
+      out += `<circle cx="${(random() * 1920).toFixed(1)}" cy="${(random() * 1080).toFixed(1)}" r="${r.toFixed(2)}" fill="#eaf0fa" opacity="${(0.25 + random() * 0.55).toFixed(2)}"/>`;
+    }
+    document.getElementById(id).innerHTML = out;
+  }
+
+  addEventListener('keydown', (event) => {
+    if (['ArrowRight', ' ', 'PageDown', 'Enter'].includes(event.key)) { show(index + 1); event.preventDefault(); }
+    if (['ArrowLeft', 'PageUp', 'Backspace'].includes(event.key)) show(index - 1);
+    if (event.key === 'n' || event.key === 'N') notesBox.classList.toggle('open');
+    if (event.key === 'f' || event.key === 'F') {
+      document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+    }
+  });
+  document.getElementById('stage').addEventListener('click', () => show(index + 1));
+  addEventListener('resize', fit);
+  drawStars('stars1', 7);
+  drawStars('stars2', 11);
+  fit();
+  show(0);
+</script>
+</body>
+</html>
