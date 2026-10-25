@@ -56,6 +56,8 @@ struct WideCityPreview: View {
                     }
                 }
                 .clipped()
+                // はみ出した画像の部分で押されないよう、押せる範囲を枠に合わせる（上の「地図／3D」を押せなくなっていた）
+                .contentShape(.rect)
                 .overlay(alignment: .bottomLeading) {
                     VStack(alignment: .leading, spacing: 6) {
                         Label("押すと 23 区の 3D を開く", systemImage: "cube.transparent")
