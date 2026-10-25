@@ -1,0 +1,323 @@
+{
+  "shibuya_east_plaza": {
+    "level": 3,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [
+      "https://www.google.com/maps/search/?api=1&query=%E6%B8%8B%E8%B0%B7%E9%A7%85%E6%9D%B1%E5%8F%A3%20%E3%83%90%E3%82%B9%E5%81%9C",
+      "https://www.city.shibuya.tokyo.jp/kankyo/shuhen-machizukuri/kento/shibuya_higasiguti_mati_0514.html"
+    ],
+    "note": "Google マップのバス停「渋谷駅東口」の利用者写真（2019年12月の夜、2025年7月の夕方）で、すぐ横のビル入口の室内照明と、事務所ビルの窓明かり・街灯が正面に見えた。登録地点はデモ用の代表点で、写真と同じ場所かは未確認。"
+  },
+  "shibuya_sky": {
+    "level": 2,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [
+      "https://www.google.com/maps/search/?api=1&query=SHIBUYA%20SKY",
+      "https://www.shibuya-scramble-square.com/sky/"
+    ],
+    "note": "Google マップの利用者写真（2020年2月・2024年12月の夜）で、屋上の段差に足元を照らす照明があり、床が明るく見えた。屋上は屋外でガラスへの映り込みは見えなかった。公式サイトに夜の照明の説明は見つからなかった。"
+  },
+  "shinjuku_central_park": {
+    "level": 2,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [
+      "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%AE%BF%E4%B8%AD%E5%A4%AE%E5%85%AC%E5%9C%92",
+      "https://www.kanko-shinjuku.jp/spot/c004/article_358.html"
+    ],
+    "note": "Google マップの利用者写真（2025年4月の夜、芝生広場付近）で、園内の街灯が足元を照らし、まわりの高層ビルの窓明かりも見えた。写真は桜のライトアップ期間のもので、登録地点（公園北側）と同じ場所かは未確認。"
+  },
+  "tocho_observatory": {
+    "level": 3,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [
+      "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%BA%81%E7%AC%AC%E4%B8%80%E6%9C%AC%E5%BA%81%E8%88%8E%20%E5%8D%97%E5%B1%95%E6%9C%9B%E5%AE%A4",
+      "https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou"
+    ],
+    "note": "Google マップの利用者写真（2023年2月の夜）で、窓ガラスに室内の映り込みがあり、隣の北棟のライトアップも正面に見えた。公式サイトには節電のため照明の一部を消していると書かれている。"
+  },
+  "kitte_garden": {
+    "level": 2,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [
+      "https://www.google.com/maps/search/?api=1&query=KITTE%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3",
+      "https://marunouchi.jp-kitte.jp/guide/facilities.jsp"
+    ],
+    "note": "Google マップの利用者写真（2024年4月・2025年1月の夜）で、手すり沿いの照明で通路が明るく、まわりの高層ビルの窓明かりとライトアップされた東京駅舎が見えた。公式サイトに夜の照明の説明は見つからなかった。"
+  },
+  "yoyogi_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [
+      "https://www.google.com/maps/search/?api=1&query=%E4%BB%A3%E3%80%85%E6%9C%A8%E5%85%AC%E5%9C%92",
+      "https://www.tokyo-park.or.jp/park/yoyogi/index.html"
+    ],
+    "note": "Google マップで見られた夜の写真は冬のイルミネーションの1枚だけで、登録地点付近のふだんの夜の照明は分からなかった。公式サイトにも夜の照明の説明は見つからなかった。"
+  },
+  "shinjuku_gyoen": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [
+      "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%AE%BF%E5%BE%A1%E8%8B%91",
+      "https://policies.env.go.jp/national-garden/shinjukugyoen/guide/information/"
+    ],
+    "note": "夜の写真が見つからなかった（Google マップの写真は昼のものだけ）。公式サイトでは夕方に閉園するため、夜間の園内の照明は確認できない。"
+  },
+  "arakawa_riverside": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [
+      "https://www.google.com/maps/search/?api=1&query=%E9%83%BD%E5%96%B6%E5%9C%B0%E4%B8%8B%E9%89%84%E6%96%B0%E5%AE%BF%E7%B7%9A%20%E8%8D%92%E5%B7%9D%E4%B8%AD%E5%B7%9D%E6%A9%8B%E6%A2%81",
+      "https://www.ktr.mlit.go.jp/arage/arage00138.html"
+    ],
+    "note": "夜の写真が見つからなかった（登録地点に近い都営新宿線の荒川中川橋梁の写真は昼のものだけ）。公式サイトにも夜の照明の説明は見つからなかった。"
+  },
+  "kasai_rinkai_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [
+      "https://www.google.com/maps/search/?api=1&query=%E8%91%9B%E8%A5%BF%E8%87%A8%E6%B5%B7%E5%85%AC%E5%9C%92",
+      "https://www.tokyo-park.or.jp/park/kasairinkai/index.html"
+    ],
+    "note": "Google マップには夕方の写真が1枚あり、帆の形のオブジェのライトアップと足元灯が見えたが、登録地点付近かどうか分からなかった。公式サイトには期間限定のライトアップ催しの案内がある。"
+  },
+  "toneri_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "1-10 で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "mizumoto_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "1-10 で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "komazawa_olympic_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "1-10 で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "hikarigaoka_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "追加タスク f で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "ukima_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "追加タスク f で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "kiba_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "追加タスク f で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "kinuta_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "追加タスク f で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "odaiba_kaihin_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "追加タスク f で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "harumi_futo_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "追加タスク f で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "jonanjima_kaihin_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-24",
+    "sources": [],
+    "note": "追加タスク f で後から追加された地点で、近傍照明の机上評価はまだしていない（未確認のまま）。"
+  },
+  "skytree_tembo_deck": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "展望台と足元の地上の組（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "oshiage_ground": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "展望台と足元の地上の組（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "tokyo_tower_main_deck": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "展望台と足元の地上の組（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "shibakoen_ground": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "展望台と足元の地上の組（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "sunshine60_observatory": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "展望台と足元の地上の組（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "higashi_ikebukuro_ground": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "展望台と足元の地上の組（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "tokyo_city_view": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "展望台と足元の地上の組（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "roppongi_ground": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "展望台と足元の地上の組（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "asakusa_terrace": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "asakusa_ground": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "caretta_sky_view": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "shiodome_ground": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "tower_hall_funabori": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "funabori_ground": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "ueno_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "hibiya_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "sumida_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "wakasu_kaihin_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "yumenoshima_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "shakujii_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "rinshi_no_mori_park": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "tokyo_tower_top_deck": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  },
+  "roppongi_sky_deck": {
+    "level": null,
+    "method": "desk",
+    "checkedAt": "2026-10-25",
+    "sources": [],
+    "note": "3D の量産（a）で足した地点。周りの照明はまだ調べていない（未確認）。"
+  }
+}

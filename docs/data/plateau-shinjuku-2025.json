@@ -1,0 +1,159 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）東京都23区（2025年度）",
+  "cities": [
+    {
+      "cityCode": "13104",
+      "cityName": "新宿区"
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.6829,35.6824,139.7005,35.6968",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/e9/b1d234-ec4d-422c-8dd9-2748c965730c/13104_shinjuku-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53394524_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/bldg/53394524_bldg_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "maxLod": 2,
+      "features": 5811,
+      "lod2": 39,
+      "bytes": 76172229,
+      "sha256": "898b7a3ad90f712e1eb6a392cb47be725ec41c74fc73e756f8cc9351d80a0dcc"
+    },
+    {
+      "name": "53394525_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/bldg/53394525_bldg_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "maxLod": 2,
+      "features": 1600,
+      "lod2": 987,
+      "bytes": 94275150,
+      "sha256": "6ee3ab2254dd634b437ebc2afbb5dbb430acb9cc5c2f7cfe687ca637f403d327"
+    },
+    {
+      "name": "53394534_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/bldg/53394534_bldg_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "maxLod": 2,
+      "features": 4347,
+      "lod2": 177,
+      "bytes": 62844441,
+      "sha256": "a8433e431bf467945ed9aa65e3d673e67471a0f4feb432c22c9bbb115eeace25"
+    },
+    {
+      "name": "53394535_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/bldg/53394535_bldg_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "maxLod": 2,
+      "features": 2759,
+      "lod2": 1359,
+      "bytes": 124173341,
+      "sha256": "f409d890918d4a980a508ca084393d403b6e2f437be94f599f5f4f2ac4fe1114"
+    },
+    {
+      "name": "53394514_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/tran/53394514_tran_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "maxLod": 3,
+      "features": 1297,
+      "lod2": 25,
+      "bytes": 4005443,
+      "sha256": "7b525e33b514c270a5949bbbaf674bec29095c395697ac296a566fbb00709454"
+    },
+    {
+      "name": "53394515_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/tran/53394515_tran_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "maxLod": 3,
+      "features": 788,
+      "lod2": 21,
+      "bytes": 4551565,
+      "sha256": "e61b831f8558c56a493b5bd302249ef2f28c73851fd5f4a30494fc4ac2478c2b"
+    },
+    {
+      "name": "53394516_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/tran/53394516_tran_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "maxLod": 2,
+      "features": 705,
+      "lod2": 43,
+      "bytes": 2386006,
+      "sha256": "4774e94ffa373936b9d324d26fdbf6371601d9339d280cb5269775c2d5e3b7d3"
+    },
+    {
+      "name": "53394524_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/tran/53394524_tran_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "maxLod": 3,
+      "features": 1451,
+      "lod2": 23,
+      "bytes": 6029458,
+      "sha256": "225257690efeead4c84b8d17c9198361bb2b32340efa58b3e51b6858d43950f0"
+    },
+    {
+      "name": "53394525_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/tran/53394525_tran_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "maxLod": 3,
+      "features": 565,
+      "lod2": 382,
+      "bytes": 34370375,
+      "sha256": "5b6e432a857c3241766abcda3c3c596b5ff8f298e1ae95051619fbb191c4c195"
+    },
+    {
+      "name": "53394526_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/tran/53394526_tran_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "maxLod": 3,
+      "features": 537,
+      "lod2": 260,
+      "bytes": 11415006,
+      "sha256": "2ff55bf2847f8f9ce30dff083a3fedf77599390d08644002b56c8cf50fe829d5"
+    },
+    {
+      "name": "53394534_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/tran/53394534_tran_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "maxLod": 3,
+      "features": 1210,
+      "lod2": 104,
+      "bytes": 6663079,
+      "sha256": "b8700403c98b90fa87c5d007ab9bb7e444b5208040171afb57b95e3a5377ee5e"
+    },
+    {
+      "name": "53394535_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/tran/53394535_tran_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "maxLod": 3,
+      "features": 778,
+      "lod2": 452,
+      "bytes": 31785752,
+      "sha256": "1141159b90ee2a901eae0b4afa76ebd11141296caa97fa5ac9cd87a5ee07db6c"
+    },
+    {
+      "name": "53394536_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/tran/53394536_tran_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "maxLod": 3,
+      "features": 918,
+      "lod2": 510,
+      "bytes": 25412513,
+      "sha256": "b6732ec989aebb843e71c9707efee32686980d0f51244e25cc691d0e4f84a019"
+    }
+  ]
+}

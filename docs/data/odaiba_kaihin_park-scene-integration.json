@@ -1,0 +1,34 @@
+{
+  "sceneId": "odaiba_kaihin_park",
+  "radiusMeters": 500,
+  "scanned": 515,
+  "selected": 195,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53393651_bldg_6697_op.gml",
+      "sha256": "de4adc45b96b5b5d3d9d5163e40f9137244ad3fc705c64ad687775bb5a34d2f1",
+      "buildingsScanned": 52
+    },
+    {
+      "name": "53393652_bldg_6697_op.gml",
+      "sha256": "556849e7f5bc21a34ef4fca0a67516bb806939dba54b1c9bf66a858a9cf84b00",
+      "buildingsScanned": 251
+    },
+    {
+      "name": "53393661_bldg_6697_op.gml",
+      "sha256": "6a8ec3d0f1e0a6dea975920601297c722f542e635a31def3d6ec6e67f75175b5",
+      "buildingsScanned": 1
+    },
+    {
+      "name": "53393662_bldg_6697_op.gml",
+      "sha256": "5de9b3cad9576ee33076a0f15820236b45982a167151cc72c2138fd6deea4cd0",
+      "buildingsScanned": 211
+    }
+  ],
+  "groundElevation": 1.9,
+  "belowSceneGround": 0
+}

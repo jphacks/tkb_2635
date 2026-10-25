@@ -1,0 +1,155 @@
+{
+  "capturedAt": "2026-10-24T15:37:22.903158+09:00",
+  "snapshots": {
+    "shibuya_ground": {
+      "url": "https://www.city.shibuya.tokyo.jp/kankyo/shuhen-machizukuri/kento/shibuya_higasiguti_mati_0514.html",
+      "title": "渋谷駅東口地区まちづくり | 検討中のまちづくり(渋谷駅周辺) | 渋谷区ポータル",
+      "sha256": "b31c9cffcfc864465337cfe25b7970d407723feda98f99d98c0bbc36d26d4a77"
+    },
+    "shinjuku_central": {
+      "url": "https://shinjukuchuo-park.jp/",
+      "title": "新宿中央公園",
+      "sha256": "464e7a96eda80c148ed4187fb3a9f9cc84e76e595004934e2359634d79e748b1"
+    },
+    "shinjuku_central_closure": {
+      "url": "https://shinjukuchuo-park.jp/2026/10/06/10-30%E9%87%91%EF%BD%9E11-13%E9%87%91%E3%80%80%E8%8A%9D%E7%94%9F%E5%BA%83%E5%A0%B4%E5%85%A8%E9%9D%A2%E9%96%89%E9%8E%96%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B/",
+      "title": "10/30(金)~11/13(金) 芝生広場全面閉鎖のお知らせ – 新宿中央公園",
+      "sha256": "f13de500cc0b1745a493bd579e022bb1d0fcfc9b38f59ddae1fe141935027a0d"
+    },
+    "yoyogi": {
+      "url": "https://www.tokyo-park.or.jp/park/yoyogi/index.html",
+      "title": "代々木公園|公園へ行こう!",
+      "sha256": "e8dd53c0f1e2767b27dfaa1e1ae03bbd570d6fc67445969318a46baa62382593"
+    },
+    "yoyogi_notices": {
+      "url": "https://www.tokyo-park.or.jp/park/yoyogi/news/2026/park_info_73.html",
+      "title": "【一覧】工事及び利用変更に関する情報|公園へ行こう!",
+      "sha256": "8b9e8bafcee00d0bc607ff712bd7f71cab1d108a7c3c8ef6927b204c43c610c5"
+    },
+    "gyoen_hours": {
+      "url": "https://policies.env.go.jp/national-garden/shinjukugyoen/guide/information/",
+      "title": "入園案内|利用ガイド|新宿御苑|環境省",
+      "sha256": "e86d2dd9e6f8960bd58039fba3dc89c65fbed372a2bb37e04083ff3ff0399bfa"
+    },
+    "gyoen_notices": {
+      "url": "https://policies.env.go.jp/national-garden/shinjukugyoen/",
+      "title": "新宿御苑|環境省",
+      "sha256": "8cb9b65c8b6ad7ed151635142a6246950058d2b597c1ea0e81f565fd572c1391"
+    },
+    "arakawa_rules": {
+      "url": "https://www.ktr.mlit.go.jp/arage/arage00138.html",
+      "title": "荒川下流河川敷利用ルール | 荒川下流河川事務所 | 国土交通省 関東地方整備局",
+      "sha256": "e33a5a3a915f379aaece4d64f0d0b049395ce7fe429522f8307ac412f87071cc"
+    },
+    "arakawa_parking": {
+      "url": "https://www.city.edogawa.tokyo.jp/e028/kuseijoho/gaiyo/shisetsuguide/bunya/seikatsukotsu/parking/arakawa.html",
+      "title": "河川敷駐車場(荒川) 江戸川区ホームページ",
+      "sha256": "76c6ebc5bce4acf0145543eb3b0b0db6c8601b2b599852b367b33e53ae6819b2"
+    },
+    "kasai": {
+      "url": "https://www.tokyo-park.or.jp/park/kasairinkai/index.html",
+      "title": "葛西臨海公園|公園へ行こう!",
+      "sha256": "fdac478a5c05b193ffe24446c3267a949a62bf21f19eeea0d2fc2df56fad42bc"
+    },
+    "mizumoto": {
+      "url": "https://www.tokyo-park.or.jp/park/mizumoto/index.html",
+      "title": "水元公園|公園へ行こう!",
+      "sha256": "f3b8268c6c3779d7fc9a6e4d5a85bc30889b1743e12a8d8f84facfa08c0614d2"
+    },
+    "toneri": {
+      "url": "https://www.tokyo-park.or.jp/park/toneri/index.html",
+      "title": "舎人公園|公園へ行こう!",
+      "sha256": "42cfe257cc74563ef77cbada5f0108e898541664a55019125ea0474a28552f17"
+    },
+    "hikarigaoka": {
+      "url": "https://www.tokyo-park.or.jp/park/hikarigaoka/index.html",
+      "title": "光が丘公園|公園へ行こう!",
+      "sha256": "92790906e49fd180e333ea140528584427de481d2807b1852917d5886ec8cc99"
+    },
+    "shinozaki": {
+      "url": "https://www.tokyo-park.or.jp/park/shinozaki/index.html",
+      "title": "篠崎公園|公園へ行こう!",
+      "sha256": "1753967c12fd97456c798939ecd93a6926e2a37ef3321a245292157bf44855e8"
+    },
+    "ojima-komatsugawa": {
+      "url": "https://www.tokyo-park.or.jp/park/ojima-komatsugawa/index.html",
+      "title": "大島小松川公園|公園へ行こう!",
+      "sha256": "1b8732a8708001b0149fb46735c63bcc0ed9255eb7a9570499fc494f5f0711dd"
+    },
+    "kiba": {
+      "url": "https://www.tokyo-park.or.jp/park/kiba/index.html",
+      "title": "木場公園|公園へ行こう!",
+      "sha256": "679b02e21bd35aba73bae8b3586f0b33341e5fa57bb3800c616181a78467b0f3"
+    },
+    "komazawa-olympic": {
+      "url": "https://www.tokyo-park.or.jp/park/komazawa-olympic/index.html",
+      "title": "駒沢オリンピック公園|公園へ行こう!",
+      "sha256": "80244940cc3c521f645d5d027c29e8212ecc615be2540dd5eb49b7f3a02a5d3f"
+    },
+    "kinuta": {
+      "url": "https://www.tokyo-park.or.jp/park/kinuta/index.html",
+      "title": "砧公園|公園へ行こう!",
+      "sha256": "7951b53287d46fa8ac9f15861075a40d13fdfea9ae867517f98e694e431ffdd8"
+    },
+    "odaiba": {
+      "url": "https://www.tptc.co.jp/park/01_02",
+      "title": "お台場海浜公園&台場公園|海上公園なび",
+      "sha256": "dd55eae010b480bbe8745d4450e259daa81f35b1db491c8dcca4fbf203b64fcf"
+    },
+    "shiokaze": {
+      "url": "https://www.tptc.co.jp/park/01_03",
+      "title": "潮風公園|海上公園なび",
+      "sha256": "a68351b784fe544870887e01f9d55062a8e264d06aeb47dc26a66c6f563ae0d9"
+    },
+    "tatsumi": {
+      "url": "https://www.tptc.co.jp/park/03_01",
+      "title": "辰巳の森海浜公園|海上公園なび",
+      "sha256": "5e566869cb08a615d32d9891f47c91011510d44eaca467eb54c93561276949ab"
+    },
+    "jonanjima": {
+      "url": "https://tokyo-south-seaside-parks.com/jonanjima/",
+      "title": "城南島海浜公園 – トップページ – 東京都立海上公園 南部地区グループ",
+      "sha256": "5e934fffd44964b08ecc3042643d132c9f361cc057cdbdfe7ba34b54bc920f09"
+    },
+    "jonanjima_beach": {
+      "url": "https://tokyo-south-seaside-parks.com/jonanjima-tsubasa-beach-boardwalk/",
+      "title": "城南島海浜公園 – つばさ浜・ボードウォーク – 東京都立海上公園 南部地区グループ",
+      "sha256": "5c213c1546c07488b8885026f5481fec73e325ddc772ec30649077ac7c089d2f"
+    },
+    "wakasu": {
+      "url": "https://www.tptc.co.jp/park/03_07",
+      "title": "若洲海浜公園&江東区立若洲公園|海上公園なび",
+      "sha256": "cb19007dbe0c7f02c41c753c93dfc8b7752e2d1aacc977eab3258f0413defca3"
+    },
+    "wakasu_qa": {
+      "url": "https://www.tptc.co.jp/park/03_07/qa",
+      "title": "公園Q&A|若洲海浜公園&江東区立若洲公園|海上公園なび",
+      "sha256": "57bff86dc764cfa0e3e4161aa67a0a37d0bf3c4ad2d1e6be3bdac3f53f281f7a"
+    },
+    "yumenoshima": {
+      "url": "https://www.tokyo-park.or.jp/park/yumenoshima/index.html",
+      "title": "夢の島公園|公園へ行こう!",
+      "sha256": "e36b722de0033383519b296b8e13c04e50baaad15dc3d44b5a16fbc7fd506b0f"
+    },
+    "shinjuku_tourism": {
+      "url": "https://www.kanko-shinjuku.jp/spot/c004/article_358.html",
+      "title": "新宿中央公園| 一般社団法人新宿観光振興協会",
+      "sha256": "294de03824f554555d7534217eb9302e2d402fc63d8e0a6d62b0b3bc2fe83f50"
+    },
+    "ukima": {
+      "url": "https://www.tokyo-park.or.jp/park/ukima/index.html",
+      "title": "浮間公園|公園へ行こう!",
+      "sha256": "1fbe56cc1fcccd1624783cf9ce5737cd92a50ecbdb965770b9c5e27efddfd24f"
+    },
+    "odaiba_qa": {
+      "url": "https://www.tptc.co.jp/park/01_02/qa",
+      "title": "公園Q&A|お台場海浜公園&台場公園|海上公園なび",
+      "sha256": "3277ecff24272291481f51fcf8196099d240744e840303d3bc57de984efe7cd6"
+    },
+    "harumi_futo": {
+      "url": "https://www.tptc.co.jp/park/02_01",
+      "title": "晴海ふ頭公園|海上公園なび",
+      "sha256": "9f8d4f7832b2f7822489eec076590e9a2dc25d0197af337cd04c655321069a85"
+    }
+  }
+}

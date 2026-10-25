@@ -1,0 +1,29 @@
+{
+  "sceneId": "higashi_ikebukuro",
+  "radiusMeters": 500,
+  "scanned": 12361,
+  "selected": 1706,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53394567_bldg_6697_op.gml",
+      "sha256": "a234ba926a60976877ec52699dc489ca42c5eb742d44534f71849112c81f321a",
+      "buildingsScanned": 4145
+    },
+    {
+      "name": "53394577_bldg_6697_op.gml",
+      "sha256": "96b2c510ac44d955c0902612d0c702ee3594ca699993e0b187cbff86c2b82c37",
+      "buildingsScanned": 2921
+    },
+    {
+      "name": "53394587_bldg_6697_op.gml",
+      "sha256": "4a9d6fe3cbd2eff02272676dacda8e807344b8e0108df8345106e20cf0f1855e",
+      "buildingsScanned": 5295
+    }
+  ],
+  "groundElevation": 30.0,
+  "belowSceneGround": 13
+}

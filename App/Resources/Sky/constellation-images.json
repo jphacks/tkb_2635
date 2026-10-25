@@ -1,0 +1,49 @@
+[
+  {"id": "Cyg", "image": "constellation-cygnus", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-49.642, 45.2803], "pixel": [412, 400], "marked": true},
+    {"star": [-54.4429, 40.2567], "pixel": [534, 500], "marked": true},
+    {"star": [-67.3197, 27.9597], "pixel": [842, 759], "marked": true},
+    {"star": [-48.4472, 33.9703], "pixel": [407, 656], "marked": true},
+    {"star": [-63.7563, 45.1308], "pixel": [656, 400], "marked": true},
+    {"star": [-41.7659, 30.2269], "pixel": [264, 743], "marked": true}
+   ]},
+  {"id": "Ori", "image": "constellation-orion", "size": [1024, 1024],
+   "anchors": [
+    {"star": [88.7929, 7.4071], "pixel": [426, 325], "marked": true},
+    {"star": [78.6345, -8.2016], "pixel": [720, 881], "marked": true},
+    {"star": [81.2828, 6.3497], "pixel": [598, 318]},
+    {"star": [86.9391, -9.6696], "pixel": [350, 868]},
+    {"star": [84.0534, -1.2019], "pixel": [540, 466]}
+   ]},
+  {"id": "Sco", "image": "constellation-scorpius", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-112.6481, -26.432], "pixel": [463, 404], "marked": true},
+    {"star": [-96.5978, -37.1038], "pixel": [901, 786], "marked": true},
+    {"star": [-118.6407, -19.8055], "pixel": [370, 150]},
+    {"star": [-106.3541, -42.3613], "pixel": [690, 820]},
+    {"star": [-95.6703, -42.9978], "pixel": [860, 860]}
+   ]},
+  {"id": "Aql", "image": "constellation-aquila", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-62.3042, 8.8683], "pixel": [521, 474], "marked": true},
+    {"star": [-63.4351, 10.6133], "pixel": [574, 433], "marked": true},
+    {"star": [-73.6475, 13.8635], "pixel": [930, 570]},
+    {"star": [-57.1738, -0.8215], "pixel": [250, 640]}
+   ]},
+  {"id": "UMa", "image": "constellation-ursa_major", "size": [1024, 1024],
+   "anchors": [
+    {"star": [-153.1148, 49.3133], "pixel": [938, 202], "marked": true},
+    {"star": [127.5661, 60.7182], "pixel": [70, 470]},
+    {"star": [134.8019, 48.0418], "pixel": [120, 820]},
+    {"star": [169.5468, 31.5308], "pixel": [840, 830]},
+    {"star": [165.932, 61.751], "pixel": [386, 405], "marked": true}
+   ]},
+  {"id": "Gem", "image": "constellation-gemini", "size": [1024, 1024],
+   "anchors": [
+    {"star": [113.6494, 31.8883], "pixel": [427, 120], "marked": true},
+    {"star": [116.329, 28.0262], "pixel": [602, 140], "marked": true},
+    {"star": [95.7401, 22.5136], "pixel": [395, 905]},
+    {"star": [99.4279, 16.3993], "pixel": [650, 905]}
+   ]}
+]

@@ -1,0 +1,44 @@
+{
+  "sceneId": "hikarigaoka_park",
+  "radiusMeters": 500,
+  "scanned": 15925,
+  "selected": 1130,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53395409_bldg_6697_op.gml",
+      "sha256": "1c10f043d761a80ce2840fd9ba4d1f7461fa5c463d5706ad9b8b687211d93511",
+      "buildingsScanned": 3390
+    },
+    {
+      "name": "53395419_bldg_6697_op.gml",
+      "sha256": "bf9c08b2c063f0804d26c779216f6d24ab27f85cc6a8d15dbb1431862c74228c",
+      "buildingsScanned": 3548
+    },
+    {
+      "name": "53395429_bldg_6697_op.gml",
+      "sha256": "8214cbe3e5da64fb640840182c87d10c77db8261e6ddb97d05aec6c720b82f1f",
+      "buildingsScanned": 1143
+    },
+    {
+      "name": "53395500_bldg_6697_op.gml",
+      "sha256": "4d5dfe73af129bb370a7f4788cecc65cdd661b7fb5a75d9a31cb6a43c45019fc",
+      "buildingsScanned": 3289
+    },
+    {
+      "name": "53395510_bldg_6697_op.gml",
+      "sha256": "9036a6249e95d19e3162d4fb9429c691a514694723df0cc39c63d089bf38d091",
+      "buildingsScanned": 1800
+    },
+    {
+      "name": "53395520_bldg_6697_op.gml",
+      "sha256": "c312cd58a7ddc5ada87d05fe2003ef4d4a595c374ad3154300d1f31282d22939",
+      "buildingsScanned": 2755
+    }
+  ],
+  "groundElevation": 37.0,
+  "belowSceneGround": 0
+}

@@ -1,0 +1,185 @@
+{
+  "product": "VIIRS VNL v2.2",
+  "layer": "average_masked",
+  "provider": "EOG, Colorado School of Mines",
+  "year": 2025,
+  "raster": {
+    "file": "VNL_npp_2025_global_vcmslcfg_v2_c202604011200.average_masked.dat.tif",
+    "bytes": 11613178368,
+    "sha256": "13aefdc2f1e7107550215e4c3eb64d5a32b634f2a1fe74f86ebe476b76a1659e"
+  },
+  "archive": {
+    "file": "VNL_npp_2025_global_vcmslcfg_v2_c202604011200.average_masked.dat.tif.gz",
+    "bytes": 340942192,
+    "sha256": "55cdc85dab51a26b2806071c2efee49314d1d8bb235581df2b0a03574c95e3ab"
+  },
+  "unit": "nW/cm²/sr",
+  "conversion": {
+    "formula": "clamp((log10(R) - log10(R_DARK)) / (log10(R_BRIGHT) - log10(R_DARK)), 0, 1)",
+    "R_DARK": 1.0,
+    "R_BRIGHT": 250.0,
+    "windowSize": 3
+  },
+  "spots": [
+    {
+      "id": "shibuya_east_plaza",
+      "latitude": 35.658,
+      "longitude": 139.702816,
+      "row": 9442,
+      "col": 76729,
+      "validPixels": 9,
+      "radiance": 188.229364183214,
+      "index": 0.95
+    },
+    {
+      "id": "shibuya_sky",
+      "latitude": 35.658384,
+      "longitude": 139.702242,
+      "row": 9442,
+      "col": 76729,
+      "validPixels": 9,
+      "radiance": 188.229364183214,
+      "index": 0.95
+    },
+    {
+      "id": "shinjuku_central_park",
+      "latitude": 35.690052,
+      "longitude": 139.689935,
+      "row": 9434,
+      "col": 76726,
+      "validPixels": 9,
+      "radiance": 109.97422197129991,
+      "index": 0.85
+    },
+    {
+      "id": "tocho_observatory",
+      "latitude": 35.689464,
+      "longitude": 139.6917,
+      "row": 9435,
+      "col": 76726,
+      "validPixels": 9,
+      "radiance": 91.86828104654948,
+      "index": 0.82
+    },
+    {
+      "id": "kitte_garden",
+      "latitude": 35.6796,
+      "longitude": 139.7647,
+      "row": 9437,
+      "col": 76744,
+      "validPixels": 9,
+      "radiance": 124.47918531629774,
+      "index": 0.87
+    },
+    {
+      "id": "yoyogi_park",
+      "latitude": 35.6717,
+      "longitude": 139.6949,
+      "row": 9439,
+      "col": 76727,
+      "validPixels": 9,
+      "radiance": 53.22969182332357,
+      "index": 0.72
+    },
+    {
+      "id": "shinjuku_gyoen",
+      "latitude": 35.6852,
+      "longitude": 139.71,
+      "row": 9436,
+      "col": 76730,
+      "validPixels": 9,
+      "radiance": 86.02771716647678,
+      "index": 0.81
+    },
+    {
+      "id": "arakawa_riverside",
+      "latitude": 35.688,
+      "longitude": 139.855,
+      "row": 9435,
+      "col": 76765,
+      "validPixels": 9,
+      "radiance": 33.017034742567276,
+      "index": 0.63
+    },
+    {
+      "id": "kasai_rinkai_park",
+      "latitude": 35.643,
+      "longitude": 139.861,
+      "row": 9446,
+      "col": 76767,
+      "validPixels": 9,
+      "radiance": 50.81501505109999,
+      "index": 0.71
+    },
+    {
+      "id": "hikarigaoka_park",
+      "latitude": 35.7628,
+      "longitude": 139.6277,
+      "row": 9417,
+      "col": 76711,
+      "validPixels": 9,
+      "radiance": 40.76123661465115,
+      "index": 0.67
+    },
+    {
+      "id": "ukima_park",
+      "latitude": 35.7928,
+      "longitude": 139.6937,
+      "row": 9410,
+      "col": 76726,
+      "validPixels": 9,
+      "radiance": 37.86793899536133,
+      "index": 0.66
+    },
+    {
+      "id": "kiba_park",
+      "latitude": 35.6738,
+      "longitude": 139.8083,
+      "row": 9438,
+      "col": 76754,
+      "validPixels": 9,
+      "radiance": 65.34873369004991,
+      "index": 0.76
+    },
+    {
+      "id": "kinuta_park",
+      "latitude": 35.6304,
+      "longitude": 139.6202,
+      "row": 9449,
+      "col": 76709,
+      "validPixels": 9,
+      "radiance": 31.775347815619575,
+      "index": 0.63
+    },
+    {
+      "id": "odaiba_kaihin_park",
+      "latitude": 35.6297,
+      "longitude": 139.7745,
+      "row": 9449,
+      "col": 76746,
+      "validPixels": 9,
+      "radiance": 55.41681120130751,
+      "index": 0.73
+    },
+    {
+      "id": "harumi_futo_park",
+      "latitude": 35.648,
+      "longitude": 139.771,
+      "row": 9444,
+      "col": 76745,
+      "validPixels": 9,
+      "radiance": 42.216919793023,
+      "index": 0.68
+    },
+    {
+      "id": "jonanjima_kaihin_park",
+      "latitude": 35.5792,
+      "longitude": 139.7859,
+      "row": 9461,
+      "col": 76749,
+      "validPixels": 9,
+      "radiance": 23.750026173061794,
+      "index": 0.57
+    }
+  ]
+}

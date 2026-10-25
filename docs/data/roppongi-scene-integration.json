@@ -1,0 +1,34 @@
+{
+  "sceneId": "roppongi",
+  "radiusMeters": 500,
+  "scanned": 8918,
+  "selected": 1455,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53393587_bldg_6697_op.gml",
+      "sha256": "a8e65fde9f382d933bb50bd5e44306f2d8247ea3b3d4bb608a51bafe82a174cf",
+      "buildingsScanned": 2461
+    },
+    {
+      "name": "53393588_bldg_6697_op.gml",
+      "sha256": "934c598eb18bdac5b3f255a9a1cd1f7290acfeb65617c6489dfb51b2bbaa8361",
+      "buildingsScanned": 2403
+    },
+    {
+      "name": "53393597_bldg_6697_op.gml",
+      "sha256": "19ab63dcceeeba4a609ea8a764963f3ec9f2c9be4cf748a67d78997781ecc27b",
+      "buildingsScanned": 2288
+    },
+    {
+      "name": "53393598_bldg_6697_op.gml",
+      "sha256": "b19101ad774e129abdd728c57c3f097dd735d5a8f0e7ae581ce7444c76f1f012",
+      "buildingsScanned": 1766
+    }
+  ],
+  "groundElevation": 30.0,
+  "belowSceneGround": 204
+}

@@ -1,0 +1,118 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "13110",
+      "cityName": "目黒区",
+      "year": 2025
+    },
+    {
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.653,35.6172,139.6706,35.6316",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/e2/2fab92-164c-458c-8eee-94b46668b872/13112_setagaya-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53393542_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/b4/38c131-2e1e-4226-95f7-44f2b12debd7/13112_setagaya-ku_pref_2025_citygml_1_op/udx/bldg/53393542_bldg_6697_op.gml",
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 3406,
+      "lod2": 0,
+      "bytes": 44461979,
+      "sha256": "bc9947d09790bc7add2030b807800d5a3153d3f4d0bd100cad68b7bbe983247e"
+    },
+    {
+      "name": "53393543_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/c1/5af712-42ee-403a-bad5-f5d82f8b2492/13110_meguro-ku_pref_2025_citygml_1_op/udx/bldg/53393543_bldg_6697_op.gml",
+      "cityCode": "13110",
+      "cityName": "目黒区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 3460,
+      "lod2": 0,
+      "bytes": 45460568,
+      "sha256": "1c56f02fefc1deebe303dbe3b90f101c275502792444f96f070d1d1f2be9e995"
+    },
+    {
+      "name": "53393552_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/c1/5af712-42ee-403a-bad5-f5d82f8b2492/13110_meguro-ku_pref_2025_citygml_1_op/udx/bldg/53393552_bldg_6697_op.gml",
+      "cityCode": "13110",
+      "cityName": "目黒区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 3236,
+      "lod2": 0,
+      "bytes": 41733542,
+      "sha256": "12e3698a3d8b01d7156a9698c183e05367b7c9d653b5768005b08285f491d423"
+    },
+    {
+      "name": "53393553_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/c1/5af712-42ee-403a-bad5-f5d82f8b2492/13110_meguro-ku_pref_2025_citygml_1_op/udx/bldg/53393553_bldg_6697_op.gml",
+      "cityCode": "13110",
+      "cityName": "目黒区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 3872,
+      "lod2": 0,
+      "bytes": 49557417,
+      "sha256": "1c76b1e9e695a6c0dfd3afe678373d0543f1e328f753bef87fbf9a44ec5e3199"
+    },
+    {
+      "name": "53393542_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/b4/38c131-2e1e-4226-95f7-44f2b12debd7/13112_setagaya-ku_pref_2025_citygml_1_op/udx/tran/53393542_tran_6697_op.gml",
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1065,
+      "lod2": 0,
+      "bytes": 2815537,
+      "sha256": "315dc3c5713d5b610a8b6bd35b7f18375b4ae9299106de673368cd087e46ae7d"
+    },
+    {
+      "name": "53393543_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/c1/5af712-42ee-403a-bad5-f5d82f8b2492/13110_meguro-ku_pref_2025_citygml_1_op/udx/tran/53393543_tran_6697_op.gml",
+      "cityCode": "13110",
+      "cityName": "目黒区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1016,
+      "lod2": 0,
+      "bytes": 2730136,
+      "sha256": "5e9af09567747dd60501b0f8dea222ff52eab3c208b0c38f31b6786df2427396"
+    },
+    {
+      "name": "53393552_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/c1/5af712-42ee-403a-bad5-f5d82f8b2492/13110_meguro-ku_pref_2025_citygml_1_op/udx/tran/53393552_tran_6697_op.gml",
+      "cityCode": "13110",
+      "cityName": "目黒区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 860,
+      "lod2": 0,
+      "bytes": 2285692,
+      "sha256": "bdcb9add5687c26be1fdd3049d06bf840026c2d80d1c565e901cfdde5981b191"
+    },
+    {
+      "name": "53393553_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/c1/5af712-42ee-403a-bad5-f5d82f8b2492/13110_meguro-ku_pref_2025_citygml_1_op/udx/tran/53393553_tran_6697_op.gml",
+      "cityCode": "13110",
+      "cityName": "目黒区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 999,
+      "lod2": 0,
+      "bytes": 2693491,
+      "sha256": "3ebf95d7dff7af3d63afba664f9560a0224204e115617126eaa927e4addf7f28"
+    }
+  ]
+}

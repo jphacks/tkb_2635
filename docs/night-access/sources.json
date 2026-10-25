@@ -1,0 +1,205 @@
+{
+  "shibuya_ground": {
+    "label": "渋谷駅東口地区まちづくり",
+    "url": "https://www.city.shibuya.tokyo.jp/kankyo/shuhen-machizukuri/kento/shibuya_higasiguti_mati_0514.html",
+    "identity": "渋谷駅東口地区まちづくり"
+  },
+  "shinjuku_central": {
+    "label": "新宿中央公園",
+    "url": "https://shinjukuchuo-park.jp/",
+    "identity": "新宿中央公園"
+  },
+  "shinjuku_central_hours": {
+    "label": "新宿中央公園（東京都の施設紹介）",
+    "url": "https://kosodateswitch.metro.tokyo.lg.jp/shop/23905",
+    "identity": "新宿中央公園",
+    "monitor": false,
+    "manualCheckReason": "2026-10-24の直接取得と再試行でHTTP 502/503。検索結果で確認した補助資料。自動監視は同じ施設の取得可能な公式案内で行う。"
+  },
+  "shinjuku_central_closure": {
+    "label": "新宿中央公園 芝生広場閉鎖",
+    "url": "https://shinjukuchuo-park.jp/2026/10/06/10-30%E9%87%91%EF%BD%9E11-13%E9%87%91%E3%80%80%E8%8A%9D%E7%94%9F%E5%BA%83%E5%A0%B4%E5%85%A8%E9%9D%A2%E9%96%89%E9%8E%96%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B/",
+    "identity": "芝生広場"
+  },
+  "yoyogi": {
+    "label": "代々木公園",
+    "url": "https://www.tokyo-park.or.jp/park/yoyogi/index.html",
+    "identity": "代々木公園"
+  },
+  "yoyogi_notices": {
+    "label": "代々木公園 工事・利用変更",
+    "url": "https://www.tokyo-park.or.jp/park/yoyogi/news/2026/park_info_73.html",
+    "identity": "工事及び利用変更"
+  },
+  "gyoen_hours": {
+    "label": "新宿御苑 入園案内",
+    "url": "https://policies.env.go.jp/national-garden/shinjukugyoen/guide/information/",
+    "identity": "新宿御苑",
+    "requiredMarkers": [
+      "開園時間",
+      "休園日"
+    ]
+  },
+  "gyoen_notices": {
+    "label": "新宿御苑",
+    "url": "https://policies.env.go.jp/national-garden/shinjukugyoen/",
+    "identity": "新宿御苑"
+  },
+  "arakawa_rules": {
+    "label": "荒川下流河川敷利用ルール",
+    "url": "https://www.ktr.mlit.go.jp/arage/arage00138.html",
+    "identity": "荒川下流河川敷利用ルール"
+  },
+  "arakawa_parking": {
+    "label": "河川敷駐車場（荒川）",
+    "url": "https://www.city.edogawa.tokyo.jp/e028/kuseijoho/gaiyo/shisetsuguide/bunya/seikatsukotsu/parking/arakawa.html",
+    "identity": "河川敷駐車場（荒川）"
+  },
+  "kasai": {
+    "label": "葛西臨海公園",
+    "url": "https://www.tokyo-park.or.jp/park/kasairinkai/index.html",
+    "identity": "葛西臨海公園"
+  },
+  "mizumoto": {
+    "label": "水元公園",
+    "url": "https://www.tokyo-park.or.jp/park/mizumoto/index.html",
+    "identity": "水元公園"
+  },
+  "toneri": {
+    "label": "舎人公園",
+    "url": "https://www.tokyo-park.or.jp/park/toneri/index.html",
+    "identity": "舎人公園"
+  },
+  "hikarigaoka": {
+    "label": "光が丘公園",
+    "url": "https://www.tokyo-park.or.jp/park/hikarigaoka/index.html",
+    "identity": "光が丘公園"
+  },
+  "shinozaki": {
+    "label": "篠崎公園",
+    "url": "https://www.tokyo-park.or.jp/park/shinozaki/index.html",
+    "identity": "篠崎公園"
+  },
+  "ojima-komatsugawa": {
+    "label": "大島小松川公園",
+    "url": "https://www.tokyo-park.or.jp/park/ojima-komatsugawa/index.html",
+    "identity": "大島小松川公園"
+  },
+  "kiba": {
+    "label": "木場公園",
+    "url": "https://www.tokyo-park.or.jp/park/kiba/index.html",
+    "identity": "木場公園"
+  },
+  "komazawa-olympic": {
+    "label": "駒沢オリンピック公園",
+    "url": "https://www.tokyo-park.or.jp/park/komazawa-olympic/index.html",
+    "identity": "駒沢オリンピック公園"
+  },
+  "kinuta": {
+    "label": "砧公園",
+    "url": "https://www.tokyo-park.or.jp/park/kinuta/index.html",
+    "identity": "砧公園"
+  },
+  "yumenoshima_rules": {
+    "label": "夢の島公園 公園のルール",
+    "url": "https://www.yumenoshima.jp/park/rule",
+    "identity": "夢の島公園",
+    "monitor": false,
+    "manualCheckReason": "2026-10-24の直接取得と再試行でHTTP 502/503。検索結果で確認した補助資料。自動監視は同じ施設の取得可能な公式案内で行う。"
+  },
+  "yumenoshima_notices": {
+    "label": "夢の島公園 お知らせ",
+    "url": "https://www.yumenoshima.jp/park/topics",
+    "identity": "夢の島公園",
+    "monitor": false,
+    "manualCheckReason": "2026-10-24の直接取得と再試行でHTTP 502/503。検索結果で確認した補助資料。自動監視は同じ施設の取得可能な公式案内で行う。"
+  },
+  "odaiba": {
+    "label": "お台場海浜公園",
+    "url": "https://www.tptc.co.jp/park/01_02",
+    "identity": "お台場海浜公園"
+  },
+  "odaiba_tourism": {
+    "label": "お台場海浜公園（臨海副都心の観光案内）",
+    "url": "https://www.tokyo-odaiba.net/genre/odaiba_marine_park/",
+    "identity": "お台場海浜公園",
+    "monitor": false,
+    "manualCheckReason": "2026-10-24の直接取得と再試行でHTTP 502/503。検索結果で確認した補助資料。自動監視は同じ施設の取得可能な公式案内で行う。"
+  },
+  "shiokaze": {
+    "label": "潮風公園",
+    "url": "https://www.tptc.co.jp/park/01_03",
+    "identity": "潮風公園"
+  },
+  "shiokaze_tourism": {
+    "label": "潮風公園（東京都の観光案内）",
+    "url": "https://www.gotokyo.org/jp/spot/856/index.html",
+    "identity": "潮風公園",
+    "monitor": false,
+    "manualCheckReason": "2026-10-24の直接取得と再試行でHTTP 502/503。検索結果で確認した補助資料。自動監視は同じ施設の取得可能な公式案内で行う。"
+  },
+  "tatsumi": {
+    "label": "辰巳の森海浜公園",
+    "url": "https://www.tptc.co.jp/park/03_01",
+    "identity": "辰巳の森海浜公園"
+  },
+  "tatsumi_tourism": {
+    "label": "辰巳の森海浜公園（東京都の観光案内）",
+    "url": "https://www.gotokyo.org/jp/spot/1171/index.html",
+    "identity": "辰巳の森海浜公園",
+    "monitor": false,
+    "manualCheckReason": "2026-10-24の直接取得と再試行でHTTP 502/503。検索結果で確認した補助資料。自動監視は同じ施設の取得可能な公式案内で行う。"
+  },
+  "jonanjima": {
+    "label": "城南島海浜公園",
+    "url": "https://tokyo-south-seaside-parks.com/jonanjima/",
+    "identity": "城南島海浜公園"
+  },
+  "jonanjima_beach": {
+    "label": "城南島海浜公園 つばさ浜・ボードウォーク",
+    "url": "https://tokyo-south-seaside-parks.com/jonanjima-tsubasa-beach-boardwalk/",
+    "identity": "城南島海浜公園"
+  },
+  "jonanjima_tourism": {
+    "label": "城南島海浜公園（東京都の観光案内）",
+    "url": "https://www.gotokyo.org/jp/spot/494/index.html",
+    "identity": "城南島海浜公園",
+    "monitor": false,
+    "manualCheckReason": "2026-10-24の直接取得と再試行でHTTP 502/503。検索結果で確認した補助資料。自動監視は同じ施設の取得可能な公式案内で行う。"
+  },
+  "wakasu": {
+    "label": "若洲海浜公園",
+    "url": "https://www.tptc.co.jp/park/03_07",
+    "identity": "若洲海浜公園"
+  },
+  "wakasu_qa": {
+    "label": "若洲海浜公園 公園Q&A",
+    "url": "https://www.tptc.co.jp/park/03_07/qa",
+    "identity": "若洲海浜公園"
+  },
+  "yumenoshima": {
+    "label": "夢の島公園（東京都公園協会）",
+    "identity": "夢の島公園",
+    "url": "https://www.tokyo-park.or.jp/park/yumenoshima/index.html"
+  },
+  "shinjuku_tourism": {
+    "label": "新宿中央公園（新宿観光振興協会）",
+    "identity": "新宿中央公園",
+    "url": "https://www.kanko-shinjuku.jp/spot/c004/article_358.html"
+  },
+  "ukima": {
+    "label": "浮間公園",
+    "url": "https://www.tokyo-park.or.jp/park/ukima/index.html",
+    "identity": "浮間公園"
+  },
+  "odaiba_qa": {
+    "label": "お台場海浜公園 公園Q&A",
+    "url": "https://www.tptc.co.jp/park/01_02/qa",
+    "identity": "お台場海浜公園"
+  },
+  "harumi_futo": {
+    "label": "晴海ふ頭公園",
+    "url": "https://www.tptc.co.jp/park/02_01",
+    "identity": "晴海ふ頭公園"
+  }
+}

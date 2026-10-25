@@ -1,0 +1,34 @@
+{
+  "sceneId": "yoyogi_park",
+  "radiusMeters": 500,
+  "scanned": 7837,
+  "selected": 219,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53394505_bldg_6697_op.gml",
+      "sha256": "bfa8f16b4145822690a192e0c08ac442af01c1f17a821981f783f30bddd18aab",
+      "buildingsScanned": 904
+    },
+    {
+      "name": "53394506_bldg_6697_op.gml",
+      "sha256": "34e52793161a6c1a995ca2f6393d30aa50bd968709bd5e3b96fd050a59e16225",
+      "buildingsScanned": 2372
+    },
+    {
+      "name": "53394515_bldg_6697_op.gml",
+      "sha256": "d201bd41a795a0067f2b78c3d4903508ea17d6af2dc3502f0baf6191ffa7cb2f",
+      "buildingsScanned": 2391
+    },
+    {
+      "name": "53394516_bldg_6697_op.gml",
+      "sha256": "4697d6b6c4f96a8cd268ca5221b0c268723a3180555c14accde9fbc5b45de8fc",
+      "buildingsScanned": 2170
+    }
+  ],
+  "groundElevation": 34.0,
+  "belowSceneGround": 166
+}

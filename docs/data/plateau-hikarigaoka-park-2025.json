@@ -1,0 +1,166 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "13119",
+      "cityName": "板橋区",
+      "year": 2025
+    },
+    {
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.6188,35.7556,139.6366,35.77",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/ba/b69c25-dfd6-4c62-bf4e-cea1d40f1a1e/13120_nerima-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53395409_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/bldg/53395409_bldg_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 3390,
+      "lod2": 0,
+      "bytes": 44716841,
+      "sha256": "1c10f043d761a80ce2840fd9ba4d1f7461fa5c463d5706ad9b8b687211d93511"
+    },
+    {
+      "name": "53395419_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/bldg/53395419_bldg_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 3548,
+      "lod2": 0,
+      "bytes": 46646949,
+      "sha256": "bf9c08b2c063f0804d26c779216f6d24ab27f85cc6a8d15dbb1431862c74228c"
+    },
+    {
+      "name": "53395429_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/bldg/53395429_bldg_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1143,
+      "lod2": 0,
+      "bytes": 15072148,
+      "sha256": "8214cbe3e5da64fb640840182c87d10c77db8261e6ddb97d05aec6c720b82f1f"
+    },
+    {
+      "name": "53395500_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/bldg/53395500_bldg_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 3289,
+      "lod2": 15,
+      "bytes": 45820438,
+      "sha256": "4d5dfe73af129bb370a7f4788cecc65cdd661b7fb5a75d9a31cb6a43c45019fc"
+    },
+    {
+      "name": "53395510_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/bldg/53395510_bldg_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1800,
+      "lod2": 39,
+      "bytes": 26057386,
+      "sha256": "9036a6249e95d19e3162d4fb9429c691a514694723df0cc39c63d089bf38d091"
+    },
+    {
+      "name": "53395520_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/26/859c29-8352-4339-b764-8e6eb42e9eeb/13119_itabashi-ku_pref_2025_citygml_1_op/udx/bldg/53395520_bldg_6697_op.gml",
+      "cityCode": "13119",
+      "cityName": "板橋区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 2755,
+      "lod2": 1,
+      "bytes": 37078939,
+      "sha256": "c312cd58a7ddc5ada87d05fe2003ef4d4a595c374ad3154300d1f31282d22939"
+    },
+    {
+      "name": "53395409_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/tran/53395409_tran_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 907,
+      "lod2": 0,
+      "bytes": 2411032,
+      "sha256": "48f1d435d8ec02f10ceb5641432b006b995546bc69970883d98e07dbacccd6a4"
+    },
+    {
+      "name": "53395419_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/tran/53395419_tran_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1186,
+      "lod2": 0,
+      "bytes": 3151233,
+      "sha256": "48ac62923f19faa88a3d2830fd07f8d2a6f37e9945391199e70b7c10719d950e"
+    },
+    {
+      "name": "53395429_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/tran/53395429_tran_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 373,
+      "lod2": 0,
+      "bytes": 995611,
+      "sha256": "b8b049e3e4d62bd39e2617e6e42212f6891bb0e75a6a606f874b0f2b507a1b28"
+    },
+    {
+      "name": "53395500_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/tran/53395500_tran_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1023,
+      "lod2": 1,
+      "bytes": 2724554,
+      "sha256": "424ef208335de2d2a0734cb1e99036d76570d8315be645ed8ae70b34a8ff2165"
+    },
+    {
+      "name": "53395510_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/tran/53395510_tran_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 427,
+      "lod2": 13,
+      "bytes": 1237826,
+      "sha256": "89dc6f0ecec559af7d8724e05f32a24fe728c1a4121eaac88b1774fd2ea9528e"
+    },
+    {
+      "name": "53395520_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/26/859c29-8352-4339-b764-8e6eb42e9eeb/13119_itabashi-ku_pref_2025_citygml_1_op/udx/tran/53395520_tran_6697_op.gml",
+      "cityCode": "13119",
+      "cityName": "板橋区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 837,
+      "lod2": 2,
+      "bytes": 2244529,
+      "sha256": "c39fd456b9523de69ba44d43e87ed2596b399a3dc9ba23e43f5b03b458b5831f"
+    }
+  ]
+}

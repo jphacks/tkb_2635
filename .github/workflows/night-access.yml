@@ -1,0 +1,44 @@
+name: 1-06 夜間利用の公式情報確認
+
+on:
+  schedule:
+    # 毎日06:37（日本時間）。GitHubの混雑などで遅れる場合があります。
+    - cron: '37 21 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: night-access-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: 保存済みデータで取得処理を検証
+        run: python3 -m unittest discover -s scripts/night_access_tests -v
+      - name: 確認済み方針とアプリの地点データを照合
+        run: python3 scripts/apply_night_access.py
+      - name: 公式ページの変更を確認
+        run: python3 scripts/check_night_access.py --fail-on-change --output /tmp/astera-night-access
+      - name: 実行結果をサマリーに表示
+        if: always()
+        run: |
+          if [ -f /tmp/astera-night-access/summary.md ]; then
+            cat /tmp/astera-night-access/summary.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: 比較用の本文と取得結果を保存
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: night-access-report-${{ github.run_id }}-${{ github.run_attempt }}
+          path: /tmp/astera-night-access/
+          if-no-files-found: error
+          retention-days: 14

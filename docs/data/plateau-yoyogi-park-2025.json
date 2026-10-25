@@ -1,0 +1,188 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "13103",
+      "cityName": "港区",
+      "year": 2025
+    },
+    {
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "year": 2025
+    },
+    {
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025
+    },
+    {
+      "cityCode": "13113",
+      "cityName": "渋谷区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.6861,35.6645,139.7037,35.6789",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/97/1a5000-3023-4888-81de-05cadb2e239e/13113_shibuya-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53394505_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/fd/21cbf7-ee57-42bb-a445-ea9c46f8c1b3/13113_shibuya-ku_pref_2025_citygml_1_op/udx/bldg/53394505_bldg_6697_op.gml",
+      "cityCode": "13113",
+      "cityName": "渋谷区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 904,
+      "lod2": 0,
+      "bytes": 12433081,
+      "sha256": "bfa8f16b4145822690a192e0c08ac442af01c1f17a821981f783f30bddd18aab"
+    },
+    {
+      "name": "53394506_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/ea/d75459-6d62-4a1f-8081-317603bd5f8d/13103_minato-ku_pref_2025_citygml_1_op/udx/bldg/53394506_bldg_6697_op.gml",
+      "cityCode": "13103",
+      "cityName": "港区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 2372,
+      "lod2": 0,
+      "bytes": 33213169,
+      "sha256": "34e52793161a6c1a995ca2f6393d30aa50bd968709bd5e3b96fd050a59e16225"
+    },
+    {
+      "name": "53394515_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/bldg/53394515_bldg_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 2391,
+      "lod2": 3,
+      "bytes": 32843690,
+      "sha256": "d201bd41a795a0067f2b78c3d4903508ea17d6af2dc3502f0baf6191ffa7cb2f"
+    },
+    {
+      "name": "53394516_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/fd/21cbf7-ee57-42bb-a445-ea9c46f8c1b3/13113_shibuya-ku_pref_2025_citygml_1_op/udx/bldg/53394516_bldg_6697_op.gml",
+      "cityCode": "13113",
+      "cityName": "渋谷区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 2171,
+      "lod2": 88,
+      "bytes": 31716027,
+      "sha256": "4697d6b6c4f96a8cd268ca5221b0c268723a3180555c14accde9fbc5b45de8fc"
+    },
+    {
+      "name": "53393594_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/b4/38c131-2e1e-4226-95f7-44f2b12debd7/13112_setagaya-ku_pref_2025_citygml_1_op/udx/tran/53393594_tran_6697_op.gml",
+      "cityCode": "13112",
+      "cityName": "世田谷区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 709,
+      "lod2": 0,
+      "bytes": 1957470,
+      "sha256": "daeb484be3f77e3c90f3f423081f87b756a301b21e1abef297ccdb97a7d47239"
+    },
+    {
+      "name": "53393595_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/fd/21cbf7-ee57-42bb-a445-ea9c46f8c1b3/13113_shibuya-ku_pref_2025_citygml_1_op/udx/tran/53393595_tran_6697_op.gml",
+      "cityCode": "13113",
+      "cityName": "渋谷区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 772,
+      "lod2": 357,
+      "bytes": 13335102,
+      "sha256": "a74cc75aa06a9a57dd2d9ecae644267779eb6ac1e2ca43dc53f04eb6b2fa86ee"
+    },
+    {
+      "name": "53393596_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/ea/d75459-6d62-4a1f-8081-317603bd5f8d/13103_minato-ku_pref_2025_citygml_1_op/udx/tran/53393596_tran_6697_op.gml",
+      "cityCode": "13103",
+      "cityName": "港区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 634,
+      "lod2": 284,
+      "bytes": 21792533,
+      "sha256": "ad04f9b05a29140988178b84987e9ff7aae0fac36279fc79640db9e45a6cc317"
+    },
+    {
+      "name": "53394504_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/fd/21cbf7-ee57-42bb-a445-ea9c46f8c1b3/13113_shibuya-ku_pref_2025_citygml_1_op/udx/tran/53394504_tran_6697_op.gml",
+      "cityCode": "13113",
+      "cityName": "渋谷区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1235,
+      "lod2": 0,
+      "bytes": 3416185,
+      "sha256": "75018e39da603a0f1f8cd7f32d2622924e5db6c11fe075cd2125fdc1a25015d8"
+    },
+    {
+      "name": "53394505_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/fd/21cbf7-ee57-42bb-a445-ea9c46f8c1b3/13113_shibuya-ku_pref_2025_citygml_1_op/udx/tran/53394505_tran_6697_op.gml",
+      "cityCode": "13113",
+      "cityName": "渋谷区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 329,
+      "lod2": 0,
+      "bytes": 946830,
+      "sha256": "6f227411d08612e1fe13447ba5b25b9cb5af5a3885e364d25e2a666743e32a16"
+    },
+    {
+      "name": "53394506_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/ea/d75459-6d62-4a1f-8081-317603bd5f8d/13103_minato-ku_pref_2025_citygml_1_op/udx/tran/53394506_tran_6697_op.gml",
+      "cityCode": "13103",
+      "cityName": "港区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 783,
+      "lod2": 0,
+      "bytes": 2194851,
+      "sha256": "15aae5a739a7f525ac13cb258f41563b9eaef85426ff88d4f3120f059b8a2c10"
+    },
+    {
+      "name": "53394514_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/tran/53394514_tran_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 1297,
+      "lod2": 25,
+      "bytes": 4005443,
+      "sha256": "7b525e33b514c270a5949bbbaf674bec29095c395697ac296a566fbb00709454"
+    },
+    {
+      "name": "53394515_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/tran/53394515_tran_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 788,
+      "lod2": 21,
+      "bytes": 4551565,
+      "sha256": "e61b831f8558c56a493b5bd302249ef2f28c73851fd5f4a30494fc4ac2478c2b"
+    },
+    {
+      "name": "53394516_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/84/48ebed-93d8-4196-bdda-e1db9590d3d1/13104_shinjuku-ku_pref_2025_citygml_1_op/udx/tran/53394516_tran_6697_op.gml",
+      "cityCode": "13104",
+      "cityName": "新宿区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 705,
+      "lod2": 43,
+      "bytes": 2386006,
+      "sha256": "4774e94ffa373936b9d324d26fdbf6371601d9339d280cb5269775c2d5e3b7d3"
+    }
+  ]
+}

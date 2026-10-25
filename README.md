@@ -9,7 +9,7 @@
 都市部では、天気が良くても高層ビルに遮られて星や月が見えないことが多い。人工照明や雲、観測場所の高さによっても見え方は変わる。展望台や屋上には営業時間・料金・立入制限もある。これらをまとめて確かめる手段がない。
 
 ### 製品説明（具体的な製品の説明）
-東京都23区の公園・広場・河川敷・展望台・屋上を対象に、指定した日時と天体（月・明るい恒星）について、観測に向いた地点を推薦する iPhone アプリ。
+東京都23区の公園・広場・河川敷・展望台・屋上を対象に、指定した日時と天体（月・惑星・明るい恒星）について、観測に向いた地点を推薦する iPhone アプリ。
 建物の形、観測者の目の高さ、天体の位置、雲量、光害、施設の利用時間をもとに判定し、建物と天体の位置関係を 3D で表示する。
 
 ### 特長
@@ -24,8 +24,7 @@
 「せっかく出かけたのにビルで見えなかった」「展望台が閉まっていた」を事前に避けられる。
 
 ### 今後の展望
-- PLATEAU の建物データ・国土地理院 DEM の取り込み（現在は手作りの概略データ）
-- VIIRS 夜間光による地域の光害指標（現在は暫定値）
+- PLATEAU の対象地域拡大・国土地理院 DEM の取り込み（全42地点にPLATEAUを導入済み）
 - 現地調査による近傍照明の評価、施設情報の確認
 - 地上と展望台の比較画面、時刻スライダー、現在地からの距離
 
@@ -37,8 +36,11 @@
 ### 活用した技術
 #### API・データ
 * [Open-Meteo](https://open-meteo.com/) Forecast API（雲量・降水量・風速・視程、CC BY 4.0）
-* Bright Star Catalogue（明るい恒星の J2000.0 座標を抜粋）
-* 建物データ: 手作りの概略データ（PLATEAU 取り込み予定）
+* 地域の光害: [VIIRS Nighttime Lights](https://eogdata.mines.edu/products/vnl/) 年次合成 v2.2（Earth Observation Group, Payne Institute for Public Policy, Colorado School of Mines、CC BY 4.0）を加工
+* Bright Star Catalogue（明るい恒星 52 個の J2000.0 座標・等級を抜粋）、惑星（水星〜土星）は Paul Schlyter「[Computing planetary positions](https://stjarnhimlen.se/comp/ppcomp.html)」の軌道要素
+* 建物データ: [東京都・PLATEAU渋谷区2025年度版](https://www.geospatial.jp/ckan/dataset/plateau-13113-shibuya-ku-2025)を加工（CC BY 4.0）。渋谷駅周囲500mの1,497棟を直方体近似。西新宿は[東京都・PLATEAU新宿区2025年度版](https://www.geospatial.jp/ckan/dataset/plateau-13104-shinjuku-ku-2025)を加工（CC BY 4.0）し、都庁周囲500mの791棟を直方体近似。丸の内は[東京都・PLATEAU千代田区2025年度版](https://www.geospatial.jp/ckan/dataset/plateau-13101-chiyoda-ku-2025)を加工（CC BY 4.0）し、KITTE周囲500mの350棟を直方体近似。ほかの14地点（公園など）も同じく各区のPLATEAU（2025年度、CC BY 4.0）を加工し、地点の周囲500mを直方体近似東京スカイツリー・東京タワー・サンシャイン60・東京シティビューの展望台と、それぞれの足元の地上の4組も足した。さらに浅草・汐留・船堀の展望室と、上野・日比谷・隅田・若洲・夢の島・石神井・林試の森の公園も足した（[作り方・区ごとの出典](docs/design/city-scenes/README.md)）。
+* 23区の広域3D（ホームの3D）: [PLATEAU VIEW のデータカタログ](https://api.plateauview.mlit.go.jp/datacatalog/plateau-datasets)にある東京都23区の3D都市モデル（Project PLATEAU）LOD1・LOD2 の 3D Tiles を区ごとに加工（CC BY 4.0）。LOD1 は建物を向き付きの箱にし、1区あたり大きい順に最大15,000棟。LOD2 は屋根の形つき（1区あたり三角形130万まで）で、カメラに近い最大3区だけ切り替えて表示する。容量は LOD1 23区の合計 116MB（各 3.7〜5.1MB）、LOD2 23区の合計 302MB（各 7.8〜16.5MB）、アプリ全体 約 790MB（シミュレータ向け Debug ビルドの .app、2026-10-25 計測）（[作り方](scripts/README.md)）。
+* 3D の遠くの地面（4-11）: 国土地理院「地理院タイル（全国最新写真（シームレス））」と Earth Observation Group, Payne Institute for Public Policy, Colorado School of Mines（VIIRS Nighttime Lights V2.2、CC BY 4.0。Elvidge et al. 2021, Remote Sensing 13(5), 922）を加工。明かりの点の位置はイメージ（[作り方](docs/design/city-scenes/README.md#4-11-遠くの地面)）。
 
 #### フレームワーク・ライブラリ・モジュール
 * SwiftUI（画面はすべて SwiftUI）
@@ -51,7 +53,7 @@
 
 ### 独自技術
 #### ハッカソンで開発した独自機能・技術
-* 月・太陽・恒星の位置計算（[Astro.swift](Packages/StarCore/Sources/StarCore/Astro/Astro.swift)）: 天文年鑑の低精度式を Swift で実装。Astronomy Engine と比べ、月の位置の誤差は 0.7° 以内（テストで確認）
+* 月・太陽・恒星の位置計算（[Astro.swift](Packages/StarCore/Sources/StarCore/Astro/Astro.swift)）: 天文年鑑の低精度式を Swift で実装。Astronomy Engine と比べ、月の位置の誤差は 0.7° 以内（テストで確認）。惑星（[Planets.swift](Packages/StarCore/Sources/StarCore/Astro/Planets.swift)）は軌道要素から計算し、skyfield（JPL DE421）との差は 2 時刻 × 5 惑星で最大 0.013°（テストの許容差は 0.3°、[説明](docs/astro/planets.md)）
 * 地平線プロファイルと空の開放度（[HorizonProfile.swift](Packages/StarCore/Sources/StarCore/Geometry/HorizonProfile.swift)）
 * 観測地点の推薦（[Recommender.swift](Packages/StarCore/Sources/StarCore/Scoring/Recommender.swift)）: 立入条件 → 可視性 → 天気 → 暗さ → 順位付け → 推薦理由
 
@@ -76,25 +78,38 @@ cd Packages/StarCore && swift test
 ```
 App/                       SwiftUI アプリ（一覧・詳細・3D プレビュー）
 Packages/StarCore/         モデル・天体計算・遮蔽判定・天気・スコア（ローカル Swift Package）
-  Sources/StarCore/Resources/spots.json      観測地点（9地点、5種類）
-  Sources/StarCore/Resources/buildings.json  渋谷・西新宿の建物（概略）
-scripts/plateau_to_json.py PLATEAU 変換のスタブ
+  Sources/StarCore/Resources/spots.json      観測地点（42地点、5種類）
+  Sources/StarCore/Resources/buildings.json  全42地点（PLATEAU。渋谷1,497棟・西新宿791棟・丸の内350棟ほか）
+scripts/plateau_to_json.py CityGML → アプリ用JSONへの変換
 ```
 
 ### スコア
 - 暗さ D = clamp(1 − (0.45·地域の光害 + 0.25·近傍照明 + 0.30·月明かり), 0, 1)
 - 総合 S = 100 (0.35·空の開放度 + 0.40·天気 + 0.25·暗さ)
+- 太陽高度が −6°（市民薄明の限界）より上なら恒星は「見えない」扱い。−18°（天文薄明の限界）までは太陽の光の残りに応じて暗さ D を直線的に下げる。月は昼間でも除外しないが「推薦」にはしない
 - 利用時間外・天体が見えない地点は、スコアに関係なく下位にする
 
 ### データについての注意
-* 施設の営業時間・料金は暫定値で、確認済みではない。公式情報を確認すること
-* 地域の光害指標・近傍照明は未取り込み・未確認（画面に表示される）
-* 恒星の位置は歳差を補正していないため、0.4° 程度の誤差がある
+* 光が丘公園・浮間公園・木場公園・砧公園・お台場海浜公園・晴海ふ頭公園・城南島海浜公園を追加し、計19地点。お台場・晴海ふ頭・城南島は夜間の入場可否が未確認のため「要確認」（[出典と確認の記録](docs/facilities/more-parks.md)）。
+* 舎人公園・水元公園・駒沢オリンピック公園を追加し、計12地点（1-10）。追加3地点は建物・樹木・光害などが未確認のため「要確認」。詳細画面には天候による閉鎖条件・撮影機材の制限も表示する（[出典・実機での確認箇所](docs/facilities/observation-conditions.md)）。都庁南展望室は公式の方角案内を表示するが、窓の境界角度は確認待ち。
+* 公園・広場・河川敷の既存6地点に、確認済みの利用時間と未確認の区別を反映（[1-06の調査と運用](docs/night-access/README.md)）。新宿御苑の季節・休園日判定は2026〜2027年が対象。SHIBUYA SKY・都庁南展望室・KITTEガーデンは1-03〜1-05で確認した公式情報を使用。臨時の閉鎖は公式案内を確認すること
+* 地域の光害指標は VIIRS 夜間光（2025 年の年次合成、約 460 m の画素の年平均）から作った（[手順と出典](docs/data/viirs-light-index.md)）。近傍照明は未確認（画面に表示される）
+* 恒星の位置は歳差を補正済みで、精密な計算（skyfield + JPL DE421）との差は 0.01° 未満。章動・光行差・恒星の固有運動は未補正（[検証の記録](docs/astro/verification.md)）
 
 ### PLATEAU原本の取得（2-02）
 
-渋谷駅周辺の2025年度版CityGML原本を取得済みです。出典、利用条件、再取得コマンドは [取得記録](docs/data/plateau-shibuya-2025.md) を参照してください。アプリ向けの変換と建物データの置き換えは次の作業（2-03・2-04）です。
+渋谷駅周辺の2025年度版CityGML原本を取得済みです。出典、利用条件、再取得コマンドは [取得記録](docs/data/plateau-shibuya-2025.md) を参照してください。変換（2-03）と渋谷シーンへの組み込み（2-04）まで実施済みです。
 
 ### PLATEAU建物の変換（2-03）
 
-取得したCityGMLから、指定地点の周囲500mの建物をアプリ形式のJSONに変換できます。[実行方法・高さの扱い・制約](docs/data/plateau-converter.md)を参照してください。アプリへのデータ置き換え（2-04）は別作業です。
+取得したCityGMLから、指定地点の周囲500mの建物をアプリ形式のJSONに変換できます。[実行方法・高さの扱い・制約](docs/data/plateau-converter.md)を参照してください。渋谷シーンへの組み込みは[導入記録（2-04）](docs/data/shibuya-scene-integration.md)に記載しています。
+
+### 渋谷のPLATEAU建物（2-04）
+
+東京都「3D都市モデル（Project PLATEAU）渋谷区（2025年度）」を加工してAsteraチームが作成しました（CC BY 4.0）。出典URL・原本のSHA-256・変換規則・建物IDの対応付けは[導入記録](docs/data/shibuya-scene-integration.md)に記載しています。詳細画面の「建物データ」でも出典と収録建物数を確認できます。
+
+建物は外接直方体による近似です。建物ごとの地盤差は屋根標高に反映しますが、地形そのものは再現していません。観測地点の位置はデモ用の代表点、床面標高は暫定値です。原点から500m外の高層建物や現地の立入可否は未確認です。
+
+### 建物の夜景表現（8-06）
+
+3D建物に青灰色の外壁と控えめな暖色の窓明かりを追加しました。用途を参考にした演出で、実際の外壁色・点灯状況を再現するものではありません。[素材と確認状況](docs/design/building-night/README.md)を参照してください。

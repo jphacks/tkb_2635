@@ -1,0 +1,24 @@
+{
+  "sceneId": "mizumoto_park",
+  "radiusMeters": 500,
+  "scanned": 2121,
+  "selected": 1166,
+  "duplicatesRemoved": 0,
+  "coordinateSystem": "EPSG:6697 (latitude, longitude, orthometric height)",
+  "heightRule": "max(LOD1 roof elevation, base elevation + measuredHeight) - scene groundElevation",
+  "selectionRule": "axis-aligned building bounding rectangle intersects radius circle",
+  "files": [
+    {
+      "name": "53395649_bldg_6697_op.gml",
+      "sha256": "76eeb10ab3e9b805c2c1ae22bef566e5481ffc023565b1b605a30db26779e6d0",
+      "buildingsScanned": 1836
+    },
+    {
+      "name": "53395659_bldg_6697_op.gml",
+      "sha256": "d948f31b36749a2afe00a0217d4671983c25685d06a775a3463fe37d37a58109",
+      "buildingsScanned": 285
+    }
+  ],
+  "groundElevation": 2.0,
+  "belowSceneGround": 0
+}

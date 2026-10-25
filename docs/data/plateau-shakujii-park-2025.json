@@ -1,0 +1,142 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "13115",
+      "cityName": "杉並区",
+      "year": 2025
+    },
+    {
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.5891,35.7285,139.6069,35.7429",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/ba/b69c25-dfd6-4c62-bf4e-cea1d40f1a1e/13120_nerima-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53394477_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/bldg/53394477_bldg_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 3496,
+      "lod2": 273,
+      "bytes": 52147670,
+      "sha256": "a2dd4b454f8cad65938c6f05d0b96f0c4a5bf78ba7f602982c0d08892e38ce7b"
+    },
+    {
+      "name": "53394478_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/1f/4afed5-f8d0-42e7-b334-e507471ecd51/13115_suginami-ku_pref_2025_citygml_1_op/udx/bldg/53394478_bldg_6697_op.gml",
+      "cityCode": "13115",
+      "cityName": "杉並区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 4387,
+      "lod2": 0,
+      "bytes": 56866331,
+      "sha256": "af4f9e72fea3e904f2a64ab8585f6edf00f08c87f5ed44093afa7d91ebe6b09a"
+    },
+    {
+      "name": "53394487_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/bldg/53394487_bldg_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 3274,
+      "lod2": 0,
+      "bytes": 42810063,
+      "sha256": "a38eda86ba4e0387a557187c19f9e25dd75beba516905a6d2f493156f24a471f"
+    },
+    {
+      "name": "53394488_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/bldg/53394488_bldg_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 3472,
+      "lod2": 0,
+      "bytes": 45283852,
+      "sha256": "720b29d539046079d03b98646588a02dbf7193b1c2717b428e09fd0199a4aa88"
+    },
+    {
+      "name": "53394477_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/tran/53394477_tran_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1128,
+      "lod2": 99,
+      "bytes": 3199854,
+      "sha256": "5a7962e3b9d9b89c8963c802aabe4de9817c5d6ced7757e8f0dcec86536e94a5"
+    },
+    {
+      "name": "53394478_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/1f/4afed5-f8d0-42e7-b334-e507471ecd51/13115_suginami-ku_pref_2025_citygml_1_op/udx/tran/53394478_tran_6697_op.gml",
+      "cityCode": "13115",
+      "cityName": "杉並区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1395,
+      "lod2": 0,
+      "bytes": 3865288,
+      "sha256": "5fd75778498f8959a8e02e1d5490642266169be1f1076f1d68aa5e22118ac4f1"
+    },
+    {
+      "name": "53394487_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/tran/53394487_tran_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1076,
+      "lod2": 0,
+      "bytes": 2877112,
+      "sha256": "1f623866b1a2111059a97693eafb5586bb10ca44ac0dc4d50104d4e3fb8431c3"
+    },
+    {
+      "name": "53394488_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/tran/53394488_tran_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1303,
+      "lod2": 0,
+      "bytes": 3484287,
+      "sha256": "0975f3e1d10d7b6560f6374400110b3ba8d49cbc7f6fe3d0be94db689faf746b"
+    },
+    {
+      "name": "53394497_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/tran/53394497_tran_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1199,
+      "lod2": 5,
+      "bytes": 3241312,
+      "sha256": "15f0a754b55f270b81f43c0897a4afe650916ef2840e7d91ee8a5716f4800ec1"
+    },
+    {
+      "name": "53394498_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/24/f0d0d7-c47a-4647-95f4-fd969c878bcf/13120_nerima-ku_pref_2025_citygml_1_op/udx/tran/53394498_tran_6697_op.gml",
+      "cityCode": "13120",
+      "cityName": "練馬区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1162,
+      "lod2": 96,
+      "bytes": 3404031,
+      "sha256": "6267fe2a45b085caa98190c08b624e04b69900cf53562d1fb37ab5949c949fc2"
+    }
+  ]
+}

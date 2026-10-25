@@ -1,0 +1,137 @@
+{
+  "dataset": "3D都市モデル（Project PLATEAU）",
+  "cities": [
+    {
+      "cityCode": "13109",
+      "cityName": "品川区",
+      "year": 2025
+    }
+  ],
+  "year": 2025,
+  "catalog_query": "https://api.plateauview.mlit.go.jp/datacatalog/citygml/r:139.6967,35.6183,139.7143,35.6327",
+  "codelists": "https://assets.cms.plateau.reearth.io/assets/b9/5172a7-6103-4090-be33-bb6a10bc210d/13109_shinagawa-ku_pref_2025_citygml_1_op_codelists.zip",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "files": [
+    {
+      "name": "53393545_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/90d7b7-679a-46d4-a842-7706fec36d40/13109_shinagawa-ku_pref_2025_citygml_1_op/udx/bldg/53393545_bldg_6697_op.gml",
+      "cityCode": "13109",
+      "cityName": "品川区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 5580,
+      "lod2": 0,
+      "bytes": 70355378,
+      "sha256": "baa900ffcbfafb213cd74b5f1d2416e5bb1bb50bb8adb4d841b88eb57e5d33a9"
+    },
+    {
+      "name": "53393546_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/90d7b7-679a-46d4-a842-7706fec36d40/13109_shinagawa-ku_pref_2025_citygml_1_op/udx/bldg/53393546_bldg_6697_op.gml",
+      "cityCode": "13109",
+      "cityName": "品川区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 5374,
+      "lod2": 257,
+      "bytes": 71436166,
+      "sha256": "ae18badd3bb44c68f50a239bb4c8043cbc464a47a6a74284f310fe95232ad537"
+    },
+    {
+      "name": "53393555_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/90d7b7-679a-46d4-a842-7706fec36d40/13109_shinagawa-ku_pref_2025_citygml_1_op/udx/bldg/53393555_bldg_6697_op.gml",
+      "cityCode": "13109",
+      "cityName": "品川区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 4590,
+      "lod2": 0,
+      "bytes": 57845953,
+      "sha256": "55f5b624032c46b77445d20b7f8548452d93e881bba6a730146c03e06cd672f6"
+    },
+    {
+      "name": "53393556_bldg_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/90d7b7-679a-46d4-a842-7706fec36d40/13109_shinagawa-ku_pref_2025_citygml_1_op/udx/bldg/53393556_bldg_6697_op.gml",
+      "cityCode": "13109",
+      "cityName": "品川区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 4290,
+      "lod2": 0,
+      "bytes": 55017107,
+      "sha256": "9794b8d6596dfd7d6082f8c80afd2914c104b176a1522806a7700900cd5f2bfc"
+    },
+    {
+      "name": "53393545_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/90d7b7-679a-46d4-a842-7706fec36d40/13109_shinagawa-ku_pref_2025_citygml_1_op/udx/tran/53393545_tran_6697_op.gml",
+      "cityCode": "13109",
+      "cityName": "品川区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1727,
+      "lod2": 0,
+      "bytes": 4549358,
+      "sha256": "ada198860fdf65a5123afff523c0bdd590638eb1462031281db0e7c27e0c339c"
+    },
+    {
+      "name": "53393546_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/90d7b7-679a-46d4-a842-7706fec36d40/13109_shinagawa-ku_pref_2025_citygml_1_op/udx/tran/53393546_tran_6697_op.gml",
+      "cityCode": "13109",
+      "cityName": "品川区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1505,
+      "lod2": 115,
+      "bytes": 4343984,
+      "sha256": "782a27be80a2cac225b5dbfefcddb327c200862ffcee6f9fc4d50779aba7eb4b"
+    },
+    {
+      "name": "53393547_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/90d7b7-679a-46d4-a842-7706fec36d40/13109_shinagawa-ku_pref_2025_citygml_1_op/udx/tran/53393547_tran_6697_op.gml",
+      "cityCode": "13109",
+      "cityName": "品川区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 1208,
+      "lod2": 303,
+      "bytes": 4797101,
+      "sha256": "8cc6a90d9f1e1c21a0e4fd58ac726d7528376186db347334015f6ff3b007a753"
+    },
+    {
+      "name": "53393555_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/90d7b7-679a-46d4-a842-7706fec36d40/13109_shinagawa-ku_pref_2025_citygml_1_op/udx/tran/53393555_tran_6697_op.gml",
+      "cityCode": "13109",
+      "cityName": "品川区",
+      "year": 2025,
+      "maxLod": 1,
+      "features": 1364,
+      "lod2": 0,
+      "bytes": 3647311,
+      "sha256": "490e701276a353252bed80480cbcf89653f6a36bc8ce32416e1a68b2555be796"
+    },
+    {
+      "name": "53393556_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/90d7b7-679a-46d4-a842-7706fec36d40/13109_shinagawa-ku_pref_2025_citygml_1_op/udx/tran/53393556_tran_6697_op.gml",
+      "cityCode": "13109",
+      "cityName": "品川区",
+      "year": 2025,
+      "maxLod": 2,
+      "features": 1206,
+      "lod2": 2,
+      "bytes": 3297456,
+      "sha256": "710002633b80ca381962e4c3682d2554294d812f00652e9b1f51affed4e38f12"
+    },
+    {
+      "name": "53393557_tran_6697_op.gml",
+      "url": "https://assets.cms.plateau.reearth.io/assets/4b/90d7b7-679a-46d4-a842-7706fec36d40/13109_shinagawa-ku_pref_2025_citygml_1_op/udx/tran/53393557_tran_6697_op.gml",
+      "cityCode": "13109",
+      "cityName": "品川区",
+      "year": 2025,
+      "maxLod": 3,
+      "features": 736,
+      "lod2": 222,
+      "bytes": 3947934,
+      "sha256": "28097890bfc6f51d1b906600ba8dc7aa59f3f3585bf0a37ede106d43adb602cc"
+    }
+  ]
+}

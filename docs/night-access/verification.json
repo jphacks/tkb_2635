@@ -1,0 +1,115 @@
+{
+  "checkedAt": "2026-10-24T15:41:40.597202+09:00",
+  "changed": [],
+  "unchanged": [
+    "shibuya_ground",
+    "shinjuku_central",
+    "shinjuku_central_closure",
+    "yoyogi",
+    "yoyogi_notices",
+    "gyoen_hours",
+    "gyoen_notices",
+    "arakawa_rules",
+    "arakawa_parking",
+    "kasai",
+    "mizumoto",
+    "toneri",
+    "hikarigaoka",
+    "shinozaki",
+    "ojima-komatsugawa",
+    "kiba",
+    "komazawa-olympic",
+    "kinuta",
+    "odaiba",
+    "shiokaze",
+    "tatsumi",
+    "jonanjima",
+    "jonanjima_beach",
+    "wakasu",
+    "wakasu_qa",
+    "yumenoshima",
+    "shinjuku_tourism"
+  ],
+  "new": [],
+  "errors": {},
+  "manualSources": [
+    "shinjuku_central_hours",
+    "yumenoshima_rules",
+    "yumenoshima_notices",
+    "odaiba_tourism",
+    "shiokaze_tourism",
+    "tatsumi_tourism",
+    "jonanjima_tourism"
+  ],
+  "removed": [],
+  "requiresReview": false,
+  "validation": {
+    "offlineTestsPassed": 23,
+    "workflowYamlParsed": true,
+    "githubActionsRun": false,
+    "swiftTestsRun": true,
+    "iosSimulatorBuildRun": true,
+    "swiftCommand": "swift test --package-path Packages/StarCore --scratch-path /tmp/astera-1-06-swift --build-system native",
+    "buildCommand": "xcodebuild -scheme StarSpot -destination 'platform=iOS Simulator,name=iPhone 17 Pro' -derivedDataPath /tmp/astera-1-06-build CODE_SIGNING_ALLOWED=NO build",
+    "environmentNote": "標準のSwiftビルド先では署名用の付加情報で失敗したため、一時フォルダとnativeビルドで検証。iOSビルドはシミュレータ向けのため署名を省略。"
+  },
+  "appIntegration": {
+    "verifiedAt": "2026-10-24T16:06:06.474530+09:00",
+    "developRevision": "36bc79e31a075444c82b35659e37c0370bb0da09",
+    "swiftTestsPassed": 30,
+    "nightAccessPythonTestsPassed": 23,
+    "officialFacilityPythonTestsPassed": 10,
+    "simulatorBuild": "iPhone 17 Pro / iOS 27.0",
+    "simulatorScreens": [
+      "荒川河川敷: 利用時間・入場可否・確認日が未確認",
+      "新宿御苑: 夜21時は利用不可。3Dにも利用時間外・休園日を表示",
+      "一覧: 未確認地点を推薦にしない"
+    ],
+    "screenshots": [
+      "screenshots/iphone17pro-night-list.png",
+      "screenshots/iphone17pro-access-unverified.png",
+      "screenshots/iphone17pro-gyoen-closed.png"
+    ],
+    "githubPushed": false,
+    "githubActionsRun": false
+  },
+  "pullRequestValidation": {
+    "verifiedAt": "2026-10-24T16:19:04.484818+09:00",
+    "developRevision": "698fae99d9e3bc3ebfb84d3f7c98bc689773aa07",
+    "swiftTestsPassed": 33,
+    "nightAccessPythonTestsPassed": 23,
+    "existingPythonTestsPassed": 22,
+    "simulatorBuildSucceeded": true,
+    "githubActionsRun": false,
+    "pullRequestUrl": "https://github.com/jphacks/tkb_2635/pull/8",
+    "integrationNote": "2-04のPLATEAU建物・観測地点・注意書きを維持し、渋谷地上の夜間入場未確認の条件を統合。"
+  },
+  "moreParks": {
+    "verifiedAt": "2026-10-24T21:46:31.490321+09:00",
+    "task": "f（関連 1-10）",
+    "addedSources": [
+      "ukima",
+      "odaiba_qa",
+      "harumi_futo"
+    ],
+    "baselineAdded": [
+      "ukima",
+      "odaiba_qa",
+      "harumi_futo"
+    ],
+    "recheckNewSourcesUnchanged": true,
+    "otherChangesNotAccepted": [
+      "yoyogi",
+      "kasai",
+      "mizumoto",
+      "toneri",
+      "hikarigaoka",
+      "shinozaki",
+      "kiba",
+      "komazawa-olympic",
+      "kinuta"
+    ],
+    "otherChangesNote": "東京都公園協会の9ページが朝の比較基準と異なると出た。何が変わったかは調べておらず、人が確認していないため基準は更新していない。",
+    "nightAccessPythonTestsPassed": 23
+  }
+}
