@@ -33,6 +33,12 @@ struct CabinTarget: Identifiable {
     var edges: [[Int]] = []
     var note: String?
     var isConstellation: Bool { !points.isEmpty }
+    /// 実際の画像を使っている天体の出典。星・星座は模式図なので無し
+    var imageCredit: String? {
+        if id == "moon" { return "月面画像: NASA SVS" }
+        if kind == "PLANET" { return "惑星画像: NASA の探査機（パブリックドメイン）" }
+        return nil
+    }
 
     static var catalog: [CabinTarget] {
         var items = [CabinTarget(id: "moon", name: "月", kind: "MOON", observation: .moon)]
@@ -82,6 +88,9 @@ struct CabinPortrait: View {
 
 /// 選択用の描画。天体の位相・実際の表面地図とは区別した、解像度に依存しない模式表現。
 enum CabinArt {
+    /// 月の画像はアセットカタログではなく Sky フォルダのファイルなので、バンドルから読む
+    static let moonDisk: UIImage = Bundle.main.url(forResource: "moon_disk", withExtension: "png")
+        .flatMap { UIImage(contentsOfFile: $0.path) } ?? UIImage()
     static func random(_ i: Int) -> CGFloat {
         let v = sin(Double(i) * 127.1 + 311.7) * 43758.5453
         return CGFloat(v - floor(v))
@@ -97,8 +106,32 @@ enum CabinArt {
         if close { p.closeSubpath() }
         return p
     }
+    /// 惑星の実際の写真（NASA の探査機。背景は透明）。月以外の惑星は Planets フォルダのファイルを使う。
+    static let planetPhotos: [String: UIImage] = {
+        var photos: [String: UIImage] = [:]
+        for name in ["mercury", "venus", "mars", "jupiter", "saturn"] {
+            if let url = Bundle.main.url(forResource: "planet_" + name, withExtension: "png"),
+               let image = UIImage(contentsOfFile: url.path) {
+                photos["planet-" + name] = image
+            }
+        }
+        return photos
+    }()
+
+    /// 写真を、縦横比を保ったまま直径 870 の円に収まる大きさで中央に描く
+    static func photo(_ image: UIImage, in context: GraphicsContext) {
+        let scale = 870 / max(image.size.width, image.size.height)
+        let size = CGSize(width: image.size.width * scale, height: image.size.height * scale)
+        context.draw(Image(uiImage: image).interpolation(.high),
+                     in: CGRect(x: -size.width / 2, y: -size.height / 2, width: size.width, height: size.height))
+    }
+
     static func planet(_ target: CabinTarget, in context: GraphicsContext) {
         let id = target.id
+        if let photo = planetPhotos[id] {
+            Self.photo(photo, in: context)
+            return
+        }
         let saturn = id == "planet-saturn"
         let star = target.kind == "STAR"
         let radius: CGFloat = saturn ? 225 : 435
@@ -135,10 +168,10 @@ enum CabinArt {
         surface.fill(oval(-radius, -radius, radius * 2, radius * 2), with: .color(colors[0]))
         if id == "moon" {
             // 既存のNASA SVS月面画像を再利用。透明な外周を持たない円盤の範囲で表示する。
-            surface.draw(Image("moon_disk").interpolation(.high),
+            surface.draw(Image(uiImage: moonDisk).interpolation(.high),
                          in: CGRect(x:-radius,y:-radius,width:radius*2,height:radius*2))
             surface.fill(oval(-radius,-radius,radius*2,radius*2), with:.radialGradient(
-                Gradient(colors:[.white.opacity(0.12),.clear,.black.opacity(0.55)]),
+                Gradient(colors:[.white.opacity(0.06),.clear,.black.opacity(0.3)]),
                 center:CGPoint(x:-radius*0.4,y:-radius*0.4),startRadius:0,endRadius:radius*1.65))
             return
         }
