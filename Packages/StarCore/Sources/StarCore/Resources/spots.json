@@ -1557,8 +1557,8 @@
     "name": "タワーホール船堀 展望室",
     "ward": "江戸川区",
     "category": "observatory",
-    "latitude": 35.684378,
-    "longitude": 139.864984,
+    "latitude": 35.684386,
+    "longitude": 139.864488,
     "floorElevation": 102.0,
     "floorElevationSource": "公式サイト 地上103m + 国土地理院 DEM1A -1m 2026-10-25 https://www.towerhall.jp/facility/",
     "eyeHeight": 1.5,
@@ -1578,7 +1578,7 @@
     "regionalLightMeasuredAt": null,
     "localGlareLevel": null,
     "modelVersion": "plateau-funabori-2025-1",
-    "memo": "展望室は103m（公式サイト。地上か海抜かの明記がなく、地上として扱った。塔の高さは115m。入場無料と紹介されている）。床の標高は国土地理院 DEM の地面 -1.0m に 103m を足した値。営業時間は未確認。 地点の位置は PLATEAU の建物の箱の中心。窓・柵から見える方角は未確認。",
+    "memo": "展望室は103m（公式サイト。地上か海抜かの明記がなく、地上として扱った。塔の高さは115m。入場無料と紹介されている）。床の標高は国土地理院 DEM の地面 -1.0m に 103m を足した値。営業時間は未確認。 地点の位置は、PLATEAU の建物の形で高さ 90m を超える塔の部分の中心（建物の箱の中心は低い棟の上で、塔から約 45m 東にずれていた）。窓・柵から見える方角は未確認。",
     "accessRules": {
       "unverified": true
     },
