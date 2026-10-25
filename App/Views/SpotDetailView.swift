@@ -66,6 +66,14 @@ struct SpotDetailView: View {
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.horizontal, 16)
                 }
+                if context.scene?.observerViewEnabled == true {
+                    SkyViewControls(camera: $camera,
+                                    target: HorizontalCoord(altitude: prediction.altitude, azimuth: prediction.azimuth),
+                                    showsObstructionGuide: !prediction.geometricVisibility && !prediction.blockedByDirectionMask && prediction.altitude > 0)
+                        .padding(10)
+                        .background(.regularMaterial, in: .rect(cornerRadius: 12))
+                        .padding(.horizontal, 12)
+                }
                 Spacer()
             }
         }

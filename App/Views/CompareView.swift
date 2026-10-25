@@ -46,12 +46,17 @@ struct CompareView: View {
                     SideButton(side: comparison.second, isSelected: showsSecond) { showsSecond = true }
                 }
                 let shown = showsSecond ? comparison.second : comparison.first
+                if (showsSecond ? second : first).scene?.observerViewEnabled == true {
+                    SkyViewControls(camera: $camera,
+                                    target: HorizontalCoord(altitude: shown.prediction.altitude, azimuth: shown.prediction.azimuth),
+                                    showsObstructionGuide: !shown.prediction.geometricVisibility && !shown.prediction.blockedByDirectionMask && shown.prediction.altitude > 0)
+                }
                 Sky3DView(context: showsSecond ? second : first, prediction: shown.prediction, date: model.date,
                           sharedCamera: $camera, compact: true)
                     .frame(height: 300)
                     .listRowInsets(EdgeInsets())
             } footer: {
-                Text("ボタンで地点を切り替えると、同じ向き・同じ時刻のまま 3D が変わります。線が緑なら見え、赤なら建物に遮られます。")
+                Text("地点を切り替えても、同じ向き・同じ時刻で比べられます。全体表示では緑の線なら見え、赤なら建物に遮られます。観測者の目線では、その場所に立った高さで見回せます。")
             }
 
             Section("くらべる") {
