@@ -157,7 +157,8 @@ def main():
         elif step == 'shapes':
             hosts = host_buildings(json.loads(SPOTS.read_text()), scene_id)
             run(sys.executable, SCRIPTS / 'plateau_shapes.py', *gml(work, 'bldg'), '--buildings', BUILDINGS,
-                '--scene-id', scene_id, '--output', shapes, *[a for h in hosts for a in ('--host', h)])
+                '--scene-id', scene_id, '--output', shapes, *[a for h in hosts for a in ('--host', h)],
+                *[f'--style={k}={v}' for k, v in config.get('facadeStyles', {}).items()])
         elif step == 'textures':
             run(sys.executable, SCRIPTS / 'download_plateau_textures.py', shapes, '--manifest', manifest_path,
                 '--output', work)

@@ -10,6 +10,7 @@ final class CityModelRenderer {
     private var templates: [String: Entity] = [:]
     private var roofMaterial: PhysicallyBasedMaterial?
     private var groundMaterial: PhysicallyBasedMaterial?
+    private var campusMaterials: [Int: PhysicallyBasedMaterial] = [:]
 
     /// 地面の CC0 テクスチャ1枚が覆う大きさ [m]
     private static let groundTileMeters: Float = 24
@@ -40,6 +41,8 @@ final class CityModelRenderer {
                     material = Self.night(photo)
                 } else if let light = Self.lightColor(for: name) {
                     material = UnlitMaterial(color: light)
+                } else if let campus = CampusFacade(partName: name) {
+                    material = campusMaterial(campus)
                 } else if name == "roof" || name.hasPrefix("facade_") {
                     // 写真の無い面（全体の約1割）は、写真の調子から浮かないようコンクリートでそろえる。
                     material = roof
@@ -160,6 +163,43 @@ final class CityModelRenderer {
         material.faceCulling = .none
         roofMaterial = material
         return material
+    }
+
+    /// シーン専用の外観（タイル張りの校舎など）。画像はその場で描き、外観ごとに1つだけ作る。
+    private func campusMaterial(_ facade: CampusFacade) -> PhysicallyBasedMaterial {
+        let key = facade.style == .scratchTile ? 0 : 1
+        if let cached = campusMaterials[key] { return cached }
+        func texture(_ map: CampusFacade.Map) -> MaterialParameters.Texture? {
+            let semantic: TextureResource.Semantic = map == .normal ? .normal : (map == .roughness ? .scalar : .color)
+            guard let image = facade.image(map: map),
+                  let resource = try? TextureResource(image: image, options: .init(semantic: semantic)) else { return nil }
+            return .init(resource, sampler: Self.repeatSampler)
+        }
+        var material = PhysicallyBasedMaterial()
+        // 屋上のコンクリートと同じく、夜の青い環境光に合わせて少し暗く寄せる（タイルの茶色は残す）。
+        let color = texture(.color)
+        material.baseColor = .init(tint: .init(red: 0.66, green: 0.64, blue: 0.70, alpha: 1), texture: color)
+        // 照明だけだと青い夜に沈んで茶色が読めないので、実写の壁（night）と同じく柄をうっすら光らせる。
+        material.emissiveColor = .init(texture: color)
+        material.emissiveIntensity = Self.nightGlowIntensity
+        material.roughness = .init(scale: 1, texture: texture(.roughness))
+        material.normal = .init(texture: texture(.normal))
+        material.faceCulling = .none
+        campusMaterials[key] = material
+        return material
+    }
+
+    private static var repeatSampler: MaterialParameters.Texture.Sampler {
+        var sampler = MaterialParameters.Texture.Sampler()
+        sampler.modify { descriptor in
+            descriptor.sAddressMode = .repeat
+            descriptor.tAddressMode = .repeat
+            descriptor.minFilter = .linear
+            descriptor.magFilter = .linear
+            descriptor.mipFilter = .linear
+            descriptor.maxAnisotropy = 8
+        }
+        return sampler
     }
 
     private static func models(in entity: Entity) -> [ModelEntity] {

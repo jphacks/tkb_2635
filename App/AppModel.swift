@@ -8,6 +8,8 @@ final class AppModel {
     let contexts: [SpotContext]
     var date: Date = AppModel.tonight()
     var target: ObservationTarget = .moon
+    /// 星座と代表星を区別するための表示用ID。観測計算は従来のtargetを使う。
+    var selectedCabinTargetID: String?
     var isLoadingWeather = false
     var weatherLoadError: String?
     var loadError: String?
@@ -101,3 +103,4 @@ final class AppModel {
         }
     }
 }
+

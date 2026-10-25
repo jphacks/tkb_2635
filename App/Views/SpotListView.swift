@@ -117,6 +117,7 @@ struct SpotListView: View {
                         }
                         Button {
                             model.target = target.observation
+                            model.selectedCabinTargetID = target.id
                             pending = nil
                             findingPlaces = true
                             // 推薦の条件を満たす地点が実際にあるときだけ、発見の音を鳴らす
@@ -167,4 +168,5 @@ struct CabinUniverse: View {
         }
     }
 }
+
 

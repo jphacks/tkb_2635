@@ -27,7 +27,7 @@ struct HomeSheet: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: HomeStyle.sectionSpacing) {
                     SpotResultsList(predictions: predictions, onSelect: onSelect)
-                    HomeConditionsCard()
+                    HomeConditionsCard(showsTitle: false)
                     if let error = model.loadError {
                         Text(error).foregroundStyle(.red)
                     }
