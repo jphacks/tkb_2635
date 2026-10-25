@@ -15,6 +15,8 @@ struct SpotDetailView: View {
     /// 比較ボタンを押したとき、シートを閉じ終えてから進む先
     @State private var pendingComparison: ComparisonRoute?
     @State private var comparison: ComparisonRoute?
+    /// 3D を開く音を鳴らしたか。比較画面から戻ったときは鳴らさない
+    @State private var hasPlayedOpenSound = false
 
     /// シートをいちばん下にしたときの高さ（地点名。比較ボタンがあるときは、その分高くする）。
     /// 判定はシートの中に出すので、たたんだときは見出しだけにして 3D を広く見せる
@@ -93,6 +95,17 @@ struct SpotDetailView: View {
         .onAppear {
             isOnScreen = true
             isSheetShown = true
+        }
+        .onChange(of: prediction.tier, initial: true) { old, new in
+            guard hasPlayedOpenSound else {
+                hasPlayedOpenSound = true
+                SoundPlayer.shared.play(.mapOpen)
+                return
+            }
+            // 時刻や天体を変えて、この地点が推薦の条件を満たしたとき
+            if SoundEffect.announcesSpotFound(previous: old, current: new) {
+                SoundPlayer.shared.play(.spotFound)
+            }
         }
         .onChange(of: sheetDetent) { old, _ in
             guard old == Self.largeDetent else { return }

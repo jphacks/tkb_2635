@@ -100,6 +100,7 @@ struct Sky3DView: View {
             DragGesture()
                 .onChanged { value in
                     guard camera.mode != .entering else { return }
+                    if dragStart == nil { SoundPlayer.shared.play(.mapGesture) }
                     let start = dragStart ?? camera
                     dragStart = start
                     if isObserverView {
@@ -116,6 +117,7 @@ struct Sky3DView: View {
             MagnifyGesture()
                 .onChanged { value in
                     guard camera.mode != .entering else { return }
+                    if zoomStart == nil { SoundPlayer.shared.play(.mapGesture) }
                     let start = zoomStart ?? camera
                     zoomStart = start
                     if isObserverView {
