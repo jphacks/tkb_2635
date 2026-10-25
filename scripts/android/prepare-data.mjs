@@ -5,6 +5,9 @@ import crypto from 'node:crypto';
 const root=fileURLToPath(new URL('../../',import.meta.url));
 const out=path.join(root,'Android/web/public/generated');
 await fs.mkdir(out,{recursive:true});
+const licenses=[];
+for(const name of ['three','leaflet'])licenses.push(name+'\n'+await fs.readFile(path.join(root,'Android/web/node_modules',name,'LICENSE'),'utf8'));
+await fs.writeFile(path.join(out,'THIRD_PARTY_NOTICES.txt'),licenses.join('\n\n'));
 const read=p=>fs.readFile(path.join(root,p),'utf8');
 const source='Packages/StarCore/Sources/StarCore/';
 const starSource=await read(source+'Astro/StarCatalog.swift');
@@ -34,6 +37,7 @@ for(const target of targets.filter(t=>t.image)) {
 }
 const spots=JSON.parse(await read(source+'Resources/spots.json'));
 const scenes=JSON.parse(await read(source+'Resources/buildings.json'));
+for(const scene of scenes)for(const building of scene.buildings)if(building.parts)building.parts=building.parts.map(p=>Array.isArray(p)?{x:p[0],y:p[1],width:p[2],depth:p[3],height:p[4]}:p);
 const lines=JSON.parse(await read('App/Resources/Sky/constellations.json'));
 const images=JSON.parse(await read('App/Resources/Sky/constellation-images.json'));
 for(const image of images) {
@@ -44,7 +48,9 @@ for(const scene of scenes) {
   const file=path.join(root,'App/Resources/Far/far_'+scene.id+'.jpg');
   try {await fs.copyFile(file,path.join(out,'far_'+scene.id+'.jpg'));}catch(e){if(e.code!=='ENOENT')throw e;}
 }
-const payload={spots,scenes,catalog:{targets,stars,lines,images}};
+const terrain=JSON.parse(await read(source+'Resources/terrain.json'));
+for(const spot of spots){const photo=path.join(root,'App/Resources/SpotThumbnails/spot_'+spot.id+'.jpg');try{await fs.copyFile(photo,path.join(out,'spot_'+spot.id+'.jpg'));}catch(e){if(e.code!=='ENOENT')throw e;await fs.copyFile(path.join(out,'far_'+spot.sceneId+'.jpg'),path.join(out,'spot_'+spot.id+'.jpg'));}}
+const payload={spots,scenes,terrain,catalog:{targets,stars,lines,images}};
 const ground=JSON.parse(await read('App/Resources/Wide/WideGround.json'));
 await fs.writeFile(path.join(out,'ground.json'),JSON.stringify(ground));
 for(const tile of ground.tiles)await fs.copyFile(path.join(root,'App/Resources/Wide',tile.file+'.jpg'),path.join(out,tile.file+'.jpg'));
