@@ -19,14 +19,14 @@ Android 8.0以降（API 26）、OpenGL ES 3.0 / WebGL 2対応。Kotlinのアプ�
 
 ```powershell
 # リポジトリのルートで実行。USDZをGit LFSポインタのままにしないこと。
-python -m venv .android-venv
-.android-venv/Scripts/python -m pip install -r scripts/android/requirements.txt
+python -m venv Android/.venv
+Android/.venv/Scripts/python -m pip install -r scripts/android/requirements.txt
 cd Android/web
 npm ci
 npm run prepare:data
 cd ../..
-.android-venv/Scripts/python scripts/android/convert_models.py
-.android-venv/Scripts/python scripts/android/verify_assets.py
+Android/.venv/Scripts/python scripts/android/convert_models.py
+Android/.venv/Scripts/python scripts/android/verify_assets.py
 cd Android/web
 npm test
 npm run build
@@ -38,7 +38,7 @@ cd ..
 APK：`Android/app/build/outputs/apk/debug/app-debug.apk`。試用用のデバッグ署名。Play Storeへの公開・配布用署名は別作業。
 Linux/macOSでは `Scripts/python` を `bin/python`、`gradlew.bat` を `bash gradlew` に読み替える。
 
-`prepare:data`はJSONと画像をコピーする。続く変換でUSDZをGLBへ変換し、画像をAndroid向けに縮小する。順序を入れ替えない。変換済みGLBは元USDZのSHA-256が同じなら再利用する。生成物・SDK・秘密鍵はコミットしない。Three.jsとLeafletのライセンス全文を生成物へ同梱する。78個の3Dモデルは約1.08GB、圧縮APKは約690MBになるため、インストールには十分な空き容量が必要。
+`prepare:data`はJSONと画像をコピーする。続く変換でUSDZをGLBへ変換し、画像をAndroid向けに縮小する。順序を入れ替えない。変換済みGLBは元USDZのSHA-256が同じなら再利用する。生成物・SDK・秘密鍵はコミットしない。Three.jsとLeafletのライセンス全文を生成物へ同梱する。78個の3Dモデルは約1.08GB、圧縮APKは約700MBになるため、インストールには十分な空き容量が必要。
 
 画面だけの確認は `Android/web` で `npm run dev`。カメラARと端末方位はAndroidアプリで確認する。ブラウザー版をAPKとして扱わない。
 

@@ -7,3 +7,5 @@ web/public/generated/
 app/src/main/assets/web/
 *.jks
 *.keystore
+web/.vite/
+.venv/
