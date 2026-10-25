@@ -54,6 +54,9 @@ struct SpotResultsView: View {
                 }
             }
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    SoundToggleButton()
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     if model.isLoadingWeather {
                         ProgressView()
@@ -140,7 +143,10 @@ struct SpotListView: View {
                         LazyHStack(spacing: 0) {
                             ForEach(targets) { target in
                                 Button {
-                                    if centered == target.id { pending = target }
+                                    if centered == target.id {
+                                        SoundPlayer.shared.play(.bodySelect)
+                                        pending = target
+                                    }
                                     else { withAnimation { centered = target.id } }
                                 } label: {
                                     VStack(spacing: 20) {
@@ -216,6 +222,10 @@ struct SpotListView: View {
                         model.target = target.observation
                         pending = nil
                         findingPlaces = true
+                        // 推薦の条件を満たす地点が実際にあるときだけ、発見の音を鳴らす
+                        if model.predictions.contains(where: { SoundEffect.announcesSpotFound(previous: nil, current: $0.tier) }) {
+                            SoundPlayer.shared.play(.spotFound)
+                        }
                     } label: {
                         Text("確定").bold().frame(maxWidth: .infinity).padding()
                     }

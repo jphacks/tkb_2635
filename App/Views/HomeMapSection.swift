@@ -108,7 +108,10 @@ struct SpotMap: View {
                 let tier = predictions.first { $0.spotId == context.id }?.tier ?? .needsCheck
                 Annotation(context.spot.name,
                            coordinate: CLLocationCoordinate2D(latitude: context.spot.latitude, longitude: context.spot.longitude)) {
-                    SpotPin(tier: tier) { onSelect(context.id) }
+                    SpotPin(tier: tier) {
+                        SoundPlayer.shared.play(.pinTap)
+                        onSelect(context.id)
+                    }
                 }
             }
         }
