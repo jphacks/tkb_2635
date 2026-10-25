@@ -16,13 +16,30 @@ struct HomeMapSection: View {
 
     @State private var width: CGFloat = 0
     @State private var isExpanded = false
+    @State private var mode = HomeMapMode.city3D
 
     private var height: CGFloat {
         min(max(width * Self.heightRatio, Self.minHeight), Self.maxHeight)
     }
 
     var body: some View {
-        SpotMap(contexts: contexts, predictions: predictions, onSelect: onSelect)
+        VStack(spacing: 8) {
+            Picker("表示", selection: $mode) {
+                ForEach(HomeMapMode.allCases) { Text($0.rawValue).tag($0) }
+            }
+            .pickerStyle(.segmented)
+            content
+        }
+    }
+
+    private var content: some View {
+        Group {
+            switch mode {
+            case .map: SpotMap(contexts: contexts, predictions: predictions, onSelect: onSelect)
+            // ホームのカードでは 3D を描き続けず（スクロールが重くなる）、静止画を出して押したら全画面の 3D を開く
+            case .city3D: WideCityPreview { isExpanded = true }
+            }
+        }
             .frame(maxWidth: .infinity)
             .frame(height: height)
             .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { width = $0 }
@@ -41,9 +58,17 @@ struct HomeMapSection: View {
                 .padding(10)
             }
             .fullScreenCover(isPresented: $isExpanded) {
-                FullScreenSpotMap(contexts: contexts, predictions: predictions) { id in
-                    isExpanded = false
-                    onSelect(id)
+                switch mode {
+                case .map:
+                    FullScreenSpotMap(contexts: contexts, predictions: predictions) { id in
+                        isExpanded = false
+                        onSelect(id)
+                    }
+                case .city3D:
+                    FullScreenWideCity(contexts: contexts, predictions: predictions) { id in
+                        isExpanded = false
+                        onSelect(id)
+                    }
                 }
             }
     }
@@ -108,7 +133,10 @@ struct SpotMap: View {
                 let tier = predictions.first { $0.spotId == context.id }?.tier ?? .needsCheck
                 Annotation(context.spot.name,
                            coordinate: CLLocationCoordinate2D(latitude: context.spot.latitude, longitude: context.spot.longitude)) {
-                    SpotPin(tier: tier) { onSelect(context.id) }
+                    SpotPin(tier: tier) {
+                        SoundPlayer.shared.play(.pinTap)
+                        onSelect(context.id)
+                    }
                 }
             }
         }
