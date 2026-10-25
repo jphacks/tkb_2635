@@ -23,7 +23,7 @@ enum HomeStyle {
 
 /// 同じ幅の2つの選択肢。背景だけを移動させ、件数が変わっても位置を保つ。
 struct SpotListTabs: View {
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    private let motion = MotionSetting()
     @Binding var selection: SpotListGroup
     let entries: [SpotListEntry]
     @Namespace private var highlight
@@ -34,7 +34,7 @@ struct SpotListTabs: View {
                 let selected = selection == group
                 let count = entries.filter { group.contains($0.prediction.tier) }.count
                 Button {
-                    withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.28)) { selection = group }
+                    withAnimation(motion.isReduced ? nil : .easeInOut(duration: 0.28)) { selection = group }
                 } label: {
                     HStack(spacing: 9) {
                         Text(group == .recommended ? "おすすめ" : "要確認")

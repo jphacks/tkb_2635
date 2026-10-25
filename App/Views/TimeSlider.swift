@@ -3,6 +3,7 @@ import SwiftUI
 
 /// その夜（18:00〜翌 6:00）の中で、観測時刻を 15 分刻みで動かす
 struct TimeSlider: View {
+    @AppStorage(TimeNotation.storageKey) private var timeNotation = TimeNotation.default
     @Binding var date: Date
     /// 3D の上に重ねるときの、1行の小さい表示
     var compact = false
@@ -12,7 +13,7 @@ struct TimeSlider: View {
         if compact {
             HStack(spacing: 10) {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text(Self.timeText(date))
+                    Text(timeText(date))
                         .font(.headline.monospacedDigit())
                     Text(night.contains(date) ? "\(Self.dayText(night.start))の夜" : "夜の範囲外")
                         .font(.caption2)
@@ -26,7 +27,7 @@ struct TimeSlider: View {
                 HStack {
                     Text("時刻")
                     Spacer()
-                    Text(Self.timeText(date))
+                    Text(timeText(date))
                         .font(.headline.monospacedDigit())
                 }
                 slider(night)
@@ -55,12 +56,10 @@ struct TimeSlider: View {
         } maximumValueLabel: {
             Text("6時").font(.caption2)
         }
-        .accessibilityValue(Self.timeText(date))
+        .accessibilityValue(timeText(date))
     }
 
-    private static func timeText(_ date: Date) -> String {
-        date.formatted(Date.FormatStyle(date: .omitted, time: .shortened, timeZone: TimeZone(identifier: "Asia/Tokyo")!))
-    }
+    private func timeText(_ date: Date) -> String { timeNotation.text(date) }
 
     private static func dayText(_ date: Date) -> String {
         date.formatted(Date.FormatStyle(timeZone: TimeZone(identifier: "Asia/Tokyo")!).month(.defaultDigits).day())

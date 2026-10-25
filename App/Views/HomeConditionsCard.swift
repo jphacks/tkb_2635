@@ -156,6 +156,7 @@ struct ForecastOutOfRangeNote: View {
 }
 
 struct MoonSummary: View {
+    @AppStorage(DirectionNotation.storageKey) private var directionNotation = DirectionNotation.default
     let moon: MoonInfo
 
     var body: some View {
@@ -165,7 +166,7 @@ struct MoonSummary: View {
             Text("\(moon.phaseName)（輝面 \(Int(moon.illuminatedFraction * 100))%）")
             Spacer()
             Text(moon.position.altitude > 0
-                 ? "\(Angle.directionName(moon.position.azimuth)) 高度\(Int(moon.position.altitude))°"
+                 ? "\(directionNotation.text(moon.position.azimuth)) 高度\(Int(moon.position.altitude))°"
                  : "地平線の下")
                 .foregroundStyle(.secondary)
         }
