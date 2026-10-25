@@ -56,8 +56,7 @@ final class BuildingNightRenderer {
         }
     }
 
-    /// 外壁と窓の材質（同じ種類は使い回す）。ホームの広域 3D（WideCityRenderer）も同じものを使う
-    func facade(_ appearance: BuildingFacade) -> PhysicallyBasedMaterial {
+    private func facade(_ appearance: BuildingFacade) -> PhysicallyBasedMaterial {
         let key = appearance.style.rawValue * 4 + appearance.variant
         if let cached = facades[key] { return cached }
         var material = PhysicallyBasedMaterial()

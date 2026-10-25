@@ -76,19 +76,30 @@ final class WideCityRenderer {
         return loaded
     }
 
-    /// 詳細画面の夜の建物（BuildingNightRenderer）と同じ材質。外壁と窓の画像は BuildingFacade が作る（同じコード・同じ見た目）。
-    /// 箱の UV は BuildingFacade の窓 8 列 × 8 階（28.8m × 31.2m）で 1 枚になるよう、wide_ward_blender.py で付けてある
+    /// 詳細画面の都市モデル（CityModelRenderer）に寄せた材質。暗い青灰色の外壁に、WideWindowTexture の窓の帯を自分で光る色として貼る。
+    /// 箱の UV は WideWindowTexture の 1 枚（32m × 28m）で繰り返すよう、wide_ward_blender.py で付けてある
     private func nightMaterial() async -> PhysicallyBasedMaterial {
         if let material { return material }
-        var made = BuildingNightRenderer.shared.facade(Self.facade)
-        // 箱の面の向きがそろっていないことがあるので、裏からも描く
-        made.faceCulling = .none
+        var made = Self.wall(level: 0)
+        if let image = WideWindowTexture.image(),
+           let resource = try? await TextureResource(image: image,
+                                                     options: .init(semantic: .color, mipmapsMode: .allocateAndGenerateAll)) {
+            var sampler = MaterialParameters.Texture.Sampler()
+            sampler.modify { descriptor in
+                descriptor.sAddressMode = .repeat
+                descriptor.tAddressMode = .repeat
+                descriptor.minFilter = .linear
+                descriptor.magFilter = .linear
+                descriptor.mipFilter = .linear
+                descriptor.maxAnisotropy = 8
+            }
+            // 色の定数を渡すと壁全面がその色に光る（CityModelRenderer の 8-06 と同じ）ので、画像だけを渡す
+            made.emissiveColor = .init(texture: .init(resource, sampler: sampler))
+            made.emissiveIntensity = 1
+        }
         material = made
         return made
     }
-
-    /// 広域で使う外壁の種類（BuildingFacade のオフィス・商業以外の標準の外壁）
-    private static let facade = BuildingFacade(style: .neutral, variant: 0)
 
     /// 明るさの段階（WideCityBrightness）ごとの材質。段階が変わったときだけ作る
     private var wallMaterials: [String: PhysicallyBasedMaterial] = [:]
@@ -103,43 +114,43 @@ final class WideCityRenderer {
             return plain
         }
         guard var made = material else { return nil }
-        made.emissiveIntensity *= WideCityBrightness.mix(1, WideCityBrightness.farWindowGlow, level)
-        made.baseColor.tint = Self.wallTint(level: level)
+        made.emissiveIntensity = WideCityBrightness.mix(1, WideCityBrightness.farWindowGlow, level)
+        made.baseColor.tint = Self.wallColor(level: level)
         wallMaterials[key] = made
         return made
     }
 
-    /// BuildingNightRenderer の夜の色（0.55, 0.64, 0.75）から、遠いほど暗い暖色に寄せた色。外壁の画像に掛ける
-    private static func wallTint(level: Float) -> UIColor {
-        let far = WideCityBrightness.farWallTint
-        return UIColor(red: CGFloat(WideCityBrightness.mix(nightTint.red, far.red, level)),
-                       green: CGFloat(WideCityBrightness.mix(nightTint.green, far.green, level)),
-                       blue: CGFloat(WideCityBrightness.mix(nightTint.blue, far.blue, level)), alpha: 1)
+    /// 外壁の色。詳細画面の実写の外壁を夜の色（0.16, 0.18, 0.27）にして少し光らせた見た目に近い暗い青灰色。
+    /// 遠くでは窓の帯がつぶれるので、窓の平均の色に近い暗い暖色に寄せる
+    private static let nearWall = (red: Float(0.27), green: Float(0.29), blue: Float(0.35))
+    private static let farWall = (red: Float(0.34), green: Float(0.28), blue: Float(0.20))
+
+    private static func wallColor(level: Float) -> UIColor {
+        UIColor(red: CGFloat(WideCityBrightness.mix(nearWall.red, farWall.red, level)),
+                green: CGFloat(WideCityBrightness.mix(nearWall.green, farWall.green, level)),
+                blue: CGFloat(WideCityBrightness.mix(nearWall.blue, farWall.blue, level)), alpha: 1)
     }
 
-    /// BuildingNightRenderer.facade が外壁の画像に掛けている夜の色
-    private static let nightTint = (red: Float(0.55), green: Float(0.64), blue: Float(0.75))
-
-    /// UV の無い形（作り直していない区と LOD2）の材質。窓の画像は貼れないので、BuildingNightRenderer の外壁の色
-    /// （BuildingFacade の外壁 × 夜の色）と、窓明かりを平均したくらいの弱い暖色の光にする
-    private static func plainMaterial(level: Float) -> PhysicallyBasedMaterial {
+    private static func wall(level: Float) -> PhysicallyBasedMaterial {
         var material = PhysicallyBasedMaterial()
-        let wall = UIColor(cgColor: facade.wall)
-        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0
-        wall.getRed(&r, green: &g, blue: &b, alpha: nil)
-        var tr: CGFloat = 0, tg: CGFloat = 0, tb: CGFloat = 0
-        wallTint(level: level).getRed(&tr, green: &tg, blue: &tb, alpha: nil)
-        material.baseColor = .init(tint: UIColor(red: r * tr, green: g * tg, blue: b * tb, alpha: 1))
+        material.baseColor = .init(tint: wallColor(level: level))
         material.roughness = .init(floatLiteral: 0.85)
         material.metallic = .init(floatLiteral: 0)
-        material.emissiveColor = .init(color: UIColor(red: 0.68, green: 0.47, blue: 0.23, alpha: 1))
-        material.emissiveIntensity = plainGlow * WideCityBrightness.mix(1, WideCityBrightness.farPlainGlow, level)
+        // 箱の面の向きがそろっていないことがあるので、裏からも描く
         material.faceCulling = .none
         return material
     }
 
-    /// 点いている窓（約 24%）× 窓の面積（約半分）× 窓の光る強さ 0.55 くらい
-    private static let plainGlow: Float = 0.06
+    /// UV の無い形（作り直していない区と LOD2）の材質。窓の画像は貼れないので、外壁に窓の帯を平均したくらいの暖色の光を足す
+    private static func plainMaterial(level: Float) -> PhysicallyBasedMaterial {
+        var material = wall(level: level)
+        material.emissiveColor = .init(color: UIColor(red: 0.95, green: 0.84, blue: 0.68, alpha: 1))
+        material.emissiveIntensity = plainGlow * WideCityBrightness.mix(1, WideCityBrightness.farPlainGlow, level)
+        return material
+    }
+
+    /// 窓の帯の平均の明るさくらい（点灯 65% × 帯の高さ半分 × 色の明るさ）より少し弱め（近くで無地の箱が光りすぎないように）
+    private static let plainGlow: Float = 0.08
 
     static func models(in entity: Entity) -> [ModelEntity] {
         let own: [ModelEntity] = (entity as? ModelEntity).map { [$0] } ?? []

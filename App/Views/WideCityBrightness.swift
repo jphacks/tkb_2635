@@ -2,7 +2,7 @@ import RealityKit
 import SwiftUI
 
 /// カメラが遠いほど街を明るく見せる。近景は詳細画面と同じ見た目のまま、23 区全体を見るときは窓の発光・地面を強め、
-/// 窓の点がつぶれて見えなくなるぶん、外壁の色を窓の平均の色（暗い暖色）に寄せて、建物の塊が光って見えるようにする。
+/// 窓の帯がつぶれて見えなくなるぶん、外壁の色を窓の平均の色（暗い暖色）に寄せて、建物の塊が光って見えるようにする。
 /// 段階に分けて、段階が変わったときだけ材質の係数を書き換える（毎フレームは作り直さない）。
 @MainActor
 enum WideCityBrightness {
@@ -10,13 +10,10 @@ enum WideCityBrightness {
     static let nearDistance: Float = 10
     static let farDistance: Float = 300
     private static let steps = 12
-    /// 全体を見るときの、窓の発光・地面の明るさの倍率。窓の画像は遠くで縮むと点が混ざって暗く見えるので、
-    /// UV の無い区（窓の平均の色で一様に光る）より大きくして、並んだときの明るさをそろえる
-    static let farWindowGlow: Float = 4.5
-    static let farPlainGlow: Float = 3
+    /// 全体を見るときの、窓の発光・地面の明るさの倍率
+    static let farWindowGlow: Float = 2.5
+    static let farPlainGlow: Float = 2.5
     static let farGroundGlow: Float = 2
-    /// 全体を見るときに外壁の色を寄せる先（BuildingFacade の外壁に掛ける色。窓の暖色に近い）
-    static let farWallTint = (red: Float(1.0), green: Float(0.82), blue: Float(0.58))
     static let groundName = "wideGround"
 
     /// カメラの距離から段階（0 〜 steps）

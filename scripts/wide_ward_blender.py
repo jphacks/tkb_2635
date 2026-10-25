@@ -25,10 +25,10 @@ MIN_FOOTPRINT = 25.0    # [m²]
 MIN_HEIGHT = 5.0        # [m]
 # 1 区あたりの建物の上限。越えたときは「高さ × 床の大きさ」が小さい順に落とす。
 MAX_BUILDINGS = 15_000
-# 壁の窓明かりのタイル画像（アプリの BuildingFacade の外壁と窓。窓 8 列 × 8 階）1 枚が覆う大きさ [m]。
-# 窓 1 マスは BuildingFacade と同じ横 3.6m・縦 3.9m。側面の UV はこの長さで割って繰り返す。
-TILE_WIDTH = 8 * 3.6
-TILE_HEIGHT = 8 * 3.9
+# 壁の窓明かりのタイル画像（アプリの WideWindowTexture。横 16 区切り × 2m、縦 8 階 × 3.5m）1 枚が覆う大きさ [m]。
+# 側面の UV はこの長さで割って繰り返す。
+TILE_WIDTH = 16 * 2.0
+TILE_HEIGHT = 8 * 3.5
 # 屋根の UV（画像の中の窓の無い所 = 外壁の色の 1 点）。窓の無い面はここを指す
 ROOF_UV = (0.01, 0.01)
 
