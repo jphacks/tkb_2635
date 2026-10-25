@@ -243,12 +243,12 @@ struct WideCityView: View {
 
     private static func addLights(to root: Entity) {
         let sun = DirectionalLight()
-        sun.light.intensity = 1_500
+        sun.light.intensity = 700
         sun.light.color = .init(red: 0.77, green: 0.85, blue: 1, alpha: 1)
         sun.look(at: .zero, from: [3, 6, 4], relativeTo: nil)
         root.addChild(sun)
         let fill = DirectionalLight()
-        fill.light.intensity = 700
+        fill.light.intensity = 220
         fill.light.color = .init(red: 0.66, green: 0.76, blue: 1, alpha: 1)
         fill.look(at: .zero, from: [-4, 3, -3], relativeTo: nil)
         root.addChild(fill)

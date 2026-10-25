@@ -35,7 +35,6 @@
 		293FCB02495A764765ED309A /* far_oshiage.json in Resources */ = {isa = PBXBuildFile; fileRef = A46DED64260FFE3496A7AE31 /* far_oshiage.json */; };
 		2958CBA61AC79F597700450E /* far_komazawa_olympic_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5073440982B666A0954A1637 /* far_komazawa_olympic_park.jpg */; };
 		2B4B3935E915D44430AB391A /* Wide_13113.usdz in Resources */ = {isa = PBXBuildFile; fileRef = BBA0196FF25D09D000DA35CF /* Wide_13113.usdz */; };
-		2DE61136134842FB54A01B37 /* WideWindowTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533ECBC7747F47E835C9A79F /* WideWindowTexture.swift */; };
 		2F1E0D1AF95E9B5FCB1AF0C7 /* City_mizumoto_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 961DF66140C164B4DE9FF421 /* City_mizumoto_park.usdz */; };
 		2FB72CAD16EA1E0E42B68574 /* far_sumida_park.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C464D265E3F5FA690CCCD5A /* far_sumida_park.json */; };
 		3118C211DC9083B824CCB4EF /* Wide2_13102.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 756F525629D6378EDCED2DF3 /* Wide2_13102.usdz */; };
@@ -150,7 +149,6 @@
 		BBBEAA701E4C2F4070472339 /* Wide2_13109.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 4F0634716FA49BB2470CD4A8 /* Wide2_13109.usdz */; };
 		BCD3F0EE1B790DFF8B0493BD /* far_higashi_ikebukuro.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 355B995548FB20B65F2B85B5 /* far_higashi_ikebukuro.jpg */; };
 		BFB3E7133046FDF0C4AD8AFE /* City_higashi_ikebukuro.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B712CF49277001CA28CC01E7 /* City_higashi_ikebukuro.usdz */; };
-		C044C96776DFF72D68D78000 /* BuildingNightStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9094A237D910B9A51F32D4FC /* BuildingNightStyle.swift */; };
 		C40105CC67476B1524DA1791 /* Asphalt031_Roughness.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F15A6BD96245C9D0EB9D555F /* Asphalt031_Roughness.jpg */; };
 		CB3F989312FB95C3A591EAD7 /* Wide_13123.usdz in Resources */ = {isa = PBXBuildFile; fileRef = A921B8F393B2C1714B3A0EBF /* Wide_13123.usdz */; };
 		CCEE2FCC222DC54697BB50FE /* City_shinjuku_gyoen.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 9AD307727149F9D5F74F08C0 /* City_shinjuku_gyoen.usdz */; };
@@ -260,7 +258,6 @@
 		5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingNightRenderer.swift; sourceTree = "<group>"; };
 		5182336A6674A77263CD7825 /* far_roppongi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_roppongi.json; sourceTree = "<group>"; };
 		51F3FF00FAD2DF0FAE93771F /* Wide2_13120.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13120.usdz; sourceTree = "<group>"; };
-		533ECBC7747F47E835C9A79F /* WideWindowTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideWindowTexture.swift; sourceTree = "<group>"; };
 		54A0DF8B6DF51B16FAA603A3 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		55DA16CE24D5352408F1E495 /* TargetPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetPicker.swift; sourceTree = "<group>"; };
 		5665ABA50F91226C34884D41 /* City_shinjuku.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_shinjuku.usdz; sourceTree = "<group>"; };
@@ -308,7 +305,6 @@
 		88A2C6A5727F667AE79CE96C /* City_funabori.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_funabori.usdz; sourceTree = "<group>"; };
 		8C5D0AED3352C1C7ADC10D24 /* Wide2_13101.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13101.usdz; sourceTree = "<group>"; };
 		8D10E63FC26627E7C8033D11 /* City_hibiya_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_hibiya_park.usdz; sourceTree = "<group>"; };
-		9094A237D910B9A51F32D4FC /* BuildingNightStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingNightStyle.swift; sourceTree = "<group>"; };
 		91B1B9B2E649EDB08E8C541C /* Wide_13103.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13103.usdz; sourceTree = "<group>"; };
 		93C23BE17D8DDAA58A577619 /* far_wakasu_kaihin_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_wakasu_kaihin_park.json; sourceTree = "<group>"; };
 		9482A4AE6006C6AAC0F5BD3B /* WideCityPins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideCityPins.swift; sourceTree = "<group>"; };
@@ -485,7 +481,6 @@
 				861A3D3E8ABDCDCD34315D5E /* BottomSheet.swift */,
 				9F92338553BC2D572913CBE8 /* BuildingFacade.swift */,
 				5112A6CC867C9446153C68B7 /* BuildingNightRenderer.swift */,
-				9094A237D910B9A51F32D4FC /* BuildingNightStyle.swift */,
 				D9203D1807BE1815AEE18E0B /* CityModelRenderer.swift */,
 				5BE617C900ABD7B0CA50F0AE /* CompareView.swift */,
 				17051900EB51CF49FBF946F6 /* ConstellationRenderer.swift */,
@@ -516,7 +511,6 @@
 				641EDB1E05DF657D819EFFE6 /* WideCityRenderer+LOD.swift */,
 				D75CCD73165A635F8859D158 /* WideCityView.swift */,
 				22AD61EE458B516484A38D19 /* WideGroundRenderer.swift */,
-				533ECBC7747F47E835C9A79F /* WideWindowTexture.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -928,7 +922,6 @@
 				F09D164C5551911F331E5F2D /* BottomSheet.swift in Sources */,
 				A195391722902F86D763B56F /* BuildingFacade.swift in Sources */,
 				A1577EEB4934E2A2E6BFEDA0 /* BuildingNightRenderer.swift in Sources */,
-				C044C96776DFF72D68D78000 /* BuildingNightStyle.swift in Sources */,
 				D9F4571299DC479495189966 /* CityModelRenderer.swift in Sources */,
 				411A70FAB6BF96C3637A776C /* CompareView.swift in Sources */,
 				336C0A0103902D4DF939A7AA /* ConstellationRenderer.swift in Sources */,
@@ -961,7 +954,6 @@
 				B67483FE30E5321FE42EE7A7 /* WideCityRenderer.swift in Sources */,
 				F4FFE6D5EA8AE75F4762BB53 /* WideCityView.swift in Sources */,
 				AFEFB192991EDE2B1ECB9B00 /* WideGroundRenderer.swift in Sources */,
-				2DE61136134842FB54A01B37 /* WideWindowTexture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
