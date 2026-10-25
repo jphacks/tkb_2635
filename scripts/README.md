@@ -23,3 +23,4 @@ xcodegen generate                              # USDZ を足したので、生�
 - 取ったデータ（1 区 約 370MB）は `../outputs/wide-<区コード>/`（リポジトリの外）。`--steps build,install` で取り直さずに作り直せる
 - 原点は渋谷の原点（35.658, 139.7016）。高さはジオイド高 36.7m を引いた標高。区どうしは同じ原点なので、並べるだけでつながる
 - `StarSpot.xcodeproj` は区ごとの PR でぶつかりやすい。衝突したら `xcodegen generate` で作り直す
+- 箱の側面には窓明かりの UV（横 32m・縦 28m で 1 枚、屋根は窓の無い 1 点）が付く（o-9）。窓明かりの画像は `python3 scripts/wide_windows_texture.py` で `App/Resources/Wide/WideWindows.png` を作る。UV 付きにすると 1 区 約 7.5MB（UV なしは約 5MB）。UV の無い古い区も、アプリでは外壁の色だけで表示される

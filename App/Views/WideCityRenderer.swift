@@ -14,7 +14,7 @@ final class WideCityRenderer {
     /// 読み終えた屋根の形つき。古いものから手放す
     private var details: [(code: String, entity: Entity)] = []
     private var detailLoads: [String: Task<Entity?, Never>] = [:]
-    private lazy var material = Self.nightMaterial()
+    private var material: PhysicallyBasedMaterial?
 
     /// 手元に残す屋根の形つきの数（同時に出す区の数 + 1 にして、行き来しても読み直さないようにする）
     private static let detailCacheCount = WideCityLOD.maxDetailWards + 1
@@ -26,6 +26,8 @@ final class WideCityRenderer {
 
     /// 区の箱の複製。並列に読み、読めた区から onLoad で渡す
     func loadBoxes(onLoad: @escaping @MainActor (String, Entity) -> Void) async {
+        // 23 区を並列に読むので、先に材質（窓明かりの画像）を 1 回だけ作っておく
+        _ = await nightMaterial()
         let tasks = Self.wardCodes.map { code in
             Task { @MainActor in
                 if boxes[code] == nil, let loaded = await load(WideCity.boxPrefix + code) {
@@ -60,17 +62,39 @@ final class WideCityRenderer {
     private func load(_ name: String) async -> Entity? {
         guard let url = Bundle.main.url(forResource: name, withExtension: "usdz"),
               let loaded = try? await Entity(contentsOf: url) else { return nil }
-        // 23 区ぶん描くので、材質は全部同じ軽いもの 1 つにする
+        // 23 区ぶん描くので、材質は窓明かりつきと外壁だけの 2 つにする。
+        // 壁の UV が無い形（作り直す前の区と LOD2）に窓明かりの画像を使うと、画像の平均の色で全面が光るので外壁だけにする
+        let windows = await nightMaterial()
         for model in Self.models(in: loaded) {
             guard var component = model.model else { continue }
+            let hasUV = component.mesh.contents.models.contains { $0.parts.contains { $0.textureCoordinates != nil } }
+            let material = hasUV ? windows : Self.plainMaterial
             component.materials = Array(repeating: material, count: max(component.materials.count, 1))
             model.model = component
         }
         return loaded
     }
 
-    /// BuildingNightRenderer の夜の建物に寄せた色。テクスチャを使わず、照明の向きに関係なく形が読めるよう少し光らせる
-    private static func nightMaterial() -> PhysicallyBasedMaterial {
+    /// BuildingNightRenderer の夜の建物に寄せた、暗い外壁と窓明かり。窓明かりは WideWindows.png を自分で光る色として繰り返し貼る
+    /// （scripts/wide_windows_texture.py。壁の UV がある箱だけに使う）
+    private func nightMaterial() async -> PhysicallyBasedMaterial {
+        if let material { return material }
+        let made = await Self.makeNightMaterial()
+        material = made
+        return made
+    }
+
+    private static func makeNightMaterial() async -> PhysicallyBasedMaterial {
+        guard let windows = await windowsTexture() else { return plainMaterial }
+        var material = plainMaterial
+        // 色の定数を渡すと壁全面がその色に光る（CityModelRenderer の 8-06 と同じ）ので、画像だけを渡す
+        material.emissiveColor = .init(texture: windows)
+        material.emissiveIntensity = windowGlow
+        return material
+    }
+
+    /// 暗い外壁と、照明の向きに関係なく形が読めるだけのわずかな自己発光
+    private static var plainMaterial: PhysicallyBasedMaterial {
         var material = PhysicallyBasedMaterial()
         material.baseColor = .init(tint: .init(red: 0.24, green: 0.28, blue: 0.37, alpha: 1))
         material.roughness = .init(floatLiteral: 0.85)
@@ -79,6 +103,27 @@ final class WideCityRenderer {
         material.emissiveIntensity = 0.06
         material.faceCulling = .none
         return material
+    }
+
+    private static let windowsName = "WideWindows"
+    /// 窓明かりの光る強さ。遠くでは画像が縮んで、窓の割合ぶんだけ街がほのかに明るく見える
+    private static let windowGlow: Float = 1.2
+
+    private static func windowsTexture() async -> MaterialParameters.Texture? {
+        guard let url = Bundle.main.url(forResource: windowsName, withExtension: "png"),
+              let resource = try? await TextureResource(contentsOf: url,
+                                                         options: .init(semantic: .color, mipmapsMode: .allocateAndGenerateAll))
+        else { return nil }
+        var sampler = MaterialParameters.Texture.Sampler()
+        sampler.modify { descriptor in
+            descriptor.sAddressMode = .repeat
+            descriptor.tAddressMode = .repeat
+            descriptor.minFilter = .linear
+            descriptor.magFilter = .linear
+            descriptor.mipFilter = .linear
+            descriptor.maxAnisotropy = 8
+        }
+        return .init(resource, sampler: sampler)
     }
 
     static func models(in entity: Entity) -> [ModelEntity] {

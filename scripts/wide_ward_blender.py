@@ -25,6 +25,12 @@ MIN_FOOTPRINT = 25.0    # [m²]
 MIN_HEIGHT = 5.0        # [m]
 # 1 区あたりの建物の上限。越えたときは「高さ × 床の大きさ」が小さい順に落とす。
 MAX_BUILDINGS = 15_000
+# 壁の窓明かりのタイル画像（App/Resources/Wide/WideWindows.png、scripts/wide_windows_texture.py）1 枚が覆う大きさ [m]。
+# 横は窓 8 列 × 4m、縦は 8 階 × 3.5m。側面の UV はこの長さで割って繰り返す。
+TILE_WIDTH = 32.0
+TILE_HEIGHT = 28.0
+# 屋根の UV（画像の中の窓の無い所 = 外壁の色の 1 点）。窓の無い面はここを指す
+ROOF_UV = (0.01, 0.01)
 
 A = 6378137.0
 F = 1 / 298.257222101
@@ -108,6 +114,28 @@ def tile_buildings(path, center):
     return out
 
 
+def wall_uv(boxes):
+    """面ごとの UV（建物 × 5 面 × 4 頂点 × 2）。面の順と頂点の順は build_mesh の faces と同じ。
+    側面は、横は辺の長さ、縦は高さをメートルのまま TILE_WIDTH・TILE_HEIGHT で割って窓の大きさをそろえる。
+    建物ごとに横をずらして、隣の建物と同じ窓の並びにならないようにする。屋根は ROOF_UV の 1 点。"""
+    n = len(boxes)
+    _, _, length, width, _, bottom, top = boxes.T
+    height = (top - bottom) / TILE_HEIGHT
+    # 黄金比で建物ごとに散らす（乱数を使わず、作り直しても同じ見た目にする）
+    shift = (np.arange(n) * 0.618034) % 1.0
+    uv = np.empty((n, 5, 4, 2))
+    uv[:, 0] = ROOF_UV
+    # 側面は (0,1,5,4)・(1,2,6,5)・(2,3,7,6)・(3,0,4,7)。辺の長さは length, width, length, width
+    for side, edge in enumerate((length, width, length, width), start=1):
+        u0 = shift + side * 0.25
+        u1 = u0 + edge / TILE_WIDTH
+        uv[:, side, 0] = np.stack([u0, np.zeros(n)], axis=1)
+        uv[:, side, 1] = np.stack([u1, np.zeros(n)], axis=1)
+        uv[:, side, 2] = np.stack([u1, height], axis=1)
+        uv[:, side, 3] = np.stack([u0, height], axis=1)
+    return uv
+
+
 def build_mesh(boxes):
     n = len(boxes)
     cx, cy, length, width, angle, bottom, top = boxes.T
@@ -132,6 +160,8 @@ def build_mesh(boxes):
     mesh.polygons.add(len(faces))
     mesh.polygons.foreach_set('loop_start', np.arange(len(faces)) * 4)
     mesh.polygons.foreach_set('loop_total', np.full(len(faces), 4))
+    uv = mesh.uv_layers.new(name='UVMap')
+    uv.data.foreach_set('uv', wall_uv(boxes).reshape(-1).astype(np.float32))
     mesh.update()
     mesh.validate()
     return mesh
@@ -166,7 +196,7 @@ def main():
     mesh.materials.append(material)
     mesh.shade_flat()
     bpy.ops.wm.usd_export(filepath=output, export_materials=True, generate_preview_surface=True,
-                          export_normals=True)
+                          export_normals=True, export_uvmaps=True)
 
 
 if __name__ == '__main__':
