@@ -64,7 +64,7 @@
     "lightingCheckMethod": "desk",
     "modelVersion": "plateau-shibuya-2025-1",
     "lastVerifiedAt": "2026-10-24",
-    "memo": "位置は建物モデル上の屋上の代表点です。床面標高244mは暫定値で、実際の屋上の標高は未確認です。",
+    "memo": "位置は建物モデル上の屋上の代表点です。床面標高244mは暫定値です（公式未確認。公式の「渋谷上空229m」は、床の高さか建物の高さかが書かれていない）。",
     "weatherClosureConditions": "お客さまの安全確保のため、強風、降雨、積雪、雷雲接近、光化学スモッグ・異常高温等の気象条件の際は、屋上を閉鎖する場合がございます。あらかじめご了承ください。",
     "photographyRestrictions": "屋上への持込不可: カバン・リュックサック・ポーチ等の手荷物、三脚・一脚・自撮り棒、イヤホン・ヘッドホン、帽子・キャップ・ニット帽、飲食物、飛散や落下の可能性があるもの、ベビーカー。持込可能: ネックストラップ付またはポケットに入るサイズのカメラ、ネックストラップ付またはポケットに入るサイズの双眼鏡、スマートフォン。"
   },
@@ -114,7 +114,8 @@
     "category": "observatory",
     "latitude": 35.689464,
     "longitude": 139.6917,
-    "floorElevation": 242,
+    "floorElevation": 243.0,
+    "floorElevationSource": "公式サイト 地上202m + 国土地理院 DEM1A 41m 2026-10-25 https://www.zaimu.metro.tokyo.lg.jp/tochousha/goannai/tenbou",
     "eyeHeight": 1.5,
     "indoorOutdoor": "indoor",
     "maxVisibleAltitude": 35,
@@ -323,7 +324,7 @@
     "lightingCheckDate": "2026-10-24",
     "lightingCheckMethod": "desk",
     "modelVersion": "sample-0.1",
-    "memo": "見上げられる高度の上限 35° は窓の高さからの暫定値",
+    "memo": "見上げられる高度の上限 35° は窓の高さからの暫定値 床の標高は公式サイトの「地上202m」に国土地理院 DEM の地面 41m を足した値。",
     "lastVerifiedAt": "2026-10-24",
     "weatherClosureConditions": "悪天候などにより急に閉室する場合があります。当日の閉室情報は公式案内を確認してください。",
     "photographyRestrictions": "三脚等を使っての写真撮影はできません。",
@@ -516,7 +517,8 @@
     "modelVersion": "sample-0.1",
     "lastVerifiedAt": "2026-10-24",
     "weatherClosureConditions": "天候により閉鎖する場合があります。具体的な風速・降雨量の基準は未確認です。",
-    "photographyRestrictions": null
+    "photographyRestrictions": null,
+    "memo": "床面標高36mは暫定値（公式未確認。公式サイトには「6階の屋上庭園」とだけあり、高さの記載がない）。"
   },
   {
     "id": "yoyogi_park",
@@ -1173,7 +1175,8 @@
     "category": "observatory",
     "latitude": 35.710063,
     "longitude": 139.8107,
-    "floorElevation": 350.3,
+    "floorElevation": 351.9,
+    "floorElevationSource": "公式サイト 地上350m + 国土地理院 DEM1A 1.9m 2026-10-25 https://www.tokyo-skytree.jp/floor/tembodeck_350/",
     "eyeHeight": 1.5,
     "indoorOutdoor": "indoor",
     "directionMaskVerified": false,
@@ -1195,7 +1198,7 @@
     "regionalLightMeasuredAt": null,
     "localGlareLevel": null,
     "modelVersion": "plateau-oshiage-2025-1",
-    "memo": "天望デッキ（地上350m、公式サイト）の床。床の標高は PLATEAU の地盤標高 0.3m に 350m を足した値。窓から見える方角・高度の上限は未確認。 地点の位置は塔のおおよその位置（PLATEAU では東京スカイツリー（ソラマチを含む1棟の箱））。",
+    "memo": "天望デッキ（地上350m、公式サイト）の床。床の標高は国土地理院 DEM の地面 1.9m に 350m を足した値。窓から見える方角・高度の上限は未確認。 地点の位置は塔のおおよその位置（PLATEAU では東京スカイツリー（ソラマチを含む1棟の箱））。",
     "lastVerifiedAt": "2026-10-25"
   },
   {
@@ -1236,7 +1239,8 @@
     "category": "observatory",
     "latitude": 35.658593,
     "longitude": 139.745437,
-    "floorElevation": 168.4,
+    "floorElevation": 168.5,
+    "floorElevationSource": "公式サイト 地上150m + 国土地理院 DEM1A 18.5m 2026-10-25 https://www.tokyotower.co.jp/maindeck/",
     "eyeHeight": 1.5,
     "indoorOutdoor": "indoor",
     "directionMaskVerified": false,
@@ -1255,7 +1259,7 @@
     "regionalLightMeasuredAt": null,
     "localGlareLevel": null,
     "modelVersion": "plateau-shibakoen-2025-1",
-    "memo": "メインデッキ（150m、公式サイト）の床。床の標高は PLATEAU の地盤標高 18.4m に 150m を足した値。窓から見える方角・高度の上限は未確認。 地点の位置は PLATEAU の建物の箱の中心（実際の展望台の位置とは限らない）。",
+    "memo": "メインデッキ（150m、公式サイト）の床。床の標高は国土地理院 DEM の地面 18.5m に 150m を足した値（公式は「150ｍ」で地上か海抜かの明記がなく、地上として扱った）。窓から見える方角・高度の上限は未確認。 地点の位置は PLATEAU の建物の箱の中心（実際の展望台の位置とは限らない）。",
     "lastVerifiedAt": null
   },
   {
@@ -1296,7 +1300,8 @@
     "category": "observatory",
     "latitude": 35.729503,
     "longitude": 139.71834,
-    "floorElevation": 251,
+    "floorElevation": 251.0,
+    "floorElevationSource": "公式サイト 海抜251m 2026-10-25 https://sunshinecity.jp/observatory/",
     "eyeHeight": 1.5,
     "indoorOutdoor": "indoor",
     "directionMaskVerified": false,
@@ -1359,7 +1364,8 @@
     "category": "observatory",
     "latitude": 35.660234,
     "longitude": 139.729036,
-    "floorElevation": 250,
+    "floorElevation": 250.0,
+    "floorElevationSource": "公式サイト 海抜250m 2026-10-25 https://tcv.roppongihills.com/jp/enjoy/friends/index.html",
     "eyeHeight": 1.5,
     "indoorOutdoor": "indoor",
     "directionMaskVerified": false,
@@ -1381,7 +1387,7 @@
     "regionalLightMeasuredAt": null,
     "localGlareLevel": null,
     "modelVersion": "plateau-roppongi-2025-1",
-    "memo": "52階の屋内展望台。床の標高 250m は公式サイト以外の紹介記事の「海抜250m」による暫定値。窓から見える方角・高度の上限は未確認。 地点の位置は PLATEAU の建物の箱の中心（実際の展望台の位置とは限らない）。",
+    "memo": "52階の屋内展望台。床の標高 250m は公式サイトの「海抜250m」。窓から見える方角・高度の上限は未確認。 地点の位置は PLATEAU の建物の箱の中心（実際の展望台の位置とは限らない）。",
     "lastVerifiedAt": "2026-10-25"
   },
   {
@@ -1439,7 +1445,7 @@
     "regionalLightMeasuredAt": null,
     "localGlareLevel": null,
     "modelVersion": "plateau-asakusa-2025-1",
-    "memo": "8階の屋外の展望テラス（無料と紹介されている。営業時間は紹介記事で22時までとあるが公式で未確認）。床の標高は PLATEAU の屋根の標高（43.5m）による暫定値で、テラスの実際の高さは未確認。 地点の位置は PLATEAU の建物の箱の中心。窓・柵から見える方角は未確認。",
+    "memo": "8階の屋外の展望テラス（無料と紹介されている。営業時間は紹介記事で22時までとあるが公式で未確認）。床の標高は PLATEAU の屋根の標高（43.5m）による暫定値で、テラスの実際の高さは未確認。 地点の位置は PLATEAU の建物の箱の中心。窓・柵から見える方角は未確認。 床の高さは公式未確認（公式サイトには「8階 展望テラス」とだけあり、高さの記載がない）。",
     "accessRules": {
       "unverified": true
     },
@@ -1505,7 +1511,7 @@
     "regionalLightMeasuredAt": null,
     "localGlareLevel": null,
     "modelVersion": "plateau-shiodome-2025-1",
-    "memo": "46階の無料展望スペース（紹介記事による）。高さは「地上200m」「地上210m」と資料で分かれるため、PLATEAU の地盤 3.4m に 200m を足した暫定値。営業時間は未確認。PLATEAU の建物名は「電通本社ビル」。 地点の位置は PLATEAU の建物の箱の中心。窓・柵から見える方角は未確認。",
+    "memo": "46階の無料展望スペース（紹介記事による）。高さは「地上200m」「地上210m」と資料で分かれるため、PLATEAU の地盤 3.4m に 200m を足した暫定値。営業時間は未確認。PLATEAU の建物名は「電通本社ビル」。 地点の位置は PLATEAU の建物の箱の中心。窓・柵から見える方角は未確認。 床の高さは公式未確認（公式サイトが 2026-10-25 時点でメンテナンス中で確かめられない）。",
     "accessRules": {
       "unverified": true
     },
@@ -1553,7 +1559,8 @@
     "category": "observatory",
     "latitude": 35.684378,
     "longitude": 139.864984,
-    "floorElevation": 101.7,
+    "floorElevation": 102.0,
+    "floorElevationSource": "公式サイト 地上103m + 国土地理院 DEM1A -1m 2026-10-25 https://www.towerhall.jp/facility/",
     "eyeHeight": 1.5,
     "indoorOutdoor": "indoor",
     "directionMaskVerified": false,
@@ -1571,7 +1578,7 @@
     "regionalLightMeasuredAt": null,
     "localGlareLevel": null,
     "modelVersion": "plateau-funabori-2025-1",
-    "memo": "展望室は地上103m（紹介記事による。入場無料と紹介されている）。床の標高は PLATEAU の地盤 -1.3m に 103m を足した暫定値。営業時間は未確認。 地点の位置は PLATEAU の建物の箱の中心。窓・柵から見える方角は未確認。",
+    "memo": "展望室は103m（公式サイト。地上か海抜かの明記がなく、地上として扱った。塔の高さは115m。入場無料と紹介されている）。床の標高は国土地理院 DEM の地面 -1.0m に 103m を足した値。営業時間は未確認。 地点の位置は PLATEAU の建物の箱の中心。窓・柵から見える方角は未確認。",
     "accessRules": {
       "unverified": true
     },
@@ -1849,7 +1856,8 @@
     "category": "observatory",
     "latitude": 35.658593,
     "longitude": 139.745437,
-    "floorElevation": 268.4,
+    "floorElevation": 268.5,
+    "floorElevationSource": "公式サイト 地上250m + 国土地理院 DEM1A 18.5m 2026-10-25 https://tdt.tokyotower.co.jp/topdecktour/",
     "eyeHeight": 1.5,
     "indoorOutdoor": "indoor",
     "directionMaskVerified": false,
@@ -1867,7 +1875,7 @@
     "regionalLightMeasuredAt": null,
     "localGlareLevel": null,
     "modelVersion": "plateau-shibakoen-2025-1",
-    "memo": "トップデッキ（250m、公式サイト）の床。床の標高は PLATEAU の地盤標高 18.4m に 250m を足した値。トップデッキツアーとして入る（料金・予約・営業時間は未確認）。窓から見える方角・高度の上限は未確認。",
+    "memo": "トップデッキ（250m、公式サイト）の床。床の標高は国土地理院 DEM の地面 18.5m に 250m を足した値（公式は「250ｍ」で地上か海抜かの明記がなく、地上として扱った）。トップデッキツアーとして入る（料金・予約・営業時間は未確認）。窓から見える方角・高度の上限は未確認。",
     "accessRules": {
       "unverified": true
     },
@@ -1882,7 +1890,8 @@
     "category": "rooftop",
     "latitude": 35.660234,
     "longitude": 139.729036,
-    "floorElevation": 270,
+    "floorElevation": 270.0,
+    "floorElevationSource": "公式サイト 海抜270m 2026-10-25 https://art-view.roppongihills.com/jp/info/faq/",
     "eyeHeight": 1.5,
     "indoorOutdoor": "outdoor",
     "directionMaskVerified": false,
@@ -1900,7 +1909,7 @@
     "regionalLightMeasuredAt": null,
     "localGlareLevel": null,
     "modelVersion": "plateau-roppongi-2025-1",
-    "memo": "森タワー屋上の屋外展望台。床の標高 270m は紹介記事の「海抜270m」による暫定値（公式サイトで未確認）。営業時間・料金・天候による閉鎖は未確認。地点の位置は PLATEAU の建物の箱の中心。",
+    "memo": "森タワー屋上の屋外展望台。床の標高 270m は公式サイトの「海抜270m」。ただし公式のお知らせ（2024-04）で屋上スカイデッキは一般営業を終了している。営業時間・料金・天候による閉鎖は未確認。地点の位置は PLATEAU の建物の箱の中心。",
     "accessRules": {
       "unverified": true
     },

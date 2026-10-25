@@ -120,13 +120,14 @@ def plan(spots, record, grounds, heights):
                 row["status"] = "公式未確認（変えない）"
             elif official.get("aboveSeaLevel") is not None:
                 row["floorElevation"] = float(official["aboveSeaLevel"])
-                row["floorElevationSource"] = f"公式サイト 海抜{official['aboveSeaLevel']:g}m {official['verifiedAt']}"
+                row["floorElevationSource"] = (f"公式サイト 海抜{official['aboveSeaLevel']:g}m {official['verifiedAt']} "
+                                               f"{official['url']}")
                 row["status"] = "公式の海抜を反映"
             else:
                 height = float(official["aboveGround"])
                 row["floorElevation"] = round(dem + height, ELEVATION_DIGITS)
                 row["floorElevationSource"] = (f"公式サイト 地上{height:g}m + 国土地理院 {dem_label(source)} "
-                                               f"{dem:g}m {official['verifiedAt']}")
+                                               f"{dem:g}m {official['verifiedAt']} {official['url']}")
                 row["status"] = "公式の高さ + DEM を反映"
         else:
             row["status"] = "種類が対象外（変えない）"

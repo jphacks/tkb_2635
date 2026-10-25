@@ -59,13 +59,13 @@ class PlanTests(unittest.TestCase):
         self.assertIn("公式未確認", rows["o"]["status"])
 
     def test_observatory_above_ground_adds_dem(self):
-        heights = {"o": {"aboveGround": 350, "verifiedAt": FETCHED_AT}}
+        heights = {"o": {"aboveGround": 350, "verifiedAt": FETCHED_AT, "url": "https://example.com/"}}
         rows = self.plan([spot("o", "observatory", 350.3)], {"o": {"elevation": 1.9, "hsrc": "1m（レーザ）"}}, heights)
         self.assertEqual(rows["o"]["floorElevation"], 351.9)
         self.assertIn("地上350m", rows["o"]["floorElevationSource"])
 
     def test_observatory_above_sea_level_is_used_as_is(self):
-        heights = {"o": {"aboveSeaLevel": 251, "verifiedAt": FETCHED_AT}}
+        heights = {"o": {"aboveSeaLevel": 251, "verifiedAt": FETCHED_AT, "url": "https://example.com/"}}
         rows = self.plan([spot("o", "observatory", 250)], {"o": {"elevation": 29.8, "hsrc": "1m（レーザ）"}}, heights)
         self.assertEqual(rows["o"]["floorElevation"], 251.0)
 
