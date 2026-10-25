@@ -118,16 +118,19 @@ import Testing
             for i in 0..<360 {
                 let a = Double(i) * .pi / 180
                 for b in scene.buildings where b.id != spot.hostBuildingId {
-                    let top = scene.groundElevation + b.height
-                    guard top > spot.observerElevation,
-                          let d = HorizonProfile.rayHit(ox: p.east, oy: p.north, dx: sin(a), dy: cos(a),
-                                                        minX: b.x - b.width / 2, maxX: b.x + b.width / 2,
-                                                        minY: b.y - b.depth / 2, maxY: b.y + b.depth / 2)
-                    else { continue }
-                    full[i] = max(full[i], atan2(top - spot.observerElevation, d) * 180 / .pi)
+                    for part in b.judgmentParts {
+                        let top = scene.groundElevation + part.height
+                        guard top > spot.observerElevation,
+                              let d = HorizonProfile.rayHit(ox: p.east, oy: p.north, dx: sin(a), dy: cos(a),
+                                                            minX: part.x - part.width / 2, maxX: part.x + part.width / 2,
+                                                            minY: part.y - part.depth / 2, maxY: part.y + part.depth / 2)
+                        else { continue }
+                        full[i] = max(full[i], atan2(top - spot.observerElevation, d) * 180 / .pi)
+                    }
                 }
             }
-            #expect(context.horizon.samples == full, "\(spot.id)")
+            // 建物だけのプロファイルを比べる（context.horizon は地形も入る。2-07）
+            #expect(HorizonProfile.compute(spot: spot, scene: scene).samples == full, "\(spot.id)")
         }
     }
 
