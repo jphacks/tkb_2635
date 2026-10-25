@@ -8,7 +8,7 @@ export type AccessRules = { unverified?: boolean; validFrom?: string; validThrou
   seasonalHours?: { fromMonthDay: string; throughMonthDay: string; hours: Hours }[];
   areaRestrictions?: { from: string; through: string; message: string; source: string }[] };
 export type Spot = { id: string; name: string; ward: string; category: string; latitude: number; longitude: number;
-  floorElevation: number; eyeHeight: number; indoorOutdoor: string; directionMaskVerified: boolean;
+  floorElevation: number; floorElevationSource?:string; eyeHeight: number; indoorOutdoor: string; directionMaskVerified: boolean;
   viewingDirectionMask?: { from: number; to: number }[]|null; maxVisibleAltitude?: number|null;
   viewingDirectionNotes?: string; openingHours: Hours; accessRules?: AccessRules;
   lastVerifiedAt?: string|null; sceneId?: string; hostBuildingId?: string; approxHorizonElevation?: number;
@@ -16,7 +16,9 @@ export type Spot = { id: string; name: string; ward: string; category: string; l
   lightingCheckMethod?: string|null; admissionFee?: string; reservationRequired?: boolean; accessConditions?: string;
   weatherClosureConditions?: string; photographyRestrictions?: string; officialWebsite?: string; memo?: string;
   comparisonSpotId?: string };
-export type Building = { id: string; name: string; x: number; y: number; width: number; depth: number; height: number; usage?: string };
+export type BuildingPart={x:number;y:number;width:number;depth:number;height:number};
+export type Building = BuildingPart & { id: string; name: string; usage?: string;parts?:BuildingPart[] };
+export type Terrain={source:string;spots:Record<string,([number,number]|null)[]>};
 export type CityScene = { id: string; name: string; originLatitude: number; originLongitude: number;
   groundElevation: number; source: string; buildings: Building[]; observerViewEnabled?: boolean };
 export type Context = { spot: Spot; scene?: CityScene; horizon: number[]; approximate: boolean; openness: number };

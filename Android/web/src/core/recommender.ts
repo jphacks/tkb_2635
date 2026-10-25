@@ -3,6 +3,7 @@ import { accessNotices, accessStatus, hoursLabel } from './access';
 import { blockedByWindows, obstruction } from './geometry';
 import type { Context, Horizontal, Prediction, Star, Target, Weather } from './types';
 export const clamp=(n:number,lo=0,hi=1)=>Math.min(hi,Math.max(lo,n));
+export const minRecommendedWeather=.3;
 export const skyBrightness=(a:number)=>clamp((a+18)/12);
 export const skyState=(a:number)=>a<=-18?'夜':a<=-12?'天文薄明':a<=-6?'航海薄明':a<=0?'市民薄明':'昼間';
 export function moonEffect(m:ReturnType<typeof moon>,target:Horizontal) {
@@ -33,7 +34,7 @@ export function evaluate(context:Context,target:Target,date:Date,stars:Star[],we
   if(s.regionalLightIndex!=null&&!s.regionalLightSource)flags.push('地域の光害は暫定値');
   flags.push(...notices.map(n=>n.message));
   const tier=access==='closed'?'unavailable':!visible||starBright?'notVisible':
-    moonBright||access==='unverified'||notices.length>0||!s.lastVerifiedAt||w===null||!verified||context.approximate||s.regionalLightIndex==null?'needsCheck':'recommended';
+    moonBright||(w??1)<minRecommendedWeather||access==='unverified'||notices.length>0||!s.lastVerifiedAt||w===null||!verified||context.approximate||s.regionalLightIndex==null?'needsCheck':'recommended';
   const reasons:string[]=[];
   if(access==='unverified')reasons.push('指定時刻の入場可否は未確認です。利用できることを確認してからお出かけください。');
   else if(access==='closed')reasons.push(`指定時刻は利用時間外または休園日です（${hoursLabel(s,date)}）。`);
@@ -44,7 +45,8 @@ export function evaluate(context:Context,target:Target,date:Date,stars:Star[],we
   else if(mask)reasons.push(`${target.name}は${direction(p.azimuth)}・高度${p.altitude.toFixed(0)}°ですが、窓や屋根の向きから見えない見込みです。`);
   else if(visible)reasons.push(`${direction(p.azimuth)}の空が開けており、${target.name}（高度${p.altitude.toFixed(0)}°）を建物に遮られず観測できる見込みです。`);
   else reasons.push(`${target.name}は${direction(p.azimuth)}・高度${p.altitude.toFixed(0)}°で、周辺の建物など（遮蔽仰角${obs.toFixed(0)}°）に隠れる見込みです。`);
-  if(weather?.cloudCover!=null)reasons.push(`雲量の予報は${Math.round(weather.cloudCover)}%です。`);
+  if(w!==null&&w<minRecommendedWeather)reasons.push(`雲量の予報は${Math.round(weather?.cloudCover??0)}%で、雲や雨に隠れて${target.name}が見えない可能性が高いです。`);
+  else if(weather?.cloudCover!=null)reasons.push(`雲量の予報は${Math.round(weather.cloudCover)}%です。`);
   reasons.push(...flags.map(f=>`${f}。`));
   if(s.indoorOutdoor==='indoor')reasons.push('室内照明の窓への映り込みに注意してください。');
   return {...p,spotId:s.id,tier,score:100*(.35*context.openness+.40*(w??.5)+.25*dark),reasons,flags,

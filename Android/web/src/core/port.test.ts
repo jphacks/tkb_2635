@@ -31,3 +31,9 @@ describe('天気は未取得を晴れとみなさない',()=>{
 describe('88星座の絵の位置',()=>{
   it('すべての基準星を絵の正しい位置へ合わせる',()=>{expect(data.catalog.images).toHaveLength(88);for(const image of data.catalog.images){const place=imagePlacement(image);for(const a of image.anchors){const p=place(a.pixel[0],a.pixel[1]);expect(separation({altitude:p.dec,azimuth:p.ra},{altitude:a.star[1],azimuth:a.star[0]})).toBeLessThan(.001);}}});
 });
+describe('最新developの地形と部分形状',()=>{
+  it.each([[63,21.422],[105,31.691],[127,9.801],[152,64.658],[300,81.580]])('Swiftの遮蔽回帰値：方位%s°',(az,expected)=>{const s=data.spots.find(s=>s.id==='shibuya_east_plaza')!,scene=data.scenes.find(c=>c.id==='shibuya')!;expect(computeHorizon(s,scene)[az]).toBeCloseTo(expected,2);});
+  it('部分の箱があれば建物全体の大きな箱で空を塞がない',()=>{const spot={...data.spots[0],latitude:0,longitude:0,floorElevation:0,eyeHeight:1.5,hostBuildingId:undefined};const scene:CityScene={id:'parts',name:'parts',originLatitude:0,originLongitude:0,groundElevation:0,source:'test',buildings:[{id:'b',name:'b',x:0,y:100,width:100,depth:20,height:100,parts:[{x:40,y:100,width:10,depth:20,height:100}]}]};expect(computeHorizon(spot,scene)[0]).toBe(0);});
+  it('周囲の高い地形を地平線へ合成する',()=>{const spot={...data.spots[0],floorElevation:0,eyeHeight:1.5,approxHorizonElevation:0};const terrain={source:'test',spots:{[spot.id]:Array.from({length:360},()=>[101.5,100] as [number,number])}};expect(makeContext(spot,undefined,terrain).horizon[0]).toBeCloseTo(45);});
+  it('雲量90%はデータが揃っていても推薦しない',()=>{const spot={...data.spots.find(s=>s.id==='shibuya_sky')!,openingHours:{alwaysOpen:true},accessRules:undefined,directionMaskVerified:true,viewingDirectionMask:undefined,lastVerifiedAt:'2026-10-25',regionalLightIndex:.8};const c=makeContext(spot,data.scenes.find(c=>c.id==='shibuya'));expect(evaluate(c,data.catalog.targets[0],date,data.catalog.stars,{time:+date,cloudCover:90,precipitation:0,wind:0,visibility:10000}).tier).toBe('needsCheck');});
+});

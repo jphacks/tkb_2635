@@ -1,9 +1,9 @@
 import { DEG, norm } from './astro';
-import type { Building, CityScene, Context, Spot } from './types';
+import type { BuildingPart, CityScene, Context, Spot,Terrain } from './types';
 export const localPosition=(scene:CityScene,lat:number,lon:number) => ({
   east:(lon-scene.originLongitude)*111320*Math.cos(scene.originLatitude*DEG),north:(lat-scene.originLatitude)*110574
 });
-export function rayHit(ox:number,oy:number,dx:number,dy:number,b:Building):number|null {
+export function rayHit(ox:number,oy:number,dx:number,dy:number,b:BuildingPart):number|null {
   let min=-Infinity,max=Infinity;
   for(const [o,d,lo,hi] of [[ox,dx,b.x-b.width/2,b.x+b.width/2],[oy,dy,b.y-b.depth/2,b.y+b.depth/2]]) {
     if(Math.abs(d)<1e-12){if(o<lo||o>hi)return null;continue;}
@@ -15,8 +15,10 @@ export function rayHit(ox:number,oy:number,dx:number,dy:number,b:Building):numbe
 export function computeHorizon(spot:Spot,scene:CityScene):number[] {
   const o=localPosition(scene,spot.latitude,spot.longitude),eye=spot.floorElevation+spot.eyeHeight,samples=Array<number>(360).fill(0);
   const directions=samples.map((_,i)=>[Math.sin(i*DEG),Math.cos(i*DEG)]);
-  for(const b of scene.buildings) {
-    if(b.id===spot.hostBuildingId||scene.groundElevation+b.height<=eye)continue;
+  for(const building of scene.buildings) {
+    if(building.id===spot.hostBuildingId)continue;
+    for(const b of building.parts?.length?building.parts:[building]) {
+    if(scene.groundElevation+b.height<=eye)continue;
     const minX=b.x-b.width/2,maxX=b.x+b.width/2,minY=b.y-b.depth/2,maxY=b.y+b.depth/2;
     let lo=0,hi=359;
     if(!(o.east>=minX-1&&o.east<=maxX+1&&o.north>=minY-1&&o.north<=maxY+1)) {
@@ -28,11 +30,13 @@ export function computeHorizon(spot:Spot,scene:CityScene):number[] {
       const ix=((i%360)+360)%360,[dx,dy]=directions[ix],distance=rayHit(o.east,o.north,dx,dy,b);
       if(distance!==null)samples[ix]=Math.max(samples[ix],Math.atan2(scene.groundElevation+b.height-eye,distance)/DEG);
     }
+    }
   }
   return samples;
 }
-export function makeContext(spot:Spot,scene?:CityScene):Context {
-  const horizon=scene?computeHorizon(spot,scene):Array<number>(360).fill(spot.approxHorizonElevation??10);
+export function makeContext(spot:Spot,scene?:CityScene,terrain?:Terrain):Context {
+  let horizon=scene?computeHorizon(spot,scene):Array<number>(360).fill(spot.approxHorizonElevation??10);
+  const ground=terrain?.spots[spot.id];if(ground?.length===360)horizon=horizon.map((h,i)=>{const p=ground[i];return p&&p[1]>0?Math.max(h,Math.atan2(p[0]-spot.floorElevation-spot.eyeHeight,p[1])/DEG):h;});
   return {spot,scene,horizon,approximate:!scene,openness:horizon.reduce((s,h)=>s+1-Math.sin(Math.max(0,h)*DEG),0)/360};
 }
 export const obstruction=(context:Context,az:number)=>context.horizon[Math.round(norm(az))%360];

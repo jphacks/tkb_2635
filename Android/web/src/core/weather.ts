@@ -22,10 +22,10 @@ export class WeatherClient {
     for(let i=0;i<pending.length;i+=3)await Promise.all(pending.slice(i,i+3).map(async([id,s])=>{
       const params=new URLSearchParams({latitude:String(s.latitude),longitude:String(s.longitude),hourly:'cloud_cover,precipitation,wind_speed_10m,visibility',timeformat:'unixtime',forecast_days:'16'});
       try {const response=await this.request(`https://api.open-meteo.com/v1/forecast?${params}`,{signal:AbortSignal.timeout(15000)});
-        if(!response.ok)throw new Error('天気の通信エラー');
+        if(!response.ok)throw new Error(`天気の通信エラー（HTTP ${response.status}）`);
         const samples=decodeWeather(await response.json());if(!samples.length)throw new Error('天気が空です');
         this.cache.set(id,{at:Date.now(),samples});
-      }catch{this.cache.delete(id);errors++;}
+      }catch(error){console.warn('天気予報の取得に失敗しました:',String(error));this.cache.delete(id);errors++;}
     }));return errors;
   }
 }
