@@ -11,6 +11,17 @@ import Testing
         #expect(SoundEffect.allCases.allSatisfy { $0.volume > 0 && $0.volume <= 0.5 })
     }
 
+    @Test func playbackIsQuieterThanSpecVolume() {
+        #expect(SoundEffect.allCases.allSatisfy { $0.playbackVolume == $0.volume * SoundEffect.masterVolume })
+        #expect(SoundEffect.masterVolume > 0 && SoundEffect.masterVolume < 1)
+    }
+
+    @Test func backgroundMusicStaysQuietAndFadesIn() {
+        #expect(BackgroundMusic.volume > 0 && BackgroundMusic.volume <= 0.3)
+        #expect(BackgroundMusic.fadeInDuration > 0)
+        #expect(BackgroundMusic.startDelay >= 0)
+    }
+
     @Test func throttleBlocksRepeatsWithinInterval() {
         var throttle = SoundThrottle()
         let interval = SoundEffect.timeTick.minimumInterval
