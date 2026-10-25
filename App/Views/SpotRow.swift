@@ -12,20 +12,20 @@ struct SpotRow: View {
 
     var body: some View {
         Group {
-            if availableWidth >= 280 && !typeSize.isAccessibilitySize {
+            if availableWidth >= 350 && !typeSize.isAccessibilitySize {
                 HStack(spacing: 12) {
-                SpotListThumbnail(sceneId: spot.sceneId, width: availableWidth < 330 ? 72 : 92)
-                details.frame(minWidth: 105, maxWidth: .infinity, alignment: .leading)
-                scoreAndArrow
+                    SpotListThumbnail(spotId: spot.id, width: 132)
+                    details.frame(minWidth: 105, maxWidth: .infinity, alignment: .leading)
+                    scoreAndArrow
                 }
             } else {
                 VStack(alignment: .leading, spacing: 12) {
-                HStack {
-                    SpotListThumbnail(sceneId: spot.sceneId, width: 76)
-                    Spacer(minLength: 0)
-                    scoreAndArrow
-                }
-                details
+                    HStack {
+                        SpotListThumbnail(spotId: spot.id, width: max(80, min(availableWidth - 100, 220)))
+                        Spacer(minLength: 0)
+                        scoreAndArrow
+                    }
+                    details
                 }
             }
         }
@@ -119,9 +119,9 @@ extension RecommendationTier {
     }
 }
 
-/// 同梱の地域写真を縮小して読む。地面用の4K画像を一覧で丸ごと展開しない。
+/// 地点を中心に切り出した同梱写真を読む。3D用の広域画像は一覧で展開しない。
 private struct SpotListThumbnail: View {
-    let sceneId: String?
+    let spotId: String
     let width: CGFloat
     @State private var image: CGImage?
 
@@ -134,21 +134,21 @@ private struct SpotListThumbnail: View {
                 Image(systemName: "photo").foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            Text(image == nil ? "写真なし" : "周辺航空写真")
-                .font(.system(size: 8)).foregroundStyle(.white.opacity(0.85))
+            Text(image == nil ? "写真なし" : "周辺800mの航空写真")
+                .font(.system(size: 9)).foregroundStyle(.white.opacity(0.95))
                 .padding(5).background(.black.opacity(0.6))
         }
         .frame(width: width, height: width * 0.96)
         .clipShape(RoundedRectangle(cornerRadius: 13))
         .accessibilityHidden(true)
-        .task(id: sceneId) {
+        .task(id: spotId) {
             image = nil
-            guard let sceneId, let url = Bundle.main.url(forResource: "far_\(sceneId)", withExtension: "jpg"),
+            guard let url = Bundle.main.url(forResource: "spot_\(spotId)", withExtension: "jpg"),
                   let source = CGImageSourceCreateWithURL(url as CFURL, [kCGImageSourceShouldCache: false] as CFDictionary)
             else { return }
             image = CGImageSourceCreateThumbnailAtIndex(source, 0, [
                 kCGImageSourceCreateThumbnailFromImageAlways: true,
-                kCGImageSourceThumbnailMaxPixelSize: 320,
+                kCGImageSourceThumbnailMaxPixelSize: 512,
                 kCGImageSourceCreateThumbnailWithTransform: true
             ] as CFDictionary)
         }
