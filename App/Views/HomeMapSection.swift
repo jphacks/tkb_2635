@@ -16,13 +16,30 @@ struct HomeMapSection: View {
 
     @State private var width: CGFloat = 0
     @State private var isExpanded = false
+    @State private var mode = HomeMapMode.map
 
     private var height: CGFloat {
         min(max(width * Self.heightRatio, Self.minHeight), Self.maxHeight)
     }
 
     var body: some View {
-        SpotMap(contexts: contexts, predictions: predictions, onSelect: onSelect)
+        VStack(spacing: 8) {
+            Picker("表示", selection: $mode) {
+                ForEach(HomeMapMode.allCases) { Text($0.rawValue).tag($0) }
+            }
+            .pickerStyle(.segmented)
+            content
+        }
+    }
+
+    private var content: some View {
+        Group {
+            switch mode {
+            case .map: SpotMap(contexts: contexts, predictions: predictions, onSelect: onSelect)
+            // 全画面で開いている間は、同じ 3D を 2 つ描かない（シミュレータでは後から出した方が描かれなかった）
+            case .city3D: if isExpanded { Color.clear } else { WideCityView() }
+            }
+        }
             .frame(maxWidth: .infinity)
             .frame(height: height)
             .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { width = $0 }
@@ -41,9 +58,13 @@ struct HomeMapSection: View {
                 .padding(10)
             }
             .fullScreenCover(isPresented: $isExpanded) {
-                FullScreenSpotMap(contexts: contexts, predictions: predictions) { id in
-                    isExpanded = false
-                    onSelect(id)
+                switch mode {
+                case .map:
+                    FullScreenSpotMap(contexts: contexts, predictions: predictions) { id in
+                        isExpanded = false
+                        onSelect(id)
+                    }
+                case .city3D: FullScreenWideCity()
                 }
             }
     }
