@@ -1,104 +1,135 @@
-import CoreGraphics
 import RealityKit
+import StarCore
 import UIKit
 
-/// 星座の線を天球の内側へ沿わせ、淡いガラス調の二重線で表示する。
+/// 3D の空の星座。星空の球（半径 1、赤道座標）の内側に、ガラス調の線・にじむ星・淡い線画・名札を置く。
+/// 位置の計算は StarCore（`ConstellationLines`・`ConstellationArt`）が行い、ここは形と見た目だけを作る。
 @MainActor
 enum ConstellationRenderer {
-    private struct Constellation: Decodable {
-        let paths: [[[Double]]]
+    static let containerName = "constellations"
+
+    private struct Meshes {
+        let lines: MeshResource
+        let stars: MeshResource
+        let art: MeshResource?
     }
 
-    private static let overlayMeshes: (glow: MeshResource, core: MeshResource)? = makeMeshes()
+    private static let meshes: Meshes? = makeMeshes()
 
-    static func makeOverlay() -> [ModelEntity] {
-        guard let overlayMeshes else { return [] }
+    /// 星空の球に星座を足す。球の星の画像より後に描くよう、描く順番を決めておく
+    static func attach(to dome: ModelEntity) {
+        guard let meshes else { return }
+        let group = ModelSortGroup(depthPass: nil)
+        dome.components.set(ModelSortGroupComponent(group: group, order: 0))
+        let style = ConstellationStyle.self
 
-        var glow = UnlitMaterial(color: UIColor(red: 0.45, green: 0.78, blue: 1, alpha: 1))
-        glow.blending = .transparent(opacity: .init(floatLiteral: 0.12))
-        glow.faceCulling = .none
+        let container = Entity()
+        container.name = containerName
+        dome.addChild(container)
 
-        var core = UnlitMaterial(color: UIColor(red: 0.83, green: 0.94, blue: 1, alpha: 1))
-        core.blending = .transparent(opacity: .init(floatLiteral: 0.48))
-        core.faceCulling = .none
-
-        let glowEntity = ModelEntity(mesh: overlayMeshes.glow, materials: [glow])
-        glowEntity.name = "constellationGlow"
-        let coreEntity = ModelEntity(mesh: overlayMeshes.core, materials: [core])
-        coreEntity.name = "constellationLines"
-        return [glowEntity, coreEntity]
-    }
-
-    private static func makeMeshes() -> (glow: MeshResource, core: MeshResource)? {
-        guard let url = Bundle.main.url(forResource: "constellations", withExtension: "json"),
-              let data = try? Data(contentsOf: url),
-              let constellations = try? JSONDecoder().decode([Constellation].self, from: data) else {
-            return nil
+        if let art = meshes.art {
+            container.addChild(glowEntity("constellationArt", mesh: art, texture: ConstellationTextures.art,
+                                          rgb: style.artRGB, opacity: style.artOpacity, group: group, order: 1))
         }
+        container.addChild(glowEntity("constellationLines", mesh: meshes.lines, texture: ConstellationTextures.line,
+                                      rgb: style.lineRGB, opacity: style.skyLineOpacity, group: group, order: 2))
+        container.addChild(glowEntity("constellationStars", mesh: meshes.stars, texture: ConstellationTextures.star,
+                                      rgb: (1, 1, 1), opacity: style.starOpacity, group: group, order: 3))
+        ConstellationLabelRenderer.addLabels(to: container, group: group, order: 4)
+    }
 
-        let segments = constellations.flatMap(\.paths).flatMap { path -> [(SIMD3<Float>, SIMD3<Float>)] in
-            let points = path.compactMap(unitVector)
-            guard points.count > 1 else { return [] }
-            return zip(points, points.dropFirst()).flatMap(sampleArc)
+    /// 薄明のときは星空と一緒に薄くする
+    static func fade(_ dome: Entity, opacity: Float) {
+        dome.findEntity(named: containerName)?.components.set(OpacityComponent(opacity: opacity))
+    }
+
+    private static func glowEntity(_ name: String, mesh: MeshResource, texture: TextureResource?,
+                                   rgb: (r: Double, g: Double, b: Double), opacity: Double,
+                                   group: ModelSortGroup, order: Int32) -> ModelEntity {
+        var material = UnlitMaterial()
+        let color = UIColor(red: rgb.r, green: rgb.g, blue: rgb.b, alpha: 1)
+        if let texture {
+            material.color = .init(tint: color, texture: .init(texture))
+            material.blending = .transparent(opacity: .init(scale: Float(opacity), texture: .init(texture)))
+        } else {
+            material.color = .init(tint: color)
+            material.blending = .transparent(opacity: .init(floatLiteral: Float(opacity) * 0.5))
         }
-        guard !segments.isEmpty,
-              let glow = makeRibbonMesh(segments, radius: 1.003, halfWidth: 0.0018),
-              let core = makeRibbonMesh(segments, radius: 1.0035, halfWidth: 0.00038) else { return nil }
-        return (glow, core)
+        material.faceCulling = .none
+        let entity = ModelEntity(mesh: mesh, materials: [material])
+        entity.name = name
+        entity.components.set(ModelSortGroupComponent(group: group, order: order))
+        return entity
     }
 
-    /// d3-celestial は赤経を経度に変換し、0〜180°と-180〜0°で表している。
-    private static func unitVector(_ coordinate: [Double]) -> SIMD3<Float>? {
-        guard coordinate.count >= 2 else { return nil }
-        let longitude = coordinate[0]
-        let rightAscension = longitude < 0 ? longitude + 360 : longitude
-        let dec = coordinate[1] * .pi / 180
-        let ra = rightAscension * .pi / 180
-        return SIMD3(Float(cos(dec) * cos(ra)), Float(cos(dec) * sin(ra)), Float(sin(dec)))
+    // MARK: - 形
+
+    private static func makeMeshes() -> Meshes? {
+        let style = ConstellationStyle.self
+        let lines = ConstellationData.lines
+        let lineSegments = lines.flatMap(\.equatorialPolylines).flatMap { segments($0) }
+        let artSegments = ConstellationData.art.flatMap(\.equatorialStrokes).flatMap { segments($0) }
+        let brightStars = StarCatalog.stars.filter { $0.magnitude <= ConstellationLabelPicker.brightMagnitude }
+            .map { EquatorialVector(rightAscension: $0.rightAscension * 15, declination: $0.declination) }
+        let stars = lines.flatMap(\.stars).map { star in
+            (star, brightStars.contains { $0.angle(to: star) < 0.3 } ? style.brightStarScale : 1)
+        }
+        guard let lineMesh = ribbon(lineSegments, radius: style.lineRadius, halfWidth: style.lineHalfWidth, name: "constellationLines"),
+              let starMesh = sprites(stars, radius: style.starRadius, halfSize: style.starHalfSize) else { return nil }
+        let artMesh = ribbon(artSegments, radius: style.artRadius, halfWidth: style.artHalfWidth, name: "constellationArt")
+        return Meshes(lines: lineMesh, stars: starMesh, art: artMesh)
     }
 
-    /// 長い星座線も球面の弧をたどるよう、約1.5°ごとに細分化する。
-    private static func sampleArc(_ endpoints: (SIMD3<Float>, SIMD3<Float>)) -> [(SIMD3<Float>, SIMD3<Float>)] {
-        let start = endpoints.0
-        let end = endpoints.1
-        let angle = acos(max(-1, min(1, simd_dot(start, end))))
-        let steps = max(1, Int(ceil(angle / (1.5 * .pi / 180))))
-        return (0..<steps).map { index in
-            (sphericalPoint(start, end, fraction: Float(index) / Float(steps)),
-             sphericalPoint(start, end, fraction: Float(index + 1) / Float(steps)))
+    /// 折れ線を、球面に沿った短い線分に分ける
+    private static func segments(_ polyline: [EquatorialVector]) -> [(SIMD3<Float>, SIMD3<Float>)] {
+        zip(polyline, polyline.dropFirst()).flatMap { a, b -> [(SIMD3<Float>, SIMD3<Float>)] in
+            let points = ConstellationGeometry.arc(from: a, to: b, maxStep: ConstellationStyle.arcStep).map(simd)
+            return Array(zip(points, points.dropFirst()))
         }
     }
 
-    private static func sphericalPoint(_ start: SIMD3<Float>, _ end: SIMD3<Float>, fraction: Float) -> SIMD3<Float> {
-        let dot = max(-1, min(1, simd_dot(start, end)))
-        let angle = acos(dot)
-        guard angle > 1e-5 else { return simd_normalize(start + (end - start) * fraction) }
-        let sine = sin(angle)
-        return simd_normalize(start * (sin((1 - fraction) * angle) / sine)
-                              + end * (sin(fraction * angle) / sine))
-    }
+    private static func simd(_ v: EquatorialVector) -> SIMD3<Float> { SIMD3(Float(v.x), Float(v.y), Float(v.z)) }
 
-    private static func makeRibbonMesh(_ segments: [(SIMD3<Float>, SIMD3<Float>)],
-                                       radius: Float, halfWidth: Float) -> MeshResource? {
-        var positions: [SIMD3<Float>] = []
-        var indices: [UInt32] = []
+    /// 線分ごとの細長い帯。帯の横方向に画像の v（0〜1）を割り当て、真ん中だけを明るくする
+    private static func ribbon(_ segments: [(SIMD3<Float>, SIMD3<Float>)], radius: Float, halfWidth: Float,
+                               name: String) -> MeshResource? {
+        guard !segments.isEmpty else { return nil }
+        var positions: [SIMD3<Float>] = [], uvs: [SIMD2<Float>] = [], indices: [UInt32] = []
         positions.reserveCapacity(segments.count * 4)
-        indices.reserveCapacity(segments.count * 6)
-
         for (start, end) in segments {
-            let midpoint = simd_normalize(start + end)
-            let tangent = end - start
-            let side = simd_normalize(simd_cross(midpoint, tangent))
-            let a = start * radius
-            let b = end * radius
-            let offset = side * halfWidth
+            let side = simd_normalize(simd_cross(simd_normalize(start + end), end - start)) * halfWidth
+            let a = start * radius, b = end * radius
             let base = UInt32(positions.count)
-            positions += [a - offset, a + offset, b - offset, b + offset]
+            positions += [a - side, a + side, b - side, b + side]
+            uvs += [[0.5, 0], [0.5, 1], [0.5, 0], [0.5, 1]]
             indices += [base, base + 1, base + 2, base + 1, base + 3, base + 2]
         }
+        return mesh(name, positions: positions, uvs: uvs, indices: indices)
+    }
 
-        var descriptor = MeshDescriptor(name: "constellationRibbon")
+    /// 星ごとの小さな四角（球の内側を向く）。丸い光の画像を貼る
+    private static func sprites(_ stars: [(EquatorialVector, Float)], radius: Float, halfSize: Float) -> MeshResource? {
+        guard !stars.isEmpty else { return nil }
+        var positions: [SIMD3<Float>] = [], uvs: [SIMD2<Float>] = [], indices: [UInt32] = []
+        for (star, scale) in stars {
+            let center = simd(star)
+            var east = simd_cross(SIMD3<Float>(0, 0, 1), center)
+            if simd_length(east) < 1e-5 { east = [0, 1, 0] }
+            east = simd_normalize(east) * halfSize * scale
+            let north = simd_normalize(simd_cross(center, east)) * halfSize * scale
+            let c = center * radius
+            let base = UInt32(positions.count)
+            positions += [c - east - north, c + east - north, c - east + north, c + east + north]
+            uvs += [[0, 0], [1, 0], [0, 1], [1, 1]]
+            indices += [base, base + 1, base + 2, base + 1, base + 3, base + 2]
+        }
+        return mesh("constellationStars", positions: positions, uvs: uvs, indices: indices)
+    }
+
+    private static func mesh(_ name: String, positions: [SIMD3<Float>], uvs: [SIMD2<Float>], indices: [UInt32]) -> MeshResource? {
+        var descriptor = MeshDescriptor(name: name)
         descriptor.positions = MeshBuffer(positions)
+        descriptor.textureCoordinates = MeshBuffer(uvs)
         descriptor.primitives = .triangles(indices)
         return try? MeshResource.generate(from: [descriptor])
     }

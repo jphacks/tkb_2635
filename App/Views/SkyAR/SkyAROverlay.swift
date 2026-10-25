@@ -5,8 +5,6 @@ import SwiftUI
 /// 建物などでさえぎられている天体・線は、消さずに薄く描く。
 enum SkyAROverlay {
     private static let blockedOpacity = 0.28
-    private static let lineOpacity = 0.6
-    private static let lineColor = Color(red: 0.75, green: 0.9, blue: 1)
     /// この等級より明るい恒星だけ名前を出す（出しすぎると画面が埋まる）
     private static let labeledStarMagnitude = 1.5
     /// 画面の外へこれだけはみ出した位置までは描く（点の大きさ分）
@@ -27,13 +25,7 @@ enum SkyAROverlay {
         }
 
         drawHorizon(projector: projector, in: &context, size: size)
-        for constellation in snapshot.constellations {
-            for line in constellation.polylines { drawLine(line, projector: projector, in: &context) }
-            if let label = constellation.label, label.direction.up > 0, let point = screen(label.direction) {
-                context.opacity = label.isBlocked ? blockedOpacity : 0.8
-                context.draw(Text(constellation.name).font(.caption2).foregroundStyle(lineColor), at: point)
-            }
-        }
+        SkyARConstellationLayer.draw(snapshot, projector: projector, in: &context, size: size)
         for object in snapshot.objects where object.isAboveHorizon {
             guard let point = screen(object.direction) else { continue }
             context.opacity = object.isBlocked ? blockedOpacity : 1
@@ -57,19 +49,6 @@ enum SkyAROverlay {
         if isLabeled {
             context.draw(Text(object.name).font(.caption).bold().foregroundStyle(.white),
                          at: CGPoint(x: point.x, y: point.y + radius + 10))
-        }
-    }
-
-    /// 星座の折れ線。両端が地平線より上にある線分だけ描く。さえぎられている側は薄くする
-    private static func drawLine(_ line: [SkyPoint], projector: CameraProjector, in context: inout GraphicsContext) {
-        for (a, b) in zip(line, line.dropFirst()) {
-            guard a.direction.up > 0, b.direction.up > 0,
-                  let p = projector.project(a.direction), let q = projector.project(b.direction) else { continue }
-            var path = Path()
-            path.move(to: CGPoint(x: p.x, y: p.y))
-            path.addLine(to: CGPoint(x: q.x, y: q.y))
-            context.opacity = (a.isBlocked || b.isBlocked) ? blockedOpacity * 0.6 : lineOpacity
-            context.stroke(path, with: .color(lineColor), lineWidth: 1)
         }
     }
 

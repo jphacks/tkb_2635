@@ -79,11 +79,9 @@ struct SkyARView: View {
     }
 
     private func refreshSky() async {
-        let lines = Bundle.main.url(forResource: "constellations", withExtension: "json")
-            .flatMap { try? Data(contentsOf: $0) }
-            .flatMap { try? ConstellationLines.decode($0) } ?? []
+        let lines = ConstellationData.lines, art = ConstellationData.art
         while !Task.isCancelled {
-            snapshot = SkySnapshot.make(context: context, date: .now, constellations: lines)
+            snapshot = SkySnapshot.make(context: context, date: .now, constellations: lines, art: art)
             try? await Task.sleep(for: Self.refreshInterval)
         }
     }

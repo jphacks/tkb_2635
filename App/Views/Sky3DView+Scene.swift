@@ -27,6 +27,7 @@ extension Sky3DView {
         active.findEntity(named: "schematicDeck")?.isEnabled = self.camera.mode == .overview
         active.findEntity(named: ObserverEntryRenderer.name)?.isEnabled = self.camera.mode == .overview
         active.findEntity(named: "overviewRay")?.isEnabled = self.camera.mode == .overview
+        ConstellationLabelRenderer.update(in: active, camera: camera)
         if let moon = active.findEntity(named: SkyRenderer.moonName), let camera {
             SkyRenderer.orientMoon(moon, cameraPosition: camera.position(relativeTo: nil), brightLimb: moonBrightLimb)
         }
