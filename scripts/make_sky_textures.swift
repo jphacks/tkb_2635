@@ -9,7 +9,7 @@
 //
 // 出力:
 //   moon_disk.png  月の表側を正射図法で円に切り出したもの（512×512、円の外は透明）
-//   stars_city.jpg / stars_suburban.jpg / stars_dark.jpg
+//   stars_city.png / stars_suburban.png / stars_dark.png
 //                  星図を、見える一番暗い星の等級ごとに黒を持ち上げたもの（4096×2048）
 //
 // 環境に numpy・PIL が無くても動くよう、macOS の ImageIO で読み書きする（Python ではなく Swift）。
@@ -37,8 +37,8 @@ let referenceStars: [(name: String, ra: Double, dec: Double, magnitude: Double)]
     ("32 オリオニス", 82.696, 5.948, 4.20),
 ]
 /// 星を丸く広げる半径 [画素]。1 画素の星を拡大すると四角く見えるので、周りへ明るさを落としながら広げる
-let starRadius = 3
-let starSigma: Float = 1.3
+let starRadius = 2
+let starSigma: Float = 0.75
 let moonSize = 512
 
 func fail(_ message: String) -> Never {
@@ -253,7 +253,7 @@ func makeStars(_ source: URL, _ output: URL) {
             }
         }
         print(level.name, "等級", level.magnitude.map { "\($0)" } ?? "全部", "光の量の境目", cut, "残る星", allPeaks.filter { $0 >= cut }.count)
-        save(bytes, width: map.width, height: map.height, to: output.appending(path: "\(level.name).jpg"), type: .jpeg, alpha: false)
+        save(bytes, width: map.width, height: map.height, to: output.appending(path: "\(level.name).png"), type: .png, alpha: false)
     }
 }
 

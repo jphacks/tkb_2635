@@ -5,6 +5,7 @@ import SwiftUI
 /// 観測地点まわりの建物と、天体の方向を 3D で表示する。
 /// 1 単位 = 100 m。x が東、y が上、-z が北。観測者の目を原点に置く。
 struct Sky3DView: View {
+    @Environment(\.accessibilityReduceMotion) var reduceMotion
     let context: SpotContext
     let prediction: Prediction
     let date: Date
@@ -20,6 +21,8 @@ struct Sky3DView: View {
     @State private var zoomStart: SkyCamera?
     /// 街の読み込みが終わったか。終わったら画面を描き直させる（そのままだと真っ暗なことがある）
     @State private var isLoaded = false
+    @State private var entryFlight: ObserverCameraFlight?
+    @State private var flightProgress = 0.0
 
     static let scale: Float = 1 / 100
     static let skyRadius: Float = 4
@@ -96,6 +99,7 @@ struct Sky3DView: View {
         .gesture(
             DragGesture()
                 .onChanged { value in
+                    guard camera.mode != .entering else { return }
                     let start = dragStart ?? camera
                     dragStart = start
                     if isObserverView {
@@ -111,6 +115,7 @@ struct Sky3DView: View {
         .simultaneousGesture(
             MagnifyGesture()
                 .onChanged { value in
+                    guard camera.mode != .entering else { return }
                     let start = zoomStart ?? camera
                     zoomStart = start
                     if isObserverView {
@@ -120,6 +125,13 @@ struct Sky3DView: View {
                     }
                 }
                 .onEnded { _ in zoomStart = nil }
+        )
+        .simultaneousGesture(
+            SpatialTapGesture().targetedToAnyEntity()
+                .onEnded { value in
+                    guard value.entity.name == ObserverEntryRenderer.name else { return }
+                    beginObservation()
+                }
         )
         .overlay {
             if !isLoaded {
@@ -135,13 +147,34 @@ struct Sky3DView: View {
             dragStart = nil
             zoomStart = nil
         }
+        .task(id: camera.mode) {
+            guard camera.mode == .entering, entryFlight != nil else { return }
+            let clock = ContinuousClock()
+            let started = clock.now
+            while !Task.isCancelled {
+                let elapsed = started.duration(to: clock.now).components
+                let seconds = Double(elapsed.seconds) + Double(elapsed.attoseconds) / 1e18
+                flightProgress = min(1, seconds / ObserverCameraFlight.duration)
+                if flightProgress >= 1 { break }
+                do { try await Task.sleep(for: .milliseconds(16)) } catch { return }
+            }
+            guard !Task.isCancelled, camera.mode == .entering else { return }
+            camera.mode = .observer
+            entryFlight = nil
+        }
+        .onDisappear {
+            // シート全開などで描画が外れても、移動途中のまま操作不能にしない。
+            if camera.mode == .entering { camera.mode = .observer }
+            entryFlight = nil
+        }
         .accessibilityElement()
         .accessibilityLabel(prediction.accessStatus.label + "。" + (prediction.geometricVisibility
                             ? "\(Angle.directionName(prediction.azimuth))の空に見える見込み"
                             : "建物などに遮られる見込み"))
+        .accessibilityAction(named: Text("観測者の目線へ入る")) { beginObservation() }
     }
 
-    private var camera: SkyCamera {
+    var camera: SkyCamera {
         get { sharedCamera?.wrappedValue ?? ownCamera }
         nonmutating set {
             if let sharedCamera { sharedCamera.wrappedValue = newValue } else { ownCamera = newValue }
@@ -156,12 +189,30 @@ struct Sky3DView: View {
         let c = self.camera
         camera.camera.fieldOfViewInDegrees = Float(isObserverView ? c.observer.fieldOfView : ObserverViewpoint.defaultFieldOfView)
         // 1単位=100m。目線表示では5cm先から描き、近くの壁や足元を欠かさない。
-        camera.camera.near = isObserverView ? 0.0005 : 0.01
-        if isObserverView {
+        camera.camera.near = c.mode == .overview ? 0.01 : 0.0005
+        if c.mode == .entering, let entryFlight {
+            let pose = entryFlight.pose(progress: flightProgress)
+            let position = SkyRenderer.vector(pose.position) * Self.scale
+            camera.look(at: position + SkyRenderer.vector(pose.direction), from: position, relativeTo: nil)
+        } else if isObserverView {
             camera.look(at: SkyRenderer.vector(c.observer.direction), from: .zero, relativeTo: nil)
         } else {
-            let position = SIMD3<Float>(sin(c.yaw) * cos(c.pitch), sin(c.pitch), cos(c.yaw) * cos(c.pitch)) * c.distance
-            camera.look(at: [0, 1.2, 0], from: position, relativeTo: nil)
+            let pose = c.overviewPose
+            let position = SkyRenderer.vector(pose.position) * Self.scale
+            camera.look(at: position + SkyRenderer.vector(pose.direction), from: position, relativeTo: nil)
+        }
+    }
+
+    private func beginObservation() {
+        guard camera.mode == .overview, context.scene?.observerViewEnabled == true, isLoaded else { return }
+        let target = HorizontalCoord(altitude: prediction.altitude, azimuth: prediction.azimuth)
+        camera.observer = ObserverViewpoint(target: target)
+        if reduceMotion {
+            camera.mode = .observer
+        } else {
+            entryFlight = ObserverCameraFlight(start: camera.overviewPose, target: target)
+            flightProgress = 0
+            camera.mode = .entering
         }
     }
 
