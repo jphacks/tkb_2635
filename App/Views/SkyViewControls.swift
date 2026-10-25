@@ -6,22 +6,34 @@ struct SkyViewControls: View {
     @Binding var camera: SkyCamera
     let target: HorizontalCoord
     var showsObstructionGuide = false
+    var entryIsBuilding = false
 
     var body: some View {
         VStack(spacing: 8) {
-            Picker("3Dの視点", selection: $camera.mode) {
-                Text("全体を見る").tag(SkyCamera.Mode.overview)
-                Text("観測者の目線").tag(SkyCamera.Mode.observer)
-            }
-            .pickerStyle(.segmented)
-            .accessibilityHint("観測者の目線では、その場所に立った高さで空を見回せます")
-
-            if camera.mode == .observer {
+            switch camera.mode {
+            case .overview:
+                Label(entryIsBuilding ? "淡く光る建物をタップして展望台の目線へ" : "青い観測位置をタップして地上の目線へ",
+                      systemImage: "hand.tap")
+                    .font(.caption)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            case .entering:
                 HStack {
-                    Text("ドラッグで見回す・ピンチで拡大")
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                    Spacer(minLength: 4)
+                    ProgressView("観測位置へ移動中")
+                        .font(.caption)
+                    Spacer()
+                    Button("戻る") { camera.mode = .overview }
+                        .font(.caption.bold())
+                }
+            case .observer:
+                HStack {
+                    Button {
+                        camera.mode = .overview
+                    } label: {
+                        Label("街全体へ戻る", systemImage: "square.3.layers.3d")
+                            .font(.caption.bold())
+                    }
+                    .buttonStyle(.bordered)
+                    Spacer(minLength: 8)
                     Button {
                         faceTarget()
                     } label: {
@@ -31,6 +43,10 @@ struct SkyViewControls: View {
                     .buttonStyle(.bordered)
                     .accessibilityHint("選んだ天体の現在の方角へ視点を戻します")
                 }
+                Text("ドラッグで見回す・ピンチで拡大")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 if showsObstructionGuide {
                     Text("赤枠は判定用の箱です。実際の建物の形とは異なります。")
                         .font(.caption2)
