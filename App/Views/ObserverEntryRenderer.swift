@@ -11,6 +11,10 @@ enum ObserverEntryRenderer {
     private static let pulseDuration = 0.5
     private static let highlightExpansion: Float = 0.003
     private static let groundRadius: Float = 0.11
+    /// 壁ごしに見せる観測者の目印の大きさ（全体表示の青い点より少しだけ大きくして、上に重ねる）
+    private static let seeThroughRadius: Float = 0.065
+    /// Sky3DView+Scene の全体表示だけの目印のまとまり
+    private static let overviewGuidesName = "overviewGuides"
 
     static func add(to root: Entity, city: Entity?, context: SpotContext, scale: Float, animated: Bool) {
         guard context.scene?.observerViewEnabled == true else { return }
@@ -25,6 +29,7 @@ enum ObserverEntryRenderer {
             let eye = Float(context.spot.observerElevation - scene.groundElevation) * scale
             entry.position = [Float(host.x - me.east) * scale, size.y / 2 - eye, -Float(host.y - me.north) * scale]
             entry.components.set(CollisionComponent(shapes: [.generateBox(size: size)]))
+            if eye < size.y { addSeeThroughMarker(to: root) }
 
             // 実形状の外壁だけを淡く重ね、街全体や窓を塗りつぶさない。
             if let city {
@@ -59,6 +64,17 @@ enum ObserverEntryRenderer {
             entry.components.set(CollisionComponent(shapes: [.generateSphere(radius: groundRadius * 1.5)]))
         }
         root.addChild(entry)
+    }
+
+    /// 観測者が建物の中（屋上より下）にいると、全体表示では不透明な壁に隠れて青い点が見えない。
+    /// 奥行きを無視して描く青い点を観測者の位置に重ね、壁ごしでも位置が分かるようにする（全体表示の目印と一緒に出し入れする）。
+    private static func addSeeThroughMarker(to root: Entity) {
+        var material = UnlitMaterial(color: .systemBlue)
+        // 半透明の扱いにして不透明な建物より後に描き、奥行きの比較をしないことで、壁の手前に出す。
+        material.blending = .transparent(opacity: .init(floatLiteral: 0.95))
+        material.readsDepth = false
+        let marker = ModelEntity(mesh: .generateSphere(radius: seeThroughRadius), materials: [material])
+        (root.findEntity(named: overviewGuidesName) ?? root).addChild(marker)
     }
 
     private static func pulse(_ entry: Entity, animated: Bool) {
