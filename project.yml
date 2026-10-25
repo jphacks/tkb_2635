@@ -11,7 +11,11 @@ targets:
   StarSpot:
     type: application
     platform: iOS
-    sources: [App]
+    sources:
+      - path: App
+        excludes:
+          # ローカルに残す重複コピーはアプリに同梱しない。
+          - "Resources/Sky/constellation-* 2.png"
     dependencies:
       - package: StarCore
     # 起動中の画面を夜空の色にする（白い画面が一瞬出ないように）
@@ -29,7 +33,7 @@ targets:
         TARGETED_DEVICE_FAMILY: "1"
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_CFBundleDisplayName: Astera
-        INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: 現在地から観測地点までの距離と経路を表示するために使います
+        INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: 現在地から見える空の3D表示と、観測地点までの距離・経路を表示するために使います
         INFOPLIST_KEY_NSCameraUsageDescription: AR で、カメラの映像に月・惑星・星座を実際の方角に重ねて表示するために使います
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         DEVELOPMENT_TEAM: NMJFRR7D86

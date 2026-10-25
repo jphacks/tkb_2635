@@ -10,10 +10,18 @@ public enum SeedData {
         try load("buildings", as: [CityScene].self)
     }
 
+    /// 地形の地平線（2-07）
+    public static func loadTerrain() throws -> TerrainHorizon {
+        try load("terrain", as: TerrainHorizon.self)
+    }
+
     /// 地点ごとに建物シーンと地平線プロファイルを組み立てる
     public static func loadContexts() throws -> [SpotContext] {
         let scenes = Dictionary(uniqueKeysWithValues: try loadScenes().map { ($0.id, $0) })
-        return try loadSpots().map { SpotContext(spot: $0, scene: $0.sceneId.flatMap { scenes[$0] }) }
+        let terrain = try loadTerrain()
+        return try loadSpots().map {
+            SpotContext(spot: $0, scene: $0.sceneId.flatMap { scenes[$0] }, terrain: terrain)
+        }
     }
 
     private static func load<T: Decodable>(_ name: String, as type: T.Type) throws -> T {
@@ -32,13 +40,26 @@ public struct SpotContext: Identifiable, Sendable {
 
     public var id: String { spot.id }
 
-    public init(spot: Spot, scene: CityScene?) {
+    /// 現在地のように、登録地点 ID に依存せず計算済みの地平線を渡す。
+    public init(spot: Spot, scene: CityScene?, horizon: HorizonProfile) {
         self.spot = spot
         self.scene = scene
-        if let scene {
-            horizon = HorizonProfile.compute(spot: spot, scene: scene)
+        self.horizon = horizon
+    }
+
+    /// terrain を渡すと、建物と地形の仰角の大きいほうを地平線にする
+    public init(spot: Spot, scene: CityScene?, terrain: TerrainHorizon? = nil) {
+        self.spot = spot
+        self.scene = scene
+        let buildings = if let scene {
+            HorizonProfile.compute(spot: spot, scene: scene)
         } else {
-            horizon = HorizonProfile.uniform(spot.approxHorizonElevation ?? 10, isApproximate: true)
+            HorizonProfile.uniform(spot.approxHorizonElevation ?? 10, isApproximate: true)
+        }
+        if let ground = terrain?.elevations(spotId: spot.id, eyeElevation: spot.observerElevation) {
+            horizon = buildings.combined(withTerrain: ground)
+        } else {
+            horizon = buildings
         }
     }
 }

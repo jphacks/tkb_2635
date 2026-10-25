@@ -119,6 +119,7 @@ private struct SideButton: View {
 
 /// 2地点の数値を、項目ごとに左右に並べる
 private struct ComparisonTable: View {
+    @AppStorage(DirectionNotation.storageKey) private var directionNotation = DirectionNotation.default
     let first: SpotComparison.Side
     let second: SpotComparison.Side
 
@@ -131,7 +132,7 @@ private struct ComparisonTable: View {
             }
             Divider()
             row("判定") { $0.prediction.tier.label }
-            row("天体の方角") { Angle.directionName($0.prediction.azimuth) }
+            row("天体の方角") { directionNotation.text($0.prediction.azimuth) }
             row("天体の高度") { degrees($0.prediction.altitude) }
             row("建物がふさぐ高さ") { degrees($0.prediction.obstructionElevation) }
             row("高さの余裕") { degrees($0.clearance) }

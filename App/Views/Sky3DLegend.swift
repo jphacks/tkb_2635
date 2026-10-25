@@ -1,7 +1,7 @@
 import StarCore
 import SwiftUI
 
-/// 3D の左上の説明（判定・建物データ・出典）
+/// 3D の左上の説明（判定・建物データ）。出典は設定の「出典とライセンス」に出す
 extension Sky3DView {
     var legend: some View {
         VStack(alignment: .leading, spacing: 2) {
@@ -16,21 +16,15 @@ extension Sky3DView {
                 Text(context.scene?.name ?? "建物データなし（地平線は暫定値）")
                     .foregroundStyle(.secondary)
             }
-            if context.scene.map(CityModelRenderer.hasModel) == true {
-                if !compact {
-                    Text("建物・地面は昼の実写を暗く表示")
-                        .foregroundStyle(.secondary)
-                    Text("窓・街灯の明かりはイメージ")
-                        .foregroundStyle(.secondary)
-                    if context.scene.map(FarGroundRenderer.hasImage) == true {
-                        Text("遠くの街明かりは衛星の夜間光をもとにしたイメージ")
-                            .foregroundStyle(.secondary)
-                    }
-                }
-                // 地理院タイルは出典の明示が利用の条件。小さい表示でも消さない
-                Text(SkyRenderer.credit)
-                    .font(.caption2)
+            if context.scene.map(CityModelRenderer.hasModel) == true, !compact {
+                Text("建物・地面は昼の実写を暗く表示")
                     .foregroundStyle(.secondary)
+                Text("窓・街灯の明かりはイメージ")
+                    .foregroundStyle(.secondary)
+                if context.scene.map(FarGroundRenderer.hasImage) == true {
+                    Text("遠くの街明かりは衛星の夜間光をもとにしたイメージ")
+                        .foregroundStyle(.secondary)
+                }
             } else if !compact {
                 Text("外壁・窓明かりはイメージ")
                     .foregroundStyle(.secondary)

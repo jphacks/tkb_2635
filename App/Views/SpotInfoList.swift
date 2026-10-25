@@ -4,6 +4,7 @@ import SwiftUI
 /// 詳細画面の下のシートに入れる情報（判定の理由・比較・観測条件・施設など）。
 /// 上から順に、シートを半分まで引き上げたときに見える内容 → 全部引き上げたときの内容。比較画面へのボタンは見出し（SpotSheetHeader）にある。
 struct SpotInfoList: View {
+    @AppStorage(DirectionNotation.storageKey) private var directionNotation = DirectionNotation.default
     @Environment(AppModel.self) private var model
     let context: SpotContext
     let prediction: Prediction
@@ -15,7 +16,7 @@ struct SpotInfoList: View {
             // スコアと見える/隠れるはシートの見出しに出すので、ここは位置と理由だけ
             Section("判定") {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("\(model.target.name)：\(Angle.directionName(prediction.azimuth)) 高度\(String(format: "%.1f", prediction.altitude))°")
+                    Text("\(model.target.name)：\(directionNotation.text(prediction.azimuth)) 高度\(String(format: "%.1f", prediction.altitude))°")
                     Text("その方位の遮蔽仰角 \(String(format: "%.1f", prediction.obstructionElevation))°")
                         .foregroundStyle(.secondary)
                 }
@@ -36,9 +37,6 @@ struct SpotInfoList: View {
                           detail: spot.localGlareLevel == nil || spot.regionalLightIndex == nil ? "精度不足" : "")
                 LabeledContent("月明かりの影響 M", value: model.target == .moon ? "月モードでは減点しない" : String(format: "%.2f", prediction.moonEffect))
                 LabeledContent("太陽高度", value: "\(String(format: "%.0f", prediction.sunAltitude))°（\(prediction.skyState.label)）")
-                Link("天気データ：Open-Meteo（CC BY 4.0）",
-                     destination: URL(string: "https://open-meteo.com/")!)
-                    .font(.caption)
             }
 
             Section {
@@ -71,6 +69,7 @@ struct SpotInfoList: View {
             Section("施設・地点") {
                 LabeledContent("種類", value: "\(spot.category.label)（\(spot.indoorOutdoor.label)）")
                 LabeledContent("目の高さ", value: "標高 \(Int(spot.observerElevation)) m（床 \(Int(spot.floorElevation)) m + \(String(format: "%.1f", spot.eyeHeight)) m）")
+                Text("床の標高の出典: \(spot.floorElevationSourceLabel)").font(.caption).foregroundStyle(.secondary)
                 LabeledContent("利用時間", value: spot.accessHoursText(at: model.date))
                 LabeledContent("指定日時の入場", value: prediction.accessStatus.label)
                 if let note = spot.openingHours.note { Text(note).font(.caption).foregroundStyle(.secondary) }
@@ -112,7 +111,6 @@ struct SpotInfoList: View {
             if let scene = context.scene {
                 Section("建物データ") {
                     LabeledContent("収録建物数", value: "\(scene.buildings.count)棟")
-                    Text(scene.source).font(.caption).foregroundStyle(.secondary)
                 }
                 SurroundingsSection(context: context)
             }

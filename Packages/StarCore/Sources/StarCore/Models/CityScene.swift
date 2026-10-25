@@ -13,6 +13,8 @@ public struct Building: Codable, Identifiable, Sendable {
     /// シーンの共通 groundElevation から屋根までの有効高さ [m]
     public var height: Double
     public var usage: String?
+    /// 遮蔽判定に使う部分の箱（LOD2 の形から作る。省略時は上の箱 1 つで判定する）。表示・タップは上の箱を使う
+    public var parts: [BuildingPart]?
 }
 
 /// 代表地点の周辺建物。原典と近似・暫定値の注意は source に記録する。
@@ -25,7 +27,7 @@ public struct CityScene: Codable, Identifiable, Sendable {
     public var groundElevation: Double
     public var source: String
     public var buildings: [Building]
-    /// 観測者の目線を確認済みのシーンだけ有効にする。省略した既存データは全体表示のみ。
+    /// 観測者の目線へ入れるシーンで true にする（今は全シーン）。合わないシーンは省くか false にし、全体表示だけにする。
     public var observerViewEnabled: Bool?
 
     /// 緯度経度をシーン原点からの東・北方向の距離 [m] に変換する

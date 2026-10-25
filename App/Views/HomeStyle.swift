@@ -23,7 +23,7 @@ enum HomeStyle {
 
 /// 同じ幅の2つの選択肢。背景だけを移動させ、件数が変わっても位置を保つ。
 struct SpotListTabs: View {
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    private let motion = MotionSetting()
     @Binding var selection: SpotListGroup
     let entries: [SpotListEntry]
     @Namespace private var highlight
@@ -34,7 +34,7 @@ struct SpotListTabs: View {
                 let selected = selection == group
                 let count = entries.filter { group.contains($0.prediction.tier) }.count
                 Button {
-                    withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.28)) { selection = group }
+                    withAnimation(motion.isReduced ? nil : .easeInOut(duration: 0.28)) { selection = group }
                 } label: {
                     HStack(spacing: 9) {
                         Text(group == .recommended ? "おすすめ" : "要確認")
@@ -158,6 +158,8 @@ struct SpotResultsList: View {
     @State private var order: SpotListOrder = .nearest
     @State private var category: SpotCategory?
     let predictions: [Prediction]
+    /// 行を押したときに、その地点の ID を渡す（シートの中からは画面を進められないので、進むのは呼び出し側に任せる）
+    let onSelect: (String) -> Void
 
     var body: some View {
         let entries = SpotListPresentation.entries(contexts: model.contexts, predictions: predictions,
@@ -201,13 +203,13 @@ struct SpotResultsList: View {
             }
             LazyVStack(spacing: 0) {
                 ForEach(rows) { entry in
-                    NavigationLink(value: entry.id) {
+                    Button { onSelect(entry.id) } label: {
                         SpotRow(spot: entry.spot, prediction: entry.prediction, distanceKm: entry.distanceKm)
                     }.buttonStyle(.plain)
                     Rectangle().fill(HomeStyle.listDivider).frame(height: 1).accessibilityHidden(true)
                 }
             }
-            Text("写真：地理院タイル等による周辺航空写真（夜間色に加工）。施設の外観写真ではありません。")
+            Text("写真：各地点を中心に800m四方を切り出した地理院タイルの航空写真（夜間色に加工）。施設の外観写真ではありません。")
                 .font(.caption2).foregroundStyle(.secondary)
         }
     }

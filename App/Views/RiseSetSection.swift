@@ -3,6 +3,7 @@ import SwiftUI
 
 /// 選んでいる天体の、その夜の出・南中・入り
 struct RiseSetSection: View {
+    @AppStorage(TimeNotation.storageKey) private var timeNotation = TimeNotation.default
     @Environment(AppModel.self) private var model
     let context: SpotContext
 
@@ -26,7 +27,7 @@ struct RiseSetSection: View {
                         if event.kind == .transit, let altitude = times.transitAltitude {
                             Text("高度\(String(format: "%.0f", altitude))°").foregroundStyle(.secondary)
                         }
-                        Text(Self.timeText(event.date, nightStart: times.nightStart)).monospacedDigit()
+                        Text(timeText(event.date, nightStart: times.nightStart)).monospacedDigit()
                     }
                 }
             }
@@ -37,10 +38,10 @@ struct RiseSetSection: View {
         }
     }
 
-    private static func timeText(_ date: Date, nightStart: Date) -> String {
-        let c = Calendar.tokyo.dateComponents([.hour, .minute, .day], from: date)
+    private func timeText(_ date: Date, nightStart: Date) -> String {
+        let c = Calendar.tokyo.dateComponents([.day], from: date)
         let nextDay = Calendar.tokyo.component(.day, from: nightStart) != c.day
-        return (nextDay ? "翌" : "") + String(format: "%02d:%02d", c.hour ?? 0, c.minute ?? 0)
+        return (nextDay ? "翌" : "") + timeNotation.text(date)
     }
 
     private static func dayText(_ date: Date) -> String {

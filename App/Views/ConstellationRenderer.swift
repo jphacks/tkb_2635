@@ -60,6 +60,8 @@ enum ConstellationRenderer {
             material.blending = .transparent(opacity: .init(floatLiteral: Float(opacity) * 0.5))
         }
         material.faceCulling = .none
+        // 画像と同じく、半透明の線や光どうしで隠し合わないように奥行きは書かない
+        material.writesDepth = false
         let entity = ModelEntity(mesh: mesh, materials: [material])
         entity.name = name
         entity.components.set(ModelSortGroupComponent(group: group, order: order))

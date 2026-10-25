@@ -74,9 +74,10 @@ public struct PlacedConstellationImage: Identifiable, Sendable {
 
 /// 画像の画素 → 天球の向き
 public struct ConstellationImagePlacement: Sendable {
-    /// 画像の幅が天球の上でこれより小さい・大きい [度] 設定はおかしいとみなす
+    /// 画像の幅が天球の上でこれより小さい・大きい [度] 設定はおかしいとみなす。
+    /// 大きい方は、いちばん長いうみへび座（画像の幅が約 93°）が入るようにしている
     public static let minimumSpan = 2.0
-    public static let maximumSpan = 90.0
+    public static let maximumSpan = 100.0
     /// 折れ返りを調べる網目の細かさ
     static let foldCheckDivisions = 16
 

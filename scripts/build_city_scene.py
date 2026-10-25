@@ -36,12 +36,24 @@ def load_config(scene_id, path=CONFIG):
     raise SystemExit(f'{path} に {scene_id} がありません')
 
 
+# 作り直しても消さない、手で付けたシーンの設定
+KEPT_SCENE_KEYS = ('observerViewEnabled',)
+
+
 def merge_scene(scenes, scene):
-    """buildings.json のシーンの列で、同じ ID のシーンだけを差し替える（無ければ最後に足す）。ほかのシーンは触らない。"""
+    """buildings.json のシーンの列で、同じ ID のシーンだけを差し替える（無ければ最後に足す）。ほかのシーンは触らない。
+    差し替えるときは、目線の可否など KEPT_SCENE_KEYS の設定を前のシーンから引き継ぐ。"""
     merged, replaced = [], False
     for existing in scenes:
         if existing['id'] == scene['id']:
-            merged.append(scene)
+            kept = {key: existing[key] for key in KEPT_SCENE_KEYS if key in existing and key not in scene}
+            # 項目の並びを手で付けたときと同じ（name の次）にして、作り直しで差分が出ないようにする
+            rebuilt = {}
+            for key, value in scene.items():
+                rebuilt[key] = value
+                if key == 'name':
+                    rebuilt.update(kept)
+            merged.append({**rebuilt, **kept})
             replaced = True
         else:
             merged.append(existing)

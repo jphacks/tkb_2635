@@ -24,7 +24,13 @@ public enum SoundEffect: String, CaseIterable, Sendable {
         }
     }
 
-    /// 再生する音量 [0, 1]。音のファイルは音圧をそろえてあるので、ここで場面ごとの大きさを決める
+    /// 効果音全体に掛ける音量。BGM の上で目立ちすぎないよう、仕様書の目安の半分にする
+    public static let masterVolume: Float = 0.5
+
+    /// 実際に鳴らす音量 [0, 1]（場面ごとの音量 × 全体の音量）
+    public var playbackVolume: Float { volume * Self.masterVolume }
+
+    /// 場面ごとの音量 [0, 1]（仕様書の「音量目安」）。音のファイルは音圧をそろえてあるので、ここで大きさの差を付ける
     public var volume: Float {
         switch self {
         case .launch: 0.45

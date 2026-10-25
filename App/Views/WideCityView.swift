@@ -7,6 +7,10 @@ struct WideCityCamera: Equatable {
     var target: SIMD2<Float> = [2_000, 4_000]
     var yaw: Float = 0
     var distance: Float = 300
+    /// 街の広さに合わせて最初の向きを決めたか。画面を作り直しても、決めた後の向きを保つ
+    var hasFitted = false
+    /// 開いた直後の動き（WideCityIntro）を見せたか。詳細から戻ったときは繰り返さない
+    var hasPlayedIntro = false
 
     static let minDistance: Float = 3
     static let maxDistance: Float = 450
@@ -41,6 +45,42 @@ struct WideCityCamera: Equatable {
     }
 }
 
+/// ホームの 3D を開いた直後の動き（d）。23 区全体からゆっくり回りながら、少しずつ近づく。
+/// 指で触ったら止め、「動きを減らす」がオンなら動かさない
+enum WideCityIntro {
+    /// 動きの長さ
+    static let duration: Duration = .seconds(4)
+    /// 回る角度（ラジアン。約 40°）
+    static let turn: Float = 0.7
+    /// 終わりの距離（始めの距離に対する比）
+    static let finalZoom: Float = 0.55
+    /// 描き直す間隔（約 60 コマ / 秒）
+    static let frameInterval: Duration = .milliseconds(16)
+
+    /// 進み具合 progress（0〜1）のときのカメラ。始めと終わりをゆっくりにする
+    static func camera(from start: WideCityCamera, progress: Float) -> WideCityCamera {
+        let t = min(max(progress, 0), 1)
+        let eased = t * t * (3 - 2 * t)
+        var camera = start
+        camera.yaw = start.yaw + turn * eased
+        camera.distance = max(WideCityCamera.minDistance, start.distance * (1 + (finalZoom - 1) * eased))
+        return camera
+    }
+
+    /// start から動かし、終わるか止められる（Task を取り消す）まで camera を書き換える
+    @MainActor
+    static func play(from start: WideCityCamera, camera: Binding<WideCityCamera>) async {
+        let clock = ContinuousClock()
+        let begin = clock.now
+        while !Task.isCancelled {
+            let progress = Float((clock.now - begin) / duration)
+            camera.wrappedValue = Self.camera(from: start, progress: progress)
+            if progress >= 1 { return }
+            try? await Task.sleep(for: frameInterval)
+        }
+    }
+}
+
 /// ホームの 3D。23 区の建物と地点のピンを並べ、1 本指で移動、2 本指でひねって回転、ピンチで近づく。
 /// 近づいた区だけ屋根の形つきに切り替える（WideCityLOD）。1 単位 = 100m、x が東、y が上、-z が北。
 struct WideCityView: View {
@@ -48,6 +88,13 @@ struct WideCityView: View {
     var predictions: [Prediction] = []
     /// ピン（または画面下の地点名）を押したときに、その地点の ID を渡す
     var onSelect: (String) -> Void = { _ in }
+    /// 見る向き。呼び出し側が持つので、3D を外して作り直しても同じ向きで出る
+    @Binding var camera: WideCityCamera
+    /// 画面の下に重なるもの（シートなど）の高さ。地点名をその上に出す
+    var bottomInset: CGFloat = 0
+    var topInset: CGFloat = 0
+    /// 街を読み込み、最初の絵を出せるようになったとき
+    var onReady: () -> Void = {}
 
     static let scale: Float = 1 / 100
     private static let rootName = "wideRoot"
@@ -55,10 +102,8 @@ struct WideCityView: View {
     /// 航空写真の地面の高さ [m]（標高）
     private static let photoDepth: Float = -3
     private static let background = Color(red: 0.02, green: 0.03, blue: 0.10)
-    static let source = "出典: 3D都市モデル（Project PLATEAU）東京都23区 LOD1・LOD2（CC BY 4.0）・国土地理院・EOG/Colorado School of Mines（VIIRS 夜間光、CC BY 4.0）を加工"
 
     @State private var lod = WideCityLOD()
-    @State private var camera = WideCityCamera()
     @State private var dragStart: WideCityCamera?
     @State private var zoomStart: WideCityCamera?
     @State private var rotateStart: WideCityCamera?
@@ -68,6 +113,9 @@ struct WideCityView: View {
     @State private var isMade = false
     @State private var pinSizer = WideCityPinSizer()
     @State private var brightness = WideCityBrightnessState()
+    /// 開いた直後の動き。指で触ったら止める
+    @State private var intro: Task<Void, Never>?
+    private let motion = MotionSetting()
 
     var body: some View {
         RealityView { content in
@@ -105,9 +153,10 @@ struct WideCityView: View {
                 WideCityPins.update(in: root, contexts: contexts, predictions: predictions, scale: Self.scale)
                 pinSizer.selectedId = centered?.id
             }
-            // 遠いほど街を明るく。段階が変わったときだけ材質を書き換える
+            // 遠いほど街を明るく。段階が変わったときだけ材質を書き換える。
+            // 23 区の大きな形の材質を替えると実機で止まることがあるので、指で動かしている間は替えず、離したときに 1 回だけ替える
             let step = WideCityBrightness.step(cameraDistance: camera.distance)
-            if step != brightness.step, let root = content.entities.first(where: { $0.name == Self.rootName }) {
+            if !isGesturing, step != brightness.step, let root = content.entities.first(where: { $0.name == Self.rootName }) {
                 brightness.step = step
                 WideCityBrightness.apply(step: step, buildings: lod.root,
                                          ground: root.findEntity(named: WideCityBrightness.groundName))
@@ -117,6 +166,7 @@ struct WideCityView: View {
         }
         .onGeometryChange(for: CGSize.self) { $0.size } action: { size = $0 }
         .gesture(SpatialTapGesture().onEnded { value in
+            stopIntro()
             if let id = pinId(at: value.location) { onSelect(id) }
         })
         .task {
@@ -124,7 +174,8 @@ struct WideCityView: View {
             await lod.loadBoxes()
             // 読み込んだ区は近景の材質なので、次の描き直しで今の距離の明るさにする
             brightness.step = nil
-            if let e = lod.extent {
+            if !camera.hasFitted, let e = lod.extent {
+                camera.hasFitted = true
                 camera.target = [Float(e.minEast + e.maxEast) / 2, Float(e.minNorth + e.maxNorth) / 2]
                 camera.distance = min(Float(max(e.maxEast - e.minEast, e.maxNorth - e.minNorth)) * Self.scale * 0.95,
                                       WideCityCamera.maxDistance)
@@ -134,6 +185,7 @@ struct WideCityView: View {
         .background(Self.background)
         .gesture(DragGesture()
             .onChanged { value in
+                stopIntro()
                 let start = dragStart ?? camera
                 dragStart = start
                 camera.target = Self.panned(start, by: value.translation)
@@ -141,6 +193,7 @@ struct WideCityView: View {
             .onEnded { _ in dragStart = nil })
         .simultaneousGesture(MagnifyGesture()
             .onChanged { value in
+                stopIntro()
                 let start = zoomStart ?? camera
                 zoomStart = start
                 camera.distance = min(WideCityCamera.maxDistance,
@@ -149,11 +202,28 @@ struct WideCityView: View {
             .onEnded { _ in zoomStart = nil })
         .simultaneousGesture(RotateGesture()
             .onChanged { value in
+                stopIntro()
                 let start = rotateStart ?? camera
                 rotateStart = start
                 camera.yaw = start.yaw - Float(value.rotation.radians)
             }
             .onEnded { _ in rotateStart = nil })
+        .onChange(of: isLoaded && isMade) { _, ready in
+            guard ready else { return }
+            onReady()
+            if !camera.hasPlayedIntro {
+                camera.hasPlayedIntro = true
+                if !motion.isReduced {
+                    let start = camera
+                    intro = Task { await WideCityIntro.play(from: start, camera: $camera) }
+                }
+            }
+        }
+        .onDisappear(perform: stopIntro)
+        .overlay {
+            WideCityLabels(contexts: contexts, camera: camera,
+                           size: size, selectedId: centered?.id, bottomInset: bottomInset, topInset: topInset)
+        }
         .overlay {
             if !isLoaded || !isMade {
                 ProgressView("街を読み込み中")
@@ -164,14 +234,22 @@ struct WideCityView: View {
         .overlay(alignment: .bottomLeading) {
             VStack(alignment: .leading, spacing: 6) {
                 if let centered { centeredLabel(centered) }
-                Text(Self.source)
-                    .font(.system(size: 9))
-                    .foregroundStyle(.white.opacity(0.6))
             }
             .padding(8)
+            .padding(.bottom, bottomInset)
         }
         .accessibilityElement(children: .contain)
         .accessibilityLabel("東京23区の建物の3D")
+    }
+
+    /// 移動・拡大縮小・回転のどれかを指で操作している間
+    private var isGesturing: Bool {
+        dragStart != nil || zoomStart != nil || rotateStart != nil
+    }
+
+    private func stopIntro() {
+        intro?.cancel()
+        intro = nil
     }
 
     /// 見ている中心に最も近い地点
@@ -266,7 +344,8 @@ struct WideCityView: View {
 }
 
 #Preview("23 区の広域 3D") {
-    WideCityView()
+    @Previewable @State var camera = WideCityCamera()
+    WideCityView(camera: $camera)
         .frame(height: 500)
         .preferredColorScheme(.dark)
 }

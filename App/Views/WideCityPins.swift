@@ -22,6 +22,8 @@ enum WideCityPins {
     private static let rimRadius: Float = 1.3
     /// 棒の先から頭の丸の中心までの高さ（頭の大きさ 1 あたり）
     static let headCenterHeight: Float = coneHeight + 0.6
+    /// 棒の先から頭の白い縁のいちばん上までの高さ（頭の大きさ 1 あたり）。地点名をこの上に出す
+    static let headTopHeight: Float = headCenterHeight + rimRadius
 
     /// 頭の大きさの下限・上限（1 単位 = 100m）。極端に近い・遠いときに、ピンが点や巨大な球にならないようにする
     private static let minHeadSize: Float = 0.01
@@ -31,6 +33,13 @@ enum WideCityPins {
     static func headSize(distance: Float, selected: Bool) -> Float {
         min(max(distance * headRatio, minHeadSize), maxHeadSize) * (selected ? selectedScale : 1)
     }
+
+    /// ピンの形は全ピンで同じなので 1 回だけ作って使い回す（43 本 × 4 つの形を作り直すと、作り直すたびに止まる）
+    private static let stalkMesh = MeshResource.generateCylinder(height: 1, radius: 1)
+    private static let coneMesh = MeshResource.generateCone(height: coneHeight, radius: coneRadius)
+    private static let rimMesh = MeshResource.generateCylinder(height: discHeight, radius: rimRadius)
+    private static let discMesh = MeshResource.generateCylinder(height: discHeight, radius: 1)
+    private static let discHeight: Float = 0.01
 
     /// 段階の色が変わったら作り直す
     static func update(in root: Entity, contexts: [SpotContext], predictions: [Prediction], scale: Float) {
@@ -74,7 +83,7 @@ enum WideCityPins {
         pin.position = [Float(p.east) * scale, 0, -Float(p.north) * scale]
 
         // 太さ 1・高さ height の円柱。太さは resize で変える
-        let stalk = ModelEntity(mesh: .generateCylinder(height: 1, radius: 1),
+        let stalk = ModelEntity(mesh: stalkMesh,
                                 materials: [UnlitMaterial(color: color.withAlphaComponent(0.8))])
         stalk.name = stalkName
         stalk.scale = [1, height, 1]
@@ -86,7 +95,7 @@ enum WideCityPins {
         head.name = headName
         head.position.y = height
         pin.addChild(head)
-        let cone = ModelEntity(mesh: .generateCone(height: coneHeight, radius: coneRadius),
+        let cone = ModelEntity(mesh: coneMesh,
                                materials: [UnlitMaterial(color: color)])
         cone.orientation = simd_quatf(angle: .pi, axis: [1, 0, 0])
         cone.position.y = coneHeight / 2
@@ -97,14 +106,14 @@ enum WideCityPins {
         face.position.y = headCenterHeight
         face.components.set(BillboardComponent())
         head.addChild(face)
-        face.addChild(disc(radius: rimRadius, color: .white, depth: 0))
-        face.addChild(disc(radius: 1, color: color, depth: 0.05))
+        face.addChild(disc(rimMesh, color: .white, depth: 0))
+        face.addChild(disc(discMesh, color: color, depth: 0.05))
         return pin
     }
 
     /// カメラの方（+z）を向いた円。depth だけ手前に出す
-    private static func disc(radius: Float, color: UIColor, depth: Float) -> ModelEntity {
-        let disc = ModelEntity(mesh: .generateCylinder(height: 0.01, radius: radius), materials: [UnlitMaterial(color: color)])
+    private static func disc(_ mesh: MeshResource, color: UIColor, depth: Float) -> ModelEntity {
+        let disc = ModelEntity(mesh: mesh, materials: [UnlitMaterial(color: color)])
         disc.orientation = simd_quatf(angle: .pi / 2, axis: [1, 0, 0])
         disc.position.z = depth
         return disc
@@ -116,10 +125,21 @@ enum WideCityPins {
 final class WideCityPinSizer {
     var selectedId: String?
     private var subscription: EventSubscription?
+    /// 前のフレームで大きさを合わせたときのカメラの位置・選んでいた地点・ピンの作り直しの印。どれも同じなら合わせ直さない
+    private var lastPosition: SIMD3<Float>?
+    private var lastSelectedId: String?
+    private var lastStamp: String?
 
     func start(in content: RealityViewCameraContent, root: Entity, camera: Entity) {
         subscription = content.subscribe(to: SceneEvents.Update.self) { [weak self] _ in
-            WideCityPins.resize(in: root, cameraPosition: camera.position(relativeTo: nil), selectedId: self?.selectedId)
+            guard let self else { return }
+            let position = camera.position(relativeTo: nil)
+            let stamp = root.findEntity(named: WideCityPins.rootName)?.components[PinStamp.self]?.value
+            guard position != lastPosition || selectedId != lastSelectedId || stamp != lastStamp else { return }
+            lastPosition = position
+            lastSelectedId = selectedId
+            lastStamp = stamp
+            WideCityPins.resize(in: root, cameraPosition: position, selectedId: selectedId)
         }
     }
 }

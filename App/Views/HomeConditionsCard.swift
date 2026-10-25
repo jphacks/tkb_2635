@@ -5,26 +5,24 @@ import SwiftUI
 struct HomeConditionsCard: View {
     @Environment(AppModel.self) private var model
     @Environment(\.dynamicTypeSize) private var typeSize
+    @ScaledMetric(relativeTo: .largeTitle) private var titleSize: CGFloat = 42
     @State private var editingDate = false
     @State private var draftDate = Date()
     @State private var width: CGFloat = 358
 
-    private var selectedTarget: CabinTarget? {
-        let targets = CabinTarget.catalog
-        if let id = model.selectedCabinTargetID,
-           let selected = targets.first(where: { $0.id == id && $0.observation == model.target }) {
-            return selected
-        }
-        // 他画面で観測対象が変わった場合は、古い表示用IDを使わず現在の対象を表示する。
-        return targets.first { !$0.isConstellation && $0.observation == model.target }
-    }
+    /// 題字「ASTERA」を出すか。ホームのシートの中では出さない
+    var showsTitle = true
+
+    private var selectedTarget: CabinTarget? { model.selectedCabinTarget }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 22) {
-            Text("ASTERA")
-                .font(.system(size: 42, weight: .regular, design: .serif)).tracking(3)
-                .foregroundStyle(.white)
-                .accessibilityAddTraits(.isHeader)
+            if showsTitle {
+                Text("ASTERA")
+                    .font(.system(size: titleSize, weight: .regular, design: .serif)).tracking(3).lineLimit(1).minimumScaleFactor(0.5)
+                    .foregroundStyle(.white)
+                    .accessibilityAddTraits(.isHeader)
+            }
             Group {
                 if typeSize.isAccessibilitySize || width < 280 {
                     VStack(alignment: .leading, spacing: 16) {
@@ -39,9 +37,6 @@ struct HomeConditionsCard: View {
                 }
             }
             VStack(alignment: .leading, spacing: 6) {
-                if let target = selectedTarget, let credit = target.imageCredit {
-                    Text(credit).foregroundStyle(.secondary)
-                }
                 if let note = selectedTarget?.note {
                     Text(note).foregroundStyle(.secondary)
                 }
@@ -159,6 +154,7 @@ struct ForecastOutOfRangeNote: View {
 }
 
 struct MoonSummary: View {
+    @AppStorage(DirectionNotation.storageKey) private var directionNotation = DirectionNotation.default
     let moon: MoonInfo
 
     var body: some View {
@@ -168,7 +164,7 @@ struct MoonSummary: View {
             Text("\(moon.phaseName)（輝面 \(Int(moon.illuminatedFraction * 100))%）")
             Spacer()
             Text(moon.position.altitude > 0
-                 ? "\(Angle.directionName(moon.position.azimuth)) 高度\(Int(moon.position.altitude))°"
+                 ? "\(directionNotation.text(moon.position.azimuth)) 高度\(Int(moon.position.altitude))°"
                  : "地平線の下")
                 .foregroundStyle(.secondary)
         }
@@ -176,3 +172,15 @@ struct MoonSummary: View {
     }
 }
 
+extension AppModel {
+    /// 画面に出す天体。星座を選んだときは星座（判定は代表星で行う）
+    var selectedCabinTarget: CabinTarget? {
+        let targets = CabinTarget.catalog
+        if let id = selectedCabinTargetID,
+           let selected = targets.first(where: { $0.id == id && $0.observation == target }) {
+            return selected
+        }
+        // 他画面で観測対象が変わった場合は、古い表示用IDを使わず現在の対象を表示する。
+        return targets.first { !$0.isConstellation && $0.observation == target }
+    }
+}

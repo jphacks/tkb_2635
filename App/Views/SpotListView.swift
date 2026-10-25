@@ -1,72 +1,5 @@
 import StarCore
 import SwiftUI
-import RealityKit
-
-/// ホーム画面。条件カード → 地図 → 段階ごとの一覧を、夜空の背景の上に縦に並べる
-struct SpotResultsView: View {
-    @Environment(AppModel.self) private var model
-    /// 一覧の行とマップのピンの両方から、同じ詳細画面へ遷移するための経路
-    @State private var path = NavigationPath()
-
-    var body: some View {
-        let predictions = model.predictions
-
-        NavigationStack(path: $path) {
-            // List だと地図のピンチ・ドラッグが行のスクロールとぶつかるので、ScrollView で並べる
-            ScrollView {
-                LazyVStack(alignment: .leading, spacing: HomeStyle.sectionSpacing) {
-                    HomeConditionsCard()
-
-                    if let error = model.weatherLoadError {
-                        Label(error, systemImage: "cloud.slash")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                    }
-
-                    HomeMapSection(contexts: model.contexts, predictions: predictions) { id in
-                        path.append(id)
-                    }
-
-                    SpotResultsList(predictions: predictions)
-
-                    if let error = model.loadError {
-                        Text(error).foregroundStyle(.red)
-                    }
-                }
-                .padding(.horizontal, HomeStyle.margin)
-                .padding(.bottom, HomeStyle.sectionSpacing)
-            }
-            .background { NightSkyBackground() }
-            .navigationTitle("Astera")
-            .navigationDestination(for: String.self) { id in
-                if let context = model.context(id: id) {
-                    SpotDetailView(context: context)
-                }
-            }
-            .navigationDestination(for: ComparisonRoute.self) { route in
-                if let first = model.context(id: route.firstId), let second = model.context(id: route.secondId) {
-                    CompareView(first: first, second: second)
-                }
-            }
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    SoundToggleButton()
-                }
-                ToolbarItem(placement: .topBarTrailing) {
-                    if model.isLoadingWeather {
-                        ProgressView()
-                    } else {
-                        Button("天気を更新", systemImage: "arrow.clockwise") {
-                            Task { await model.refreshWeather() }
-                        }
-                    }
-                }
-            }
-            .refreshable { await model.refreshWeather() }
-        }
-    }
-
-}
 
 /// 選択位置は確認画面から戻っても維持する。確定したときだけ観測対象を変える。
 struct SpotListView: View {
@@ -74,19 +7,14 @@ struct SpotListView: View {
     @State private var centered: String? = "moon"
     @State private var pending: CabinTarget?
     @State private var findingPlaces = false
+    @State private var showsCurrentObservation = false
     private let targets = CabinTarget.catalog
 
     var body: some View {
         ZStack {
             if !findingPlaces { CabinUniverse().ignoresSafeArea().allowsHitTesting(false) }
             if findingPlaces {
-                VStack(spacing: 0) {
-                    Button { findingPlaces = false } label: {
-                        Label("天体を選び直す", systemImage: "chevron.left")
-                            .frame(maxWidth: .infinity, alignment: .leading).padding()
-                    }
-                    SpotResultsView()
-                }
+                HomeView { findingPlaces = false }
             } else {
                 selection.opacity(pending == nil ? 1 : 0)
             }
@@ -95,6 +23,16 @@ struct SpotListView: View {
             }
         }
         .preferredColorScheme(.dark)
+        .fullScreenCover(isPresented: $showsCurrentObservation) {
+            NavigationStack {
+                CurrentObservationView()
+                    .toolbar {
+                        ToolbarItem(placement: .topBarLeading) {
+                            Button("戻る") { showsCurrentObservation = false }
+                        }
+                    }
+            }
+        }
     }
 
     private var selection: some View {
@@ -140,9 +78,6 @@ struct SpotListView: View {
                             .font(.title.bold()).multilineTextAlignment(.center)
                         Text(targets.first { $0.id == centered }?.kind ?? "")
                             .font(.caption.monospaced()).tracking(3).foregroundStyle(.cyan)
-                        if let credit = targets.first(where: { $0.id == centered })?.imageCredit {
-                            Text(credit).font(.caption2).foregroundStyle(.secondary)
-                        }
                     }.accessibilityAddTraits(.updatesFrequently)
                     HStack(spacing: 30) {
                         moveButton(-1, symbol: "chevron.left", label: "前の天体")
@@ -181,9 +116,6 @@ struct SpotListView: View {
                     CabinPortrait(target: target).frame(width: diameter, height: diameter)
                     VStack(spacing: 16) {
                         Text(target.name).font(.title.bold())
-                        if let credit = target.imageCredit {
-                            Text(credit).font(.caption2).foregroundStyle(.secondary)
-                        }
                         Text("この天体を選択しますか？").font(.headline)
                         if let note = target.note {
                             Text(note).font(.footnote).foregroundStyle(.secondary)
@@ -201,6 +133,18 @@ struct SpotListView: View {
                             Text("確定").bold().frame(maxWidth: .infinity).padding(12)
                         }
                         .buttonStyle(.borderedProminent).tint(.cyan)
+                        Button {
+                            model.target = target.observation
+                            model.selectedCabinTargetID = target.id
+                            showsCurrentObservation = true
+                        } label: {
+                            Label("現在地から見る", systemImage: "location.viewfinder")
+                                .bold().frame(maxWidth: .infinity).padding(12)
+                        }
+                        .buttonStyle(.bordered).tint(.cyan)
+                        .accessibilityIdentifier("cabin-observe-current-location")
+                        Text("現在地の試作は渋谷駅周辺に対応")
+                            .font(.caption).foregroundStyle(.secondary)
                         Button("戻る") { pending = nil }
                             .buttonStyle(.bordered).controlSize(.large)
                     }

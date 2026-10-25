@@ -1,6 +1,6 @@
 """PLATEAU の LOD2 の屋根・壁・屋上設備の面と実写テクスチャの貼り方を、Blender で 3D ファイルにするための JSON に書き出す。
 
-見た目専用。遮蔽判定はアプリの buildings.json（外接直方体）を使い続ける。
+見た目専用。遮蔽判定はアプリの buildings.json（plateau_blocks.py で足した部分の箱）を使う。
 そのため、各建物の面は buildings.json の箱の高さを超えないように切りそろえる。
 """
 import argparse

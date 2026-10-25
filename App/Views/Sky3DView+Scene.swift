@@ -26,6 +26,9 @@ extension Sky3DView {
         active.findEntity(named: "overviewGuides")?.isEnabled = self.camera.mode == .overview
         active.findEntity(named: "schematicDeck")?.isEnabled = self.camera.mode == .overview
         active.findEntity(named: ObserverEntryRenderer.name)?.isEnabled = self.camera.mode == .overview
+        if let city = active.findEntity(named: Self.cityName) {
+            CityModelRenderer.revealHost(of: context, in: city, revealed: self.camera.mode != .overview)
+        }
         active.findEntity(named: "overviewRay")?.isEnabled = self.camera.mode == .overview
         ConstellationLabelRenderer.update(in: active, camera: camera)
         if let moon = active.findEntity(named: SkyRenderer.moonName), let camera {
@@ -65,10 +68,7 @@ extension Sky3DView {
                 city.position = [-Float(me.east) * Self.scale, 0, Float(me.north) * Self.scale]
                 city.name = Self.cityName
                 CityModelRenderer.updateWindows(in: city, date: date)
-                if let host = scene.buildings.first(where: { $0.id == spot.hostBuildingId }),
-                   spot.observerElevation < groundElevation + host.height {
-                    CityModelRenderer.revealHost(host.id, in: city)
-                }
+                CityModelRenderer.revealHost(of: context, in: city, revealed: self.camera.mode != .overview)
                 world.addChild(city)
             } else {
                 for building in scene.buildings {
@@ -115,6 +115,8 @@ extension Sky3DView {
         let north = sphere(radius: 0.08, color: .systemRed)
         north.position = SkyRenderer.direction(altitude: 0, azimuth: 0) * (Self.skyRadius + 0.3)
         guides.addChild(north)
+        Sky3DCompass.add(to: root)
+        IndoorEnclosureRenderer.add(to: root, spot: spot, scale: Self.scale)
 
         // 星空（4-12）。観測者を中心に、地点・時刻の空に合わせて回す
         if let dome = SkyRenderer.shared.makeDome() {

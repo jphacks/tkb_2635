@@ -90,6 +90,12 @@ class SceneTests(unittest.TestCase):
         self.assertEqual(merge_scene(scenes, {'id': 'new', 'buildings': []})[-1]['id'], 'new')
         self.assertEqual(scenes[1]['buildings'], [2])
 
+    def test_merge_keeps_observer_view_setting(self):
+        scenes = [{'id': 'shinjuku', 'name': '西新宿', 'observerViewEnabled': True, 'buildings': [2]}]
+        merged = merge_scene(scenes, {'id': 'shinjuku', 'name': '西新宿', 'buildings': [3]})
+        self.assertEqual(merged, [{'id': 'shinjuku', 'name': '西新宿', 'observerViewEnabled': True, 'buildings': [3]}])
+        self.assertEqual(list(merged[0]), ['id', 'name', 'observerViewEnabled', 'buildings'])
+
     def test_bundled_shibuya_is_unchanged_when_rewritten(self):
         # build_city_scene.py の書き出し方で、ほかのシーン（渋谷）の行が変わらないこと
         text = BUILDINGS.read_text()
