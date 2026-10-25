@@ -75,8 +75,8 @@ final class WideCityRenderer {
         return loaded
     }
 
-    /// BuildingNightRenderer の夜の建物に寄せた、暗い外壁と窓明かり。窓明かりは WideWindows.png を自分で光る色として繰り返し貼る
-    /// （scripts/wide_windows_texture.py。壁の UV がある箱だけに使う）
+    /// 詳細画面の夜の建物（BuildingNightStyle）と同じ外壁と窓明かり。窓明かりは WideWindowTexture を自分で光る色として繰り返し貼る
+    /// （壁の UV がある箱だけに使う）
     private func nightMaterial() async -> PhysicallyBasedMaterial {
         if let material { return material }
         let made = await Self.makeNightMaterial()
@@ -89,29 +89,25 @@ final class WideCityRenderer {
         var material = plainMaterial
         // 色の定数を渡すと壁全面がその色に光る（CityModelRenderer の 8-06 と同じ）ので、画像だけを渡す
         material.emissiveColor = .init(texture: windows)
-        material.emissiveIntensity = windowGlow
+        material.emissiveIntensity = BuildingNightStyle.windowGlowIntensity
         return material
     }
 
-    /// 暗い外壁と、照明の向きに関係なく形が読めるだけのわずかな自己発光
+    /// 外壁と、照明の向きに関係なく形が読めるだけのわずかな自己発光
     private static var plainMaterial: PhysicallyBasedMaterial {
         var material = PhysicallyBasedMaterial()
-        material.baseColor = .init(tint: .init(red: 0.44, green: 0.49, blue: 0.58, alpha: 1))
+        material.baseColor = .init(tint: BuildingNightStyle.wall)
         material.roughness = .init(floatLiteral: 0.85)
         material.metallic = .init(floatLiteral: 0)
-        material.emissiveColor = .init(color: .init(red: 0.32, green: 0.38, blue: 0.52, alpha: 1))
-        material.emissiveIntensity = 0.2
+        material.emissiveColor = .init(color: BuildingNightStyle.wallGlow)
+        material.emissiveIntensity = BuildingNightStyle.wallGlowIntensity
         material.faceCulling = .none
         return material
     }
 
-    private static let windowsName = "WideWindows"
-    /// 窓明かりの光る強さ。遠くでは画像が縮んで、窓の割合ぶんだけ街がほのかに明るく見える
-    private static let windowGlow: Float = 1.2
-
     private static func windowsTexture() async -> MaterialParameters.Texture? {
-        guard let url = Bundle.main.url(forResource: windowsName, withExtension: "png"),
-              let resource = try? await TextureResource(contentsOf: url,
+        guard let image = WideWindowTexture.image(),
+              let resource = try? await TextureResource(image: image,
                                                          options: .init(semantic: .color, mipmapsMode: .allocateAndGenerateAll))
         else { return nil }
         var sampler = MaterialParameters.Texture.Sampler()
