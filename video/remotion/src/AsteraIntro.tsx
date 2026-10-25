@@ -12,9 +12,15 @@ const viewBox = `${minX - pad} ${-maxY - pad} ${maxX - minX + pad * 2} ${maxY - 
 
 const clamp = { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' } as const;
 
-const Background = () => {
+// 横長（発表用）と縦長（インスタのリール用）で、連番の置き場所と文字の大きさを変える
+type Props = { vertical?: boolean };
+const layout = (vertical?: boolean) => vertical
+  ? { frames: 'frames-vertical', titleWidth: 940, titleTop: -140, taglineTop: 300, taglineSize: 40 }
+  : { frames: 'frames', titleWidth: 1100, titleTop: -90, taglineTop: 330, taglineSize: 46 };
+
+const Background = ({ vertical }: Props) => {
   const frame = useCurrentFrame();
-  const name = `frames/frame_${String(frame + 1).padStart(4, '0')}.png`;
+  const name = `${layout(vertical).frames}/frame_${String(frame + 1).padStart(4, '0')}.png`;
   const fadeIn = interpolate(frame, [0, 20], [1, 0], clamp);
   return (
     <AbsoluteFill>
@@ -24,13 +30,14 @@ const Background = () => {
   );
 };
 
-const Title = () => {
+const Title = ({ vertical }: Props) => {
   const frame = useCurrentFrame();
+  const { titleWidth, titleTop } = layout(vertical);
   const count = title.glyphs.length;
   const span = (WRITE_END - WRITE_START) / count;
   return (
     <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
-      <svg viewBox={viewBox} style={{ width: 1100, marginTop: -90, overflow: 'visible' }}>
+      <svg viewBox={viewBox} style={{ width: titleWidth, marginTop: titleTop, overflow: 'visible' }}>
         <defs>
           <filter id="glow" x="-20%" y="-50%" width="140%" height="200%">
             <feGaussianBlur stdDeviation="18" result="blur" />
@@ -60,15 +67,16 @@ const Title = () => {
   );
 };
 
-const Tagline = () => {
+const Tagline = ({ vertical }: Props) => {
   const frame = useCurrentFrame();
+  const { taglineTop, taglineSize } = layout(vertical);
   const opacity = interpolate(frame, [TAGLINE_START, TAGLINE_START + 30], [0, 1], clamp);
   const y = interpolate(frame, [TAGLINE_START, TAGLINE_START + 30], [12, 0], { ...clamp, easing: Easing.out(Easing.cubic) });
   return (
     <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
       <div style={{
-        marginTop: 330, opacity, transform: `translateY(${y}px)`, color: '#e6f1ff',
-        fontFamily: '"Hiragino Mincho ProN", serif', fontSize: 46, letterSpacing: '0.3em',
+        marginTop: taglineTop, opacity, transform: `translateY(${y}px)`, color: '#e6f1ff',
+        fontFamily: '"Hiragino Mincho ProN", serif', fontSize: taglineSize, letterSpacing: '0.3em',
         textShadow: '0 0 24px rgba(120, 200, 255, 0.55)',
       }}>
         街の中で、星が見える場所へ。
@@ -77,16 +85,16 @@ const Tagline = () => {
   );
 };
 
-export const AsteraIntro = () => {
+export const AsteraIntro = ({ vertical }: Props) => {
   const frame = useCurrentFrame();
   // 文字が読みやすいよう、書き始める少し前から空を少しだけ暗くする
   const dim = interpolate(frame, [380, 430], [0, 0.25], clamp);
   return (
     <AbsoluteFill style={{ backgroundColor: 'black' }}>
-      <Background />
+      <Background vertical={vertical} />
       <AbsoluteFill style={{ background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.6), transparent 70%)', opacity: dim * 4 }} />
-      <Title />
-      <Tagline />
+      <Title vertical={vertical} />
+      <Tagline vertical={vertical} />
     </AbsoluteFill>
   );
 };

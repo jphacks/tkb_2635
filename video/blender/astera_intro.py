@@ -1,6 +1,6 @@
 """発表用の紹介動画の 3D 部分（夜の23区 → 東大本郷へ寄る → 空を見上げて星空）を Blender で描く。
 
-  Blender -b --python video/blender/astera_intro.py -- 出力フォルダ [最初のコマ 最後のコマ] [--preview]
+  Blender -b --python video/blender/astera_intro.py -- 出力フォルダ [最初のコマ 最後のコマ] [--preview] [--vertical]
 
 建物は `scripts/build_wide_ward.py --lod 2` で作った区ごとの広域 3D（../outputs/wide2-<区コード>/wide.usdz）。
 座標は東 [m]・北 [m]・高さ [m]、原点は渋谷。出典: 国土交通省 Project PLATEAU（CC BY 4.0）。
@@ -398,6 +398,10 @@ def main():
     numbers = [int(a) for a in argv[1:] if a.isdigit()]
     build_scene()
     scene = bpy.context.scene
+    if '--vertical' in argv:
+        # インスタのリール用の縦長（9:16）。縦いっぱいに広く写すため、少し広角にする
+        scene.render.resolution_x, scene.render.resolution_y = 1080, 1920
+        scene.camera.data.lens = 22
     if '--preview' in argv:
         scene.render.resolution_percentage = 50
         scene.eevee.taa_render_samples = 16

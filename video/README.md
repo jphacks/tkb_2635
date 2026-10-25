@@ -1,10 +1,11 @@
 # 紹介動画（発表の冒頭）
 
-夜の23区の 3D を回りながら東大本郷へ寄り、カメラが空を見上げて満天の星空になり、「Astera」が左から手書きで書かれる 20 秒の動画（1920×1080・30fps・音なし）。
+夕方の23区の 3D を回りながら東大本郷へ寄るうちに夜になり、カメラが空を見上げて満天の星空になり、「Astera」が左から手書きで書かれる 20 秒の動画（30fps・音なし）。
+発表用の横長（1920×1080）と、インスタのリール用の縦長（1080×1920）がある。
 
 | 秒 | 中身 | 作るところ |
 |---|---|---|
-| 0〜9 | 23区の建物（PLATEAU LOD2）を上空から回りながら、東大本郷（水色の光の輪）へ寄る | Blender |
+| 0〜9 | 夕方から夜へ変わるなか、23区の建物（PLATEAU LOD2）を上空から回りながら、東大本郷（水色の光の輪）へ寄る | Blender |
 | 9〜13 | カメラが上を向き、星空と天の川へ | Blender |
 | 13〜20 | 「Astera」を1文字ずつ手書きで書き、「街の中で、星が見える場所へ。」を出す | Remotion |
 
@@ -25,6 +26,13 @@ python3 video/scripts/title_paths.py Astera video/remotion/src/title-paths.json
 # 3. タイトルを重ねて mp4 にする
 cd video/remotion && npm install && ln -sfn ../../render/frames public/frames
 npx remotion render AsteraIntro out/astera-intro.mp4
+```
+
+縦長（リール用）は、手順 1 の 3 つのコマンドの最後に `--vertical` を付け、出力先を `video/render/frames-vertical` にして描き、次で mp4 にする。
+
+```bash
+cd video/remotion && ln -sfn ../../render/frames-vertical public/frames-vertical
+npx remotion render AsteraIntroVertical out/astera-intro-vertical.mp4
 ```
 
 試しに数コマだけ見るときは、`astera_intro.py -- 出力先 1 200 600 --stills --preview` で静止画を描く。
