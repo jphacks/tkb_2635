@@ -49,7 +49,7 @@ struct WideCityCamera: Equatable {
 /// 指で触ったら止め、「動きを減らす」がオンなら動かさない
 enum WideCityIntro {
     /// 動きの長さ
-    static let duration: Duration = .seconds(9)
+    static let duration: Duration = .seconds(4)
     /// 回る角度（ラジアン。約 40°）
     static let turn: Float = 0.7
     /// 終わりの距離（始めの距離に対する比）
