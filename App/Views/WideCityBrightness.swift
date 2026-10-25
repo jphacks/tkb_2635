@@ -33,11 +33,12 @@ enum WideCityBrightness {
             component.materials = Array(repeating: material, count: max(component.materials.count, 1))
             model.model = component
         }
-        if let ground = ground as? ModelEntity, var component = ground.model,
-           var material = component.materials.first as? PhysicallyBasedMaterial {
+        let boards: [ModelEntity] = ground.map { Array($0.children).compactMap { $0 as? ModelEntity } } ?? []
+        for board in boards {
+            guard var component = board.model, var material = component.materials.first as? PhysicallyBasedMaterial else { continue }
             material.emissiveIntensity = 1 + (farGroundGlow - 1) * t
             component.materials = [material]
-            ground.model = component
+            board.model = component
         }
     }
 

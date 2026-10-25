@@ -195,8 +195,10 @@ def main():
     material.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value = 0.9
     mesh.materials.append(material)
     mesh.shade_flat()
+    # 法線は入れない（箱は面ごとに頂点が分かれているので、アプリ側で作られる法線も面ごとになり見た目は変わらない）。
+    # UV を足しても 1 区 6MB 以下に収めるため（法線つきだと約 7.5MB）
     bpy.ops.wm.usd_export(filepath=output, export_materials=True, generate_preview_surface=True,
-                          export_normals=True, export_uvmaps=True)
+                          export_normals=False, export_uvmaps=True)
 
 
 if __name__ == '__main__':

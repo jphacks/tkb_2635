@@ -1,7 +1,30 @@
 {
-  "centerLatitude": 35.6732,
-  "centerLongitude": 139.7562,
-  "meters": 40000.0,
-  "note": "scripts/far_ground.py で作った日比谷公園シーンの遠くの地面（far_hibiya_park.jpg、中心から東西南北 20 km）をそのまま、23 区全体の地面として使う（詳細画面の遠くの地面と同じ明るさ）。23 区はこの範囲に入る（西の端の練馬区は 15〜20 km のなじませる帯にかかる）",
-  "source": "国土地理院「地理院タイル（全国最新写真（シームレス））」・Earth Observation Group, Payne Institute for Public Policy, Colorado School of Mines（VIIRS Nighttime Lights V2.2、CC BY 4.0）を加工して作成"
+  "tiles": [
+    {
+      "file": "WideGround_0_0",
+      "centerLatitude": 35.763637,
+      "centerLongitude": 139.645619,
+      "meters": 20000.0
+    },
+    {
+      "file": "WideGround_0_1",
+      "centerLatitude": 35.763637,
+      "centerLongitude": 139.866781,
+      "meters": 20000.0
+    },
+    {
+      "file": "WideGround_1_0",
+      "centerLatitude": 35.582763,
+      "centerLongitude": 139.645619,
+      "meters": 20000.0
+    },
+    {
+      "file": "WideGround_1_1",
+      "centerLatitude": 35.582763,
+      "centerLongitude": 139.866781,
+      "meters": 20000.0
+    }
+  ],
+  "source": "国土地理院「地理院タイル（全国最新写真（シームレス））」・Earth Observation Group, Payne Institute for Public Policy, Colorado School of Mines（VIIRS Nighttime Lights V2.2、CC BY 4.0）を加工して作成",
+  "note": "far_hibiya_park.jpg（far_ground.py）に地理院タイル（ズーム 14）の細かい明暗を掛けて作った（scripts/wide_ground_detail.py）"
 }
