@@ -51,6 +51,7 @@
 		3C6AD2357641F109DDF0D79D /* WideGround_1_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F11E4F90FC1B321BC27A0F4 /* WideGround_1_1.jpg */; };
 		3C73AD0C3FEC73B81C7500A8 /* far_shinjuku.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6C8337002F61ABFD880FC61 /* far_shinjuku.jpg */; };
 		3EBBA378030106EBE59BE741 /* far_mizumoto_park.json in Resources */ = {isa = PBXBuildFile; fileRef = CA62D2330ABFF172A8B70FA7 /* far_mizumoto_park.json */; };
+		3F18AE14F757C23CEA818EA4 /* HomeSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3DFE0D4CBB315099D083D6 /* HomeSheet.swift */; };
 		40D99A8097D7EC5B8AE212F2 /* City_kasai_rinkai_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E4AE9175DBD437186F066813 /* City_kasai_rinkai_park.usdz */; };
 		411A70FAB6BF96C3637A776C /* CompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE617C900ABD7B0CA50F0AE /* CompareView.swift */; };
 		43786E98EB264F618C7BD1F6 /* Wide2_13117.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6E537DE77A24C7BA15409372 /* Wide2_13117.usdz */; };
@@ -90,7 +91,6 @@
 		64AB7E47CD4066B37C82F054 /* far_kiba_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A707BBD63276923A6C04B44A /* far_kiba_park.jpg */; };
 		67041D906545CF78F846913D /* ObserverEntryRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645DE5BF57C489F0569F244A /* ObserverEntryRenderer.swift */; };
 		67B15985B35291C4C805049B /* Wide_13122.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3CF11D7ADEFAF365FD3EC002 /* Wide_13122.usdz */; };
-		67C15D754C2044BF2418C0A2 /* HomeMapSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA52D2CB71D15A837A60755 /* HomeMapSection.swift */; };
 		67D7303769F0D5CD07B452C8 /* far_yumenoshima_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCFC819E71B1217878467AE0 /* far_yumenoshima_park.jpg */; };
 		6966C5F3C1C6DDD787EB8810 /* Wide2_13120.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 51F3FF00FAD2DF0FAE93771F /* Wide2_13120.usdz */; };
 		6A392EA194E809E36DDF7A80 /* se_launch.caf in Resources */ = {isa = PBXBuildFile; fileRef = 75AF36EA5F20818BA2877935 /* se_launch.caf */; };
@@ -103,6 +103,7 @@
 		739F4CB38D22C5385FEC13C8 /* Wide_13117.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3EB90224E3FA247FE564546A /* Wide_13117.usdz */; };
 		73F95F6EFB0900F00D819770 /* far_yoyogi_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 307CE3D774C6E064C8D65927 /* far_yoyogi_park.jpg */; };
 		7557C82D9D9B675D5F44EC7A /* Wide_13109.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 6D8BC0490128A739CE1B0F6A /* Wide_13109.usdz */; };
+		759AA58FF53913C0DFB4C815 /* HomeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56F962D800EB0D2C398C58E /* HomeBackground.swift */; };
 		771EF5B5D5FC8C5C2CCA7DF0 /* planet_saturn.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CF11348DC48F0CCA7E637A6 /* planet_saturn.png */; };
 		7729FDEB52F318826A8731E2 /* City_yoyogi_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 34C768A06756B98014064792 /* City_yoyogi_park.usdz */; };
 		7744F94481E2D7311632B36A /* planet_mercury.png in Resources */ = {isa = PBXBuildFile; fileRef = 2915738486DDB4FAEAF41090 /* planet_mercury.png */; };
@@ -127,6 +128,7 @@
 		8B61512B1617A26FEF1E89BC /* FarGroundRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2615FCC36B1BC2C41CE6D502 /* FarGroundRenderer.swift */; };
 		8BB076589A7D83F29AE44A54 /* City_sumida_park.usdz in Resources */ = {isa = PBXBuildFile; fileRef = C6AA621A63EDF2CD26BF9309 /* City_sumida_park.usdz */; };
 		8C4FBA125C16E5CBAC5EB587 /* far_rinshi_no_mori_park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C0543356BEEC3F154E757526 /* far_rinshi_no_mori_park.jpg */; };
+		8D8C2AB784403A549DCBC3B8 /* SpotMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A44094D691EA28AE5DEA03D /* SpotMap.swift */; };
 		92E5F48025E4E29F4EA67A4B /* WideGround.json in Resources */ = {isa = PBXBuildFile; fileRef = 87689282C4EF95242CE86CD7 /* WideGround.json */; };
 		932FB00DF589CA858A6CC5B1 /* City_todai_hongo.usdz in Resources */ = {isa = PBXBuildFile; fileRef = D84F6B33DE7D5116E7E29045 /* City_todai_hongo.usdz */; };
 		941EB8CCC608EC6AEF1A799B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2AE00460F10C5D00FB4FC0 /* AppModel.swift */; };
@@ -186,6 +188,7 @@
 		D73E77541F55F1AA3F017B36 /* stars_suburban.png in Resources */ = {isa = PBXBuildFile; fileRef = 42021F8DC90F284E2E1FBC80 /* stars_suburban.png */; };
 		D7BC4BAB25821C763DAA0D21 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A0DF8B6DF51B16FAA603A3 /* LocationModel.swift */; };
 		D968651CC733A098B4E5F9FA /* Wide2_13101.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8C5D0AED3352C1C7ADC10D24 /* Wide2_13101.usdz */; };
+		D9C4D1E9BF26BF49902530E6 /* WideCityLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E186EAF0B136ADBDFE7D9 /* WideCityLabels.swift */; };
 		D9F4571299DC479495189966 /* CityModelRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9203D1807BE1815AEE18E0B /* CityModelRenderer.swift */; };
 		DB035849474639C5A9C6DCA1 /* TimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA06A0CCFDF479A126260A /* TimeSlider.swift */; };
 		DBC5F6D2888529D0501928A9 /* Sky3DLegend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40396066617C3F4F1E1FBFC5 /* Sky3DLegend.swift */; };
@@ -195,6 +198,7 @@
 		DE8CA0B97848C1F48C1C2BBF /* Wide2_13108.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 882D9F06E8E9C4B7F278B655 /* Wide2_13108.usdz */; };
 		DED954A92AD587B27B966BCE /* far_roppongi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6771A8362CC87A5316EE4812 /* far_roppongi.jpg */; };
 		E0025653C3C4B2ADD3297736 /* far_shinjuku_gyoen.json in Resources */ = {isa = PBXBuildFile; fileRef = 062577364B1590F5C45E3B34 /* far_shinjuku_gyoen.json */; };
+		E056BF54A6F17F99C91DDA9C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D36E138FBA05281F00740D /* HomeView.swift */; };
 		E115DAD16791EBC4DBB1F8AE /* RouteSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77E2A1A6FDB19B5B2E3C66D /* RouteSection.swift */; };
 		E194EB73D4CC0EECF6E614B3 /* far_shibuya.json in Resources */ = {isa = PBXBuildFile; fileRef = 61AEFFB0F2969B0948F4386F /* far_shibuya.json */; };
 		E4994F8C1B624F530DCF1CBF /* WideGround_0_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BC98BEDE5AD5F02ED921E54B /* WideGround_0_0.jpg */; };
@@ -235,20 +239,22 @@
 		010D8F8D8429293B37FB38CE /* far_mizumoto_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_mizumoto_park.jpg; sourceTree = "<group>"; };
 		013514DEAF72D4188158AA5A /* far_shiodome.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_shiodome.json; sourceTree = "<group>"; };
 		022188085E099C634D0751C4 /* far_asakusa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_asakusa.jpg; sourceTree = "<group>"; };
+		027E186EAF0B136ADBDFE7D9 /* WideCityLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideCityLabels.swift; sourceTree = "<group>"; };
 		04FFF31585C898E23964FC09 /* far_wakasu_kaihin_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_wakasu_kaihin_park.jpg; sourceTree = "<group>"; };
 		062577364B1590F5C45E3B34 /* far_shinjuku_gyoen.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_shinjuku_gyoen.json; sourceTree = "<group>"; };
 		07641924E2F80C719D93F2F0 /* far_marunouchi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_marunouchi.json; sourceTree = "<group>"; };
 		081ADB7CB36DEE3236EB792F /* Wide2_13110.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13110.usdz; sourceTree = "<group>"; };
+		0B3DFE0D4CBB315099D083D6 /* HomeSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSheet.swift; sourceTree = "<group>"; };
 		0C464D265E3F5FA690CCCD5A /* far_sumida_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_sumida_park.json; sourceTree = "<group>"; };
 		0C76B8A6C9C7CEC94E6D7AFE /* Wide_13108.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13108.usdz; sourceTree = "<group>"; };
 		0D756A88C6BD474D11D3DF42 /* SurroundingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurroundingsSection.swift; sourceTree = "<group>"; };
 		10546DF149FE1F1E2691CCA0 /* Wide2_13119.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13119.usdz; sourceTree = "<group>"; };
 		158C80598C415E8A1DA68E44 /* City_toneri_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_toneri_park.usdz; sourceTree = "<group>"; };
 		15F0F3CF7CB762C06A5DED0F /* Concrete034_NormalGL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Concrete034_NormalGL.jpg; sourceTree = "<group>"; };
+		16D36E138FBA05281F00740D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		17051900EB51CF49FBF946F6 /* ConstellationRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstellationRenderer.swift; sourceTree = "<group>"; };
 		18DC642E1BE8E0705FE71D77 /* Wide_13115.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13115.usdz; sourceTree = "<group>"; };
 		1B002945FB41E35146BD2071 /* far_kinuta_park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = far_kinuta_park.jpg; sourceTree = "<group>"; };
-		1CA52D2CB71D15A837A60755 /* HomeMapSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMapSection.swift; sourceTree = "<group>"; };
 		1CC425F4E2748059D2E821B4 /* Wide2_13113.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13113.usdz; sourceTree = "<group>"; };
 		1DA8483FB629B08A3E5A4BE0 /* StarSpotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSpotApp.swift; sourceTree = "<group>"; };
 		1E5C80DD1908DA0FDECD6520 /* WideGround_0_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WideGround_0_1.jpg; sourceTree = "<group>"; };
@@ -329,6 +335,7 @@
 		765BB75671C9B495645B8674 /* se_map_gesture.caf */ = {isa = PBXFileReference; path = se_map_gesture.caf; sourceTree = "<group>"; };
 		78E8130089770F0891E0EBD7 /* Sky3DView+Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sky3DView+Scene.swift"; sourceTree = "<group>"; };
 		7944EBD89043BE39136383F9 /* moon_disk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moon_disk.png; sourceTree = "<group>"; };
+		7A44094D691EA28AE5DEA03D /* SpotMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotMap.swift; sourceTree = "<group>"; };
 		7AE16C21280EFEE2AF9322D0 /* SpotRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotRow.swift; sourceTree = "<group>"; };
 		7B1B510B4A6F42166A9545A4 /* City_shibakoen.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_shibakoen.usdz; sourceTree = "<group>"; };
 		7CCC21D6CAEA934E97C2A69C /* Wide_13120.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13120.usdz; sourceTree = "<group>"; };
@@ -401,6 +408,7 @@
 		C2227872F1818CE19F711208 /* Wide2_13114.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide2_13114.usdz; sourceTree = "<group>"; };
 		C36A19ECB464D45C09A0DA13 /* Wide_13104.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Wide_13104.usdz; sourceTree = "<group>"; };
 		C5568B2033FD75FD53C887E7 /* WideCityRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideCityRenderer.swift; sourceTree = "<group>"; };
+		C56F962D800EB0D2C398C58E /* HomeBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBackground.swift; sourceTree = "<group>"; };
 		C6AA621A63EDF2CD26BF9309 /* City_sumida_park.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = City_sumida_park.usdz; sourceTree = "<group>"; };
 		C6C06FBC11F8F225EA804FBB /* far_ukima_park.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = far_ukima_park.json; sourceTree = "<group>"; };
 		C70298FCA34FB647FC21166A /* se_pin_tap.caf */ = {isa = PBXFileReference; path = se_pin_tap.caf; sourceTree = "<group>"; };
@@ -566,10 +574,12 @@
 				5BE617C900ABD7B0CA50F0AE /* CompareView.swift */,
 				17051900EB51CF49FBF946F6 /* ConstellationRenderer.swift */,
 				2615FCC36B1BC2C41CE6D502 /* FarGroundRenderer.swift */,
+				C56F962D800EB0D2C398C58E /* HomeBackground.swift */,
 				F5F1C0036CA84BF2DF578446 /* HomeConditionsCard.swift */,
 				7E514E49E3B279BCF72ABF14 /* HomeMapMode.swift */,
-				1CA52D2CB71D15A837A60755 /* HomeMapSection.swift */,
+				0B3DFE0D4CBB315099D083D6 /* HomeSheet.swift */,
 				47050A9D6512E05E3FB7237C /* HomeStyle.swift */,
+				16D36E138FBA05281F00740D /* HomeView.swift */,
 				645DE5BF57C489F0569F244A /* ObserverEntryRenderer.swift */,
 				81E2226A2988AF1E32C4EBEE /* RiseSetSection.swift */,
 				F77E2A1A6FDB19B5B2E3C66D /* RouteSection.swift */,
@@ -584,11 +594,13 @@
 				DB5D031CC5399C443511121C /* SpotDetailView.swift */,
 				C0658849C23DAC8B10EF85EF /* SpotInfoList.swift */,
 				A48E1331041841284856A9DB /* SpotListView.swift */,
+				7A44094D691EA28AE5DEA03D /* SpotMap.swift */,
 				7AE16C21280EFEE2AF9322D0 /* SpotRow.swift */,
 				0D756A88C6BD474D11D3DF42 /* SurroundingsSection.swift */,
 				55DA16CE24D5352408F1E495 /* TargetPicker.swift */,
 				41BA06A0CCFDF479A126260A /* TimeSlider.swift */,
 				EF21D882541F7FB1CA1A413E /* WideCityBrightness.swift */,
+				027E186EAF0B136ADBDFE7D9 /* WideCityLabels.swift */,
 				9482A4AE6006C6AAC0F5BD3B /* WideCityPins.swift */,
 				C5568B2033FD75FD53C887E7 /* WideCityRenderer.swift */,
 				641EDB1E05DF657D819EFFE6 /* WideCityRenderer+LOD.swift */,
@@ -1064,10 +1076,12 @@
 				411A70FAB6BF96C3637A776C /* CompareView.swift in Sources */,
 				336C0A0103902D4DF939A7AA /* ConstellationRenderer.swift in Sources */,
 				8B61512B1617A26FEF1E89BC /* FarGroundRenderer.swift in Sources */,
+				759AA58FF53913C0DFB4C815 /* HomeBackground.swift in Sources */,
 				FA8D782D57B83850851228DA /* HomeConditionsCard.swift in Sources */,
 				881577E70CBED468BAB1380F /* HomeMapMode.swift in Sources */,
-				67C15D754C2044BF2418C0A2 /* HomeMapSection.swift in Sources */,
+				3F18AE14F757C23CEA818EA4 /* HomeSheet.swift in Sources */,
 				5CC95CA726F89DDF9C3A0C44 /* HomeStyle.swift in Sources */,
+				E056BF54A6F17F99C91DDA9C /* HomeView.swift in Sources */,
 				D7BC4BAB25821C763DAA0D21 /* LocationModel.swift in Sources */,
 				67041D906545CF78F846913D /* ObserverEntryRenderer.swift in Sources */,
 				5DD92D36C8295567AACB5B0F /* RiseSetSection.swift in Sources */,
@@ -1084,12 +1098,14 @@
 				837C7DD37DD459D34DE649A1 /* SpotDetailView.swift in Sources */,
 				FB1A99E53861267831B15C85 /* SpotInfoList.swift in Sources */,
 				2728E18A4E52AF0C17714287 /* SpotListView.swift in Sources */,
+				8D8C2AB784403A549DCBC3B8 /* SpotMap.swift in Sources */,
 				474F5F688F5C5AAE830B0C4C /* SpotRow.swift in Sources */,
 				1EE9A584A7D584A4BAEAF1EB /* StarSpotApp.swift in Sources */,
 				F0A6C29194EF8C66AAD5C1F4 /* SurroundingsSection.swift in Sources */,
 				DCCFF7F044F1DDF2AFF1201B /* TargetPicker.swift in Sources */,
 				DB035849474639C5A9C6DCA1 /* TimeSlider.swift in Sources */,
 				A533F5A6E648AA0A963F9CBC /* WideCityBrightness.swift in Sources */,
+				D9C4D1E9BF26BF49902530E6 /* WideCityLabels.swift in Sources */,
 				4D8E6AE90512A8D91365CD30 /* WideCityPins.swift in Sources */,
 				169AD61A31A8FF1627E92CAA /* WideCityRenderer+LOD.swift in Sources */,
 				B67483FE30E5321FE42EE7A7 /* WideCityRenderer.swift in Sources */,

@@ -1,7 +1,7 @@
 import StarCore
 import SwiftUI
 
-/// ホームの条件カード。「今夜 21:00 の 月」の見出しと、日時・天体・月の情報をまとめる
+/// ホームのシートの中の条件カード。日時・天体・月の情報と、スコアの注意書きをまとめる
 struct HomeConditionsCard: View {
     @Environment(AppModel.self) private var model
 
@@ -9,7 +9,8 @@ struct HomeConditionsCard: View {
         @Bindable var model = model
 
         VStack(alignment: .leading, spacing: 14) {
-            headline
+            Text("観測の条件")
+                .font(.headline)
 
             VStack(spacing: 10) {
                 DatePicker("観測日時", selection: $model.date)
@@ -24,33 +25,55 @@ struct HomeConditionsCard: View {
             }
             .font(.subheadline)
 
-            VStack(alignment: .leading, spacing: 4) {
-                if let message = model.forecastOutOfRangeMessage {
-                    ForecastOutOfRangeNote(message: message)
-                }
-                Text("スコアは観測条件の目安で、観測できる確率ではありません。")
-                    .foregroundStyle(.secondary)
-            }
-            .font(.caption)
+            HomeScoreNotes()
         }
         .homeCard()
     }
+}
 
-    /// 例:「今夜 21:00 の 月」
-    private var headline: some View {
-        let time = model.date.formatted(Self.timeFormat)
-        return HStack(alignment: .firstTextBaseline, spacing: 6) {
-            Text(Self.dayLabel(for: model.date))
-            Text(time).monospacedDigit()
-            Text("の").foregroundStyle(.secondary)
-            Text(model.target.name).foregroundStyle(HomeStyle.moonlight)
+/// 予報の範囲外の注意と、スコアの意味の注意書き
+struct HomeScoreNotes: View {
+    @Environment(AppModel.self) private var model
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            if let message = model.forecastOutOfRangeMessage {
+                ForecastOutOfRangeNote(message: message)
+            }
+            Text("スコアは観測条件の目安で、観測できる確率ではありません。")
+                .foregroundStyle(.secondary)
         }
-        .font(.title2.weight(.semibold))
+        .font(.caption)
+    }
+}
+
+/// ホームの上に重ねる見出し。例:「今夜 21:00 の 月▾」。天体の名前のところで天体を選び直せる
+struct HomeHeadline: View {
+    @Environment(AppModel.self) private var model
+
+    var body: some View {
+        @Bindable var model = model
+        let day = Self.dayLabel(for: model.date)
+        let time = model.date.formatted(Self.timeFormat)
+
+        HStack(alignment: .firstTextBaseline, spacing: 4) {
+            Group {
+                Text(day)
+                Text(time).monospacedDigit()
+                Text("の").foregroundStyle(.secondary)
+            }
+            .font(.headline)
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel("\(day) \(time) の")
+            .accessibilityAddTraits(.isHeader)
+            TargetPicker(target: $model.target)
+                .labelsHidden()
+                .pickerStyle(.menu)
+                .tint(HomeStyle.moonlight)
+                .fixedSize()
+        }
         .lineLimit(1)
         .minimumScaleFactor(0.7)
-        .accessibilityElement(children: .combine)
-        .accessibilityLabel("\(Self.dayLabel(for: model.date)) \(time) の \(model.target.name)")
-        .accessibilityAddTraits(.isHeader)
     }
 
     private static let timeFormat = Date.FormatStyle(timeZone: TimeZone(identifier: "Asia/Tokyo")!)
