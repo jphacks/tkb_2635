@@ -26,6 +26,7 @@ struct HomeSheet: View {
             header(predictions)
             ScrollView {
                 VStack(alignment: .leading, spacing: HomeStyle.sectionSpacing) {
+                    BestTimeRow(onSelect: onSelect)
                     SpotResultsList(predictions: predictions, onSelect: onSelect)
                     HomeConditionsCard(showsTitle: false)
                     if let error = model.loadError {

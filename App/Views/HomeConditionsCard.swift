@@ -5,6 +5,7 @@ import SwiftUI
 struct HomeConditionsCard: View {
     @Environment(AppModel.self) private var model
     @Environment(\.dynamicTypeSize) private var typeSize
+    @ScaledMetric(relativeTo: .largeTitle) private var titleSize: CGFloat = 42
     @State private var editingDate = false
     @State private var draftDate = Date()
     @State private var width: CGFloat = 358
@@ -18,7 +19,7 @@ struct HomeConditionsCard: View {
         VStack(alignment: .leading, spacing: 22) {
             if showsTitle {
                 Text("ASTERA")
-                    .font(.system(size: 42, weight: .regular, design: .serif)).tracking(3)
+                    .font(.system(size: titleSize, weight: .regular, design: .serif)).tracking(3).lineLimit(1).minimumScaleFactor(0.5)
                     .foregroundStyle(.white)
                     .accessibilityAddTraits(.isHeader)
             }

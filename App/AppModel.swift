@@ -52,6 +52,14 @@ final class AppModel {
         return value
     }
 
+    /// 選んだ夜で、いまの天体がいちばんおすすめの地点と時刻（7-05）
+    func bestTime() -> BestTimeFinder.Best? {
+        BestTimeFinder.find(contexts: contexts, target: target, night: ObservingNight(containing: date)) { spot, when in
+            let grid = OpenMeteoClient.gridId(latitude: spot.latitude, longitude: spot.longitude)
+            return self.forecasts.samples(for: grid).flatMap { OpenMeteoClient.nearest($0, to: when) }
+        }
+    }
+
     func context(id: String) -> SpotContext? {
         contexts.first { $0.id == id }
     }
