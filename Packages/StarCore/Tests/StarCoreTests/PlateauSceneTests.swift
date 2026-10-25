@@ -129,7 +129,8 @@ import Testing
                     }
                 }
             }
-            #expect(context.horizon.samples == full, "\(spot.id)")
+            // 建物だけのプロファイルを比べる（context.horizon は地形も入る。2-07）
+            #expect(HorizonProfile.compute(spot: spot, scene: scene).samples == full, "\(spot.id)")
         }
     }
 
