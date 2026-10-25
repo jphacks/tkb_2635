@@ -35,11 +35,21 @@ final class AppModel {
         return cal.nextDate(after: now, matching: DateComponents(minute: 0), matchingPolicy: .nextTime)!
     }
 
+    /// 予報を書き換えた回数。予想の覚え（predictionCache）が古くなったかを見分ける
+    private var forecastRevision = 0
+    /// 最後に計算した予想。全地点の天体位置と遮蔽の計算は重く、ホームの 3D を動かすたびに画面が描き直されるので、
+    /// 天体・日時・予報が変わったときだけ計算し直す
+    @ObservationIgnored private var predictionCache: (key: PredictionKey, value: [Prediction])?
+
     var predictions: [Prediction] {
-        Recommender.rank(contexts.map {
+        let key = PredictionKey(target: target, date: date, forecastRevision: forecastRevision)
+        if let cache = predictionCache, cache.key == key { return cache.value }
+        let value = Recommender.rank(contexts.map {
             Recommender.evaluate($0, target: target, date: date, weather: weather(for: $0.spot),
                                  forecastCoverage: forecastCoverage(for: $0.spot))
         })
+        predictionCache = (key, value)
+        return value
     }
 
     /// 選んだ夜で、いまの天体がいちばんおすすめの地点と時刻（7-05）
@@ -102,6 +112,7 @@ final class AppModel {
                     forecasts.remove(grid)
                     failedCount += 1
                 }
+                forecastRevision += 1
             }
         }
         if failedCount > 0 {
@@ -112,3 +123,9 @@ final class AppModel {
     }
 }
 
+/// 予想を計算し直すかを決める入力
+private struct PredictionKey: Equatable {
+    let target: ObservationTarget
+    let date: Date
+    let forecastRevision: Int
+}

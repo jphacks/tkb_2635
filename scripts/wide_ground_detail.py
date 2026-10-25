@@ -21,6 +21,8 @@ import urllib.request
 import numpy as np
 from PIL import Image, ImageFilter
 
+from wide_ground_roads import road_masks
+
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_IMAGE = ROOT / 'App/Resources/Far/far_hibiya_park.jpg'
 OUTPUT = ROOT / 'App/Resources/Wide'
@@ -38,10 +40,13 @@ ZOOM = 14
 DETAIL_STRENGTH = 1.0
 DETAIL_RANGE = (0.3, 3.0)
 QUALITY = 80
+# 道路（PLATEAU の道路モデル）の明かり: 路面に足す暖色の光の強さ（0〜255 の明るさ）
+ROAD_GLOW = 46.0
+ROAD_COLOR = np.array([1.0, 0.72, 0.42], dtype=np.float32)
 # 写真の無いタイル（海など）の明るさ
 NO_PHOTO = 40
 SOURCE = ('国土地理院「地理院タイル（全国最新写真（シームレス））」・Earth Observation Group, Payne Institute for Public Policy, '
-          'Colorado School of Mines（VIIRS Nighttime Lights V2.2、CC BY 4.0）を加工して作成')
+          'Colorado School of Mines（VIIRS Nighttime Lights V2.2、CC BY 4.0）・国土交通省 Project PLATEAU（交通（道路）モデル、CC BY 4.0）を加工して作成')
 
 
 def latlon(east, north):
@@ -92,11 +97,20 @@ def photo(west, east, south, north):
     return mosaic.resize((PIXELS, PIXELS), Image.LANCZOS, box=box)
 
 
+def to_local(latitude, longitude):
+    """緯度経度 → 日比谷の中心からの (東, 北) [m]（latlon の逆）"""
+    return ((longitude - CENTER_LONGITUDE) * 111_320.0 * math.cos(math.radians(CENTER_LATITUDE)),
+            (latitude - CENTER_LATITUDE) * 110_574.0)
+
+
 def main():
     night = Image.open(SOURCE_IMAGE).convert('RGB')
     size = night.width
     part = 2 * HALF / SPLIT
     tiles = []
+    regions = [(-HALF + c * part, -HALF + (c + 1) * part, HALF - (r + 1) * part, HALF - r * part)
+               for r in range(SPLIT) for c in range(SPLIT)]
+    roads = iter(road_masks(regions, to_local, PIXELS))
     for row in range(SPLIT):
         for column in range(SPLIT):
             west, north = -HALF + column * part, HALF - row * part
@@ -110,7 +124,10 @@ def main():
             coarse = np.asarray(Image.fromarray(light.astype(np.uint8)).resize((int(blur), int(blur)), Image.BOX)
                                 .resize((PIXELS, PIXELS), Image.BICUBIC), dtype=np.float32) + 8
             detail = np.clip(light / coarse, *DETAIL_RANGE) ** DETAIL_STRENGTH
-            out = np.clip(base * detail[:, :, None], 0, 255).astype(np.uint8)
+            lit = base * detail[:, :, None]
+            # 写真に写らない細い道も含め、PLATEAU の道路の面に暖色の光を足す
+            lit += next(roads)[:, :, None] * ROAD_GLOW * ROAD_COLOR
+            out = np.clip(lit, 0, 255).astype(np.uint8)
             name = f'WideGround_{row}_{column}'
             Image.fromarray(out).save(OUTPUT / f'{name}.jpg', quality=QUALITY)
             center = latlon((west + east) / 2, (north + south) / 2)
@@ -118,7 +135,7 @@ def main():
                           'meters': part})
             print(name, (OUTPUT / f'{name}.jpg').stat().st_size // 1000, 'KB')
     info = {'tiles': tiles, 'source': SOURCE,
-            'note': 'far_hibiya_park.jpg（far_ground.py）に地理院タイル（ズーム 14）の細かい明暗を掛けて作った（scripts/wide_ground_detail.py）'}
+            'note': 'far_hibiya_park.jpg（far_ground.py）に地理院タイル（ズーム 14）の細かい明暗を掛け、PLATEAU 道路モデルの明かりを足して作った（scripts/wide_ground_detail.py）'}
     (OUTPUT / 'WideGround.json').write_text(json.dumps(info, ensure_ascii=False, indent=2) + '\n')
 
 
