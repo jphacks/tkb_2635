@@ -27,12 +27,7 @@ struct SpotResultsView: View {
                         path.append(id)
                     }
 
-                    ForEach(RecommendationTier.allTiers, id: \.self) { tier in
-                        let rows = predictions.filter { $0.tier == tier }
-                        if !rows.isEmpty {
-                            tierSection(tier, rows: rows)
-                        }
-                    }
+                    SpotResultsList(predictions: predictions)
 
                     if let error = model.loadError {
                         Text(error).foregroundStyle(.red)
@@ -71,19 +66,6 @@ struct SpotResultsView: View {
         }
     }
 
-    private func tierSection(_ tier: RecommendationTier, rows: [Prediction]) -> some View {
-        VStack(alignment: .leading, spacing: 10) {
-            TierHeader(tier: tier, count: rows.count)
-            ForEach(rows) { prediction in
-                if let context = model.context(id: prediction.spotId) {
-                    NavigationLink(value: prediction.spotId) {
-                        SpotRow(spot: context.spot, prediction: prediction)
-                    }
-                    .buttonStyle(.plain)
-                }
-            }
-        }
-    }
 }
 
 /// 選択位置は確認画面から戻っても維持する。確定したときだけ観測対象を変える。
@@ -137,10 +119,10 @@ struct SpotListView: View {
                                 } label: {
                                     CabinPortrait(target: target)
                                         .frame(width: diameter, height: diameter)
-                                        .scaleEffect(centered == target.id ? 1 : 0.62)
-                                        .opacity(centered == target.id ? 1 : 0.45)
                                         // 絵そのものはタップを受けないので、ボタンの範囲を円で指定する
                                         .contentShape(Circle())
+                                        .scaleEffect(centered == target.id ? 1 : 0.62)
+                                        .opacity(centered == target.id ? 1 : 0.45)
                                 }
                                 .buttonStyle(.plain).id(target.id)
                                 .accessibilityLabel(target.name + "、" + target.kind)
@@ -258,3 +240,4 @@ struct CabinUniverse: View {
         }
     }
 }
+
