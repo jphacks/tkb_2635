@@ -1,0 +1,911 @@
+{
+  "fetchedAt": "2026-10-25",
+  "api": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php",
+  "elevations": {
+    "shibuya_east_plaza": {
+      "latitude": 35.658,
+      "longitude": 139.702816,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.702816&lat=35.658&outtype=JSON",
+      "response": {
+        "elevation": 14.8,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "shibuya_sky": {
+      "latitude": 35.658384,
+      "longitude": 139.702242,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.702242&lat=35.658384&outtype=JSON",
+      "response": {
+        "elevation": 14.9,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "shinjuku_central_park": {
+      "latitude": 35.690052,
+      "longitude": 139.689935,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.689935&lat=35.690052&outtype=JSON",
+      "response": {
+        "elevation": 35.5,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "tocho_observatory": {
+      "latitude": 35.689464,
+      "longitude": 139.6917,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.6917&lat=35.689464&outtype=JSON",
+      "response": {
+        "elevation": 41,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "kitte_garden": {
+      "latitude": 35.6796,
+      "longitude": 139.7647,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.7647&lat=35.6796&outtype=JSON",
+      "response": {
+        "elevation": 3.2,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "yoyogi_park": {
+      "latitude": 35.6717,
+      "longitude": 139.6949,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.6949&lat=35.6717&outtype=JSON",
+      "response": {
+        "elevation": 34.6,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "shinjuku_gyoen": {
+      "latitude": 35.6852,
+      "longitude": 139.71,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.71&lat=35.6852&outtype=JSON",
+      "response": {
+        "elevation": 34.6,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "arakawa_riverside": {
+      "latitude": 35.688,
+      "longitude": 139.855,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.855&lat=35.688&outtype=JSON",
+      "response": {
+        "elevation": 0,
+        "hsrc": "10m"
+      }
+    },
+    "kasai_rinkai_park": {
+      "latitude": 35.643,
+      "longitude": 139.861,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.861&lat=35.643&outtype=JSON",
+      "response": {
+        "elevation": 7.9,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "toneri_park": {
+      "latitude": 35.8006972,
+      "longitude": 139.771777,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.771777&lat=35.8006972&outtype=JSON",
+      "response": {
+        "elevation": 10.8,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "mizumoto_park": {
+      "latitude": 35.7884,
+      "longitude": 139.8689,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.8689&lat=35.7884&outtype=JSON",
+      "response": {
+        "elevation": 2,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "komazawa_olympic_park": {
+      "latitude": 35.6244,
+      "longitude": 139.6618,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.6618&lat=35.6244&outtype=JSON",
+      "response": {
+        "elevation": 40,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "hikarigaoka_park": {
+      "latitude": 35.7628,
+      "longitude": 139.6277,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.6277&lat=35.7628&outtype=JSON",
+      "response": {
+        "elevation": 37.3,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "ukima_park": {
+      "latitude": 35.7928,
+      "longitude": 139.6937,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.6937&lat=35.7928&outtype=JSON",
+      "response": {
+        "elevation": 1,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "kiba_park": {
+      "latitude": 35.6738,
+      "longitude": 139.8083,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.8083&lat=35.6738&outtype=JSON",
+      "response": {
+        "elevation": 3,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "kinuta_park": {
+      "latitude": 35.6304,
+      "longitude": 139.6202,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.6202&lat=35.6304&outtype=JSON",
+      "response": {
+        "elevation": 38.9,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "odaiba_kaihin_park": {
+      "latitude": 35.6297,
+      "longitude": 139.7745,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.7745&lat=35.6297&outtype=JSON",
+      "response": {
+        "elevation": 1.9,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "harumi_futo_park": {
+      "latitude": 35.648,
+      "longitude": 139.771,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.771&lat=35.648&outtype=JSON",
+      "response": {
+        "elevation": 3.6,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "jonanjima_kaihin_park": {
+      "latitude": 35.5792,
+      "longitude": 139.7859,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.7859&lat=35.5792&outtype=JSON",
+      "response": {
+        "elevation": 0.9,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "skytree_tembo_deck": {
+      "latitude": 35.710063,
+      "longitude": 139.8107,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.8107&lat=35.710063&outtype=JSON",
+      "response": {
+        "elevation": 1.9,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "oshiage_ground": {
+      "latitude": 35.70943,
+      "longitude": 139.810921,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.810921&lat=35.70943&outtype=JSON",
+      "response": {
+        "elevation": -1.3,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "tokyo_tower_main_deck": {
+      "latitude": 35.658593,
+      "longitude": 139.745437,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.745437&lat=35.658593&outtype=JSON",
+      "response": {
+        "elevation": 18.5,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "shibakoen_ground": {
+      "latitude": 35.657496,
+      "longitude": 139.747091,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.747091&lat=35.657496&outtype=JSON",
+      "response": {
+        "elevation": 14,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "sunshine60_observatory": {
+      "latitude": 35.729503,
+      "longitude": 139.71834,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.71834&lat=35.729503&outtype=JSON",
+      "response": {
+        "elevation": 29.8,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "higashi_ikebukuro_ground": {
+      "latitude": 35.730543,
+      "longitude": 139.717676,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.717676&lat=35.730543&outtype=JSON",
+      "response": {
+        "elevation": 31,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "tokyo_city_view": {
+      "latitude": 35.660234,
+      "longitude": 139.729036,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.729036&lat=35.660234&outtype=JSON",
+      "response": {
+        "elevation": 20.2,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "roppongi_ground": {
+      "latitude": 35.659967,
+      "longitude": 139.727878,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.727878&lat=35.659967&outtype=JSON",
+      "response": {
+        "elevation": 30.3,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "asakusa_terrace": {
+      "latitude": 35.710651,
+      "longitude": 139.796532,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.796532&lat=35.710651&outtype=JSON",
+      "response": {
+        "elevation": 4.2,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "asakusa_ground": {
+      "latitude": 35.710948,
+      "longitude": 139.796454,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.796454&lat=35.710948&outtype=JSON",
+      "response": {
+        "elevation": 3.7,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "caretta_sky_view": {
+      "latitude": 35.664388,
+      "longitude": 139.762202,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.762202&lat=35.664388&outtype=JSON",
+      "response": {
+        "elevation": 3.6,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "shiodome_ground": {
+      "latitude": 35.663665,
+      "longitude": 139.762644,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.762644&lat=35.663665&outtype=JSON",
+      "response": {
+        "elevation": 3.7,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "tower_hall_funabori": {
+      "latitude": 35.684378,
+      "longitude": 139.864984,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.864984&lat=35.684378&outtype=JSON",
+      "response": {
+        "elevation": -1,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "funabori_ground": {
+      "latitude": 35.68379,
+      "longitude": 139.865869,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.865869&lat=35.68379&outtype=JSON",
+      "response": {
+        "elevation": -1.2,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "ueno_park": {
+      "latitude": 35.7156,
+      "longitude": 139.7745,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.7745&lat=35.7156&outtype=JSON",
+      "response": {
+        "elevation": 17.4,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "hibiya_park": {
+      "latitude": 35.6732,
+      "longitude": 139.7562,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.7562&lat=35.6732&outtype=JSON",
+      "response": {
+        "elevation": 3.8,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "sumida_park": {
+      "latitude": 35.7125,
+      "longitude": 139.802,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.802&lat=35.7125&outtype=JSON",
+      "response": {
+        "elevation": 2,
+        "hsrc": "10m"
+      }
+    },
+    "wakasu_kaihin_park": {
+      "latitude": 35.6175,
+      "longitude": 139.8366,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.8366&lat=35.6175&outtype=JSON",
+      "response": {
+        "elevation": 15.7,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "yumenoshima_park": {
+      "latitude": 35.653,
+      "longitude": 139.827,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.827&lat=35.653&outtype=JSON",
+      "response": {
+        "elevation": 4,
+        "hsrc": "10m"
+      }
+    },
+    "shakujii_park": {
+      "latitude": 35.73561,
+      "longitude": 139.598,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.598&lat=35.73561&outtype=JSON",
+      "response": {
+        "elevation": 43.2,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "rinshi_no_mori_park": {
+      "latitude": 35.625545,
+      "longitude": 139.7055,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.7055&lat=35.625545&outtype=JSON",
+      "response": {
+        "elevation": 26.6,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "tokyo_tower_top_deck": {
+      "latitude": 35.658593,
+      "longitude": 139.745437,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.745437&lat=35.658593&outtype=JSON",
+      "response": {
+        "elevation": 18.5,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "roppongi_sky_deck": {
+      "latitude": 35.660234,
+      "longitude": 139.729036,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.729036&lat=35.660234&outtype=JSON",
+      "response": {
+        "elevation": 20.2,
+        "hsrc": "1m（レーザ）"
+      }
+    },
+    "todai_hongo": {
+      "latitude": 35.7129,
+      "longitude": 139.762,
+      "url": "https://cyberjapandata2.gsi.go.jp/general/dem/scripts/getelevation.php?lon=139.762&lat=35.7129&outtype=JSON",
+      "response": {
+        "elevation": 20.4,
+        "hsrc": "1m（レーザ）"
+      }
+    }
+  },
+  "applied": [
+    {
+      "id": "shibuya_east_plaza",
+      "category": "plaza",
+      "dem": 14.8,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 15.0,
+      "difference": -0.2,
+      "current": 15,
+      "floorElevation": 14.8,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "shibuya_sky",
+      "category": "observatory",
+      "dem": 14.9,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 15.0,
+      "difference": -0.1,
+      "current": 244,
+      "floorElevation": null,
+      "floorElevationSource": null,
+      "status": "公式未確認（変えない）"
+    },
+    {
+      "id": "shinjuku_central_park",
+      "category": "park",
+      "dem": 35.5,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 36.0,
+      "difference": -0.5,
+      "current": 40,
+      "floorElevation": 35.5,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "tocho_observatory",
+      "category": "observatory",
+      "dem": 41.0,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 36.0,
+      "difference": 5.0,
+      "current": 242,
+      "floorElevation": null,
+      "floorElevationSource": null,
+      "status": "公式未確認（変えない）"
+    },
+    {
+      "id": "kitte_garden",
+      "category": "rooftop",
+      "dem": 3.2,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 3.0,
+      "difference": 0.2,
+      "current": 36,
+      "floorElevation": null,
+      "floorElevationSource": null,
+      "status": "公式未確認（変えない）"
+    },
+    {
+      "id": "yoyogi_park",
+      "category": "park",
+      "dem": 34.6,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 34.0,
+      "difference": 0.6,
+      "current": 35,
+      "floorElevation": 34.6,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "shinjuku_gyoen",
+      "category": "park",
+      "dem": 34.6,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 34.0,
+      "difference": 0.6,
+      "current": 35,
+      "floorElevation": 34.6,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "arakawa_riverside",
+      "category": "riverside",
+      "dem": 0.0,
+      "demSource": "10m",
+      "sceneGround": -1.0,
+      "difference": 1.0,
+      "current": 2,
+      "floorElevation": 0.0,
+      "floorElevationSource": "国土地理院 DEM10B 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "kasai_rinkai_park",
+      "category": "park",
+      "dem": 7.9,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 3,
+      "difference": 4.9,
+      "current": 3,
+      "floorElevation": null,
+      "floorElevationSource": null,
+      "status": "要確認（シーンの地盤との差 +4.9m、変えない）"
+    },
+    {
+      "id": "toneri_park",
+      "category": "park",
+      "dem": 10.8,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 4.0,
+      "difference": 6.8,
+      "current": 10.8,
+      "floorElevation": null,
+      "floorElevationSource": null,
+      "status": "要確認（シーンの地盤との差 +6.8m、変えない）"
+    },
+    {
+      "id": "mizumoto_park",
+      "category": "park",
+      "dem": 2.0,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 2.0,
+      "difference": 0.0,
+      "current": 2,
+      "floorElevation": 2.0,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "komazawa_olympic_park",
+      "category": "park",
+      "dem": 40.0,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 39.0,
+      "difference": 1.0,
+      "current": 40,
+      "floorElevation": 40.0,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "hikarigaoka_park",
+      "category": "park",
+      "dem": 37.3,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 37.0,
+      "difference": 0.3,
+      "current": 37.3,
+      "floorElevation": 37.3,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "ukima_park",
+      "category": "park",
+      "dem": 1.0,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 1,
+      "difference": 0.0,
+      "current": 1,
+      "floorElevation": 1.0,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "kiba_park",
+      "category": "park",
+      "dem": 3.0,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 2.0,
+      "difference": 1.0,
+      "current": 3,
+      "floorElevation": 3.0,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "kinuta_park",
+      "category": "park",
+      "dem": 38.9,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 39.0,
+      "difference": -0.1,
+      "current": 38.9,
+      "floorElevation": 38.9,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "odaiba_kaihin_park",
+      "category": "park",
+      "dem": 1.9,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 1.9,
+      "difference": 0.0,
+      "current": 1.9,
+      "floorElevation": 1.9,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "harumi_futo_park",
+      "category": "park",
+      "dem": 3.6,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 3.6,
+      "difference": 0.0,
+      "current": 3.6,
+      "floorElevation": 3.6,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "jonanjima_kaihin_park",
+      "category": "park",
+      "dem": 0.9,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 0.9,
+      "difference": 0.0,
+      "current": 0.9,
+      "floorElevation": 0.9,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "skytree_tembo_deck",
+      "category": "observatory",
+      "dem": 1.9,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 0.0,
+      "difference": 1.9,
+      "current": 350.3,
+      "floorElevation": null,
+      "floorElevationSource": null,
+      "status": "公式未確認（変えない）"
+    },
+    {
+      "id": "oshiage_ground",
+      "category": "plaza",
+      "dem": -1.3,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 0.0,
+      "difference": -1.3,
+      "current": 0.0,
+      "floorElevation": -1.3,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "tokyo_tower_main_deck",
+      "category": "observatory",
+      "dem": 18.5,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 15.0,
+      "difference": 3.5,
+      "current": 168.4,
+      "floorElevation": null,
+      "floorElevationSource": null,
+      "status": "公式未確認（変えない）"
+    },
+    {
+      "id": "shibakoen_ground",
+      "category": "plaza",
+      "dem": 14.0,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 15.0,
+      "difference": -1.0,
+      "current": 15.0,
+      "floorElevation": 14.0,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "sunshine60_observatory",
+      "category": "observatory",
+      "dem": 29.8,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 30.0,
+      "difference": -0.2,
+      "current": 251,
+      "floorElevation": null,
+      "floorElevationSource": null,
+      "status": "公式未確認（変えない）"
+    },
+    {
+      "id": "higashi_ikebukuro_ground",
+      "category": "plaza",
+      "dem": 31.0,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 30.0,
+      "difference": 1.0,
+      "current": 30.0,
+      "floorElevation": 31.0,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "tokyo_city_view",
+      "category": "observatory",
+      "dem": 20.2,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 30.0,
+      "difference": -9.8,
+      "current": 250,
+      "floorElevation": null,
+      "floorElevationSource": null,
+      "status": "公式未確認（変えない）"
+    },
+    {
+      "id": "roppongi_ground",
+      "category": "plaza",
+      "dem": 30.3,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 30.0,
+      "difference": 0.3,
+      "current": 30.0,
+      "floorElevation": 30.3,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "asakusa_terrace",
+      "category": "rooftop",
+      "dem": 4.2,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 4.0,
+      "difference": 0.2,
+      "current": 43.5,
+      "floorElevation": null,
+      "floorElevationSource": null,
+      "status": "公式未確認（変えない）"
+    },
+    {
+      "id": "asakusa_ground",
+      "category": "plaza",
+      "dem": 3.7,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 4.0,
+      "difference": -0.3,
+      "current": 4.0,
+      "floorElevation": 3.7,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "caretta_sky_view",
+      "category": "observatory",
+      "dem": 3.6,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 3.0,
+      "difference": 0.6,
+      "current": 203.4,
+      "floorElevation": null,
+      "floorElevationSource": null,
+      "status": "公式未確認（変えない）"
+    },
+    {
+      "id": "shiodome_ground",
+      "category": "plaza",
+      "dem": 3.7,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 3.0,
+      "difference": 0.7,
+      "current": 3.0,
+      "floorElevation": 3.7,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "tower_hall_funabori",
+      "category": "observatory",
+      "dem": -1.0,
+      "demSource": "1m（レーザ）",
+      "sceneGround": -1.0,
+      "difference": 0.0,
+      "current": 101.7,
+      "floorElevation": null,
+      "floorElevationSource": null,
+      "status": "公式未確認（変えない）"
+    },
+    {
+      "id": "funabori_ground",
+      "category": "plaza",
+      "dem": -1.2,
+      "demSource": "1m（レーザ）",
+      "sceneGround": -1.0,
+      "difference": -0.2,
+      "current": -1.0,
+      "floorElevation": -1.2,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "ueno_park",
+      "category": "park",
+      "dem": 17.4,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 18.0,
+      "difference": -0.6,
+      "current": 18.0,
+      "floorElevation": 17.4,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "hibiya_park",
+      "category": "park",
+      "dem": 3.8,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 4.0,
+      "difference": -0.2,
+      "current": 4.0,
+      "floorElevation": 3.8,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "sumida_park",
+      "category": "park",
+      "dem": 2.0,
+      "demSource": "10m",
+      "sceneGround": 3.0,
+      "difference": -1.0,
+      "current": 3.0,
+      "floorElevation": 2.0,
+      "floorElevationSource": "国土地理院 DEM10B 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "wakasu_kaihin_park",
+      "category": "park",
+      "dem": 15.7,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 6.0,
+      "difference": 9.7,
+      "current": 6.0,
+      "floorElevation": null,
+      "floorElevationSource": null,
+      "status": "要確認（シーンの地盤との差 +9.7m、変えない）"
+    },
+    {
+      "id": "yumenoshima_park",
+      "category": "park",
+      "dem": 4.0,
+      "demSource": "10m",
+      "sceneGround": 5.0,
+      "difference": -1.0,
+      "current": 5.0,
+      "floorElevation": 4.0,
+      "floorElevationSource": "国土地理院 DEM10B 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "shakujii_park",
+      "category": "park",
+      "dem": 43.2,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 44.0,
+      "difference": -0.8,
+      "current": 44.0,
+      "floorElevation": 43.2,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "rinshi_no_mori_park",
+      "category": "park",
+      "dem": 26.6,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 26.0,
+      "difference": 0.6,
+      "current": 26.0,
+      "floorElevation": 26.6,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    },
+    {
+      "id": "tokyo_tower_top_deck",
+      "category": "observatory",
+      "dem": 18.5,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 15.0,
+      "difference": 3.5,
+      "current": 268.4,
+      "floorElevation": null,
+      "floorElevationSource": null,
+      "status": "公式未確認（変えない）"
+    },
+    {
+      "id": "roppongi_sky_deck",
+      "category": "rooftop",
+      "dem": 20.2,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 30.0,
+      "difference": -9.8,
+      "current": 270,
+      "floorElevation": null,
+      "floorElevationSource": null,
+      "status": "公式未確認（変えない）"
+    },
+    {
+      "id": "todai_hongo",
+      "category": "plaza",
+      "dem": 20.4,
+      "demSource": "1m（レーザ）",
+      "sceneGround": 20.0,
+      "difference": 0.4,
+      "current": 20.0,
+      "floorElevation": 20.4,
+      "floorElevationSource": "国土地理院 DEM1A 2026-10-25",
+      "status": "DEM を反映"
+    }
+  ]
+}
