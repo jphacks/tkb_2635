@@ -36,8 +36,8 @@ struct HomeMapSection: View {
         Group {
             switch mode {
             case .map: SpotMap(contexts: contexts, predictions: predictions, onSelect: onSelect)
-            // 全画面で開いている間は、同じ 3D を 2 つ描かない（シミュレータでは後から出した方が描かれなかった）
-            case .city3D: if isExpanded { Color.clear } else { WideCityView() }
+            // ホームのカードでは 3D を描き続けず（スクロールが重くなる）、静止画を出して押したら全画面の 3D を開く
+            case .city3D: WideCityPreview { isExpanded = true }
             }
         }
             .frame(maxWidth: .infinity)

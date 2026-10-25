@@ -40,3 +40,38 @@ struct FullScreenWideCity: View {
             }
     }
 }
+
+/// ホームのカードに出す 23 区の 3D の静止画（全画面の 3D を真上から撮ったもの）。押すと全画面の 3D を開く
+struct WideCityPreview: View {
+    private static let imageName = "WideCityPreview"
+    let onOpen: () -> Void
+
+    var body: some View {
+        Button(action: onOpen) {
+            Color(red: 0.02, green: 0.03, blue: 0.10)
+                .overlay {
+                    if let url = Bundle.main.url(forResource: Self.imageName, withExtension: "jpg"),
+                       let image = UIImage(contentsOfFile: url.path) {
+                        Image(uiImage: image).resizable().scaledToFill()
+                    }
+                }
+                .clipped()
+                .overlay(alignment: .bottomLeading) {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Label("押すと 23 区の 3D を開く", systemImage: "cube.transparent")
+                            .font(.caption.weight(.semibold))
+                            .foregroundStyle(.white)
+                            .padding(.horizontal, 10)
+                            .frame(minHeight: 32)
+                            .background(.ultraThinMaterial, in: .capsule)
+                        Text(WideCityView.source)
+                            .font(.system(size: 9))
+                            .foregroundStyle(.white.opacity(0.6))
+                    }
+                    .padding(8)
+                }
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel("東京23区の建物の3Dを全画面で開く")
+    }
+}
