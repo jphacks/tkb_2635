@@ -24,6 +24,8 @@ struct Sky3DView: View {
     private static let scale: Float = 1 / 100
     private static let skyRadius: Float = 4
     private static let groundMeters: Float = 3_000
+    /// 遠くの地面を敷く深さ [m]（都市モデルの地面との重なりでちらつかないよう、少し離す）
+    private static let farGroundDepth: Float = 1.5
     private static let dynamicName = "timeDependent"
     private static let cityName = "city"
     private static let rootName = "skyRoot"
@@ -34,13 +36,16 @@ struct Sky3DView: View {
     /// この地点の街・観測者・地平線・天体をまとめた入れ物
     private func makeSpotScene() async -> Entity {
         var city: Entity?
+        var far: ModelEntity?
         if let scene = context.scene {
             city = await CityModelRenderer.shared.city(for: scene)
+            far = await FarGroundRenderer.shared.ground(for: scene, scale: Self.scale)
         }
-        let ground = await CityModelRenderer.shared.ground(meters: Self.groundMeters, scale: Self.scale)
+        // 遠くの地面（4-11）があるシーンでは、アスファルトの板は敷かない
+        let ground = far == nil ? await CityModelRenderer.shared.ground(meters: Self.groundMeters, scale: Self.scale) : nil
         let spotScene = Entity()
         spotScene.name = spotSceneName
-        buildScene(into: spotScene, city: city, ground: ground)
+        buildScene(into: spotScene, city: city, ground: ground, far: far)
         return spotScene
     }
 
@@ -144,8 +149,8 @@ struct Sky3DView: View {
 
     // MARK: - シーン構築
 
-    /// city は PLATEAU の実形状（無ければ nil で、判定と同じ直方体を描く）。
-    private func buildScene(into root: Entity, city: Entity? = nil, ground: Entity? = nil) {
+    /// city は PLATEAU の実形状（無ければ nil で、判定と同じ直方体を描く）。far は遠くの地面（シーンの原点が中心）。
+    private func buildScene(into root: Entity, city: Entity? = nil, ground: Entity? = nil, far: Entity? = nil) {
         let spot = context.spot
         let groundElevation = context.scene?.groundElevation ?? spot.floorElevation
         let eyeY = Float(spot.observerElevation - groundElevation) * Self.scale
@@ -154,11 +159,18 @@ struct Sky3DView: View {
         world.position = [0, -eyeY, 0]
         root.addChild(world)
 
-        world.addChild(ground ?? ModelEntity(mesh: .generatePlane(width: 12, depth: 12),
-                                             materials: [SimpleMaterial(color: UIColor(red: 0.07, green: 0.09, blue: 0.13, alpha: 1), isMetallic: false)]))
+        if far == nil {
+            world.addChild(ground ?? ModelEntity(mesh: .generatePlane(width: 12, depth: 12),
+                                                 materials: [SimpleMaterial(color: UIColor(red: 0.07, green: 0.09, blue: 0.13, alpha: 1), isMetallic: false)]))
+        }
 
         if let scene = context.scene {
             let me = scene.localPosition(latitude: spot.latitude, longitude: spot.longitude)
+            if let far {
+                // 都市モデルの航空写真の地面（-0.3m）より下に敷き、その外側だけが見えるようにする
+                far.position = [-Float(me.east) * Self.scale, -Self.farGroundDepth * Self.scale, Float(me.north) * Self.scale]
+                world.addChild(far)
+            }
             func box(_ building: Building) -> (center: SIMD3<Float>, size: SIMD3<Float>) {
                 let size = SIMD3<Float>(Float(building.width), Float(building.height), Float(building.depth)) * Self.scale
                 return ([Float(building.x - me.east) * Self.scale, size.y / 2, -Float(building.y - me.north) * Self.scale], size)

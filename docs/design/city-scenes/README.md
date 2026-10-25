@@ -144,6 +144,21 @@ xcodegen generate   # City_<ID>.usdz を足したとき
 - 外したもの: キャロットタワー展望ロビー（休止中）、北とぴあ展望ロビー（高さが分からない）、スカイツリー天望回廊（PLATEAU のスカイツリーは 356m までで、展望台が空中に浮く）
 - 地点が増えて起動時の地平線の計算が重くなったので、建物ごとに「角が見える方位の範囲」だけ調べるようにした（全方位を調べた結果と同じことをテストで確かめた。デバッグ版 1.28 秒 → 0.14 秒）
 
+## 4-11 遠くの地面
+
+| SHIBUYA SKY（奥に遠くの街明かり） |
+|---|
+| ![](far-shibuya-sky.png) |
+
+- 建物データ（半径 500m）と地面の写真（約 1.6km 四方）の外を、**半径 20km の夜の街**でつなぎ、地面の端が切れないようにした。全 31 シーン
+- 夜間光は先に `scripts/vnl_crop.py` で東京周辺だけ切り出す（元データ約 11.6GB はリポジトリの外。読むのに tifffile・imagecodecs・numpy を作業用の環境 `../outputs/vnl/venv` に入れた）
+- 画像は `python3 scripts/far_ground.py <シーンID>`（`--all` で全部）で作る。`App/Resources/Far/far_<シーンID>.jpg` と範囲の JSON を置くだけで、アプリ（`FarGroundRenderer`）が描く。無いシーンは今までどおりアスファルト
+- 作り方: 地理院タイルの航空写真（ズーム 13、約 20m/画素）を夜の暗さにし、EOG の VIIRS 夜間光 VNL V2.2（2025 年平均、average_masked、約 460m/画素）を対数で「街の度合い」にし（2 nW/cm²/sr 以下は明かりなし、300 以上は最も明るい街）、街の度合いの 2 乗に比例して、航空写真の屋根・道路の明るい所に明かりの点を散らす。緑地・水面は暗いまま。15〜20km で空の地平線の色になじませる
+- **明かりの点の位置はイメージ**（凡例に「遠くの街明かりは衛星の夜間光をもとにしたイメージ」と出す）。街の広がり・川・湾・公園の暗さは本物の位置
+- 向き: 四隅を色分けした画像で、北が奥・東が右に出ることをシミュレータで確かめた
+- 地球の丸み（20km で約 31m 下がる）は入れていない。判定の計算は変えていない
+- 容量: 31 枚で **約 59 MB**（1枚 1.3〜2.3 MB、2048px 四方。GPU 上は約 16MB で、開いている地点の1枚だけ）
+
 ## 容量
 
 | ファイル | 大きさ |
@@ -162,10 +177,11 @@ xcodegen generate   # City_<ID>.usdz を足したとき
 - 建物の形・外壁と屋上の写真・道路: 東京都「3D都市モデル（Project PLATEAU）新宿区（2025年度）」 https://www.geospatial.jp/ckan/dataset/plateau-13104-shinjuku-ku-2025 を加工して作成（CC BY 4.0）。取得したファイルと SHA-256 は [plateau-shinjuku-2025.json](../../data/plateau-shinjuku-2025.json)
 - 残り 14 地点: 同じく PLATEAU の各区（2025年度）を加工して作成（CC BY 4.0）。区と取得したファイルは `docs/data/plateau-<地点>-2025.json`、出典の文は `buildings.json` の各シーンの `source`
 - 丸の内: 東京都「3D都市モデル（Project PLATEAU）千代田区（2025年度）」 https://www.geospatial.jp/ckan/dataset/plateau-13101-chiyoda-ku-2025 を加工して作成（CC BY 4.0）。[plateau-marunouchi-2025.json](../../data/plateau-marunouchi-2025.json)
-- 地面の写真: 国土地理院「地理院タイル（全国最新写真（シームレス））」 https://maps.gsi.go.jp/development/ichiran.html を加工して作成
+- 地面の写真: 国土地理院「地理院タイル（全国最新写真（シームレス））」 https://maps.gsi.go.jp/development/ichiran.html を加工して作成（遠くの地面にも使用）
+- 遠くの地面の夜間光: Earth Observation Group, Payne Institute for Public Policy, Colorado School of Mines（VIIRS Nighttime Lights V2.2、CC BY 4.0。Elvidge et al. 2021, Remote Sensing 13(5), 922） を加工して作成
 - 写真の無い屋上・壁、写真の外側の地面: ambientCG「Concrete034」「Asphalt031」（CC0）
 
-3D の凡例に「出典: PLATEAU（CC BY 4.0）・国土地理院」が出る（渋谷と同じ）。
+3D の凡例に「出典: PLATEAU（CC BY 4.0）・国土地理院・NASA SVS・EOG/Colorado School of Mines（VIIRS 夜間光、CC BY 4.0）・ESA/Gaia/DPAC」が出る。
 
 ## 確かめていないこと
 
