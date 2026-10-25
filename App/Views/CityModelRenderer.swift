@@ -70,12 +70,21 @@ final class CityModelRenderer {
         }
     }
 
-    /// 観測者が中にいる建物（屋内の展望室など）を半透明にして、外から観測者の位置が見えるようにする。
+    /// 観測者が中にいる建物（屋内の展望室など）を、目線のときだけ半透明にして、中から外が見えるようにする。
+    /// 全体表示では不透明に戻し、観測者視点への入口の白い光（ObserverEntryRenderer）が建物の形に沿って見えるようにする
+    /// （半透明の建物に白い光を重ねると、霧のように見えて形が読めない）。
     /// その建物の部品は、名前の最後に hostTag が付いている（scripts/plateau_shapes.py）。
-    static func revealHost(_ buildingId: String, in city: Entity) {
-        let tag = hostTag(for: buildingId)
+    static func revealHost(of context: SpotContext, in city: Entity, revealed: Bool) {
+        guard let scene = context.scene,
+              let host = scene.buildings.first(where: { $0.id == context.spot.hostBuildingId }),
+              context.spot.observerElevation < scene.groundElevation + host.height else { return }
+        let tag = hostTag(for: host.id)
         for model in models(in: city) where model.name.hasSuffix(tag) {
-            model.components.set(OpacityComponent(opacity: hostOpacity))
+            if revealed {
+                model.components.set(OpacityComponent(opacity: hostOpacity))
+            } else {
+                model.components.remove(OpacityComponent.self)
+            }
         }
     }
 
