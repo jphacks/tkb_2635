@@ -1,3 +1,4 @@
+import StarCore
 import SwiftUI
 
 /// ホームの地図の枠に出すもの。2D の地図か、23 区の広域 3D か
@@ -11,10 +12,27 @@ enum HomeMapMode: String, CaseIterable, Identifiable {
 /// 全画面の広域 3D
 struct FullScreenWideCity: View {
     @Environment(\.dismiss) private var dismiss
+    let contexts: [SpotContext]
+    let predictions: [Prediction]
+    let onSelect: (String) -> Void
+
+    /// ホーム側の 3D が消えてから作る（2 つ同時にあると、シミュレータで全画面の方が真っ暗なままのことがあった）
+    @State private var isReady = false
+    private static let delay = Duration.milliseconds(400)
 
     var body: some View {
-        WideCityView()
+        Group {
+            if isReady {
+                WideCityView(contexts: contexts, predictions: predictions, onSelect: onSelect)
+            } else {
+                Color(red: 0.02, green: 0.03, blue: 0.10)
+            }
+        }
             .ignoresSafeArea()
+            .task {
+                try? await Task.sleep(for: Self.delay)
+                isReady = true
+            }
             .overlay(alignment: .topTrailing) {
                 Button("3D を閉じる", systemImage: "xmark") { dismiss() }
                     .labelStyle(.iconOnly)

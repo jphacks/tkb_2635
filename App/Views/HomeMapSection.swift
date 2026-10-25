@@ -16,7 +16,7 @@ struct HomeMapSection: View {
 
     @State private var width: CGFloat = 0
     @State private var isExpanded = false
-    @State private var mode = HomeMapMode.map
+    @State private var mode = HomeMapMode.city3D
 
     private var height: CGFloat {
         min(max(width * Self.heightRatio, Self.minHeight), Self.maxHeight)
@@ -37,7 +37,7 @@ struct HomeMapSection: View {
             switch mode {
             case .map: SpotMap(contexts: contexts, predictions: predictions, onSelect: onSelect)
             // 全画面で開いている間は、同じ 3D を 2 つ描かない（シミュレータでは後から出した方が描かれなかった）
-            case .city3D: if isExpanded { Color.clear } else { WideCityView() }
+            case .city3D: if isExpanded { Color.clear } else { WideCityView(contexts: contexts, predictions: predictions, onSelect: onSelect) }
             }
         }
             .frame(maxWidth: .infinity)
@@ -64,7 +64,11 @@ struct HomeMapSection: View {
                         isExpanded = false
                         onSelect(id)
                     }
-                case .city3D: FullScreenWideCity()
+                case .city3D:
+                    FullScreenWideCity(contexts: contexts, predictions: predictions) { id in
+                        isExpanded = false
+                        onSelect(id)
+                    }
                 }
             }
     }
