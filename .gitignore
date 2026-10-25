@@ -8,3 +8,9 @@ xcuserdata/
 __pycache__/
 
 /work/
+
+# 紹介動画（video/）の描き出し結果と npm の依存
+video/render/
+video/remotion/node_modules/
+video/remotion/out/
+video/remotion/public/frames
